@@ -18,7 +18,7 @@ export function aggiornaUserMarker(lat, lon, heading) {
           </div>
         `,
         iconSize: [64, 64],
-        iconAnchor: [20, 32]
+        iconAnchor: [32, 32]
       });
       userMarker = L.marker([lat, lon], { icon }).addTo(window.leafletMap);
     } else {
