@@ -35,16 +35,21 @@ export function aggiornaUserMarker(lat, lon, heading) {
       userMarker.setLatLng([lat, lon]);
     }
 
-    // Il plugin leaflet-rotate ruota internamente le tile e il marker pane.
-    // La freccia deve compensare: ruota di (heading - bearing) per puntare
-    // nella direzione di marcia. In modalità "heading" bearing = heading → 0°
-    // (freccia sempre su). In "north" bearing = 0 → heading gradi (normale).
-    const bearing = mapRotationMode === 'heading' ? heading : 0;
-    window.leafletMap.setBearing(bearing);
-
+    // leaflet-rotate applica rotate(X deg) CW al tilePane.
+    // setBearing(X) → tile pane ruota CW di X° → la direzione (360-X)° appare in alto.
+    // Per avere heading in alto: (360 - heading) % 360.
+    //
+    // Il markerPane è in norotatePane: NON eredita la rotazione CSS.
+    // La freccia punta nella direzione di marcia in coord. schermo:
+    //   - nord in alto:  rotate(heading deg)
+    //   - rotta in alto: rotate(0deg)  ← heading è già "su"
     const arrow = userMarker._icon?.querySelector('.freccia');
-    if (arrow) {
-      arrow.style.transform = `rotate(${heading - bearing}deg)`;
+    if (mapRotationMode === 'heading') {
+      window.leafletMap.setBearing((360 - heading % 360) % 360);
+      if (arrow) arrow.style.transform = 'rotate(0deg)';
+    } else {
+      window.leafletMap.setBearing(0);
+      if (arrow) arrow.style.transform = `rotate(${heading}deg)`;
     }
   }
 }
