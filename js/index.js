@@ -1,4 +1,4 @@
-import { aggiornaUserMarker } from './mappaUI.js';
+import { aggiornaUserMarker, getMapRotationMode, setMapRotationMode } from './mappaUI.js';
 import { getAree } from './dataloader.js';
 import { getUserCoordinates, getUserHeading, getUserPosition, initGeolocation } from './geolocalizzazione.js';
 import { initColonnine, updateColonnine, setColonnineData } from './colonnine.js';
@@ -24,6 +24,32 @@ window.addEventListener("load", async () => {
     }).addTo(map);
     window.leafletMap = map;
     console.log("✅ Mappa inizializzata");
+
+    // Controllo modalità rotazione mappa
+    const RotationControl = L.Control.extend({
+      onAdd() {
+        const btn = L.DomUtil.create('button', 'map-rotation-btn');
+        const update = () => {
+          const mode = getMapRotationMode();
+          btn.textContent = mode === 'heading' ? '↑ Rotta' : '↑ Nord';
+          btn.title = mode === 'heading' ? 'Passa a Nord in alto' : 'Passa a Direzione in alto';
+          btn.classList.toggle('active', mode === 'heading');
+        };
+        update();
+        L.DomEvent.on(btn, 'click', (e) => {
+          L.DomEvent.stopPropagation(e);
+          setMapRotationMode(getMapRotationMode() === 'heading' ? 'north' : 'heading');
+          update();
+          // Riesegui rotazione immediatamente con l'heading corrente
+          const heading = getUserHeading();
+          const coords = getUserCoordinates();
+          if (coords) aggiornaUserMarker(coords.lat, coords.lon, heading);
+        });
+        return btn;
+      }
+    });
+    new RotationControl({ position: 'topleft' }).addTo(map);
+
     // Listener per moveend e zoomend per aggiornare il marker utente
     map.on("zoomend", () => {
       const coords = getUserCoordinates();

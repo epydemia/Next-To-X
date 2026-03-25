@@ -1,7 +1,30 @@
 import { getDirezioneUtente } from './geoutils.js';
 
 export let userMarker = null;
-let primaPosizione = true;
+
+// Rotazione accumulata della mappa (evita il salto 359°→0°)
+let currentMapRotation = 0;
+let mapRotationMode = localStorage.getItem('mapRotationMode') || 'north'; // 'north' | 'heading'
+
+export function getMapRotationMode() {
+  return mapRotationMode;
+}
+
+export function setMapRotationMode(mode) {
+  mapRotationMode = mode;
+  localStorage.setItem('mapRotationMode', mode);
+}
+
+// Applica la rotazione CSS alla mappa percorrendo sempre il cammino più corto
+function applyMapRotation(heading) {
+  const mapEl = document.getElementById('map');
+  if (!mapEl) return;
+
+  const target = mapRotationMode === 'heading' ? -heading : 0;
+  const delta = ((target - currentMapRotation + 540) % 360) - 180;
+  currentMapRotation += delta;
+  mapEl.style.transform = `rotate(${currentMapRotation}deg)`;
+}
 
 export function aggiornaUserMarker(lat, lon, heading) {
   if (window.leafletMap) {
@@ -29,6 +52,8 @@ export function aggiornaUserMarker(lat, lon, heading) {
     if (arrow) {
       arrow.style.transform = `rotate(${heading}deg)`;
     }
+
+    applyMapRotation(heading);
   }
 }
 
