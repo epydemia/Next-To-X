@@ -18,7 +18,7 @@ window.addEventListener("load", async () => {
     map = window.leafletMap;
   } else {
     console.log("🗺️ Inizializzo Leaflet map...");
-    map = L.map('map').setView([41.9, 12.5], 15);
+    map = L.map('map', { rotate: true, bearing: 0 }).setView([41.9, 12.5], 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
