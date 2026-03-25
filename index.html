@@ -22,11 +22,14 @@
     Show all charging stations
   </label>
 </div>
+<div id="next-station" class="next-station-panel">
+  <span class="next-station-label">Prossima colonnina:</span> <span class="next-station-info">–</span>
+</div>
 <div id="distance-bar-container" class="distance-bar-container">
   <div class="car-wrapper">
     <div style="font-size: 24px; display: flex; align-items: center; justify-content: center; transform: scaleX(-1); animation: bounce 1s infinite;">🚗</div>
   </div>
-  <div id="distance-bar" style="flex-grow: 1; height: 12px; background: #ccc; margin-left: 10px; border-radius: 6px;">
+  <div id="distance-bar" style="flex-grow: 1; height: 12px; background: #ccc; margin-left: 10px; border-radius: 6px; position: relative;">
     <!-- Marker elements will be inserted dynamically -->
   </div>
 </div>

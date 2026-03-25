@@ -45,6 +45,55 @@ body {
     border: 2px solid white;
   }
 
+  .marker-prossima {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #00c853;
+    border: 3px solid white;
+    box-shadow: 0 0 8px rgba(0, 200, 83, 0.8);
+  }
+
+  .next-station-panel {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    background: #00c853;
+    color: white;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-bottom: 2px solid #009624;
+    flex-wrap: wrap;
+  }
+
+  .next-station-label {
+    opacity: 0.85;
+    font-weight: normal;
+    font-size: 0.9em;
+  }
+
+  .next-station-name {
+    font-weight: bold;
+  }
+
+  .next-station-dir {
+    opacity: 0.9;
+    font-size: 0.95em;
+  }
+
+  .next-station-dist {
+    margin-left: auto;
+    font-size: 1.3em;
+    font-weight: bold;
+    background: rgba(0,0,0,0.15);
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
   .marker-blu {
     width: 32px;
     height: 32px;

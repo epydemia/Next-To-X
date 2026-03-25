@@ -34,3 +34,32 @@ export function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
     if (heading >= 135 && heading < 225) return "SUD";
     return "OVEST";
   }
+
+  // Restituisce true se la stazione è "avanti" rispetto alla direzione di marcia dell'utente.
+  // Controlla che il bearing utente→stazione sia entro ±90° dall'heading dell'utente.
+  export function isStazioneAvanti(userLat, userLon, userHeading, stazLat, stazLon) {
+    const bearing = calcolaAngoloTraDuePunti(userLat, userLon, stazLat, stazLon);
+    const diff = ((bearing - userHeading + 540) % 360) - 180;
+    return Math.abs(diff) < 90;
+  }
+
+  // Restituisce true se la direzione_geografica della stazione è compatibile con
+  // l'heading dell'utente. Questo identifica la carreggiata: ad es. su A14,
+  // direzione_geografica=NORD corrisponde alla carreggiata EST (verso Bologna),
+  // SUD alla carreggiata OVEST (verso Bari). Con ND (non determinato) si lascia passare.
+  export function matchDirezioneGeografica(direzioneGeo, userHeading) {
+    const angleMap = {
+      'NORD':     0,
+      'NORDEST':  45,
+      'EST':      90,
+      'SUDEST':   135,
+      'SUD':      180,
+      'SUDOVEST': 225,
+      'OVEST':    270,
+      'NORDOVEST':315,
+    };
+    const angle = angleMap[direzioneGeo?.toUpperCase()];
+    if (angle === undefined) return true; // ND o sconosciuto: non filtrare
+    const diff = ((angle - userHeading + 540) % 360) - 180;
+    return Math.abs(diff) < 90;
+  }
