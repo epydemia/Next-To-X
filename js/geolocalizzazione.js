@@ -7,6 +7,11 @@ let isHeadingStimato = true;
 let lastUserCoordinates = null;
 let userMarker = null;
 
+let csvWaypoints = [];
+let debugCallback = null;
+let debugTimer = null;
+const DEBUG_SPEED_MULTIPLIER = 10;
+
 const autostradeMap = {
   "A1": ["Milano Napoli", "Autostrada del Sole"],
   "A2": ["Salerno Reggio Calabria", "Autostrada del Mediterraneo"],
@@ -67,59 +72,132 @@ export function reverseGeocode(lat, lon) {
     });
 }
 
-export function initGeolocation(callback, debug = false) {
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  for (const ch of line) {
+    if (ch === '"') {
+      inQuotes = !inQuotes;
+    } else if (ch === ',' && !inQuotes) {
+      result.push(current.trim());
+      current = '';
+    } else {
+      current += ch;
+    }
+  }
+  result.push(current.trim());
+  return result;
+}
+
+export function caricaCSVDebug(testo) {
+  const righe = testo.trim().split('\n');
+  if (righe.length < 2) return false;
+
+  const header = parseCSVLine(righe[0]);
+  const iTs  = header.findIndex(h => h === 'Timestamp (CEST)');
+  const iLat = header.findIndex(h => h === 'Latitude');
+  const iLon = header.findIndex(h => h === 'Longitude');
+
+  if (iLat === -1 || iLon === -1) {
+    console.error('CSV: colonne Latitude/Longitude non trovate');
+    return false;
+  }
+
+  csvWaypoints = [];
+  for (let i = 1; i < righe.length; i++) {
+    if (!righe[i].trim()) continue;
+    const campi = parseCSVLine(righe[i]);
+    const lat = parseFloat(campi[iLat]);
+    const lon = parseFloat(campi[iLon]);
+    if (isNaN(lat) || isNaN(lon)) continue;
+    const ts = iTs !== -1
+      ? new Date(campi[iTs].replace(' ', 'T')).getTime()
+      : i * 30000;
+    csvWaypoints.push({ lat, lon, ts });
+  }
+
+  console.log(`📂 CSV caricato: ${csvWaypoints.length} punti`);
+  if (csvWaypoints.length > 0 && debugCallback) {
+    avviaDebugLoop(csvWaypoints, debugCallback);
+  }
+  return csvWaypoints.length > 0;
+}
+
+function avviaDebugLoop(punti, callback) {
+  if (debugTimer) clearTimeout(debugTimer);
+
   let ultimaPosizioneReverse = null;
   let ultimoReverse = 0;
 
-  if (debug) {
-    const debugCoords = [
-      { lat: 41.638756, lon: 15.453696 },
-      { lat: 41.64647, lon: 15.446288 },
-      { lat: 41.653435, lon: 15.437314 },
-      { lat: 41.660397, lon: 15.428341 },
-      { lat: 41.67748, lon: 15.416491 },
-      { lat: 41.686028, lon: 15.411482 },
-      { lat: 41.693935, lon: 15.406848 },
-      { lat: 41.70322, lon: 15.405508 },
-      { lat: 41.712616, lon: 15.40863 },
-      { lat: 41.72199, lon: 15.411748 }
-    ];
-    let index = 0;
+  function passo(index) {
+    const { lat, lon } = punti[index];
+    userCoordinates = { lat, lon };
 
-    setInterval(() => {
-      const { lat, lon } = debugCoords[index];
-      index = (index + 1) % debugCoords.length;
+    const coordsDiv = document.getElementById("coords");
+    if (coordsDiv) coordsDiv.innerText = `Latitudine: ${lat}\nLongitudine: ${lon}`;
 
-      userCoordinates = { lat, lon };
-      const coordsDiv = document.getElementById("coords");
-      if (coordsDiv) {
-        coordsDiv.innerText = `Latitudine: ${lat}\nLongitudine: ${lon}`;
-      }
+    const ora = Date.now();
+    const distanzaDaUltima = ultimaPosizioneReverse
+      ? getDistanceFromLatLonInKm(ultimaPosizioneReverse.lat, ultimaPosizioneReverse.lon, lat, lon)
+      : Infinity;
+    const eseguiReverse = !ultimaPosizioneReverse || (ora - ultimoReverse > 10000) || distanzaDaUltima > 0.1;
+
+    if (eseguiReverse) {
+      ultimaPosizioneReverse = { lat, lon };
+      ultimoReverse = ora;
       reverseGeocode(lat, lon).then(strada => {
         window.stradaUtenteReverse = strada;
         window.codiceAutostradaUtente = trovaCodiceAutostrada(strada);
         window.modalitaAutostrada = !!window.codiceAutostradaUtente;
-        console.log("🛣️ Modalità autostrada:", window.modalitaAutostrada);
         const stradaDiv = document.getElementById("strada");
         if (stradaDiv) {
-          if (window.codiceAutostradaUtente)  {
+          if (window.codiceAutostradaUtente) {
             const nomi = autostradeMap[window.codiceAutostradaUtente].join(" / ");
             stradaDiv.innerText = `🛣️ ${window.codiceAutostradaUtente} – ${nomi}`;
           } else {
             stradaDiv.innerText = `🛣️ ${strada}`;
           }
-          
         }
-
       });
-      updateHeading(lat, lon, null);
-      aggiornaIndicatoreDirezione(userHeading, isHeadingStimato);
+    }
 
-      aggiornaUserMarker(lat, lon, userHeading);
+    updateHeading(lat, lon, null);
+    aggiornaIndicatoreDirezione(userHeading, isHeadingStimato);
+    aggiornaUserMarker(lat, lon, userHeading);
+    callback(lat, lon);
 
-      callback(lat, lon);
-    }, 3000);
+    const prossimo = (index + 1) % punti.length;
+    const deltaTs = punti.length > 1
+      ? Math.abs(punti[(index + 1) % punti.length].ts - punti[index].ts)
+      : 30000;
+    const delay = Math.max(deltaTs / DEBUG_SPEED_MULTIPLIER, 500);
+    debugTimer = setTimeout(() => passo(prossimo), delay);
+  }
+
+  passo(0);
+}
+
+export function initGeolocation(callback, debug = false) {
+  if (debug) {
+    debugCallback = callback;
+    const defaultCoords = [
+      { lat: 41.638756, lon: 15.453696, ts: 0 },
+      { lat: 41.64647,  lon: 15.446288, ts: 30000 },
+      { lat: 41.653435, lon: 15.437314, ts: 60000 },
+      { lat: 41.660397, lon: 15.428341, ts: 90000 },
+      { lat: 41.67748,  lon: 15.416491, ts: 120000 },
+      { lat: 41.686028, lon: 15.411482, ts: 150000 },
+      { lat: 41.693935, lon: 15.406848, ts: 180000 },
+      { lat: 41.70322,  lon: 15.405508, ts: 210000 },
+      { lat: 41.712616, lon: 15.40863,  ts: 240000 },
+      { lat: 41.72199,  lon: 15.411748, ts: 270000 }
+    ];
+    const punti = csvWaypoints.length > 0 ? csvWaypoints : defaultCoords;
+    avviaDebugLoop(punti, callback);
   } else if ("geolocation" in navigator) {
+    let ultimaPosizioneReverse = null;
+    let ultimoReverse = 0;
     navigator.geolocation.watchPosition(
       (position) => {
         const lat = parseFloat(position.coords.latitude.toFixed(6));

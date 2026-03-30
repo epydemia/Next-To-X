@@ -1,6 +1,6 @@
 import { aggiornaUserMarker } from './mappaUI.js';
 import { getAree } from './dataloader.js';
-import { getUserCoordinates, getUserHeading, getUserPosition, initGeolocation } from './geolocalizzazione.js';
+import { getUserCoordinates, getUserHeading, getUserPosition, initGeolocation, caricaCSVDebug } from './geolocalizzazione.js';
 import { initColonnine, updateColonnine, setColonnineData } from './colonnine.js';
 
 let map;
@@ -11,6 +11,22 @@ window.addEventListener("load", async () => {
 
   const debugEnabled = localStorage.getItem('debugPosizione') === '1';
   document.querySelector('#toggleDebug').checked = debugEnabled;
+
+  if (debugEnabled) {
+    document.getElementById('csv-debug-section').style.display = 'block';
+  }
+
+  document.querySelector('#csvInput')?.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const ok = caricaCSVDebug(ev.target.result);
+      const status = document.getElementById('csvStatus');
+      if (status) status.textContent = ok ? `✅ ${file.name}` : '❌ Formato non valido';
+    };
+    reader.readAsText(file);
+  });
 
   // Inizializza mappa se necessario
   if (window.leafletMap) {
