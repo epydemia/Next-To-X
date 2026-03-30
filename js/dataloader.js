@@ -1,5 +1,16 @@
+// Cache in memoria delle aree caricate: evita fetch ripetuti durante la sessione
 let cachedAree = null;
 
+/**
+ * Carica e restituisce l'elenco combinato di tutte le aree di servizio con colonnine.
+ * I dati provengono da due sorgenti JSON:
+ *   - free_to_x_reverse.json: dataset principale (colonnine Free To X sulle autostrade)
+ *   - test.json: dataset aggiuntivo per sviluppo/test
+ *
+ * Le due sorgenti vengono caricate indipendentemente con try/catch separati,
+ * così un errore su una non blocca l'altra. Il risultato è unificato in un
+ * unico array piatto e memorizzato in cache per le chiamate successive.
+ */
 export async function getAree() {
 
   if (cachedAree) return cachedAree;
@@ -27,6 +38,7 @@ export async function getAree() {
     console.error("❌ Errore nel caricamento del file test.json:", err);
   }
 
+  // Unisce i due dataset in un unico array e lo mette in cache
   cachedAree = [
     ...(dataFreeToX.listaAree || []),
     ...(dataTest.listaAree || [])
