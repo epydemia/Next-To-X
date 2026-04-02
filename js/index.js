@@ -42,8 +42,24 @@ window.addEventListener("load", async () => {
   } else {
     console.log("🗺️ Inizializzo Leaflet map...");
     map = L.map('map', { rotate: true, bearing: 0 }).setView([41.9, 12.5], 15);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+
+    // Base map without labels — rotates with the map bearing
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
+
+    // Labels-only layer placed in norotatePane so they stay upright at any bearing
+    const norotatePane = map.getPane('norotatePane');
+    const labelsPane = map.createPane('labelsPane', norotatePane);
+    labelsPane.style.zIndex = 650;
+    labelsPane.style.pointerEvents = 'none';
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+      attribution: '',
+      subdomains: 'abcd',
+      maxZoom: 20,
+      pane: 'labelsPane'
     }).addTo(map);
     window.leafletMap = map;
     console.log("✅ Mappa inizializzata");
