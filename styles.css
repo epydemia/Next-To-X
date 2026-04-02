@@ -73,6 +73,25 @@ body {
     box-shadow: 0 0 8px rgba(0, 200, 83, 0.8);
   }
 
+  /* Stazioni raggiungibili solo uscendo dall'autostrada (entrambe le direzioni) */
+  .marker-uscita {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #f59e0b;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(245, 158, 11, 0.6);
+  }
+
+  .marker-uscita-prossima {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #f59e0b;
+    border: 3px solid white;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.85);
+  }
+
   .next-station-panel {
     position: sticky;
     top: 0;
@@ -102,6 +121,14 @@ body {
   .next-station-dir {
     opacity: 0.9;
     font-size: 0.95em;
+  }
+
+  .next-station-exit {
+    background: rgba(0,0,0,0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.85em;
+    font-weight: normal;
   }
 
   .next-station-dist {

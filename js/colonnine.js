@@ -103,10 +103,14 @@ export function updateColonnine(map, aree, userLat, userLon, heading) {
             stradaUtenteNorm.includes(normalizeFull(area.stradaReverse))))
     );
 
+    // Le stazioni "exitRequired" sono accessibili da entrambe le direzioni:
+    // si salta il filtro carreggiata ma si mantiene il filtro "avanti"
+    const exitRequired = !!area.exitRequired;
+
     // Filtra per carreggiata e posizione avanti rispetto alla direzione di marcia
-    const stessaCarreggiata = heading != null
-      ? matchDirezioneGeografica(area.direzione_geografica, heading)
-      : true;
+    const stessaCarreggiata = exitRequired || heading == null
+      ? true
+      : matchDirezioneGeografica(area.direzione_geografica, heading);
     const avanti = heading != null
       ? isStazioneAvanti(userLat, userLon, heading, lat, lon)
       : true;
@@ -123,6 +127,7 @@ export function updateColonnine(map, aree, userLat, userLon, heading) {
         lon,
         distanza,
         colonnine: area.colonnine,
+        exitRequired,
         isAvanti
       };
     }
@@ -148,14 +153,22 @@ export function updateColonnine(map, aree, userLat, userLon, heading) {
   updateNextStationPanel(nearestAvanti);
 
   filtered.forEach(station => {
-    // Tre stili di marker distinti per stato visivo:
-    // - prossima (⚡): stazione più vicina avanti → marker grande e colorato
+    // Quattro stili di marker distinti per stato visivo:
+    // - prossima (⚡): stazione più vicina avanti → marker grande verde
+    // - uscita prossima: stazione exitRequired più vicina avanti → marker grande arancione
     // - rosso: avanti sulla stessa autostrada ma non la più vicina
+    // - uscita: exitRequired non prossima → marker arancione
     // - grigio: fuori dalla carreggiata/autostrada corrente
     let markerClass, markerSize;
-    if (station.isNearest) {
+    if (station.isNearest && station.exitRequired) {
+      markerClass = 'marker-uscita-prossima';
+      markerSize = [20, 20];
+    } else if (station.isNearest) {
       markerClass = 'marker-prossima';
       markerSize = [20, 20];
+    } else if (station.isAvanti && station.exitRequired) {
+      markerClass = 'marker-uscita';
+      markerSize = [14, 14];
     } else if (station.isAvanti) {
       markerClass = 'marker-rosso';
       markerSize = [14, 14];
@@ -171,9 +184,10 @@ export function updateColonnine(map, aree, userLat, userLon, heading) {
       iconAnchor: [markerSize[0] / 2, markerSize[1] / 2]
     });
 
+    const exitNote = station.exitRequired ? '<br>⚠️ Richiede uscita dal casello' : '';
     const popupText = station.isNearest
-      ? `<strong>⚡ PROSSIMA COLONNINA</strong><br><strong>${station.nome}</strong><br>${station.strada}<br>→ ${station.direzione}<br>${station.distanza.toFixed(1)} km`
-      : `<strong>${station.nome}</strong><br>${station.strada}<br>${station.distanza.toFixed(2)} km`;
+      ? `<strong>⚡ PROSSIMA COLONNINA</strong><br><strong>${station.nome}</strong><br>${station.strada}<br>→ ${station.direzione}<br>${station.distanza.toFixed(1)} km${exitNote}`
+      : `<strong>${station.nome}</strong><br>${station.strada}<br>${station.distanza.toFixed(2)} km${exitNote}`;
 
     const marker = L.marker([station.lat, station.lon], { icon: markerIcon }).addTo(map)
       .bindPopup(popupText);
@@ -200,7 +214,7 @@ function updateNextStationPanel(station) {
   panel.innerHTML = `
     <span class="next-station-label">Prossima colonnina:</span>
     <span class="next-station-name">${station.nome}</span>
-    <span class="next-station-dir">→ ${station.direzione}</span>
+    ${station.exitRequired ? '<span class="next-station-exit">⚠️ uscita</span>' : `<span class="next-station-dir">→ ${station.direzione}</span>`}
     <span class="next-station-dist">${station.distanza.toFixed(1)} km</span>
   `;
 }

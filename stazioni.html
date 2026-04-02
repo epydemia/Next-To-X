@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stazioni di Ricarica – Next-to-X</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    #page-header {
+      background: #1a1a2e;
+      color: white;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    #page-header h1 {
+      font-size: 1.05em;
+      margin: 0;
+      color: white;
+      font-weight: bold;
+    }
+
+    #page-header a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.9em;
+      white-space: nowrap;
+    }
+
+    #page-header a:hover { color: white; }
+
+    #main-layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Map */
+    #map-column { flex: 1; position: relative; }
+
+    #map {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    /* Right column */
+    #right-column {
+      width: 370px;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid #ddd;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    #search-bar {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    #search-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    #search-input:focus { border-color: #0066cc; }
+
+    #filter-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #filter-buttons { display: flex; gap: 6px; }
+
+    .filter-btn {
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.15s;
+    }
+
+    .filter-btn.all        { background: #eee;    color: #333;    border-color: #ccc; }
+    .filter-btn.all.active { background: #333;    color: white;   border-color: #333; }
+    .filter-btn.ftx        { background: #e8f0fe; color: #0066cc; border-color: #0066cc; }
+    .filter-btn.ftx.active { background: #0066cc; color: white; }
+    .filter-btn.a22        { background: #fff3e0; color: #e65100; border-color: #e65100; }
+    .filter-btn.a22.active { background: #e65100; color: white; }
+
+    #stations-count { font-size: 12px; color: #999; }
+
+    #stations-list { flex: 1; overflow-y: auto; }
+
+    .station-item {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+
+    .station-item:hover { background: #f8f8f8; }
+    .station-item.selected {
+      background: #e8f5e9;
+      border-left: 3px solid #00c853;
+      padding-left: 11px;
+    }
+
+    .station-item-name { font-weight: bold; font-size: 13px; color: #222; }
+
+    .station-item-meta {
+      font-size: 11px;
+      color: #666;
+      margin-top: 3px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .source-badge {
+      padding: 1px 6px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .source-badge.ftx  { background: #e8f0fe; color: #0066cc; }
+    .source-badge.a22  { background: #fff3e0; color: #e65100; }
+    .source-badge.test { background: #f0f0f0; color: #888; }
+
+    .exit-badge {
+      padding: 1px 6px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: bold;
+      background: #fef3c7;
+      color: #b45309;
+      white-space: nowrap;
+    }
+
+    /* Detail panel */
+    #detail-panel {
+      border-top: 2px solid #00c853;
+      background: #fafff8;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    #detail-panel.open { max-height: 48vh; overflow-y: auto; }
+
+    #detail-content { padding: 12px 16px 16px; }
+
+    #detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    #detail-title { font-size: 1em; font-weight: bold; color: #111; margin-bottom: 4px; }
+
+    #detail-close {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #888;
+      padding: 0 0 0 8px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    #detail-close:hover { color: #333; }
+
+    .detail-row { display: flex; gap: 8px; font-size: 13px; margin-bottom: 5px; color: #333; }
+    .detail-label { color: #999; min-width: 80px; flex-shrink: 0; }
+    .detail-value { font-weight: 500; }
+
+    .detail-section-title {
+      font-size: 11px;
+      font-weight: bold;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 12px 0 6px;
+      padding-top: 8px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .charger-item {
+      background: white;
+      border: 1px solid #e8e8e8;
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    .charger-model { font-weight: bold; color: #222; margin-bottom: 3px; }
+
+    .connector-pill {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #444;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      margin: 2px 2px 0 0;
+    }
+
+    .fault-badge {
+      display: inline-block;
+      background: #ffebee;
+      color: #c62828;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      margin-top: 4px;
+    }
+
+    /* ---- Context menu ---- */
+    #context-menu {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      overflow: hidden;
+      min-width: 180px;
+      user-select: none;
+    }
+
+    #ctx-station-name {
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #444;
+      background: #f8f8f8;
+      border-bottom: 1px solid #eee;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 220px;
+    }
+
+    .ctx-item {
+      padding: 10px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #222;
+    }
+
+    .ctx-item:hover { background: #f0f5ff; }
+
+    /* ---- Move mode status bar ---- */
+    #move-status {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2500;
+      background: #1a1a2e;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+      white-space: nowrap;
+      display: none;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #move-status.visible {
+      display: flex;
+    }
+
+    #move-status-cancel {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: white;
+      border-radius: 12px;
+      padding: 3px 10px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    #move-status-cancel:hover { background: rgba(255,255,255,0.3); }
+
+    /* ---- Save bar ---- */
+    #save-bar {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 2500;
+      background: #00c853;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    #save-bar.visible { display: flex; }
+
+    #btn-save {
+      background: white;
+      color: #00c853;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    #btn-save:hover { background: #e8f5e9; }
+
+    #btn-download {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    #btn-download:hover { background: rgba(255,255,255,0.35); }
+
+    /* ---- Toast ---- */
+    #toast {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2500;
+      background: #333;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+
+    /* Marker styles */
+    .marker-ftx {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #0066cc;
+      border: 2px solid white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+    }
+
+    .marker-a22 {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #e65100;
+      border: 2px solid white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+    }
+
+    .marker-test {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #888;
+      border: 2px solid white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+    }
+
+    .marker-selected {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #00c853;
+      border: 3px solid white;
+      box-shadow: 0 0 10px rgba(0, 200, 83, 0.8);
+    }
+
+    .marker-moving {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ff9800;
+      border: 3px solid white;
+      box-shadow: 0 0 10px rgba(255, 152, 0, 0.8);
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+      #main-layout { flex-direction: column; }
+      #map-column  { height: 38vh; flex: none; }
+      #right-column { width: 100%; flex: 1; }
+      #detail-panel.open { max-height: 52vh; }
+      #move-status { bottom: 80px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="page-header">
+    <a href="index.html">← Home</a>
+    <h1>⚡ Stazioni di Ricarica</h1>
+  </div>
+
+  <div id="main-layout">
+    <div id="map-column">
+      <div id="map"></div>
+    </div>
+
+    <div id="right-column">
+      <div id="search-bar">
+        <input type="search" id="search-input" placeholder="Cerca per nome o autostrada…" autocomplete="off" />
+        <div id="filter-row">
+          <div id="filter-buttons">
+            <button class="filter-btn all active" data-source="all">Tutti</button>
+            <button class="filter-btn ftx" data-source="ftx">Free To X</button>
+            <button class="filter-btn a22" data-source="a22">A22 Brennero</button>
+          </div>
+          <span id="stations-count"></span>
+        </div>
+      </div>
+
+      <div id="stations-list">
+        <div style="padding: 24px; text-align: center; color: #aaa;">Caricamento…</div>
+      </div>
+
+      <div id="detail-panel">
+        <div id="detail-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context menu (right-click on marker) -->
+  <div id="context-menu">
+    <div id="ctx-station-name"></div>
+    <div class="ctx-item" id="ctx-move">📍 Sposta stazione…</div>
+  </div>
+
+  <!-- Move mode status bar -->
+  <div id="move-status">
+    <span>Clicca sulla nuova posizione per <strong id="move-status-name"></strong></span>
+    <button id="move-status-cancel">ESC · Annulla</button>
+  </div>
+
+  <!-- Save bar (appears when there are pending changes) -->
+  <div id="save-bar">
+    <span id="save-label"></span>
+    <button id="btn-save">💾 Salva</button>
+    <button id="btn-download" title="Scarica i JSON modificati">↓ Scarica</button>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast"></div>
+
+  <script type="module" src="js/stazioni.js"></script>
+</body>
+</html>
