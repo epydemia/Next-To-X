@@ -1,0 +1,519 @@
+{
+  "listaAree": [
+    {
+      "codice": "A22_001",
+      "c_ads": "A22_001",
+      "nome": "Plessi Museum al Passo del Brennero",
+      "strada": "A22 BRENNERO",
+      "direzione": "NORD",
+      "km": 1.3,
+      "lat": 46.49368932038835,
+      "lon": 11.5,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_001_1",
+          "modello": "Tesla Supercharger Variable",
+          "codiceModello": 20,
+          "connettori": [
+            {
+              "codice": "Tesla",
+              "modello": "Tesla Supercharger"
+            }
+          ]
+        },
+        {
+          "codice": "A22_A22_001_2",
+          "modello": "Ultra-rapid 150 kW",
+          "codiceModello": 1,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            }
+          ]
+        },
+        {
+          "codice": "A22_A22_001_3",
+          "modello": "AC 22 kW",
+          "codiceModello": 12,
+          "connettori": [
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_002",
+      "c_ads": "A22_002",
+      "nome": "Bressanone / Val Pusteria",
+      "strada": "A22 BRENNERO",
+      "direzione": "NORD",
+      "km": 38.031,
+      "lat": 46.7673753,
+      "lon": 11.6383141,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_002_1",
+          "modello": "Multi-standard rapid 50 kW",
+          "codiceModello": 11,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            },
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_003",
+      "c_ads": "A22_003",
+      "nome": "Isarco est",
+      "strada": "A22 BRENNERO",
+      "direzione": "NORD",
+      "km": 63.6,
+      "lat": 46.5701482,
+      "lon": 11.5232487,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_003_1",
+          "modello": "Ultra-rapid 150 kW",
+          "codiceModello": 1,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_004",
+      "c_ads": "A22_004",
+      "nome": "Paganella est",
+      "strada": "A22 BRENNERO",
+      "direzione": "NORD",
+      "km": 128.913,
+      "lat": 46.1398433,
+      "lon": 11.0860832,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_004_1",
+          "modello": "Ultra-rapid 150 kW",
+          "codiceModello": 1,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            }
+          ]
+        },
+        {
+          "codice": "A22_A22_004_2",
+          "modello": "Multi-standard rapid 50 kW",
+          "codiceModello": 11,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            },
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_005",
+      "c_ads": "A22_005",
+      "nome": "Paganella ovest",
+      "strada": "A22 BRENNERO",
+      "direzione": "SUD",
+      "km": 129.004,
+      "lat": 46.1417063,
+      "lon": 11.0860678,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_005_1",
+          "modello": "Ultra-rapid 150 kW",
+          "codiceModello": 1,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            }
+          ]
+        },
+        {
+          "codice": "A22_A22_005_2",
+          "modello": "Multi-standard rapid 50 kW",
+          "codiceModello": 11,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            },
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_006",
+      "c_ads": "A22_006",
+      "nome": "Nogaredo est",
+      "strada": "A22 BRENNERO",
+      "direzione": "NORD",
+      "km": 159.69,
+      "lat": 45.9006071,
+      "lon": 11.0256174,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_006_1",
+          "modello": "Multi-standard rapid 50 kW",
+          "codiceModello": 11,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            },
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_007",
+      "c_ads": "A22_007",
+      "nome": "Nogaredo ovest",
+      "strada": "A22 BRENNERO",
+      "direzione": "SUD",
+      "km": 159.69,
+      "lat": 45.902577,
+      "lon": 11.0263299,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_007_1",
+          "modello": "Multi-standard rapid 50 kW",
+          "codiceModello": 11,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            },
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_008",
+      "c_ads": "A22_008",
+      "nome": "Rovereto Sud",
+      "strada": "A22 BRENNERO",
+      "direzione": "SUD",
+      "km": 166.739,
+      "lat": 45.8480531,
+      "lon": 10.9996903,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_008_1",
+          "modello": "Multi-standard rapid 50 kW",
+          "codiceModello": 11,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            },
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_009",
+      "c_ads": "A22_009",
+      "nome": "Affi",
+      "strada": "A22 BRENNERO",
+      "direzione": "SUD",
+      "km": 206.669,
+      "lat": 45.5504379,
+      "lon": 10.7931829,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_009_1",
+          "modello": "Tesla Supercharger Variable",
+          "codiceModello": 20,
+          "connettori": [
+            {
+              "codice": "Tesla",
+              "modello": "Tesla Supercharger"
+            }
+          ]
+        },
+        {
+          "codice": "A22_A22_009_2",
+          "modello": "Multi-standard rapid 50 kW",
+          "codiceModello": 11,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            },
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_010",
+      "c_ads": "A22_010",
+      "nome": "Garda est",
+      "strada": "A22 BRENNERO",
+      "direzione": "NORD",
+      "km": 208.0,
+      "lat": 45.5399743,
+      "lon": 10.7808178,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_010_1",
+          "modello": "Ultra-rapid 150 kW",
+          "codiceModello": 1,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_011",
+      "c_ads": "A22_011",
+      "nome": "Garda ovest",
+      "strada": "A22 BRENNERO",
+      "direzione": "SUD",
+      "km": 208.0,
+      "lat": 45.5424418,
+      "lon": 10.7808163,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_011_1",
+          "modello": "Ultra-rapid 150 kW",
+          "codiceModello": 1,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_012",
+      "c_ads": "A22_012",
+      "nome": "Povegliano est",
+      "strada": "A22 BRENNERO",
+      "direzione": "NORD",
+      "km": 240.8,
+      "lat": 45.297179,
+      "lon": 10.8980454,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_012_1",
+          "modello": "Ultra-rapid 150 kW",
+          "codiceModello": 1,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_013",
+      "c_ads": "A22_013",
+      "nome": "Mantova Nord",
+      "strada": "A22 BRENNERO",
+      "direzione": "SUD",
+      "km": 256.181,
+      "lat": 45.1700982,
+      "lon": 10.8565654,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_013_1",
+          "modello": "Multi-standard rapid 50 kW",
+          "codiceModello": 11,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            },
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        },
+        {
+          "codice": "A22_A22_013_2",
+          "modello": "AC 22 kW",
+          "codiceModello": 12,
+          "connettori": [
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_014",
+      "c_ads": "A22_014",
+      "nome": "Po ovest",
+      "strada": "A22 BRENNERO",
+      "direzione": "SUD",
+      "km": 268.603,
+      "lat": 45.0603086,
+      "lon": 10.8407829,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_014_1",
+          "modello": "Multi-standard rapid 50 kW",
+          "codiceModello": 11,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            },
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        },
+        {
+          "codice": "A22_A22_014_2",
+          "modello": "AC 22 kW",
+          "codiceModello": 12,
+          "connettori": [
+            {
+              "codice": "Type2AC",
+              "modello": "Type 2 AC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_015",
+      "c_ads": "A22_015",
+      "nome": "Campogalliano est",
+      "strada": "A22 BRENNERO",
+      "direzione": "NORD",
+      "km": 309.0,
+      "lat": 45.0,
+      "lon": 11.5,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_015_1",
+          "modello": "Ultra-rapid 150 kW",
+          "codiceModello": 1,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codice": "A22_016",
+      "c_ads": "A22_016",
+      "nome": "Campogalliano ovest",
+      "strada": "A22 BRENNERO",
+      "direzione": "SUD",
+      "km": 309.0,
+      "lat": 45.0,
+      "lon": 11.5,
+      "radius": 5,
+      "isAds": true,
+      "colonnine": [
+        {
+          "codice": "A22_A22_016_1",
+          "modello": "Ultra-rapid 150 kW",
+          "codiceModello": 1,
+          "connettori": [
+            {
+              "codice": "CCS",
+              "modello": "CCS Ricarica DC"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "data_download": "2026-04-02T09:16:43.187293",
+  "source": "A22 Brennero official website (https://www.autobrennero.it/)"
+}
