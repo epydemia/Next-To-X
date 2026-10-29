@@ -122,7 +122,12 @@ def richiesta_overpass(query, descrizione):
                 if r.status_code in (429, 502, 503, 504):
                     raise requests.HTTPError(f"HTTP {r.status_code}")
                 r.raise_for_status()
-                return r.json()
+                risposta = r.json()
+                # Su timeout o memoria esaurita Overpass risponde 200 con dati parziali e un "remark"
+                avviso = risposta.get("remark", "")
+                if "error" in avviso.lower():
+                    raise ValueError(f"risposta parziale: {avviso}")
+                return risposta
             except (requests.RequestException, ValueError) as err:
                 errori.append(f"{server}: {err}")
                 print(f"  fallito: {err}")
