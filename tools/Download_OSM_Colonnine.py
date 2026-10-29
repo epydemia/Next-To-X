@@ -48,6 +48,18 @@ FONTI_UFFICIALI = ["free_to_x_reverse.json", "a22_brennero_geocoded.json"]
 # Modalità "tutti gli operatori": questi hanno già una fonte dedicata
 OPERATORI_CON_FONTE = re.compile(r"ionity|free\s?-?\s?to\s?-?\s?x", re.I)
 ALTRE_FONTI = FONTI_UFFICIALI + ["ionity_osm.json"]
+# Lo stesso operatore compare in OSM scritto in modi diversi
+NOMI_OPERATORI = [(re.compile(r, re.I), nome) for r, nome in [
+    (r"\btesla\b", "Tesla"),
+    (r"\benel\b", "Enel X Way"),
+    (r"\bbe\s?charge\b", "Be Charge"),
+    (r"plenitude", "Plenitude"),
+    (r"free\s?-?\s?to\s?-?\s?x", "Free To X"),
+    (r"\bionity\b", "IONITY"),
+    (r"\bewiva\b", "Ewiva"),
+    (r"\bedison\b", "Edison Next"),
+    (r"autostrada del brennero|^a22$", "Autostrada del Brennero"),
+]]
 DOPPIONE_M = 60
 DOPPIONE_NOME_M = 500
 CELLA_GRADI = 0.01            # griglia per abbinare colonnine e aree di servizio in Python
@@ -322,7 +334,8 @@ def colonnina(el):
 
 
 def operatore_di(tags):
-    return (tags.get("operator") or tags.get("network") or tags.get("brand") or "").strip()
+    nome = (tags.get("operator") or tags.get("network") or tags.get("brand") or "").strip()
+    return next((canonico for regola, canonico in NOMI_OPERATORI if regola.search(nome)), nome)
 
 
 def elabora(risposta, paese, operatore, dettagli=False):
@@ -353,7 +366,10 @@ def elabora(risposta, paese, operatore, dettagli=False):
             print(f"  {c.get('tags', {}).get('name', c['id'])!s:40.40} {p[0]:.5f},{p[1]:.5f}  "
                   f"autostrada {dist_autostrada:6.0f} m  area '{nome_area}' {dist_area:6.0f} m  → {esito}")
 
-        if dist_autostrada > USCITA_MAX_M or (operatore is None and not in_area):
+        # Tutti gli operatori: fuori dalle aree di servizio sarebbero colonnine qualsiasi.
+        # Si tengono solo quelle dentro un'area, anche se lontana dall'autostrada (da verificare)
+        dentro_area_lontana = not in_area and dist_area == 0
+        if dist_autostrada > USCITA_MAX_M or (operatore is None and not in_area and not dentro_area_lontana):
             continue
 
         chiave = f"osm:{area_servizio['type']}/{area_servizio['id']}" if in_area else colonnina(c)["codice"]
@@ -361,7 +377,7 @@ def elabora(risposta, paese, operatore, dettagli=False):
             aree[chiave]["colonnine"].append(colonnina(c))
             continue
 
-        tags_area = area_servizio["tags"] if in_area else {}
+        tags_area = area_servizio["tags"] if in_area or dentro_area_lontana else {}
         strada = codice_autostrada(via["tags"])
         aree[chiave] = {
             "codice": chiave,
@@ -376,6 +392,7 @@ def elabora(risposta, paese, operatore, dettagli=False):
             "operatore": operatore,
             "distanzaAutostradaM": round(dist_autostrada),
             "tipoArea": tags_area.get("highway"),
+            "dentroAreaServizio": area_servizio["tags"].get("name") or True if dentro_area_lontana else None,
             "colonnine": [colonnina(c)],
         }
 
@@ -435,6 +452,9 @@ def motivi_dubbio(area, aree_ufficiali):
         if distanza is not None and distanza > AREA_LONTANA_M and not NOME_AREA_SERVIZIO.search(area["nome"]):
             motivi.append(f"a {distanza} m dall'autostrada, lontana per un'area di servizio")
     else:
+        if area.get("dentroAreaServizio"):
+            nome = area["dentroAreaServizio"] if isinstance(area["dentroAreaServizio"], str) else "un'area di servizio"
+            motivi.append(f"dentro {nome} ma a {distanza} m dall'autostrada")
         if NOME_AREA_SERVIZIO.search(area["nome"]):
             motivi.append("il nome indica un'area di servizio")
         if distanza is not None and distanza <= USCITA_VICINA_M and not NOME_AUTOHOF.search(area["nome"]):

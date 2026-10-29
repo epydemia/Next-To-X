@@ -96,14 +96,14 @@
       "lat": 45.449403,
       "lon": 11.844724,
       "paese": "IT",
-      "operatore": "Enel X",
+      "operatore": "Enel X Way",
       "distanzaAutostradaM": 60,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/4855784596",
           "modello": "Enel X",
-          "operatore": "Enel X",
+          "operatore": "Enel X Way",
           "connettori": []
         }
       ],
@@ -120,14 +120,14 @@
       "lat": 45.509453,
       "lon": 9.039693,
       "paese": "IT",
-      "operatore": "Enel",
+      "operatore": "Enel X Way",
       "distanzaAutostradaM": 48,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/6616224345",
           "modello": "Enel",
-          "operatore": "Enel",
+          "operatore": "Enel X Way",
           "connettori": [
             {
               "modello": "CCS"
@@ -221,14 +221,14 @@
       "lat": 43.618563,
       "lon": 11.187906,
       "paese": "IT",
-      "operatore": "Enel X",
+      "operatore": "Enel X Way",
       "distanzaAutostradaM": 49,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/9379898727",
           "modello": "Enel X",
-          "operatore": "Enel X",
+          "operatore": "Enel X Way",
           "connettori": []
         }
       ],
@@ -407,14 +407,14 @@
       "lat": 45.525311,
       "lon": 12.259722,
       "paese": "IT",
-      "operatore": "Enel X",
+      "operatore": "Enel X Way",
       "distanzaAutostradaM": 37,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/10794778042",
           "modello": "Enel X",
-          "operatore": "Enel X",
+          "operatore": "Enel X Way",
           "connettori": []
         }
       ],
@@ -581,7 +581,7 @@
       "lat": 45.411485,
       "lon": 10.902578,
       "paese": "IT",
-      "operatore": "Porsche, Tesla, Inc.",
+      "operatore": "Porsche, Tesla",
       "distanzaAutostradaM": 55,
       "tipoArea": "services",
       "colonnine": [
@@ -594,7 +594,7 @@
         {
           "codice": "osm:node/11369408886",
           "modello": "Tesla Destination Charger",
-          "operatore": "Tesla, Inc.",
+          "operatore": "Tesla",
           "connettori": []
         }
       ],
@@ -635,14 +635,14 @@
       "lat": 42.147325,
       "lon": 12.611422,
       "paese": "IT",
-      "operatore": "Enel X",
+      "operatore": "Enel X Way",
       "distanzaAutostradaM": 128,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/11646926317",
           "modello": "Enel X",
-          "operatore": "Enel X",
+          "operatore": "Enel X Way",
           "connettori": []
         }
       ],
@@ -659,14 +659,14 @@
       "lat": 45.241753,
       "lon": 7.974011,
       "paese": "IT",
-      "operatore": "Enel",
+      "operatore": "Enel X Way",
       "distanzaAutostradaM": 73,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/11700675373",
           "modello": "Enel X",
-          "operatore": "Enel",
+          "operatore": "Enel X Way",
           "connettori": [
             {
               "modello": "CCS 90 kW"
@@ -693,14 +693,14 @@
       "lat": 39.345489,
       "lon": 16.235913,
       "paese": "IT",
-      "operatore": "Enel X",
+      "operatore": "Enel X Way",
       "distanzaAutostradaM": 60,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/12157616408",
           "modello": "Enel X",
-          "operatore": "Enel X",
+          "operatore": "Enel X Way",
           "connettori": []
         }
       ],
@@ -717,14 +717,14 @@
       "lat": 39.345609,
       "lon": 16.234455,
       "paese": "IT",
-      "operatore": "Enel X",
+      "operatore": "Enel X Way",
       "distanzaAutostradaM": 54,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/12157616409",
           "modello": "Enel X",
-          "operatore": "Enel X",
+          "operatore": "Enel X Way",
           "connettori": []
         }
       ],
@@ -741,14 +741,14 @@
       "lat": 43.467516,
       "lon": 11.154933,
       "paese": "IT",
-      "operatore": "Enel X",
+      "operatore": "Enel X Way",
       "distanzaAutostradaM": 177,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/12186294813",
           "modello": "Enel X",
-          "operatore": "Enel X",
+          "operatore": "Enel X Way",
           "connettori": []
         }
       ],
@@ -765,14 +765,14 @@
       "lat": 43.890865,
       "lon": 12.891131,
       "paese": "IT",
-      "operatore": "Be Charge s.r.l.",
+      "operatore": "Be Charge",
       "distanzaAutostradaM": 184,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/12546183586",
           "modello": "Be Charge s.r.l.",
-          "operatore": "Be Charge s.r.l.",
+          "operatore": "Be Charge",
           "connettori": []
         }
       ],
@@ -1092,14 +1092,14 @@
       "lat": 45.777452,
       "lon": 13.608531,
       "paese": "IT",
-      "operatore": "plenitude on the road",
+      "operatore": "Plenitude",
       "distanzaAutostradaM": 53,
       "tipoArea": "services",
       "colonnine": [
         {
           "codice": "osm:node/14134717094",
           "modello": "Duino Nord",
-          "operatore": "plenitude on the road",
+          "operatore": "Plenitude",
           "connettori": [
             {
               "modello": "CCS 110 kW"
