@@ -210,7 +210,9 @@
             }
           ]
         }
-      ]
+      ],
+      "daVerificare": true,
+      "motivo": "posizione: l'area OSM più vicina è 'Area di Nogaredo Ovest' (carreggiata opposta?), controlla sul satellite"
     },
     {
       "codice": "A22_007",

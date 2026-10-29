@@ -542,7 +542,9 @@
         }
       ],
       "stradaReverse": "Esso, Tangenziale di Napoli, Rione La Solfatara, Cigliano, Pozzuoli, Napoli, Campania, 80078, Italia",
-      "direzione_geografica": "ND"
+      "direzione_geografica": "ND",
+      "daVerificare": true,
+      "motivo": "posizione: nessuna area di servizio OSM entro 500 m, controlla sul satellite (tasto destro → Sposta se è nel posto sbagliato)"
     },
     {
       "codice": "A20",
@@ -984,7 +986,9 @@
         }
       ],
       "stradaReverse": "Autostrada del Sole, Piani della Rugginosa, Reggello, Unione di Comuni Valdarno e Valdisieve, Firenze, Toscana, 50064, Italia",
-      "direzione_geografica": "SUDEST"
+      "direzione_geografica": "SUDEST",
+      "daVerificare": true,
+      "motivo": "posizione: l'area OSM più vicina è 'Area di parcheggio Vallombrosa Est' (carreggiata opposta?), controlla sul satellite"
     },
     {
       "codice": "J30",
@@ -3006,7 +3010,9 @@
         }
       ],
       "stradaReverse": "Area di Servizio Doganella ovest, Doganella, Municipalità 3, Capodichino, Napoli, Campania, 80141, Italia",
-      "direzione_geografica": "ND"
+      "direzione_geografica": "ND",
+      "daVerificare": true,
+      "motivo": "posizione: nessuna area di servizio OSM entro 500 m, controlla sul satellite (tasto destro → Sposta se è nel posto sbagliato)"
     },
     {
       "codice": "N50",
@@ -3315,7 +3321,9 @@
         }
       ],
       "stradaReverse": "Autostrada del Sole, Colonnetta, Fabro Scalo, Fabro, Terni, Umbria, 05015, Italia",
-      "direzione_geografica": "NORDOVEST"
+      "direzione_geografica": "NORDOVEST",
+      "daVerificare": true,
+      "motivo": "posizione: nessuna area di servizio OSM entro 500 m, controlla sul satellite (tasto destro → Sposta se è nel posto sbagliato)"
     },
     {
       "codice": "A86",
@@ -3430,7 +3438,9 @@
         }
       ],
       "stradaReverse": "Autostrada del Sole, Colonnetta, Fabro Scalo, Fabro, Terni, Umbria, 05015, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUD",
+      "daVerificare": true,
+      "motivo": "posizione: nessuna area di servizio OSM entro 500 m, controlla sul satellite (tasto destro → Sposta se è nel posto sbagliato)"
     },
     {
       "codice": "W30",
@@ -3835,7 +3845,9 @@
         }
       ],
       "stradaReverse": "Autostrada Adriatica, Foggia, Puglia, Italia",
-      "direzione_geografica": "NORDOVEST"
+      "direzione_geografica": "NORDOVEST",
+      "daVerificare": true,
+      "motivo": "posizione: nessuna area di servizio OSM entro 500 m, controlla sul satellite (tasto destro → Sposta se è nel posto sbagliato)"
     },
     {
       "codice": "O21",
@@ -3914,7 +3926,9 @@
         }
       ],
       "stradaReverse": "Autostrada Adriatica, Foggia, Puglia, Italia",
-      "direzione_geografica": "SUDEST"
+      "direzione_geografica": "SUDEST",
+      "daVerificare": true,
+      "motivo": "posizione: nessuna area di servizio OSM entro 500 m, controlla sul satellite (tasto destro → Sposta se è nel posto sbagliato)"
     },
     {
       "codice": "A96",
@@ -6729,7 +6743,9 @@
         }
       ],
       "stradaReverse": "Cortile San Martino, Autostrada del Sole, San Lazzaro, Pedrignano, Parma, Emilia-Romagna, 43122, Italia",
-      "direzione_geografica": "SUDEST"
+      "direzione_geografica": "SUDEST",
+      "daVerificare": true,
+      "motivo": "posizione: l'area OSM più vicina è 'Area di Servizio San Martino Est' (carreggiata opposta?), controlla sul satellite"
     },
     {
       "codice": "B55",
@@ -8561,7 +8577,9 @@
         }
       ],
       "stradaReverse": "Torre Cerrano est, Via dei Garofani, Silvi, Teramo, Abruzzo, 64029, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORD",
+      "daVerificare": true,
+      "motivo": "carreggiata: noi NORD, OSM OVEST; controlla la direzione dell'autostrada sul satellite"
     },
     {
       "codice": "N81",
@@ -8913,7 +8931,9 @@
         }
       ],
       "stradaReverse": "Val Trompia Nord, Via Enrico Fermi, Roncadelle, Brescia, Lombardia, 25030, Italia",
-      "direzione_geografica": "OVEST"
+      "direzione_geografica": "OVEST",
+      "daVerificare": true,
+      "motivo": "posizione: l'area OSM più vicina è 'Val Trompia Sud' (carreggiata opposta?), controlla sul satellite"
     },
     {
       "codice": "D51",

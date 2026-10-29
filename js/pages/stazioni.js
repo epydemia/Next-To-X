@@ -49,7 +49,7 @@ function esito(area) {
 }
 
 function inAttesa(area) {
-  return !!area.daVerificare && !revisioni[idArea(area)];
+  return !!area.daVerificare && !revisioni[idArea(area)]?.esito;
 }
 
 // --- Map ---
@@ -182,7 +182,7 @@ function showDetail(area) {
     </div>
     ${area.km != null ? `<div class="detail-row"><span class="detail-label">Km</span><span class="detail-value">${area.km}</span></div>` : ''}
     ${area.paese ? `<div class="detail-row"><span class="detail-label">Paese</span><span class="detail-value">${area.paese}</span></div>` : ''}
-    ${area.direzione_geografica ? `<div class="detail-row"><span class="detail-label">Carreggiata</span><span class="detail-value">${area.direzione_geografica}</span></div>` : ''}
+    ${carreggiataHtml(area)}
     ${area.traE ? `<div class="detail-row"><span class="detail-label">Tratta</span><span class="detail-value">${area.traE}</span></div>` : ''}
     <div class="detail-row">
       <span class="detail-label">Coordinate</span>
@@ -204,8 +204,18 @@ function showDetail(area) {
   document.getElementById('review-reset')?.addEventListener('click', () => decidi(area, null));
 }
 
+function carreggiataHtml(area) {
+  const corretta = revisioni[idArea(area)]?.direzione_geografica;
+  const originale = area.direzione_geografica || 'ND';
+  if (!corretta && originale === 'ND') return '';
+  const valore = corretta
+    ? `${corretta} <span style="color:#999;">(corretta, era ${originale}${revisioni[idArea(area)].nota ? ` — ${revisioni[idArea(area)].nota}` : ''})</span>`
+    : originale;
+  return `<div class="detail-row"><span class="detail-label">Carreggiata</span><span class="detail-value">${valore}</span></div>`;
+}
+
 function revisioneHtml(area) {
-  const rev = revisioni[idArea(area)];
+  const rev = revisioni[idArea(area)]?.esito ? revisioni[idArea(area)] : null;
   const attuale = esito(area);
   const pulsanti = Object.entries(ESITI).map(([chiave, label]) =>
     `<button class="review-btn${chiave === attuale ? ' active' : ''}" data-esito="${chiave}">${label}</button>`
@@ -224,7 +234,9 @@ function revisioneHtml(area) {
 
 function decidi(area, nuovoEsito) {
   const id = idArea(area);
-  if (nuovoEsito) revisioni[id] = { esito: nuovoEsito, data: new Date().toISOString().slice(0, 10) };
+  const { esito: _, ...altreCorrezioni } = revisioni[id] ?? {};
+  if (nuovoEsito) revisioni[id] = { ...altreCorrezioni, esito: nuovoEsito, data: new Date().toISOString().slice(0, 10) };
+  else if (altreCorrezioni.direzione_geografica) revisioni[id] = altreCorrezioni;
   else delete revisioni[id];
   pendingChanges.add(FILE_REVISIONI);
   updateSaveBar();

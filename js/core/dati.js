@@ -25,8 +25,10 @@ export async function caricaSorgenti() {
 }
 
 /**
- * Decisioni della revisione manuale: { [idArea]: { esito, data } }, dove esito è
- * "area_servizio", "uscita" o "esclusa". File assente = nessuna revisione.
+ * Correzioni ai dati: { [idArea]: { esito?, direzione_geografica?, nota?, data } }.
+ * esito ("area_servizio" | "uscita" | "esclusa") viene dalla revisione manuale,
+ * direzione_geografica corregge la carreggiata (es. dal crosscheck con OSM).
+ * File assente = nessuna correzione.
  */
 export async function caricaRevisioni() {
   try {
@@ -43,11 +45,17 @@ export function idArea(area) {
   return area.codice != null ? String(area.codice) : `nome:${area.nome}`;
 }
 
-/** Copia dell'area con la decisione manuale applicata, oppure null se esclusa. */
+/** Copia dell'area con le correzioni applicate, oppure null se esclusa. */
 export function applicaRevisione(area, revisione) {
   if (!revisione) return area;
   if (revisione.esito === 'esclusa') return null;
-  return { ...area, exitRequired: revisione.esito === 'uscita', daVerificare: false };
+  const corretta = { ...area };
+  if (revisione.esito) {
+    corretta.exitRequired = revisione.esito === 'uscita';
+    corretta.daVerificare = false;
+  }
+  if (revisione.direzione_geografica) corretta.direzione_geografica = revisione.direzione_geografica;
+  return corretta;
 }
 
 let cacheAree = null;

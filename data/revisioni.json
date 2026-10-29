@@ -1,3 +1,99 @@
 {
-  "revisioni": {}
+  "revisioni": {
+    "J30": {
+      "direzione_geografica": "NORDEST",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "B57": {
+      "direzione_geografica": "SUD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "N51": {
+      "direzione_geografica": "SUD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "W30": {
+      "direzione_geografica": "EST",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A55": {
+      "direzione_geografica": "NORDEST",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "W11": {
+      "direzione_geografica": "SUDEST",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "D01": {
+      "direzione_geografica": "SUDOVEST",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "K11": {
+      "direzione_geografica": "SUDEST",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_003": {
+      "direzione_geografica": "NORD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_004": {
+      "direzione_geografica": "NORD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_005": {
+      "direzione_geografica": "SUD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_006": {
+      "direzione_geografica": "NORD",
+      "nota": "dal campo direzione A22",
+      "data": "2026-10-29"
+    },
+    "A22_007": {
+      "direzione_geografica": "SUDOVEST",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_010": {
+      "direzione_geografica": "NORD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_011": {
+      "direzione_geografica": "SUD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_012": {
+      "direzione_geografica": "NORDEST",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_014": {
+      "direzione_geografica": "SUD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_015": {
+      "direzione_geografica": "NORD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    },
+    "A22_016": {
+      "direzione_geografica": "SUD",
+      "nota": "crosscheck OSM",
+      "data": "2026-10-29"
+    }
+  }
 }
