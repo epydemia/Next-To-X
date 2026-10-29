@@ -1,85 +1,67 @@
 # ⚡ Next-To-X
 
-**Next-To-X** is a lightweight web app that shows your real-time GPS position, direction of travel, and nearby EV charging stations along the same highway, filtered based on your heading.
+**Next-To-X** is a lightweight web app for driving on Italian highways: it follows your GPS position and heading and shows the next EV charging station ahead of you, on your side of the highway.
+
+Live: published on GitHub Pages on every push to `main` (`.github/workflows/static.yml`).
 
 ---
 
-## 🚀 Objective
+## Pages
 
-Build a location-aware app that:
+| Page | Purpose |
+| --- | --- |
+| `index.html` | Driving app: map, next station, distance bar, nearby stations list |
+| `stazioni.html` | Station editor: browse all stations, fix positions, save the JSON files back |
+| `autostrade.html` | Overview of stations along a highway, split by carriageway |
 
-- Detects your current GPS position and heading
-- Determines which highway you're on using reverse geocoding
-- Shows your position on an interactive map
-- Filters and displays compatible EV chargers along the same highway and in the same direction
-- Offers a simulation mode for testing predefined GPS paths
-
----
-
-## 🛠️ Technologies Used
-
-- **HTML5 + CSS3**
-- **Vanilla JavaScript (ES Modules)**
-- [Leaflet.js](https://leafletjs.com/) — interactive map rendering
-- [OpenStreetMap Nominatim API](https://nominatim.org/) — reverse geocoding
-- Optional GPX input — for advanced simulation
-
----
-
-## 📂 Project Structure
+## Project structure
 
 ```
-ColonnineJS/
-├── index.html                 # Main HTML layout
-├── styles.css                 # Styles for layout, map and markers
-├── js/
-│   ├── index.js               # App entry point and controller
-│   ├── dataloader.js          # Loads and caches EV charger data
-│   ├── geoutils.js            # Utilities: distance, direction, angle
-│   ├── geolocalizzazione.js   # Manages GPS, heading, reverse geocoding
-│   ├── colonnine.js           # Map rendering, filtering and station updates
-└── data/
-    ├── free_to_x_reverse.json # Preprocessed charger dataset
-    └── test.json              # Local test dataset
+index.html, stazioni.html, autostrade.html
+css/app.css                 Driving app styles (dark theme)
+js/
+├── config.js               Data sources, map tiles, tunable constants
+├── core/                   Pure logic, no DOM
+│   ├── geo.js              Distance, bearing, heading helpers
+│   ├── autostrade.js       Highway table (names, axis) and code lookup
+│   ├── dati.js             Loads the JSON data sources
+│   └── filtroStazioni.js   Which stations are ahead / next
+├── app/                    Driving app (index.html)
+│   ├── main.js             Entry point: wires everything together
+│   ├── posizione.js        GPS, heading, reverse geocoding → position state
+│   ├── simulazione.js      Simulated position: default route or CSV track
+│   ├── mappa.js            Leaflet map, user marker, station markers
+│   └── hud.js              HUD, next-station panel, distance bar, table
+└── pages/
+    ├── stazioni.js         Station editor
+    └── autostrade.js       Highway overview
+data/                       Station datasets (JSON)
+tools/                      Python scripts that download and geocode the datasets
 ```
 
----
+Data flow in the driving app: `posizione.js` produces a position state (`coords`, `heading`, `strada`, `codiceAutostrada`) → `main.js` passes it to `filtroStazioni.js` → the result is drawn by `mappa.js` and `hud.js`.
 
-## 🌐 Usage
+## Running locally
 
-1. Open `index.html` in a browser that supports geolocation (recommended: served via `localhost`)
-2. Allow location access when prompted
-3. Watch your position update on the map with a blue ▲ icon
-4. View the current road name and direction of travel
-5. Compatible stations will appear in red, others in gray
+ES modules need an HTTP server:
 
----
+```sh
+python3 -m http.server 8000
+# open http://localhost:8000
+```
 
-## ✅ Features
+Geolocation requires `localhost` or HTTPS.
 
-- Real or simulated GPS tracking (toggle debug mode)
-- Heading indicator (compass + rotating marker)
-- Reverse geocoding to identify current road
-- Interactive map with Leaflet.js
-- Red markers for stations in same direction
-- Gray markers for all detected stations
-- Table and visual bar sorted by proximity
-- Checkbox toggle to enable/disable all filtering
-- Auto-updates as the user moves
-- Simulated movement with predefined path
+## Simulated position
 
----
+Open ⚙ → **Simula posizione**. The app replays a default route on the A14, or a CSV track you upload (TeslaFi export format: `Latitude`, `Longitude`, optional `Timestamp (CEST)`), 10× faster than real time.
 
-## 🧭 Roadmap
+## Adding a data source
 
-- Add support for other operators (Ionity, Enel X, etc.)
-- Add basic navigation instructions
-- Optional voice feedback when approaching a station
-- Improve mobile UX (touch + responsiveness)
-- GPX file import for advanced simulations
+Add an entry to `SORGENTI_DATI` in `js/config.js` pointing at a JSON file in `data/` with the shape `{ "listaAree": [...] }`. Each area needs at least `codice`, `nome`, `strada`, `lat`, `lon`; `direzione_geografica` and `exitRequired` improve filtering.
 
----
+## External services
 
-## 📘 Notes
-
-⚠️ Currently, data is sourced from `Freeto-x`. Additional sources will be integrated in future versions.
+- [Leaflet](https://leafletjs.com/) (via cdnjs) for the map
+- [Esri basemaps](https://www.esri.com/) for map tiles
+- [OpenStreetMap Nominatim](https://nominatim.org/) for reverse geocoding (throttled)
