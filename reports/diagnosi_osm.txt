@@ -1,0 +1,10 @@
+Overpass (overpass-api.de, tentativo 1): aree di servizio in IT...
+  fallito: HTTP 502
+Overpass (overpass-api.de, tentativo 2): aree di servizio in IT...
+  Be Charge                                45.80475,12.88056  autostrada     68 m  area 'Fratta Nord'      0 m  → area di servizio
+  11813323740                              44.33339,11.18967  autostrada  86056 m  area 'Esso'     41 m  → scartata
+  11813344259                              44.33337,11.18963  autostrada  86058 m  area 'Esso'     38 m  → scartata
+  12211753863                              44.59222,8.66475  autostrada     43 m  area 'Area di Stura Ovest'      0 m  → area di servizio
+  IT: 1 aree già presenti in altre fonti, escluse
+  IT: 1 aree (0 fuori autostrada, 0 da verificare)
+1 aree salvate in /home/daniele/Dev/Next-To-X/data/osm_aree_servizio.json
