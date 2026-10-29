@@ -50,10 +50,9 @@ async function loadData() {
 // --- Map ---
 function initMap() {
   map = L.map('map', { zoomControl: true }).setView([43.5, 12.5], 6);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 20,
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>',
+    maxZoom: 18,
   }).addTo(map);
 
   // Close context menu when clicking on map (not a marker)
