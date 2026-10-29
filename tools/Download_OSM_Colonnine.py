@@ -50,6 +50,9 @@ OPERATORI_CON_FONTE = re.compile(r"ionity|free\s?-?\s?to\s?-?\s?x", re.I)
 ALTRE_FONTI = FONTI_UFFICIALI + ["ionity_osm.json"]
 DOPPIONE_M = 60
 DOPPIONE_NOME_M = 500
+CELLA_GRADI = 0.01            # griglia per abbinare colonnine e aree di servizio in Python
+AUTOSTRADE_VICINE_M = 700     # raggio attorno al centro dell'area (aree grandi fino a ~300 m)
+LOTTO_AUTOSTRADE = 40
 
 # Gli Autohof tedeschi sono a volte taggati highway=services, ma si raggiungono uscendo
 NOME_AUTOHOF = re.compile(r"autohof|truck\s?stop", re.I)
@@ -62,18 +65,83 @@ PRESE = {"type2_combo": "CCS", "chademo": "CHAdeMO", "type2": "Type 2", "type2_c
 
 
 def query_aree_servizio(paese):
-    """Tutte le colonnine (qualsiasi operatore) dentro le aree di servizio del paese."""
+    """Tutte le aree di servizio e tutte le colonnine del paese: l'abbinamento si fa in Python.
+    (Un around a partire dalle aree, cioè da poligoni, restituiva solo una piccola parte
+    delle colonnine.)"""
     return f"""
 [out:json][timeout:300];
 area["ISO3166-1"="{paese}"][admin_level=2]->.paese;
-nwr["highway"="services"](area.paese)->.tutte;
-nwr(around.tutte:{AREA_SERVIZIO_MAX_M})["amenity"="charging_station"]->.colonnine;
-.colonnine out tags center;
-nwr.tutte(around.colonnine:{AREA_SERVIZIO_MAX_M})->.aree;
-.aree out tags geom;
-way(around.aree:{CARREGGIATA_MAX_M})["highway"="motorway"]->.autostrade;
-.autostrade out tags geom;
+nwr["highway"="services"](area.paese);
+out tags geom;
+nwr["amenity"="charging_station"](area.paese);
+out tags center;
 """
+
+
+def query_autostrade_vicine(punti):
+    righe = "\n".join(f'  way(around:{AUTOSTRADE_VICINE_M},{lat},{lon})["highway"="motorway"];' for lat, lon in punti)
+    return f"[out:json][timeout:240];\n(\n{righe}\n);\nout tags geom;\n"
+
+
+def indice_spaziale(elementi, margine_m):
+    """Griglia di celle CELLA_GRADI → elementi il cui ingombro (più il margine) tocca la cella."""
+    griglia = {}
+    margine = margine_m / 111000
+    for el in elementi:
+        punti = [(el["lat"], el["lon"])] if el["type"] == "node" else [p for linea in linee(el) for p in linea]
+        if not punti:
+            continue
+        lat_min, lat_max = min(p[0] for p in punti) - margine, max(p[0] for p in punti) + margine
+        lon_min, lon_max = min(p[1] for p in punti) - margine, max(p[1] for p in punti) + margine
+        for i in range(math.floor(lat_min / CELLA_GRADI), math.floor(lat_max / CELLA_GRADI) + 1):
+            for j in range(math.floor(lon_min / CELLA_GRADI), math.floor(lon_max / CELLA_GRADI) + 1):
+                griglia.setdefault((i, j), []).append(el)
+    return griglia
+
+
+def colonnine_in_aree_servizio(elementi):
+    """(aree di servizio con almeno una colonnina, colonnine dentro un'area di servizio)."""
+    aree = [e for e in elementi if e.get("tags", {}).get("highway") == "services"]
+    colonnine = [e for e in elementi if e.get("tags", {}).get("amenity") == "charging_station"]
+    griglia = indice_spaziale(aree, AREA_SERVIZIO_MAX_M)
+    aree_trovate, dentro = {}, []
+    for c in colonnine:
+        p = posizione(c)
+        if not p:
+            continue
+        candidate = griglia.get((math.floor(p[0] / CELLA_GRADI), math.floor(p[1] / CELLA_GRADI)), [])
+        vicine = [a for a in candidate if distanza_elemento_m(p, a) <= AREA_SERVIZIO_MAX_M]
+        if vicine:
+            dentro.append(c)
+            for a in vicine:
+                aree_trovate[(a["type"], a["id"])] = a
+    return list(aree_trovate.values()), dentro
+
+
+def scarica_aree_servizio(paese, aggiorna):
+    """Elementi per la modalità tutti-gli-operatori: aree con colonnine, le colonnine e le autostrade vicine."""
+    cache = CACHE / f"aree_servizio_v2_{paese}.json"
+    if cache.exists() and not aggiorna:
+        print(f"{paese}: uso la cache {cache.name} (--aggiorna per riscaricare)")
+        return json.loads(cache.read_text(encoding="utf-8"))
+
+    tutto = richiesta_overpass(query_aree_servizio(paese), f"aree di servizio e colonnine in {paese}")
+    aree, colonnine = colonnine_in_aree_servizio(tutto.get("elements", []))
+    print(f"  {paese}: {len(colonnine)} colonnine in {len(aree)} aree di servizio")
+
+    punti = [tuple(round(v, 5) for v in posizione(a)) for a in aree if posizione(a)]
+    autostrade = {}
+    for i in range(0, len(punti), LOTTO_AUTOSTRADE):
+        lotto = punti[i:i + LOTTO_AUTOSTRADE]
+        risposta = richiesta_overpass(query_autostrade_vicine(lotto),
+                                      f"autostrade vicine, aree {i + 1}-{i + len(lotto)} di {len(punti)}")
+        for el in risposta.get("elements", []):
+            autostrade[el["id"]] = el
+
+    risultato = {"elements": aree + colonnine + list(autostrade.values())}
+    CACHE.mkdir(exist_ok=True)
+    cache.write_text(json.dumps(risultato), encoding="utf-8")
+    return risultato
 
 
 def query_operatore(paese, operatore):
@@ -98,14 +166,14 @@ nwr(around.colonnine:{CARREGGIATA_MAX_M})["highway"~"^(services|rest_area)$"]->.
 def scarica(paese, operatore, aggiorna=False):
     """Risposta Overpass per un paese; salvata in tools/cache/ e riusata se già presente.
     operatore None = tutte le colonnine nelle aree di servizio."""
-    nome = operatore.lower() if operatore else "aree_servizio"
-    cache = CACHE / f"{nome}_{paese}.json"
+    if operatore is None:
+        return scarica_aree_servizio(paese, aggiorna)
+    cache = CACHE / f"{operatore.lower()}_{paese}.json"
     if cache.exists() and not aggiorna:
         print(f"{paese}: uso la cache {cache.name} (--aggiorna per riscaricare)")
         return json.loads(cache.read_text(encoding="utf-8"))
 
-    query = query_operatore(paese, operatore) if operatore else query_aree_servizio(paese)
-    risposta = richiesta_overpass(query, f"{operatore or 'aree di servizio'} in {paese}")
+    risposta = richiesta_overpass(query_operatore(paese, operatore), f"{operatore} in {paese}")
     CACHE.mkdir(exist_ok=True)
     cache.write_text(json.dumps(risposta), encoding="utf-8")
     return risposta
