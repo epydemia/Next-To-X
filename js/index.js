@@ -62,45 +62,19 @@ window.addEventListener("load", async () => {
     });
   }
 
-  // Avvia la geolocalizzazione (reale o simulata).
-  // Il callback viene invocato ad ogni aggiornamento GPS: ricentra la mappa,
-  // aggiorna il marker utente e ricalcola le colonnine rilevanti.
-  const debug = debugEnabled;
-  initGeolocation((lat, lon) => {
-    const heading = getUserHeading();
-    if (lat != null && lon != null) {
-      map.setView([lat, lon], map.getZoom());
-      aggiornaUserMarker(lat, lon, heading);
-      console.log("updateColonnine", lat, lon);
-      updateColonnine(map, aree, lat, lon, heading);
-    }
-  }, debug);
-
-  // Attende la prima posizione GPS disponibile prima di fare il render iniziale
-  // delle colonnine (necessario perché le distanze richiedono una posizione di partenza)
-  const coords = await getUserPosition();
-  if (coords) {
-    console.log("initColonnine", coords.lat, coords.lon);
-    initColonnine(map, aree, coords);
-  }
-
-  // Ricalcola le colonnine quando l'utente cambia il toggle "Mostra tutte"
-  document.querySelector('#toggleNearest')?.addEventListener('change', async () => {
+  // Event listeners registrati subito, PRIMA di qualsiasi await,
+  // così funzionano indipendentemente dalla disponibilità del GPS.
+  document.querySelector('#toggleNearest')?.addEventListener('change', () => {
     const coords = getUserCoordinates();
     const heading = getUserHeading();
-    if (coords) {
-      updateColonnine(map, aree, coords.lat, coords.lon, heading);
-    }
+    if (coords) updateColonnine(map, aree, coords.lat, coords.lon, heading);
   });
 
-  // Il toggle debug cambia modalità: ricarica la pagina per reinizializzare
-  // la geolocalizzazione con il nuovo valore (reale ↔ simulata)
   document.querySelector('#toggleDebug')?.addEventListener('change', (e) => {
     localStorage.setItem('debugPosizione', e.target.checked ? '1' : '0');
     window.location.reload();
   });
 
-  // Toggle del pannello delle opzioni (menu laterale/overlay)
   document.querySelector('#options-toggle')?.addEventListener('click', () => {
     document.getElementById('options-panel')?.classList.toggle('open');
   });
@@ -121,4 +95,27 @@ window.addEventListener("load", async () => {
       chevron.classList.remove('open');
     }
   });
+
+  // Avvia la geolocalizzazione (reale o simulata).
+  const debug = debugEnabled;
+  initGeolocation((lat, lon) => {
+    const heading = getUserHeading();
+    if (lat != null && lon != null) {
+      map.setView([lat, lon], map.getZoom());
+      aggiornaUserMarker(lat, lon, heading);
+      updateColonnine(map, aree, lat, lon, heading);
+    }
+  }, debug);
+
+  // Attende la prima posizione (timeout 15s): se il GPS non è disponibile
+  // mostra comunque le stazioni e un avviso nell'HUD.
+  const coords = await getUserPosition();
+  if (coords) {
+    initColonnine(map, aree, coords);
+  } else {
+    const stradaDiv = document.getElementById('strada');
+    if (stradaDiv) stradaDiv.innerText = '⚠️ GPS non disponibile — attiva la posizione';
+    map.setView([41.9, 12.5], 6);
+    initColonnine(map, aree, { lat: 41.9, lon: 12.5 });
+  }
 });
