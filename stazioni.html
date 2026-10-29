@@ -119,6 +119,17 @@
     .filter-btn.a22.active { background: #e65100; color: white; }
     .filter-btn.ionity        { background: #f3e5f5; color: #7b1fa2; border-color: #7b1fa2; }
     .filter-btn.ionity.active { background: #7b1fa2; color: white; }
+    .filter-btn.osm        { background: #e0f2f1; color: #00796b; border-color: #00796b; }
+    .filter-btn.osm.active { background: #00796b; color: white; }
+    .source-badge.osm      { background: #e0f2f1; color: #00796b; }
+    .marker-osm {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #00796b;
+      border: 2px solid white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+    }
     .filter-btn.verifica        { background: #fffde7; color: #8d6e00; border-color: #f9a825; }
     .filter-btn.verifica.active { background: #f9a825; color: #222; }
 
@@ -539,6 +550,7 @@
             <button class="filter-btn ftx" data-source="ftx">Free To X</button>
             <button class="filter-btn a22" data-source="a22">A22 Brennero</button>
             <button class="filter-btn ionity" data-source="ionity">IONITY</button>
+            <button class="filter-btn osm" data-source="osm">Altri operatori</button>
             <button class="filter-btn verifica" data-source="verifica">❓ Da verificare</button>
           </div>
           <span id="stations-count"></span>

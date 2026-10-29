@@ -182,6 +182,7 @@ function showDetail(area) {
     </div>
     ${area.km != null ? `<div class="detail-row"><span class="detail-label">Km</span><span class="detail-value">${area.km}</span></div>` : ''}
     ${area.paese ? `<div class="detail-row"><span class="detail-label">Paese</span><span class="detail-value">${area.paese}</span></div>` : ''}
+    ${area.operatore ? `<div class="detail-row"><span class="detail-label">Operatore</span><span class="detail-value">${area.operatore}</span></div>` : ''}
     ${carreggiataHtml(area)}
     ${area.traE ? `<div class="detail-row"><span class="detail-label">Tratta</span><span class="detail-value">${area.traE}</span></div>` : ''}
     <div class="detail-row">

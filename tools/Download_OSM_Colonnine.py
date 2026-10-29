@@ -45,6 +45,27 @@ AREA_UFFICIALE_M = 300      # "uscita" sospetta se così vicina a un'area di ser
 # Aree di servizio ufficiali già nell'app, usate per il confronto
 FONTI_UFFICIALI = ["free_to_x_reverse.json", "a22_brennero_geocoded.json"]
 
+# Modalità "tutti gli operatori": questi hanno già una fonte dedicata
+OPERATORI_CON_FONTE = re.compile(r"ionity|free\s?-?\s?to\s?-?\s?x", re.I)
+ALTRE_FONTI = FONTI_UFFICIALI + ["ionity_osm.json"]
+# Lo stesso operatore compare in OSM scritto in modi diversi
+NOMI_OPERATORI = [(re.compile(r, re.I), nome) for r, nome in [
+    (r"\btesla\b", "Tesla"),
+    (r"\benel\b", "Enel X Way"),
+    (r"\bbe\s?charge\b", "Be Charge"),
+    (r"plenitude", "Plenitude"),
+    (r"free\s?-?\s?to\s?-?\s?x", "Free To X"),
+    (r"\bionity\b", "IONITY"),
+    (r"\bewiva\b", "Ewiva"),
+    (r"\bedison\b", "Edison Next"),
+    (r"autostrada del brennero|^a22$", "Autostrada del Brennero"),
+]]
+DOPPIONE_M = 60
+DOPPIONE_NOME_M = 500
+CELLA_GRADI = 0.01            # griglia per abbinare colonnine e aree di servizio in Python
+AUTOSTRADE_VICINE_M = 700     # raggio attorno al centro dell'area (aree grandi fino a ~300 m)
+LOTTO_AUTOSTRADE = 40
+
 # Gli Autohof tedeschi sono a volte taggati highway=services, ma si raggiungono uscendo
 NOME_AUTOHOF = re.compile(r"autohof|truck\s?stop", re.I)
 NOME_AREA_SERVIZIO = re.compile(r"rastst[äa]tte|rasthof|rastanlage|area di servizio|\bads\b|autogrill|serways|tank\s?&\s?rast", re.I)
@@ -55,7 +76,87 @@ PUNTI_CARDINALI = ["NORD", "NORDEST", "EST", "SUDEST", "SUD", "SUDOVEST", "OVEST
 PRESE = {"type2_combo": "CCS", "chademo": "CHAdeMO", "type2": "Type 2", "type2_cable": "Type 2"}
 
 
-def query_overpass(paese, operatore):
+def query_aree_servizio(paese):
+    """Tutte le aree di servizio e tutte le colonnine del paese: l'abbinamento si fa in Python.
+    (Un around a partire dalle aree, cioè da poligoni, restituiva solo una piccola parte
+    delle colonnine.)"""
+    return f"""
+[out:json][timeout:300];
+area["ISO3166-1"="{paese}"][admin_level=2]->.paese;
+nwr["highway"="services"](area.paese);
+out tags geom;
+nwr["amenity"="charging_station"](area.paese);
+out tags center;
+"""
+
+
+def query_autostrade_vicine(punti):
+    righe = "\n".join(f'  way(around:{AUTOSTRADE_VICINE_M},{lat},{lon})["highway"="motorway"];' for lat, lon in punti)
+    return f"[out:json][timeout:240];\n(\n{righe}\n);\nout tags geom;\n"
+
+
+def indice_spaziale(elementi, margine_m):
+    """Griglia di celle CELLA_GRADI → elementi il cui ingombro (più il margine) tocca la cella."""
+    griglia = {}
+    margine = margine_m / 111000
+    for el in elementi:
+        punti = [(el["lat"], el["lon"])] if el["type"] == "node" else [p for linea in linee(el) for p in linea]
+        if not punti:
+            continue
+        lat_min, lat_max = min(p[0] for p in punti) - margine, max(p[0] for p in punti) + margine
+        lon_min, lon_max = min(p[1] for p in punti) - margine, max(p[1] for p in punti) + margine
+        for i in range(math.floor(lat_min / CELLA_GRADI), math.floor(lat_max / CELLA_GRADI) + 1):
+            for j in range(math.floor(lon_min / CELLA_GRADI), math.floor(lon_max / CELLA_GRADI) + 1):
+                griglia.setdefault((i, j), []).append(el)
+    return griglia
+
+
+def colonnine_in_aree_servizio(elementi):
+    """(aree di servizio con almeno una colonnina, colonnine dentro un'area di servizio)."""
+    aree = [e for e in elementi if e.get("tags", {}).get("highway") == "services"]
+    colonnine = [e for e in elementi if e.get("tags", {}).get("amenity") == "charging_station"]
+    griglia = indice_spaziale(aree, AREA_SERVIZIO_MAX_M)
+    aree_trovate, dentro = {}, []
+    for c in colonnine:
+        p = posizione(c)
+        if not p:
+            continue
+        candidate = griglia.get((math.floor(p[0] / CELLA_GRADI), math.floor(p[1] / CELLA_GRADI)), [])
+        vicine = [a for a in candidate if distanza_elemento_m(p, a) <= AREA_SERVIZIO_MAX_M]
+        if vicine:
+            dentro.append(c)
+            for a in vicine:
+                aree_trovate[(a["type"], a["id"])] = a
+    return list(aree_trovate.values()), dentro
+
+
+def scarica_aree_servizio(paese, aggiorna):
+    """Elementi per la modalità tutti-gli-operatori: aree con colonnine, le colonnine e le autostrade vicine."""
+    cache = CACHE / f"aree_servizio_v2_{paese}.json"
+    if cache.exists() and not aggiorna:
+        print(f"{paese}: uso la cache {cache.name} (--aggiorna per riscaricare)")
+        return json.loads(cache.read_text(encoding="utf-8"))
+
+    tutto = richiesta_overpass(query_aree_servizio(paese), f"aree di servizio e colonnine in {paese}")
+    aree, colonnine = colonnine_in_aree_servizio(tutto.get("elements", []))
+    print(f"  {paese}: {len(colonnine)} colonnine in {len(aree)} aree di servizio")
+
+    punti = [tuple(round(v, 5) for v in posizione(a)) for a in aree if posizione(a)]
+    autostrade = {}
+    for i in range(0, len(punti), LOTTO_AUTOSTRADE):
+        lotto = punti[i:i + LOTTO_AUTOSTRADE]
+        risposta = richiesta_overpass(query_autostrade_vicine(lotto),
+                                      f"autostrade vicine, aree {i + 1}-{i + len(lotto)} di {len(punti)}")
+        for el in risposta.get("elements", []):
+            autostrade[el["id"]] = el
+
+    risultato = {"elements": aree + colonnine + list(autostrade.values())}
+    CACHE.mkdir(exist_ok=True)
+    cache.write_text(json.dumps(risultato), encoding="utf-8")
+    return risultato
+
+
+def query_operatore(paese, operatore):
     filtro = re.escape(operatore)
     return f"""
 [out:json][timeout:300];
@@ -75,13 +176,16 @@ nwr(around.colonnine:{CARREGGIATA_MAX_M})["highway"~"^(services|rest_area)$"]->.
 
 
 def scarica(paese, operatore, aggiorna=False):
-    """Risposta Overpass per un paese; salvata in tools/cache/ e riusata se già presente."""
+    """Risposta Overpass per un paese; salvata in tools/cache/ e riusata se già presente.
+    operatore None = tutte le colonnine nelle aree di servizio."""
+    if operatore is None:
+        return scarica_aree_servizio(paese, aggiorna)
     cache = CACHE / f"{operatore.lower()}_{paese}.json"
     if cache.exists() and not aggiorna:
         print(f"{paese}: uso la cache {cache.name} (--aggiorna per riscaricare)")
         return json.loads(cache.read_text(encoding="utf-8"))
 
-    risposta = richiesta_overpass(query_overpass(paese, operatore), f"{operatore} in {paese}")
+    risposta = richiesta_overpass(query_operatore(paese, operatore), f"{operatore} in {paese}")
     CACHE.mkdir(exist_ok=True)
     cache.write_text(json.dumps(risposta), encoding="utf-8")
     return risposta
@@ -98,7 +202,12 @@ def richiesta_overpass(query, descrizione):
                 if r.status_code in (429, 502, 503, 504):
                     raise requests.HTTPError(f"HTTP {r.status_code}")
                 r.raise_for_status()
-                return r.json()
+                risposta = r.json()
+                # Su timeout o memoria esaurita Overpass risponde 200 con dati parziali e un "remark"
+                avviso = risposta.get("remark", "")
+                if "error" in avviso.lower():
+                    raise ValueError(f"risposta parziale: {avviso}")
+                return risposta
             except (requests.RequestException, ValueError) as err:
                 errori.append(f"{server}: {err}")
                 print(f"  fallito: {err}")
@@ -219,14 +328,24 @@ def colonnina(el):
     return {
         "codice": f"osm:{el['type']}/{el['id']}",
         "modello": tags.get("name") or tags.get("operator") or tags.get("network") or "",
+        "operatore": operatore_di(tags),
         "connettori": connettori(tags),
     }
 
 
+def operatore_di(tags):
+    nome = (tags.get("operator") or tags.get("network") or tags.get("brand") or "").strip()
+    return next((canonico for regola, canonico in NOMI_OPERATORI if regola.search(nome)), nome)
+
+
 def elabora(risposta, paese, operatore, dettagli=False):
-    """Converte la risposta Overpass in aree nel formato dell'app (vedi data/*.json)."""
+    """Converte la risposta Overpass in aree nel formato dell'app (vedi data/*.json).
+    operatore None = tutti gli operatori: solo colonnine dentro aree di servizio, escluse
+    quelle degli operatori che hanno già una fonte dedicata (Free To X, IONITY)."""
     elementi = risposta.get("elements", [])
     colonnine = [e for e in elementi if e.get("tags", {}).get("amenity") == "charging_station"]
+    if operatore is None:
+        colonnine = [c for c in colonnine if not OPERATORI_CON_FONTE.search(operatore_di(c.get("tags", {})))]
     autostrade = [e for e in elementi if e.get("tags", {}).get("highway") == "motorway"]
     aree_servizio = [e for e in elementi if e.get("tags", {}).get("highway") in ("services", "rest_area")]
 
@@ -247,7 +366,10 @@ def elabora(risposta, paese, operatore, dettagli=False):
             print(f"  {c.get('tags', {}).get('name', c['id'])!s:40.40} {p[0]:.5f},{p[1]:.5f}  "
                   f"autostrada {dist_autostrada:6.0f} m  area '{nome_area}' {dist_area:6.0f} m  → {esito}")
 
-        if dist_autostrada > USCITA_MAX_M:
+        # Tutti gli operatori: fuori dalle aree di servizio sarebbero colonnine qualsiasi.
+        # Si tengono solo quelle dentro un'area, anche se lontana dall'autostrada (da verificare)
+        dentro_area_lontana = not in_area and dist_area == 0
+        if dist_autostrada > USCITA_MAX_M or (operatore is None and not in_area and not dentro_area_lontana):
             continue
 
         chiave = f"osm:{area_servizio['type']}/{area_servizio['id']}" if in_area else colonnina(c)["codice"]
@@ -255,11 +377,11 @@ def elabora(risposta, paese, operatore, dettagli=False):
             aree[chiave]["colonnine"].append(colonnina(c))
             continue
 
-        tags_area = area_servizio["tags"] if in_area else {}
+        tags_area = area_servizio["tags"] if in_area or dentro_area_lontana else {}
         strada = codice_autostrada(via["tags"])
         aree[chiave] = {
             "codice": chiave,
-            "nome": tags_area.get("name") or c.get("tags", {}).get("name") or f"{operatore} {strada}".strip(),
+            "nome": tags_area.get("name") or c.get("tags", {}).get("name") or f"{operatore or 'Area di servizio'} {strada}".strip(),
             "strada": strada,
             "direzione": via["tags"].get("destination", "") if in_area else "",
             "direzione_geografica": punto_cardinale(direzione) if in_area and direzione is not None else "ND",
@@ -270,14 +392,47 @@ def elabora(risposta, paese, operatore, dettagli=False):
             "operatore": operatore,
             "distanzaAutostradaM": round(dist_autostrada),
             "tipoArea": tags_area.get("highway"),
+            "dentroAreaServizio": area_servizio["tags"].get("name") or True if dentro_area_lontana else None,
             "colonnine": [colonnina(c)],
         }
-    return raggruppa_vicine(list(aree.values()))
+
+    risultato = raggruppa_vicine(list(aree.values()))
+    if operatore is None:
+        for area in risultato:
+            area["operatore"] = ", ".join(sorted({c["operatore"] for c in area["colonnine"] if c["operatore"]})) or "sconosciuto"
+    return risultato
 
 
-def carica_aree_ufficiali():
+def escludi_gia_presenti(aree, altre_fonti):
+    """Toglie le aree già presenti in un'altra fonte: stesso nome entro DOPPIONE_NOME_M,
+    oppure posizione praticamente coincidente (entro DOPPIONE_M)."""
+    def doppione(area):
+        p = (area["lat"], area["lon"])
+        for altra in altre_fonti:
+            d = distanza_segmento_m(p, (altra["lat"], altra["lon"]), (altra["lat"], altra["lon"]))
+            if d <= DOPPIONE_M or (d <= DOPPIONE_NOME_M and nome_coincide(altra.get("nome"), area["nome"])):
+                return True
+        return False
+    return [a for a in aree if not doppione(a)]
+
+
+PAROLE_IGNORATE = {"area", "di", "servizio", "ads", "del", "della", "al", "s", "san", "sant", "santo", "santa"}
+
+
+def parole(nome):
+    return set(re.sub(r"[^a-zàèéìòùäöüß0-9]+", " ", (nome or "").lower()).split()) - PAROLE_IGNORATE
+
+
+def nome_coincide(nostro, osm):
+    """Tutte le parole significative del nostro nome compaiono in quello OSM.
+    "S.MARTINO EST" ↔ "Area di servizio San Martino Est"; il lato (est/ovest) deve coincidere."""
+    nostre = parole(nostro)
+    return bool(nostre) and nostre <= parole(osm)
+
+
+def carica_aree_ufficiali(fonti=FONTI_UFFICIALI):
     aree = []
-    for nome in FONTI_UFFICIALI:
+    for nome in fonti:
         file = DATA / nome
         if file.exists():
             aree += [a for a in json.loads(file.read_text(encoding="utf-8")).get("listaAree", [])
@@ -297,6 +452,9 @@ def motivi_dubbio(area, aree_ufficiali):
         if distanza is not None and distanza > AREA_LONTANA_M and not NOME_AREA_SERVIZIO.search(area["nome"]):
             motivi.append(f"a {distanza} m dall'autostrada, lontana per un'area di servizio")
     else:
+        if area.get("dentroAreaServizio"):
+            nome = area["dentroAreaServizio"] if isinstance(area["dentroAreaServizio"], str) else "un'area di servizio"
+            motivi.append(f"dentro {nome} ma a {distanza} m dall'autostrada")
         if NOME_AREA_SERVIZIO.search(area["nome"]):
             motivi.append("il nome indica un'area di servizio")
         if distanza is not None and distanza <= USCITA_VICINA_M and not NOME_AUTOHOF.search(area["nome"]):
@@ -336,22 +494,33 @@ def raggruppa_vicine(aree, raggio_m=RAGGRUPPA_M):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--operatore", default="IONITY")
+    parser.add_argument("--tutti-gli-operatori", action="store_true",
+                        help="colonnine di qualsiasi operatore nelle aree di servizio, escluse quelle già "
+                             "presenti in Free To X, A22 e IONITY (output: osm_aree_servizio.json)")
     parser.add_argument("--paesi", default="IT,DE", help="codici ISO separati da virgola")
     parser.add_argument("--output", help="file in data/ (default: <operatore>_osm.json)")
     parser.add_argument("--aggiorna", action="store_true", help="riscarica ignorando tools/cache/")
     parser.add_argument("--dettagli", action="store_true", help="distanze e classificazione di ogni colonnina")
     args = parser.parse_args()
+    operatore = None if args.tutti_gli_operatori else args.operatore
 
     aree = []
     ufficiali = carica_aree_ufficiali()
+    altre_fonti = carica_aree_ufficiali(ALTRE_FONTI)
     for paese in [p.strip().upper() for p in args.paesi.split(",")]:
-        risposta = scarica(paese, args.operatore, args.aggiorna)
-        trovate = classifica(elabora(risposta, paese, args.operatore, args.dettagli), ufficiali)
+        risposta = scarica(paese, operatore, args.aggiorna)
+        trovate = elabora(risposta, paese, operatore, args.dettagli)
+        if operatore is None:
+            prima = len(trovate)
+            trovate = escludi_gia_presenti(trovate, altre_fonti)
+            print(f"  {paese}: {prima - len(trovate)} aree già presenti in altre fonti, escluse")
+        trovate = classifica(trovate, ufficiali)
         print(f"  {paese}: {len(trovate)} aree ({sum(a['exitRequired'] for a in trovate)} fuori autostrada, "
               f"{sum(a['daVerificare'] for a in trovate)} da verificare)")
         aree += trovate
 
-    output = DATA / (args.output or f"{args.operatore.lower()}_osm.json")
+    predefinito = f"{operatore.lower()}_osm.json" if operatore else "osm_aree_servizio.json"
+    output = DATA / (args.output or predefinito)
     output.write_text(json.dumps({
         "listaAree": aree,
         "data_download": datetime.now(timezone.utc).isoformat(),

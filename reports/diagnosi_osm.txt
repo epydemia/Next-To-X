@@ -1,0 +1,325 @@
+Overpass (overpass-api.de, tentativo 1): aree di servizio e colonnine in IT...
+  IT: 370 colonnine in 325 aree di servizio
+Overpass (overpass-api.de, tentativo 1): autostrade vicine, aree 1-40 di 325...
+  fallito: HTTP 502
+Overpass (overpass-api.de, tentativo 2): autostrade vicine, aree 1-40 di 325...
+Overpass (overpass-api.de, tentativo 1): autostrade vicine, aree 41-80 di 325...
+  fallito: HTTP 502
+Overpass (overpass-api.de, tentativo 2): autostrade vicine, aree 41-80 di 325...
+  fallito: HTTP 502
+Overpass (overpass.kumi.systems, tentativo 1): autostrade vicine, aree 41-80 di 325...
+  fallito: HTTP 502
+Overpass (overpass.kumi.systems, tentativo 2): autostrade vicine, aree 41-80 di 325...
+Overpass (overpass-api.de, tentativo 1): autostrade vicine, aree 81-120 di 325...
+  fallito: HTTP 502
+Overpass (overpass-api.de, tentativo 2): autostrade vicine, aree 81-120 di 325...
+Overpass (overpass-api.de, tentativo 1): autostrade vicine, aree 121-160 di 325...
+Overpass (overpass-api.de, tentativo 1): autostrade vicine, aree 161-200 di 325...
+  fallito: HTTP 502
+Overpass (overpass-api.de, tentativo 2): autostrade vicine, aree 161-200 di 325...
+Overpass (overpass-api.de, tentativo 1): autostrade vicine, aree 201-240 di 325...
+Overpass (overpass-api.de, tentativo 1): autostrade vicine, aree 241-280 di 325...
+  fallito: HTTP 502
+Overpass (overpass-api.de, tentativo 2): autostrade vicine, aree 241-280 di 325...
+Overpass (overpass-api.de, tentativo 1): autostrade vicine, aree 281-320 di 325...
+Overpass (overpass-api.de, tentativo 1): autostrade vicine, aree 321-325 di 325...
+  Enel                                     44.69727,10.64241  autostrada  16191 m  area 'Agip'    145 m  → scartata
+  Enel                                     44.69498,10.64053  autostrada  16290 m  area 'Ego'     56 m  → scartata
+  Enel                                     44.69498,10.64064  autostrada  16281 m  area 'Ego'     48 m  → scartata
+  Enel - stazione di ricarica              41.90627,12.41450  autostrada  27978 m  area '?'     40 m  → scartata
+  Enel - stazione di ricarica              41.90633,12.41465  autostrada  27965 m  area '?'     31 m  → scartata
+  Dorno Supercharger Est                   45.14723,8.99121  autostrada     14 m  area 'Area di Dorno Est'      0 m  → area di servizio
+  Dorno Supercharger Ovest                 45.14773,8.99062  autostrada     36 m  area 'Area di Dorno Ovest'      0 m  → area di servizio
+  Enel X                                   45.44940,11.84472  autostrada     60 m  area 'Area di servizio Limenella Ovest'      0 m  → area di servizio
+  Enel X Way                               37.07462,15.28195  autostrada   5387 m  area '?'    116 m  → scartata
+  Enel X Way                               37.07462,15.28177  autostrada   5372 m  area '?'    112 m  → scartata
+  Enel X Way                               37.09168,15.27520  autostrada   5922 m  area '?'    134 m  → scartata
+  Enel X Way                               37.07626,15.28435  autostrada   5655 m  area '?'    108 m  → scartata
+  Enel X Way                               37.08258,15.25235  autostrada   3805 m  area '?'    144 m  → scartata
+  Enel X Way                               37.07642,15.28409  autostrada   5641 m  area '?'    136 m  → scartata
+  6584482418                               45.87101,10.87452  autostrada  10133 m  area '?'     72 m  → scartata
+  Enel                                     45.50945,9.03969  autostrada     48 m  area 'Area di Rho Sud'      0 m  → area di servizio
+  Enel X Way                               37.48841,15.08360  autostrada   6200 m  area '?'     21 m  → scartata
+  Enel X Way                               37.48840,15.08354  autostrada   6197 m  area '?'     21 m  → scartata
+  Enel X Way                               37.53572,15.11785  autostrada   3833 m  area '?'     92 m  → scartata
+  Enel X Way                               37.53566,15.11787  autostrada   3840 m  area '?'     89 m  → scartata
+  Enel X Way                               37.08043,15.28117  autostrada   5612 m  area '?'    105 m  → scartata
+  6750602676                               44.29785,11.88527  autostrada  24604 m  area '?'     83 m  → scartata
+  Paganella Ovest                          46.14008,11.08532  autostrada     56 m  area 'Paganella Ovest'      0 m  → area di servizio
+  Paganella Est                            46.14049,11.08760  autostrada     86 m  area 'Paganella Est'      0 m  → area di servizio
+  6901916120                               45.71130,9.67111  autostrada   9375 m  area '?'     67 m  → scartata
+  Circontrol                               37.10540,15.25337  autostrada   6043 m  area '?'      0 m  → scartata
+  7278316199                               39.72453,8.63587  autostrada 381488 m  area '?'    122 m  → scartata
+  7278316200                               39.72450,8.63589  autostrada 381490 m  area '?'    119 m  → scartata
+  Enel X Way                               36.88621,15.07664  autostrada  22441 m  area '?'     74 m  → scartata
+  7812586943                               44.47339,11.39975  autostrada   4675 m  area '?'     15 m  → scartata
+  Enel X                                   42.77815,12.40396  autostrada  21548 m  area '?'    101 m  → scartata
+  7838711771                               46.11711,11.08936  autostrada    185 m  area '?'      0 m  → area di servizio
+  8500858961                               42.34480,14.12904  autostrada    367 m  area '?'    109 m  → area di servizio
+  Pescara Ebike power station              42.47018,14.19344  autostrada   3576 m  area '?'    127 m  → scartata
+  Enel                                     42.21940,14.14017  autostrada  13264 m  area '?'    134 m  → scartata
+  EVlink                                   42.78793,11.11535  autostrada  74270 m  area '?'    147 m  → scartata
+  ABB                                      45.05990,10.84039  autostrada     83 m  area 'Po Ovest'      0 m  → area di servizio
+  Eurospin                                 37.07956,15.16249  autostrada   6263 m  area '?'     85 m  → scartata
+  Eurospin                                 37.07952,15.16248  autostrada   6263 m  area '?'     81 m  → scartata
+  Enel X                                   42.42471,14.19106  autostrada   1212 m  area '?'    143 m  → uscita
+  Enel X                                   43.61856,11.18791  autostrada     49 m  area 'San Casciano Ovest'      0 m  → area di servizio
+  Enel X                                   45.53026,9.37641  autostrada   4441 m  area '?'    142 m  → scartata
+  Blitz Power                              42.46971,14.19313  autostrada   3519 m  area '?'     70 m  → scartata
+  Q8easy                                   45.50446,9.37269  autostrada   6055 m  area '?'      0 m  → scartata
+  Enel x                                   45.55205,12.07351  autostrada  14384 m  area '?'    104 m  → scartata
+  Plenitude                                37.07126,15.26736  autostrada   4054 m  area '?'     72 m  → scartata
+  9711162439                               42.76787,10.88772  autostrada  79628 m  area '?'     73 m  → scartata
+  Enel X                                   42.91546,10.76854  autostrada  68135 m  area '?'     70 m  → scartata
+  9714216355                               43.66946,10.35985  autostrada     91 m  area 'Castagnolo Est'      0 m  → area di servizio
+  9737952215                               37.51089,15.04156  autostrada   1996 m  area '?'      0 m  → scartata
+  Plenitude                                37.12026,14.93598  autostrada  23807 m  area '?'     72 m  → scartata
+  Wirelane                                 37.30116,15.00238  autostrada  12346 m  area '?'     79 m  → scartata
+  Free to X                                43.62695,13.33531  autostrada     50 m  area 'Esino Est'      0 m  → area di servizio
+  Free to X                                42.53072,14.12432  autostrada     29 m  area 'Torre Cerrano ovest'      0 m  → area di servizio
+  Free to X                                45.57586,9.39379  autostrada    101 m  area 'Brianza Nord'      0 m  → area di servizio
+  Free to X                                44.96266,9.90437  autostrada     35 m  area 'Area d'Arda Ovest'      0 m  → area di servizio
+  Enel X                                   42.46812,14.20329  autostrada   3630 m  area '?'    120 m  → scartata
+  Enel X HPC                               45.43130,11.86387  autostrada   1611 m  area '?'      0 m  → scartata
+  Free to X                                41.25181,16.21989  autostrada     54 m  area 'Area di Servizio Canne della Battaglia Est'      0 m  → area di servizio
+  Free to X                                41.25076,16.21926  autostrada     52 m  area 'Area di Servizio Canne della Battaglia Ovest'      0 m  → area di servizio
+  Free to X                                45.32153,9.37716  autostrada     60 m  area 'Area di servizio San Zenone est'      0 m  → area di servizio
+  Enel X Way                               37.29461,15.00060  autostrada  12286 m  area '?'    141 m  → scartata
+  9923921201                               42.57229,14.09765  autostrada   2431 m  area '?'     19 m  → scartata
+  9925412165                               43.11111,10.54093  autostrada  62014 m  area '?'    122 m  → scartata
+  9967413090                               43.59306,11.19836  autostrada     13 m  area '?'    135 m  → area di servizio
+  Free To X                                41.04907,14.32316  autostrada     57 m  area 'Area servizio San Nicola Est'      0 m  → area di servizio
+  10013440664                              45.62791,13.79357  autostrada  19726 m  area 'IP'    133 m  → scartata
+  Enel X                                   44.47333,11.40081  autostrada   4592 m  area '?'      0 m  → scartata
+  Free To X                                45.72986,9.02802  autostrada     46 m  area 'Area di Lario Ovest'      0 m  → area di servizio
+  BE Charge                                42.45224,14.22655  autostrada   3815 m  area '?'      0 m  → scartata
+  BE Charge                                42.45221,14.22535  autostrada   3724 m  area '?'     94 m  → scartata
+  Free To X                                43.58287,11.52253  autostrada     51 m  area 'Arno Est'      0 m  → area di servizio
+  10106571383                              42.43648,14.19404  autostrada    869 m  area '?'    120 m  → uscita
+  EnerHub                                  42.41611,14.16861  autostrada    132 m  area '?'    114 m  → area di servizio
+  10118851450                              42.43668,14.19435  autostrada    888 m  area '?'     87 m  → uscita
+  10121103739                              45.70109,9.48030  autostrada  11328 m  area '?'     39 m  → scartata
+  Blitz Power                              42.48091,14.19292  autostrada   4732 m  area '?'     26 m  → scartata
+  Plenitude                                42.46456,14.20531  autostrada   3364 m  area '?'     65 m  → scartata
+  Pescara Ebike power station              42.48057,14.19368  autostrada   4705 m  area '?'     14 m  → scartata
+  Ewiva                                    42.46278,14.20530  autostrada   3198 m  area '?'     68 m  → scartata
+  Free to X                                45.53255,10.14835  autostrada     41 m  area 'Val Trompia Sud'      0 m  → area di servizio
+  Free to X                                45.53258,10.15119  autostrada     65 m  area 'Val Trompia Sud'     96 m  → area di servizio
+  Ewiva                                    37.11107,15.19599  autostrada   6732 m  area 'Priolo Ovest'      0 m  → scartata
+  Ewiva                                    37.11114,15.19597  autostrada   6740 m  area 'Priolo Ovest'      0 m  → scartata
+  Enel X Way                               37.05844,15.22511  autostrada    369 m  area 'Serramendola Ovest'      0 m  → area di servizio
+  Ewiva                                    37.05972,15.22717  autostrada    501 m  area 'Serramendola Est'      0 m  → uscita
+  Ewiva                                    37.05972,15.22726  autostrada    502 m  area 'Serramendola Est'      0 m  → uscita
+  Green Blue                               37.26386,15.14182  autostrada    280 m  area '?'      6 m  → area di servizio
+  Free to X                                41.68641,13.18878  autostrada     52 m  area 'La Macchia Est'      0 m  → area di servizio
+  Free to X                                41.68604,13.18746  autostrada     35 m  area 'La Macchia ovest'      0 m  → area di servizio
+  Free to X                                43.07506,13.84284  autostrada     46 m  area 'Piceno ovest'      0 m  → area di servizio
+  Free to X                                43.81872,11.17243  autostrada     50 m  area 'Peretola Sud'      0 m  → area di servizio
+  Free to X                                41.49779,13.68423  autostrada     87 m  area 'Casilina Est'      0 m  → area di servizio
+  Free to X                                44.96307,9.90683  autostrada     91 m  area 'Area d'Arda Est'      0 m  → area di servizio
+  Enel                                     44.51186,11.41021  autostrada   4511 m  area '?'      0 m  → scartata
+  Enel X                                   41.67498,12.49975  autostrada  31536 m  area '?'    137 m  → scartata
+  Enel X                                   41.68196,12.50736  autostrada  30541 m  area '?'     17 m  → scartata
+  Q8                                       45.58930,9.17295  autostrada   5025 m  area '?'      1 m  → scartata
+  10753104284                              45.55902,9.04182  autostrada     80 m  area 'Area di Villoresi Est'      0 m  → area di servizio
+  10754787018                              43.71469,11.05351  autostrada  14183 m  area '?'      0 m  → scartata
+  Enel X                                   45.52531,12.25972  autostrada     37 m  area 'Area di servizio Bazzera Nord'      0 m  → area di servizio
+  Enel X Way                               37.17258,15.15851  autostrada   9278 m  area 'Priolo Est'      0 m  → scartata
+  10889379541                              45.60820,12.29722  autostrada     51 m  area 'Area di servizio Sile Ovest'      0 m  → area di servizio
+  10889380966                              45.60822,12.29722  autostrada     51 m  area 'Area di servizio Sile Ovest'      0 m  → area di servizio
+  10900106298                              40.62051,17.91040  autostrada 105936 m  area '?'     32 m  → scartata
+  Enel X Way                               36.91042,15.14020  autostrada  17183 m  area '?'     36 m  → scartata
+  Ewiva                                    36.88624,15.07676  autostrada  22432 m  area '?'     73 m  → scartata
+  Enel X Way                               37.12455,14.85316  autostrada  29414 m  area '?'     26 m  → scartata
+  Enel X Way                               37.24700,15.22170  autostrada   6648 m  area '?'    138 m  → scartata
+  11013725120                              45.74904,7.62302  autostrada    129 m  area 'Area di Châtillon-Saint Vincent Nord'     52 m  → area di servizio
+  Rendez Vous                              45.75032,7.62127  autostrada    281 m  area 'Area di Châtillon-Saint Vincent Nord'    147 m  → area di servizio
+  Be Charge                                36.72960,14.68593  autostrada  59795 m  area '?'     69 m  → scartata
+  Be Charge                                36.72961,14.68587  autostrada  59798 m  area '?'     74 m  → scartata
+  Enel X Way                               36.88939,15.07601  autostrada  22192 m  area '?'     39 m  → scartata
+  11068063931                              45.94394,12.32458  autostrada  34096 m  area '?'     99 m  → scartata
+  11100928725                              46.57001,11.52282  autostrada     13 m  area 'Eisack Ost - Isarco Est'      0 m  → area di servizio
+  Be Charge Conforama                      41.58180,12.65264  autostrada  34153 m  area '?'     54 m  → scartata
+  Free To X                                44.11677,12.40900  autostrada     29 m  area 'Area di servizio Rubicone Est'      0 m  → area di servizio
+  Free To X                                44.11694,12.40892  autostrada     44 m  area 'Area di servizio Rubicone Est'      0 m  → area di servizio
+  Be Charge                                42.50003,14.16668  autostrada   4013 m  area '?'     14 m  → scartata
+  11154478906                              46.49899,13.37545  autostrada     27 m  area 'Area servizio Fella Est'      0 m  → area di servizio
+  Enel X                                   45.18717,11.26947  autostrada  24587 m  area '?'     11 m  → scartata
+  Enel X                                   45.18715,11.26948  autostrada  24588 m  area '?'     12 m  → scartata
+  Enel X Way                               37.59739,15.13076  autostrada     83 m  area 'Aci Sant'Antonio Est'     23 m  → area di servizio
+  11215930246                              46.01499,13.21803  autostrada     53 m  area 'Area Servizio Zugliano Ovest'      0 m  → area di servizio
+  Galdieri Energy                          40.74829,14.78662  autostrada     50 m  area 'Area di servizio Baronissi est'      0 m  → area di servizio
+  Galdieri Energy                          40.74826,14.78532  autostrada     47 m  area 'Area di servizio Baronissi ovest'      0 m  → area di servizio
+  Be Charge                                45.80475,12.88056  autostrada     68 m  area 'Fratta Nord'      0 m  → area di servizio
+  Enel Way                                 42.44720,14.21155  autostrada   2463 m  area '?'     81 m  → scartata
+  11305609942                              43.64218,10.61696  autostrada  19987 m  area 'Area di Servizio Valdera'      0 m  → scartata
+  11305609943                              43.64220,10.61692  autostrada  19984 m  area 'Area di Servizio Valdera'      0 m  → scartata
+  Enel X                                   42.98634,13.87223  autostrada   9152 m  area '?'     77 m  → scartata
+  11369408885                              45.41149,10.90258  autostrada     55 m  area 'Area di servizio Monte Baldo Ovest'      9 m  → area di servizio
+  Tesla Destination Charger                45.41151,10.90265  autostrada     59 m  area 'Area di servizio Monte Baldo Ovest'     15 m  → area di servizio
+  Ewiva                                    42.46372,14.20431  autostrada   3242 m  area '?'     91 m  → scartata
+  11390110220                              45.41180,11.23238  autostrada     62 m  area 'Area di servizio Scaligera Ovest'      0 m  → area di servizio
+  Scame                                    42.45254,14.22826  autostrada   3958 m  area '?'     78 m  → scartata
+  11405276683                              45.90184,11.02727  autostrada     40 m  area 'Area di Nogaredo Ovest'     58 m  → area di servizio
+  11405276882                              45.90219,11.02595  autostrada     60 m  area 'Area di Nogaredo Ovest'      0 m  → area di servizio
+  Enel X                                   37.06503,14.26122  autostrada  56896 m  area '?'     30 m  → scartata
+  11456403244                              45.24178,11.89076  autostrada  22666 m  area '?'      0 m  → scartata
+  Be Charge                                37.29475,13.54167  autostrada  76120 m  area '?'      0 m  → scartata
+  Eurospin                                 37.42055,15.06454  autostrada  11699 m  area '?'     66 m  → scartata
+  Eurospin                                 37.42060,15.06454  autostrada  11694 m  area '?'     60 m  → scartata
+  Enel X Way                               37.02768,15.07316  autostrada  13826 m  area '?'    133 m  → scartata
+  Enel X Way                               37.65802,12.60059  autostrada 152288 m  area '?'      8 m  → scartata
+  Circontrol                               37.07926,15.28126  autostrada   5556 m  area '?'      0 m  → scartata
+  Enel X Way                               38.01981,12.53774  autostrada 164247 m  area '?'     36 m  → scartata
+  Enel X Way                               37.09845,15.27528  autostrada   6460 m  area '?'      0 m  → scartata
+  Enel X                                   42.14733,12.61142  autostrada    128 m  area '?'      0 m  → area di servizio
+  Enel X Way                               37.64015,12.75582  autostrada 138553 m  area '?'     83 m  → scartata
+  Enel X Way                               36.94189,14.52845  autostrada  63222 m  area '?'      0 m  → scartata
+  Enel X Way                               37.37594,14.36512  autostrada  22027 m  area '?'    124 m  → scartata
+  11694118922                              37.48910,15.08278  autostrada   6095 m  area '?'     26 m  → scartata
+  Enel X                                   45.24175,7.97401  autostrada     73 m  area 'Area Servizio San Rocco'      0 m  → area di servizio
+  Enel X Way                               37.61114,15.00767  autostrada   9124 m  area '?'      0 m  → scartata
+  Enel X Way                               37.11005,15.24024  autostrada   6184 m  area 'Targia'      0 m  → scartata
+  Enel X Way                               36.68357,15.13341  autostrada  41296 m  area '?'    122 m  → scartata
+  Enel X Way                               37.53445,15.03133  autostrada    660 m  area '?'      0 m  → uscita
+  Enel X Way                               37.53441,15.03136  autostrada    655 m  area '?'      0 m  → uscita
+  Enel X Way                               37.61250,15.03287  autostrada   7968 m  area '?'      0 m  → scartata
+  Enel X Way                               37.61246,15.03291  autostrada   7964 m  area '?'      0 m  → scartata
+  11807443310                              43.10963,10.54204  autostrada  62193 m  area '?'    116 m  → scartata
+  11813323740                              44.33339,11.18967  autostrada  11056 m  area 'Esso'     41 m  → scartata
+  11813344259                              44.33337,11.18963  autostrada  11059 m  area 'Esso'     38 m  → scartata
+  11907241528                              42.70047,13.99892  autostrada  18429 m  area '?'    135 m  → scartata
+  11911827302                              42.66408,14.02560  autostrada  13862 m  area '?'      0 m  → scartata
+  Enel X Way                               37.15484,15.18916  autostrada  11492 m  area '?'      0 m  → scartata
+  Enel X Way                               37.09474,15.28599  autostrada   6867 m  area '?'      0 m  → scartata
+  Enel X Way                               37.25016,15.22106  autostrada   6548 m  area '?'      0 m  → scartata
+  Enel Way                                 42.45337,14.22547  autostrada   3786 m  area '?'    134 m  → scartata
+  Oncharge                                 42.19326,14.22015  autostrada  17766 m  area '?'      4 m  → scartata
+  Enel X Way                               36.85336,14.74945  autostrada  47694 m  area '?'      0 m  → scartata
+  11998847133                              46.56357,11.21332  autostrada  21241 m  area 'Mebosüd'      0 m  → scartata
+  12000639393                              46.49438,11.28067  autostrada  15932 m  area '?'      0 m  → scartata
+  Enel X Way                               37.07597,15.28171  autostrada   5429 m  area '?'     42 m  → scartata
+  Enel X Way                               37.07596,15.28170  autostrada   5427 m  area '?'     43 m  → scartata
+  12063587152                              42.42937,14.19885  autostrada   1568 m  area '?'    139 m  → scartata
+  Enel                                     44.69490,10.64046  autostrada  16294 m  area 'Ego'     58 m  → scartata
+  12073250116                              44.69605,10.64201  autostrada  16196 m  area 'Ego'    147 m  → scartata
+  Enel X Way                               37.29594,14.99913  autostrada  12451 m  area '?'     62 m  → scartata
+  12095386176                              41.85981,12.58542  autostrada  14620 m  area '?'      0 m  → scartata
+  Enel X Way                               36.92142,15.15206  autostrada  15629 m  area '?'      0 m  → scartata
+  Edison Next                              41.08010,14.30146  autostrada    461 m  area '?'      0 m  → uscita
+  Green Blue                               37.05923,14.91319  autostrada  27806 m  area '?'     36 m  → scartata
+  Enel X Way                               37.16291,15.03350  autostrada  14381 m  area '?'     84 m  → scartata
+  Free to X                                45.53270,10.14833  autostrada     29 m  area 'Val Trompia Sud'      0 m  → area di servizio
+  Enel X                                   39.34549,16.23591  autostrada     60 m  area 'Area di servizio Cosenza est'      0 m  → area di servizio
+  Enel X                                   39.34561,16.23445  autostrada     54 m  area 'Area di servizio Cosenza ovest'      0 m  → area di servizio
+  Eurospin                                 37.17672,15.14558  autostrada   8768 m  area '?'     91 m  → scartata
+  Enel X                                   43.46752,11.15493  autostrada    177 m  area 'Esso'    144 m  → area di servizio
+  JOINON                                   42.49889,14.17162  autostrada   4390 m  area '?'     38 m  → scartata
+  12211753863                              44.59222,8.66475  autostrada     43 m  area 'Area di Stura Ovest'      0 m  → area di servizio
+  12238362033                              45.54103,10.77934  autostrada     58 m  area 'Area di servizio Garda ovest'      0 m  → area di servizio
+  Enel X Way                               37.07733,15.17002  autostrada   5554 m  area '?'     34 m  → scartata
+  Enel X Way                               36.83261,14.76897  autostrada  47282 m  area '?'    148 m  → scartata
+  Enel X Way                               36.92120,14.70608  autostrada  48426 m  area '?'     39 m  → scartata
+  Enel X Way                               36.93819,14.66045  autostrada  51832 m  area '?'      0 m  → scartata
+  12270799949                              42.19110,14.25852  autostrada  19508 m  area '?'      0 m  → scartata
+  12276907127                              45.07037,9.10135  autostrada  11314 m  area '?'     86 m  → scartata
+  EnerHub                                  42.41615,14.16864  autostrada    133 m  area '?'    111 m  → area di servizio
+  Enel X                                   42.43620,14.19481  autostrada    939 m  area '?'    122 m  → uscita
+  12372259218                              39.53525,8.92721  autostrada 378830 m  area '?'    116 m  → scartata
+  Ladestation                              42.49930,12.31113  autostrada     66 m  area 'Giove ovest'      0 m  → area di servizio
+  12546183586                              43.89086,12.89113  autostrada    184 m  area '?'      2 m  → area di servizio
+  12720397083                              43.62117,10.49675  autostrada  11005 m  area 'Area di servizio Grecciano sud'      0 m  → scartata
+  12736462169                              44.44032,11.35385  autostrada   5923 m  area '?'     78 m  → scartata
+  Plenitude                                37.23814,15.22255  autostrada   6938 m  area '?'      9 m  → scartata
+  12752881307                              45.54954,9.38861  autostrada   2632 m  area '?'     18 m  → scartata
+  12752881308                              45.54959,9.38858  autostrada   2626 m  area '?'     24 m  → scartata
+  12791243922                              44.70445,7.76398  autostrada     61 m  area 'Area di Servizio Rio Coloré est'      0 m  → area di servizio
+  12801819231                              37.57842,14.33973  autostrada     73 m  area 'Sacchitello Nord'      0 m  → area di servizio
+  12802745097                              46.02471,8.27323  autostrada  50138 m  area '?'    106 m  → scartata
+  12802765203                              46.02369,8.27267  autostrada  50112 m  area '?'      0 m  → scartata
+  Enel X Way                               37.29294,15.00113  autostrada  12194 m  area '?'      0 m  → scartata
+  Enel X Way                               36.91727,15.14692  autostrada  16240 m  area '?'    117 m  → scartata
+  Enel X Way                               36.91724,15.14696  autostrada  16240 m  area '?'    122 m  → scartata
+  Enel X Way                               36.91680,15.14503  autostrada  16360 m  area '?'     63 m  → scartata
+  San Benedetto del Tronto Supercharger    42.89676,13.88361  autostrada     58 m  area 'Good Truck La Sosta'      0 m  → area di servizio
+  Ionity                                   44.22649,9.72992  autostrada     22 m  area 'Brugnato Ovest'      0 m  → area di servizio
+  12957274685                              44.70352,10.84896  autostrada     33 m  area 'Campogalliano est'      0 m  → area di servizio
+  12957274686                              44.70348,10.84897  autostrada     34 m  area 'Campogalliano est'      0 m  → area di servizio
+  13037646858                              40.25404,18.11643  autostrada 144095 m  area '?'      0 m  → scartata
+  13037646865                              40.25400,18.11641  autostrada 144097 m  area '?'      0 m  → scartata
+  13037646876                              40.25347,18.11753  autostrada 144208 m  area '?'      0 m  → scartata
+  13037646878                              40.25355,18.11756  autostrada 144204 m  area '?'      0 m  → scartata
+  13037646890                              40.25396,18.11639  autostrada 144099 m  area '?'      0 m  → scartata
+  13037646897                              40.25351,18.11754  autostrada 144206 m  area '?'      0 m  → scartata
+  Enel X                                   45.29900,12.03142  autostrada  20956 m  area '?'    115 m  → scartata
+  Bluoil                                   36.78898,14.92677  autostrada  39278 m  area '?'      0 m  → scartata
+  Enel X Way                               36.91808,14.71228  autostrada  48003 m  area '?'    109 m  → scartata
+  13157696176                              43.99259,12.65194  autostrada   1761 m  area '?'      0 m  → scartata
+  13157718492                              43.99360,12.65162  autostrada   1762 m  area '?'     86 m  → scartata
+  IPlanet                                  43.85393,10.40836  autostrada     40 m  area 'Quiesa Nord'      0 m  → area di servizio
+  13185617937                              44.81004,10.28669  autostrada   5945 m  area 'Metano Amico'     26 m  → scartata
+  13304660801                              44.66163,10.85490  autostrada    140 m  area 'Secchia Ovest'      0 m  → area di servizio
+  13304660901                              44.66166,10.85482  autostrada    142 m  area 'Secchia Ovest'      0 m  → area di servizio
+  13304665701                              44.66168,10.85477  autostrada    143 m  area 'Secchia Ovest'      0 m  → area di servizio
+  13304665801                              44.66170,10.85472  autostrada    145 m  area 'Secchia Ovest'      0 m  → area di servizio
+  13308345628                              40.88970,14.47344  autostrada  13008 m  area '?'     89 m  → scartata
+  13328865870                              45.80749,13.01790  autostrada    234 m  area 'Nection Ronchis'      0 m  → area di servizio
+  13328865871                              45.80747,13.01790  autostrada    234 m  area 'Nection Ronchis'      0 m  → area di servizio
+  13328865872                              45.80745,13.01791  autostrada    234 m  area 'Nection Ronchis'      0 m  → area di servizio
+  IPlanet                                  45.43014,10.71452  autostrada     74 m  area '?'      0 m  → area di servizio
+  13389559013                              44.34029,7.77771  autostrada  39279 m  area '?'      0 m  → scartata
+  13427068197                              45.50730,9.26151  autostrada     47 m  area 'Area di Servizio Cascina Gobba Est'      0 m  → area di servizio
+  13760458501                              45.32104,9.37522  autostrada     65 m  area 'Area di servizio San Zenone ovest'      0 m  → area di servizio
+  13812227002                              43.18806,11.66853  autostrada  24549 m  area '?'     59 m  → scartata
+  13898729401                              42.76787,10.88794  autostrada  79623 m  area '?'     83 m  → scartata
+  13958543590                              45.55220,10.78798  autostrada    400 m  area '?'    102 m  → area di servizio
+  13958543591                              45.55219,10.78801  autostrada    398 m  area '?'    104 m  → area di servizio
+  13958543592                              45.55218,10.78804  autostrada    396 m  area '?'    106 m  → area di servizio
+  13958543593                              45.55217,10.78807  autostrada    393 m  area '?'    109 m  → area di servizio
+  13958543594                              45.55216,10.78810  autostrada    391 m  area '?'    112 m  → area di servizio
+  13958543595                              45.55214,10.78813  autostrada    388 m  area '?'    115 m  → area di servizio
+  13958543596                              45.55213,10.78816  autostrada    386 m  area '?'    117 m  → area di servizio
+  13958543597                              45.55212,10.78820  autostrada    383 m  area '?'    120 m  → area di servizio
+  13958543598                              45.55211,10.78823  autostrada    381 m  area '?'    123 m  → area di servizio
+  13958543599                              45.55210,10.78826  autostrada    378 m  area '?'    126 m  → area di servizio
+  13958543600                              45.55209,10.78830  autostrada    375 m  area '?'    129 m  → area di servizio
+  13958591201                              45.55208,10.78833  autostrada    373 m  area '?'    132 m  → area di servizio
+  13958591202                              45.55206,10.78837  autostrada    370 m  area '?'    135 m  → area di servizio
+  13958591203                              45.55205,10.78841  autostrada    367 m  area '?'    138 m  → area di servizio
+  13958591204                              45.55204,10.78843  autostrada    365 m  area '?'    141 m  → area di servizio
+  13958591205                              45.55203,10.78847  autostrada    362 m  area '?'    144 m  → area di servizio
+  13958591206                              45.55202,10.78850  autostrada    360 m  area '?'    147 m  → area di servizio
+  13978887708                              42.93702,10.50735  autostrada  78626 m  area '?'      0 m  → scartata
+  13987992764                              45.75276,11.89658  autostrada     20 m  area 'Area di Altivole Nord'      0 m  → area di servizio
+  Poste Italiane                           37.15627,15.18973  autostrada  11629 m  area '?'    113 m  → scartata
+  Enel X Way                               36.68470,15.13361  autostrada  41169 m  area '?'     92 m  → scartata
+  Enel X Way                               36.72599,15.08681  autostrada  37870 m  area '?'      0 m  → scartata
+  Poste Italiane                           37.15626,15.18964  autostrada  11630 m  area '?'    105 m  → scartata
+  14059308126                              44.76058,8.83702  autostrada     58 m  area 'Bettole Ovest'      0 m  → area di servizio
+  Q8                                       45.58928,9.17288  autostrada   5025 m  area '?'      1 m  → scartata
+  14093758236                              46.53161,11.49048  autostrada     99 m  area 'Schlern West - Scilliar Ovest'      0 m  → area di servizio
+  Duino Nord                               45.77745,13.60853  autostrada     53 m  area 'Area di servizio Duino Nord'      0 m  → area di servizio
+  14159234951                              45.71229,11.63166  autostrada     22 m  area 'Area di servizio Colceresa Nord'      0 m  → area di servizio
+  14159249261                              45.71136,11.63110  autostrada     22 m  area 'Area di Colceresa Sud'      0 m  → area di servizio
+  14178042757                              37.72634,15.19454  autostrada  13276 m  area '?'    116 m  → scartata
+  14188604819                              45.53938,10.78049  autostrada     51 m  area 'Area di servizio Garda est'      0 m  → area di servizio
+  14226119704                              45.36296,10.86057  autostrada   5725 m  area '?'    106 m  → scartata
+  14270824272                              45.55108,9.33296  autostrada    406 m  area '?'     56 m  → uscita
+  Enel X Way                               37.49081,14.04171  autostrada  26832 m  area '?'     32 m  → scartata
+  239086504                                41.04907,14.32316  autostrada     58 m  area 'Area servizio San Nicola Est'      0 m  → area di servizio
+  915141435                                42.34480,14.12904  autostrada    367 m  area '?'    109 m  → area di servizio
+  BeCharge                                 42.08936,13.36831  autostrada    761 m  area '?'    120 m  → uscita
+  1416756374                               41.09335,16.79836  autostrada    612 m  area '?'     83 m  → uscita
+  IPlanet                                  43.09026,10.55197  autostrada  64241 m  area 'area servizio San Vincenzo'      0 m  → scartata
+  1533216804                               43.02759,10.60876  autostrada  65624 m  area '?'    137 m  → scartata
+  1554318473                               44.48887,11.42070  autostrada   3301 m  area '?'      0 m  → scartata
+  1564644725                               43.79816,7.69129  autostrada     29 m  area 'Area di Bordighera Sud'      0 m  → area di servizio
+  1566521895                               45.55149,10.78750  autostrada    360 m  area '?'    101 m  → area di servizio
+  1566521896                               45.55143,10.78761  autostrada    350 m  area '?'    111 m  → area di servizio
+  Affi Supercharger                        45.55127,10.78726  autostrada    352 m  area '?'     99 m  → area di servizio
+  Supercharger Aosta, Italy - A5 dir. Tori 45.73726,7.37242  autostrada     81 m  area 'Autoporto / Autoport'      0 m  → area di servizio
+  Supercharger Aosta, Italy - A5 dir. Mont 45.73726,7.37252  autostrada     81 m  area 'Autoporto / Autoport'      0 m  → area di servizio
+  Supercharger Aosta, Italy - off highway  45.73708,7.37243  autostrada    101 m  area 'Autoporto / Autoport'      0 m  → area di servizio
+  IT: 34 aree già presenti in altre fonti, escluse
+  IT: 43 aree (0 fuori autostrada, 3 da verificare)
+43 aree salvate in /home/daniele/Dev/Next-To-X/data/osm_aree_servizio.json

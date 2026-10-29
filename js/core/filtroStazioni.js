@@ -13,6 +13,7 @@ function versoStazione(area, lat, lon) {
     nome: area.nome,
     strada: area.strada || area.stradaReverse || 'Strada sconosciuta',
     direzione: area.direzione ?? '',
+    operatore: area.operatore ?? '',
     lat: area.lat,
     lon: area.lon,
     distanza: distanzaKm(lat, lon, area.lat, area.lon),
