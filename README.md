@@ -60,8 +60,18 @@ Open ⚙ → **Simula posizione**. The app replays a default route on the A14, o
 
 Add an entry to `SORGENTI_DATI` in `js/config.js` pointing at a JSON file in `data/` with the shape `{ "listaAree": [...] }`. Each area needs at least `codice`, `nome`, `strada`, `lat`, `lon`; `direzione_geografica` and `exitRequired` improve filtering.
 
+## Updating the data
+
+| Source | Command | Output |
+| --- | --- | --- |
+| Free To X (Italy) | `python tools/Download_Free_To_X.py && python tools/ReverseGeocoding.py` | `data/free_to_x_reverse.json` |
+| IONITY (Italy, Germany) from OpenStreetMap | `python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE` | `data/ionity_osm.json` |
+
+`Download_OSM_Colonnine.py` keeps only chargers in a motorway service area (carriageway taken from the direction of the nearest one-way motorway) or within 1.5 km of a motorway (`exitRequired`). It works for other operators and countries too; add the output file to `SORGENTI_DATI`.
+
 ## External services
 
 - [Leaflet](https://leafletjs.com/) (via cdnjs) for the map
 - [Esri basemaps](https://www.esri.com/) for map tiles
 - [OpenStreetMap Nominatim](https://nominatim.org/) for reverse geocoding (throttled)
+- [Overpass API](https://overpass-api.de/) for OpenStreetMap charger data (© OpenStreetMap contributors, ODbL)

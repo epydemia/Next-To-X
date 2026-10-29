@@ -117,6 +117,8 @@
     .filter-btn.ftx.active { background: #0066cc; color: white; }
     .filter-btn.a22        { background: #fff3e0; color: #e65100; border-color: #e65100; }
     .filter-btn.a22.active { background: #e65100; color: white; }
+    .filter-btn.ionity        { background: #f3e5f5; color: #7b1fa2; border-color: #7b1fa2; }
+    .filter-btn.ionity.active { background: #7b1fa2; color: white; }
 
     #stations-count { font-size: 12px; color: #999; }
 
@@ -157,6 +159,7 @@
     }
     .source-badge.ftx  { background: #e8f0fe; color: #0066cc; }
     .source-badge.a22  { background: #fff3e0; color: #e65100; }
+    .source-badge.ionity { background: #f3e5f5; color: #7b1fa2; }
     .source-badge.test { background: #f0f0f0; color: #888; }
 
     .exit-badge {
@@ -394,6 +397,15 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.35);
     }
 
+    .marker-ionity {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #7b1fa2;
+      border: 2px solid white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+    }
+
     .marker-a22 {
       width: 14px;
       height: 14px;
@@ -460,6 +472,7 @@
             <button class="filter-btn all active" data-source="all">Tutti</button>
             <button class="filter-btn ftx" data-source="ftx">Free To X</button>
             <button class="filter-btn a22" data-source="a22">A22 Brennero</button>
+            <button class="filter-btn ionity" data-source="ionity">IONITY</button>
           </div>
           <span id="stations-count"></span>
         </div>

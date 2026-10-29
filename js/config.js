@@ -8,10 +8,13 @@ export const SORGENTI_DATI = {
   ftx:  { file: 'free_to_x_reverse.json',     label: 'Free To X' },
   a22:  { file: 'a22_brennero_geocoded.json', label: 'A22 Brennero' },
   test: { file: 'test.json',                  label: 'Test' },
+  // Generato da tools/Download_OSM_Colonnine.py
+  ionity: { file: 'ionity_osm.json',          label: 'IONITY' },
 };
 
 const ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services';
-const ESRI_ATTRIBUTION = 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>';
+// Strade (Nominatim) e colonnine IONITY provengono da OpenStreetMap (licenza ODbL)
+const ESRI_ATTRIBUTION = 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> · Dati &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
 export const TILE_GUIDA = {
   url: `${ESRI}/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}`,

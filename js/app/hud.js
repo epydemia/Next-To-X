@@ -1,4 +1,5 @@
 import { puntoCardinale } from '../core/geo.js';
+import { estraiCodice } from '../core/autostrade.js';
 
 // Tutto ciò che nell'app di guida non è mappa: HUD, pannelli, barra distanze, tabella.
 
@@ -17,7 +18,7 @@ export function collegaPannelli() {
 
 export function mostraStrada({ strada, codiceAutostrada }) {
   if (!strada) return;
-  const testo = codiceAutostrada && !strada.includes(codiceAutostrada)
+  const testo = codiceAutostrada && estraiCodice(strada) !== codiceAutostrada
     ? `${codiceAutostrada} – ${strada}`
     : strada;
   document.getElementById('strada').textContent = `🛣️ ${testo}`;
@@ -47,7 +48,7 @@ function mostraProssimaStazione(s) {
   }
   const dettaglio = s.exitRequired
     ? '<span class="next-station-exit">⚠️ uscita</span>'
-    : `<span class="next-station-dir">→ ${s.direzione}</span>`;
+    : s.direzione ? `<span class="next-station-dir">→ ${s.direzione}</span>` : '';
   pannello.innerHTML = `
     <span class="next-station-name">${s.nome}</span>
     ${dettaglio}
@@ -66,7 +67,8 @@ function aggiornaBarraDistanze(avanti) {
     const icona = document.createElement('span');
     icona.className = s.isNearest ? 'bar-station bar-station--next' : 'bar-station';
     icona.textContent = s.isNearest ? '⚡' : '🔌';
-    icona.title = `${s.nome}\n${s.strada}\n→ ${s.direzione}\n${s.distanza.toFixed(1)} km\nStalli: ${s.colonnine.length}`;
+    icona.title = [s.nome, s.strada, s.direzione && `→ ${s.direzione}`, `${s.distanza.toFixed(1)} km`, `Stalli: ${s.colonnine.length}`]
+      .filter(Boolean).join('\n');
     icona.style.left = `${Math.min(s.distanza / scalaKm, 1) * 100}%`;
     barra.appendChild(icona);
   });

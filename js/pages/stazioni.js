@@ -148,6 +148,8 @@ function showDetail(area) {
       <span class="detail-value">${area.direzione || '–'}</span>
     </div>
     ${area.km != null ? `<div class="detail-row"><span class="detail-label">Km</span><span class="detail-value">${area.km}</span></div>` : ''}
+    ${area.paese ? `<div class="detail-row"><span class="detail-label">Paese</span><span class="detail-value">${area.paese}</span></div>` : ''}
+    ${area.direzione_geografica ? `<div class="detail-row"><span class="detail-label">Carreggiata</span><span class="detail-value">${area.direzione_geografica}</span></div>` : ''}
     ${area.traE ? `<div class="detail-row"><span class="detail-label">Tratta</span><span class="detail-value">${area.traE}</span></div>` : ''}
     <div class="detail-row">
       <span class="detail-label">Coordinate</span>

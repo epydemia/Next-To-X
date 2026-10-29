@@ -1,5 +1,5 @@
 import { distanzaKm, bearing } from '../core/geo.js';
-import { codiceDaNomeStrada } from '../core/autostrade.js';
+import { codiceDaNomeStrada, estraiCodice } from '../core/autostrade.js';
 import { avviaSimulazione } from './simulazione.js';
 import {
   REVERSE_GEOCODING_INTERVALLO_MS,
@@ -108,20 +108,25 @@ function aggiornaStradaSeNecessario(lat, lon) {
   if (!necessario) return;
 
   ultimoReverse = { pos: { lat, lon }, quando: Date.now() };
-  reverseGeocode(lat, lon).then(strada => {
-    if (!strada || strada === stato.strada) return;
-    stato.strada = strada;
-    stato.codiceAutostrada = codiceDaNomeStrada(strada);
+  reverseGeocode(lat, lon).then(risultato => {
+    if (!risultato || risultato.strada === stato.strada) return;
+    stato.strada = risultato.strada;
+    // La sigla OSM ("A14", "A 7") funziona in ogni paese; i nomi italiani restano come riserva
+    stato.codiceAutostrada = estraiCodice(risultato.sigla) ?? codiceDaNomeStrada(risultato.strada);
     onAggiornamento(stato);
   });
 }
 
-/** Nome della strada da Nominatim, oppure null in caso di errore. */
+/** { strada, sigla } della strada più vicina secondo Nominatim, oppure null in caso di errore. */
 async function reverseGeocode(lat, lon) {
   try {
-    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`);
+    // zoom=17: restituisce la strada (non l'edificio); namedetails include la sigla (ref)
+    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&zoom=17&namedetails=1&lat=${lat}&lon=${lon}`);
     const data = await res.json();
-    return data.address?.road || data.display_name || null;
+    const strada = data.address?.road || data.name || data.display_name;
+    if (!strada) return null;
+    const sigla = data.category === 'highway' ? data.namedetails?.ref ?? null : null;
+    return { strada, sigla };
   } catch (err) {
     console.warn('Reverse geocoding fallito:', err);
     return null;
