@@ -1,4 +1,4 @@
-import { aggiornaUserMarker, getMapRotationMode, setMapRotationMode } from './mappaUI.js';
+import { aggiornaUserMarker } from './mappaUI.js';
 import { getAree } from './dataloader.js';
 import { getUserCoordinates, getUserHeading, getUserPosition, initGeolocation, caricaCSVDebug } from './geolocalizzazione.js';
 import { initColonnine, updateColonnine, setColonnineData } from './colonnine.js';
@@ -41,48 +41,14 @@ window.addEventListener("load", async () => {
     map = window.leafletMap;
   } else {
     console.log("🗺️ Inizializzo Leaflet map...");
-    map = L.map('map', { rotate: true, bearing: 0 }).setView([41.9, 12.5], 15);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+    map = L.map('map').setView([41.9, 12.5], 15);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
     }).addTo(map);
-
-    // Counter-rotate the tile pane text to keep labels upright when map rotates
-    const tilePane = map.getPane('tilePane');
-    map.on('rotateend', () => {
-      const bearing = map.getBearing() || 0;
-      if (tilePane) {
-        tilePane.style.transform = `rotate(${-bearing}deg)`;
-        tilePane.style.transformOrigin = 'center';
-      }
-    });
     window.leafletMap = map;
     console.log("✅ Mappa inizializzata");
-
-    // Controllo personalizzato Leaflet per alternare tra "Nord in alto" e "Rotta in alto".
-    // Usa L.Control.extend() per integrarsi nel sistema dei controlli Leaflet standard.
-    const RotationControl = L.Control.extend({
-      onAdd() {
-        const btn = L.DomUtil.create('button', 'map-rotation-btn');
-        const update = () => {
-          const mode = getMapRotationMode();
-          btn.textContent = mode === 'heading' ? '↑ Rotta' : '↑ Nord';
-          btn.title = mode === 'heading' ? 'Passa a Nord in alto' : 'Passa a Direzione in alto';
-          btn.classList.toggle('active', mode === 'heading');
-        };
-        update();
-        L.DomEvent.on(btn, 'click', (e) => {
-          L.DomEvent.stopPropagation(e); // Impedisce che il click zoomi/panni la mappa
-          setMapRotationMode(getMapRotationMode() === 'heading' ? 'north' : 'heading');
-          update();
-          // Applica subito la nuova modalità senza aspettare il prossimo GPS tick
-          const heading = getUserHeading();
-          const coords = getUserCoordinates();
-          if (coords) aggiornaUserMarker(coords.lat, coords.lon, heading);
-        });
-        return btn;
-      }
-    });
-    new RotationControl({ position: 'topleft' }).addTo(map);
 
     // Dopo uno zoom, ricentra la mappa sull'utente e aggiorna il marker
     // (Leaflet può spostare la vista durante lo zoom se l'utente non è al centro)
@@ -137,5 +103,22 @@ window.addEventListener("load", async () => {
   // Toggle del pannello delle opzioni (menu laterale/overlay)
   document.querySelector('#options-toggle')?.addEventListener('click', () => {
     document.getElementById('options-panel')?.classList.toggle('open');
+  });
+
+  document.querySelector('#options-close')?.addEventListener('click', () => {
+    document.getElementById('options-panel')?.classList.remove('open');
+  });
+
+  document.querySelector('#stations-toggle-btn')?.addEventListener('click', () => {
+    const list = document.getElementById('stations-list');
+    const chevron = document.getElementById('stations-chevron');
+    const hidden = list.hasAttribute('hidden');
+    if (hidden) {
+      list.removeAttribute('hidden');
+      chevron.classList.add('open');
+    } else {
+      list.setAttribute('hidden', '');
+      chevron.classList.remove('open');
+    }
   });
 });

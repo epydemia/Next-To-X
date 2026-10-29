@@ -267,18 +267,24 @@ function updateDistanceBar(stations) {
 function aggiornaTabellaColonnine(colonnine) {
   const tbody = document.querySelector("#stations-table tbody");
   if (!tbody) return;
-
   tbody.innerHTML = "";
-
   colonnine.forEach(station => {
     const row = document.createElement("tr");
+    const distClass = station.exitRequired ? 'td-exit' : 'td-dist';
+    const distLabel = station.exitRequired
+      ? `⚠️ ${station.distanza.toFixed(1)}`
+      : `${station.distanza.toFixed(1)} km`;
     row.innerHTML = `
       <td>${station.nome}</td>
-      <td>${station.strada}</td>
-      <td>${station.distanza.toFixed(2)}</td>
-      <td>${station.lat}</td>
-      <td>${station.lon}</td>
+      <td style="color:var(--muted)">${station.strada}</td>
+      <td class="${distClass}">${distLabel}</td>
     `;
     tbody.appendChild(row);
   });
+
+  const label = document.getElementById('stations-count-label');
+  if (label) {
+    const n = colonnine.length;
+    label.textContent = n === 0 ? 'Nessuna stazione' : `${n} stazion${n === 1 ? 'e' : 'i'}`;
+  }
 }

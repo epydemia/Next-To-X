@@ -2,64 +2,79 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Next-to-X</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet-rotate/dist/leaflet-rotate-src.js"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div id="options-toggle">
-  ⚙️
-</div>
-<div id="options-panel">
-  <label>
-    <input type="checkbox" id="toggleDebug" />
-    Debug posizione
-  </label>
-  <div id="csv-debug-section" style="display:none; margin-top: 8px;">
-    <label for="csvInput" style="display:block; margin-bottom: 4px;">Traccia CSV:</label>
-    <input type="file" id="csvInput" accept=".csv" />
-    <div id="csvStatus" style="font-size: 0.8em; margin-top: 4px;"></div>
-  </div>
-  <label>
-    <input type="checkbox" id="toggleNearest" />
-    Show all charging stations
-  </label>
-</div>
-<div id="next-station" class="next-station-panel">
-  <span class="next-station-label">Prossima colonnina:</span> <span class="next-station-info">–</span>
-</div>
-<div id="distance-bar-container" class="distance-bar-container">
-  <div class="car-wrapper">
-    <div style="font-size: 24px; display: flex; align-items: center; justify-content: center; transform: scaleX(-1); animation: bounce 1s infinite;">🚗</div>
-  </div>
-  <div id="distance-bar" style="flex-grow: 1; height: 12px; background: #ccc; margin-left: 10px; border-radius: 6px; position: relative;">
-    <!-- Marker elements will be inserted dynamically -->
-  </div>
-</div>
-  <h1>📍 Next-To-X</h1>
-  <div id="coords">Caricamento...</div>
-  <div id="direzione">🧭 </div>
-  <div id="strada">🛣️ </div>
-  <div id="map"></div>
-  <table id="stations-table">
-    <thead>
-      <tr>
-        <th>Nome Area</th>
-        <th>Strada</th>
-        <th>Distanza (km)</th>
-        <th>Latitudine</th>
-        <th>Longitudine</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
 
-  <script type="module" src="js/index.js"></script>
-<script>
-  console.log("✅ index.js caricato dal browser");
-</script>
+<!-- Pannello impostazioni (slide da destra) -->
+<div id="options-panel">
+  <div id="options-header">
+    <span>Impostazioni</span>
+    <button id="options-close">✕</button>
+  </div>
+  <label class="setting-row">
+    <span class="setting-label">Debug posizione</span>
+    <input type="checkbox" id="toggleDebug" class="toggle-input" />
+    <span class="toggle-track"></span>
+  </label>
+  <div id="csv-debug-section" style="display:none;">
+    <p class="setting-hint">Traccia GPS (CSV)</p>
+    <input type="file" id="csvInput" accept=".csv" />
+    <div id="csvStatus"></div>
+  </div>
+  <label class="setting-row">
+    <span class="setting-label">Mostra tutte le stazioni</span>
+    <input type="checkbox" id="toggleNearest" class="toggle-input" />
+    <span class="toggle-track"></span>
+  </label>
+</div>
+
+<!-- Mappa con overlay HUD -->
+<div id="map-wrapper">
+  <div id="hud-top">
+    <div id="strada">🛣️</div>
+    <div id="direzione">🧭</div>
+    <button id="options-toggle" aria-label="Impostazioni">⚙</button>
+  </div>
+  <div id="map"></div>
+  <div id="next-station">
+    <span class="next-station-label">Prossima colonnina:</span>
+    <span class="next-station-info">–</span>
+  </div>
+</div>
+
+<!-- Pannello inferiore -->
+<div id="bottom-panel">
+  <div id="distance-bar-container">
+    <div class="car-icon">🚗</div>
+    <div id="distance-bar"></div>
+  </div>
+  <button id="stations-toggle-btn">
+    <span id="stations-count-label">Stazioni nelle vicinanze</span>
+    <span id="stations-chevron">▼</span>
+  </button>
+  <div id="stations-list" hidden>
+    <table id="stations-table">
+      <thead>
+        <tr>
+          <th>Area</th>
+          <th>Strada</th>
+          <th class="th-dist">km</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<div id="coords" style="display:none"></div>
+
+<script type="module" src="js/index.js"></script>
 </body>
 </html>
