@@ -1,27 +1,28 @@
-import requests
+"""Scarica l'elenco delle aree di servizio con colonnine Free To X da Autostrade per l'Italia.
+
+Uso:  python tools/Download_Free_To_X.py
+Poi:  python tools/ReverseGeocoding.py
+"""
 import json
-from datetime import datetime
+from datetime import datetime, timezone
+from pathlib import Path
 
-def download_colonnine_json(url, output_path):
-    try:
-        print(f"Scaricamento del file JSON da {url}...")
-        response = requests.get(url, timeout=10)  # timeout in secondi
-        response.raise_for_status()  # Solleva un'eccezione per errori HTTP
-        colonnine_data = response.json()
-        colonnine_data["data_download"] = datetime.now(datetime.UTC).isoformat()
+import requests
 
-        original_output_path = output_path + ".original.json"
-        with open(original_output_path, 'w', encoding='utf-8') as original_file:
-            json.dump(colonnine_data, original_file, ensure_ascii=False, indent=2)
-        
-        print(f"File JSON salvato con successo in: {original_output_path}")
-    except requests.exceptions.RequestException as e:
-        print(f"Errore durante il download: {e}")
+URL = "https://viabilita.autostrade.it/json/colonnine.json"
+OUTPUT = Path(__file__).resolve().parent.parent / "data" / "free_to_x.json.original.json"
+
+
+def download_colonnine(url=URL, output=OUTPUT):
+    print(f"Scaricamento da {url}...")
+    response = requests.get(url, timeout=30)
+    response.raise_for_status()
+    dati = response.json()
+    dati["data_download"] = datetime.now(timezone.utc).isoformat()
+
+    output.write_text(json.dumps(dati, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"{len(dati.get('listaAree', []))} aree salvate in {output}")
+
 
 if __name__ == "__main__":
-    # URL del file JSON
-    url = "https://viabilita.autostrade.it/json/colonnine.json?1744621070233"
-
-    # Percorso di output
-    output_path = "free_to_x.json"  # Salva nella directory "data" del progetto
-    download_colonnine_json(url, output_path)
+    download_colonnine()
