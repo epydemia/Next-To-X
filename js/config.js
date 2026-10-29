@@ -12,6 +12,9 @@ export const SORGENTI_DATI = {
   ionity: { file: 'ionity_osm.json',          label: 'IONITY' },
 };
 
+// Decisioni della revisione manuale fatta nell'editor stazioni
+export const FILE_REVISIONI = 'revisioni.json';
+
 const ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services';
 // Strade (Nominatim) e colonnine IONITY provengono da OpenStreetMap (licenza ODbL)
 const ESRI_ATTRIBUTION = 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> · Dati &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
@@ -24,6 +27,11 @@ export const TILE_GUIDA = {
 export const TILE_EDITOR = {
   url: `${ESRI}/World_Street_Map/MapServer/tile/{z}/{y}/{x}`,
   options: { attribution: ESRI_ATTRIBUTION, maxZoom: 18 },
+};
+
+export const TILE_SATELLITE = {
+  url: `${ESRI}/World_Imagery/MapServer/tile/{z}/{y}/{x}`,
+  options: { attribution: ESRI_ATTRIBUTION, maxZoom: 19 },
 };
 
 export const CENTRO_ITALIA = { lat: 41.9, lon: 12.5 };

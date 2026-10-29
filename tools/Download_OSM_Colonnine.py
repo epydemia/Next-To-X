@@ -8,6 +8,10 @@ Per ogni colonnina dell'operatore nei paesi richiesti:
   tedeschi), viene marcata exitRequired: raggiungibile uscendo, da entrambe le direzioni;
 - altrimenti (colonnine in città) viene scartata.
 
+I casi dubbi vengono marcati daVerificare (con il motivo) per la revisione manuale
+nell'editor stazioni; le decisioni finiscono in data/revisioni.json e l'app le applica
+al caricamento, quindi sopravvivono a un nuovo download.
+
 Uso:  python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE
 Dati © OpenStreetMap contributors, licenza ODbL.
 """
@@ -34,6 +38,16 @@ AREA_SERVIZIO_MAX_M = 150   # colonnina considerata dentro l'area di servizio
 CARREGGIATA_MAX_M = 400     # autostrada a cui appartiene l'area di servizio
 USCITA_MAX_M = 1500         # oltre, la colonnina non è considerata autostradale
 RAGGRUPPA_M = 200           # colonnine fuori autostrada più vicine di così sono la stessa sede
+AREA_LONTANA_M = 200        # area di servizio sospetta se la colonnina è più lontana dall'autostrada
+USCITA_VICINA_M = 300       # "uscita" sospetta se così vicina all'autostrada (area di servizio non mappata?)
+AREA_UFFICIALE_M = 300      # "uscita" sospetta se così vicina a un'area di servizio delle altre fonti
+
+# Aree di servizio ufficiali già nell'app, usate per il confronto
+FONTI_UFFICIALI = ["free_to_x_reverse.json", "a22_brennero_geocoded.json"]
+
+# Gli Autohof tedeschi sono a volte taggati highway=services, ma si raggiungono uscendo
+NOME_AUTOHOF = re.compile(r"autohof|truck\s?stop", re.I)
+NOME_AREA_SERVIZIO = re.compile(r"rastst[äa]tte|rasthof|rastanlage|area di servizio|\bads\b|autogrill|serways|tank\s?&\s?rast", re.I)
 
 PUNTI_CARDINALI = ["NORD", "NORDEST", "EST", "SUDEST", "SUD", "SUDOVEST", "OVEST", "NORDOVEST"]
 
@@ -224,7 +238,8 @@ def elabora(risposta, paese, operatore, dettagli=False):
         dist_autostrada, via, direzione = autostrada_piu_vicina(p, autostrade)
         area_servizio = min(aree_servizio, key=lambda a: distanza_elemento_m(p, a), default=None)
         dist_area = distanza_elemento_m(p, area_servizio) if area_servizio else math.inf
-        in_area = dist_area <= AREA_SERVIZIO_MAX_M and dist_autostrada <= CARREGGIATA_MAX_M
+        in_area = (dist_area <= AREA_SERVIZIO_MAX_M and dist_autostrada <= CARREGGIATA_MAX_M
+                   and not NOME_AUTOHOF.search(area_servizio["tags"].get("name", "")))
 
         if dettagli:
             esito = "scartata" if dist_autostrada > USCITA_MAX_M else "area di servizio" if in_area else "uscita"
@@ -253,9 +268,53 @@ def elabora(risposta, paese, operatore, dettagli=False):
             "lon": round(p[1], 6),
             "paese": paese,
             "operatore": operatore,
+            "distanzaAutostradaM": round(dist_autostrada),
+            "tipoArea": tags_area.get("highway"),
             "colonnine": [colonnina(c)],
         }
     return raggruppa_vicine(list(aree.values()))
+
+
+def carica_aree_ufficiali():
+    aree = []
+    for nome in FONTI_UFFICIALI:
+        file = DATA / nome
+        if file.exists():
+            aree += [a for a in json.loads(file.read_text(encoding="utf-8")).get("listaAree", [])
+                     if a.get("lat") is not None and a.get("lon") is not None]
+    return aree
+
+
+def motivi_dubbio(area, aree_ufficiali):
+    """Ragioni per cui la classificazione automatica di un'area non è affidabile."""
+    motivi = []
+    distanza = area.get("distanzaAutostradaM")
+    if not area["exitRequired"]:
+        if area["direzione_geografica"] == "ND":
+            motivi.append("carreggiata non determinata")
+        if area.get("tipoArea") == "rest_area":
+            motivi.append("piazzola di sosta (rest_area), di solito senza servizi")
+        if distanza is not None and distanza > AREA_LONTANA_M and not NOME_AREA_SERVIZIO.search(area["nome"]):
+            motivi.append(f"a {distanza} m dall'autostrada, lontana per un'area di servizio")
+    else:
+        if NOME_AREA_SERVIZIO.search(area["nome"]):
+            motivi.append("il nome indica un'area di servizio")
+        if distanza is not None and distanza <= USCITA_VICINA_M and not NOME_AUTOHOF.search(area["nome"]):
+            motivi.append(f"a {distanza} m dall'autostrada ma nessuna area di servizio mappata")
+        p = (area["lat"], area["lon"])
+        vicina = min(aree_ufficiali, default=None,
+                     key=lambda u: distanza_segmento_m(p, (u["lat"], u["lon"]), (u["lat"], u["lon"])))
+        if vicina and distanza_segmento_m(p, (vicina["lat"], vicina["lon"]), (vicina["lat"], vicina["lon"])) <= AREA_UFFICIALE_M:
+            motivi.append(f"vicina all'area di servizio {vicina['nome']}")
+    return motivi
+
+
+def classifica(aree, aree_ufficiali):
+    for area in aree:
+        motivi = motivi_dubbio(area, aree_ufficiali)
+        area["daVerificare"] = bool(motivi)
+        area["motivo"] = "; ".join(motivi)
+    return aree
 
 
 def raggruppa_vicine(aree, raggio_m=RAGGRUPPA_M):
@@ -284,10 +343,12 @@ def main():
     args = parser.parse_args()
 
     aree = []
+    ufficiali = carica_aree_ufficiali()
     for paese in [p.strip().upper() for p in args.paesi.split(",")]:
         risposta = scarica(paese, args.operatore, args.aggiorna)
-        trovate = elabora(risposta, paese, args.operatore, args.dettagli)
-        print(f"  {paese}: {len(trovate)} aree ({sum(a['exitRequired'] for a in trovate)} fuori autostrada)")
+        trovate = classifica(elabora(risposta, paese, args.operatore, args.dettagli), ufficiali)
+        print(f"  {paese}: {len(trovate)} aree ({sum(a['exitRequired'] for a in trovate)} fuori autostrada, "
+              f"{sum(a['daVerificare'] for a in trovate)} da verificare)")
         aree += trovate
 
     output = DATA / (args.output or f"{args.operatore.lower()}_osm.json")

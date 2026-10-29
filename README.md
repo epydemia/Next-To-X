@@ -67,6 +67,14 @@ Add an entry to `SORGENTI_DATI` in `js/config.js` pointing at a JSON file in `da
 | Free To X (Italy) | `python tools/Download_Free_To_X.py && python tools/ReverseGeocoding.py` | `data/free_to_x_reverse.json` |
 | IONITY (Italy, Germany) from OpenStreetMap | `python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE` | `data/ionity_osm.json` |
 
+### Cross-checking Free To X and A22 with OpenStreetMap
+
+`python tools/Crosscheck_OSM.py` matches every Free To X / A22 area with the OSM service area of the same name (or the nearest within 500 m) and writes `reports/crosscheck_osm.md`: areas far from their OSM position, carriageways that disagree with the direction of the OSM motorway, and charger operators mapped in each area.
+
+### Reviewing the classification
+
+The OSM script marks uncertain sites as `daVerificare` with a reason (e.g. close to the motorway but no service area mapped, name says "Autohof"). Open `stazioni.html`, click **❓ Da verificare**: the map switches to satellite and walks through the doubtful sites; for each choose *In area di servizio*, *Fuori, richiede uscita* or *Non autostradale*, then **Salva** (pick the `data/` folder) or **Scarica**. Decisions go to `data/revisioni.json`, keyed by area code, and the app applies them on load, so they survive a new download.
+
 `Download_OSM_Colonnine.py` keeps only chargers in a motorway service area (carriageway taken from the direction of the nearest one-way motorway) or within 1.5 km of a motorway (`exitRequired`). It works for other operators and countries too; add the output file to `SORGENTI_DATI`.
 
 ## External services
