@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
 
@@ -19,11 +19,11 @@
     <button id="options-close">✕</button>
   </div>
   <label class="setting-row">
-    <span class="setting-label">Debug posizione</span>
+    <span class="setting-label">Simula posizione</span>
     <input type="checkbox" id="toggleDebug" class="toggle-input" />
     <span class="toggle-track"></span>
   </label>
-  <div id="csv-debug-section" style="display:none;">
+  <div id="csv-debug-section" hidden>
     <p class="setting-hint">Traccia GPS (CSV)</p>
     <input type="file" id="csvInput" accept=".csv" />
     <div id="csvStatus"></div>
@@ -44,7 +44,6 @@
   </div>
   <div id="map"></div>
   <div id="next-station">
-    <span class="next-station-label">Prossima colonnina:</span>
     <span class="next-station-info">–</span>
   </div>
 </div>
@@ -73,8 +72,6 @@
   </div>
 </div>
 
-<div id="coords" style="display:none"></div>
-
-<script type="module" src="js/index.js"></script>
+<script type="module" src="js/app/main.js"></script>
 </body>
 </html>

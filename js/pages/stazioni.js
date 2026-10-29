@@ -1,9 +1,5 @@
-// Data sources config
-const SOURCES = {
-  ftx:  { path: './data/free_to_x_reverse.json',    file: 'free_to_x_reverse.json',    label: 'Free To X',    cssClass: 'ftx' },
-  a22:  { path: './data/a22_brennero_geocoded.json', file: 'a22_brennero_geocoded.json', label: 'A22 Brennero', cssClass: 'a22' },
-  test: { path: './data/test.json',                  file: 'test.json',                 label: 'Test',         cssClass: 'test' },
-};
+import { SORGENTI_DATI as SOURCES, TILE_EDITOR } from '../config.js';
+import { caricaSorgenti, haCoordinate } from '../core/dati.js';
 
 // --- State ---
 let map;
@@ -24,36 +20,19 @@ let moveCodice  = null;
 let dirHandle   = null;  // File System Access API directory handle
 const pendingChanges = new Set(); // filenames with unsaved edits
 
-// --- Data loading (independent per file to track sources) ---
+// --- Data loading (per file, so edits can be saved back to the right JSON) ---
 async function loadData() {
-  await Promise.allSettled(
-    Object.entries(SOURCES).map(async ([key, src]) => {
-      try {
-        const res = await fetch(src.path);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        const areas = data.listaAree || [];
-        areasByFile[src.file] = areas;
-        areas.forEach(a => {
-          areaSourceKey.set(a.codice, key);
-          allAree.push(a);
-        });
-      } catch (err) {
-        console.error(`Errore caricamento ${src.file}:`, err);
-        areasByFile[src.file] = [];
-      }
-    })
-  );
-  allAree = allAree.filter(a => a.lat && a.lon);
+  for (const { chiave, file, aree } of await caricaSorgenti()) {
+    areasByFile[file] = aree;
+    aree.forEach(a => areaSourceKey.set(a.codice, chiave));
+    allAree.push(...aree.filter(haCoordinate));
+  }
 }
 
 // --- Map ---
 function initMap() {
   map = L.map('map', { zoomControl: true }).setView([43.5, 12.5], 6);
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>',
-    maxZoom: 18,
-  }).addTo(map);
+  L.tileLayer(TILE_EDITOR.url, TILE_EDITOR.options).addTo(map);
 
   // Close context menu when clicking on map (not a marker)
   map.on('click', () => closeContextMenu());
@@ -64,7 +43,7 @@ function createIcon(sourceKey, state = 'default') {
   // state: 'default' | 'selected' | 'moving'
   const cls = state === 'selected' ? 'marker-selected'
             : state === 'moving'   ? 'marker-moving'
-            : `marker-${SOURCES[sourceKey]?.cssClass ?? 'ftx'}`;
+            : `marker-${sourceKey in SOURCES ? sourceKey : 'ftx'}`;
   const size = state !== 'default' ? 22 : 14;
   return L.divIcon({
     className: '',
