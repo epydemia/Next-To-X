@@ -42,7 +42,7 @@ window.addEventListener("load", async () => {
   } else {
     console.log("🗺️ Inizializzo Leaflet map...");
     map = L.map('map').setView([41.9, 12.5], 15);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
       subdomains: 'abcd',
       maxZoom: 20
@@ -103,5 +103,22 @@ window.addEventListener("load", async () => {
   // Toggle del pannello delle opzioni (menu laterale/overlay)
   document.querySelector('#options-toggle')?.addEventListener('click', () => {
     document.getElementById('options-panel')?.classList.toggle('open');
+  });
+
+  document.querySelector('#options-close')?.addEventListener('click', () => {
+    document.getElementById('options-panel')?.classList.remove('open');
+  });
+
+  document.querySelector('#stations-toggle-btn')?.addEventListener('click', () => {
+    const list = document.getElementById('stations-list');
+    const chevron = document.getElementById('stations-chevron');
+    const hidden = list.hasAttribute('hidden');
+    if (hidden) {
+      list.removeAttribute('hidden');
+      chevron.classList.add('open');
+    } else {
+      list.setAttribute('hidden', '');
+      chevron.classList.remove('open');
+    }
   });
 });
