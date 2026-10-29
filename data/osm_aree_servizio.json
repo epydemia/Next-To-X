@@ -1,3 +1,30 @@
 {
-  "listaAree": []
+  "listaAree": [
+    {
+      "codice": "osm:way/1445301459",
+      "nome": "Fratta Nord",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 45.804752,
+      "lon": 12.880562,
+      "paese": "IT",
+      "operatore": "Be Charge",
+      "distanzaAutostradaM": 68,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11263398487",
+          "modello": "Be Charge",
+          "operatore": "Be Charge",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    }
+  ],
+  "data_download": "2026-10-29T22:43:48.426447+00:00",
+  "fonte": "© OpenStreetMap contributors, ODbL"
 }
