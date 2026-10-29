@@ -152,7 +152,7 @@
         }
       ],
       "stradaReverse": "Area di Servizio Adige Ovest, Autostrada Bologna-Padova, Costa di Rovigo, Rovigo, Veneto, 45023, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDOVEST"
     },
     {
       "nome": "AEROPORTO MILANO LINATE",
@@ -542,7 +542,7 @@
         }
       ],
       "stradaReverse": "Esso, Tangenziale di Napoli, Rione La Solfatara, Cigliano, Pozzuoli, Napoli, Campania, 80078, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "ND"
     },
     {
       "codice": "A20",
@@ -640,7 +640,7 @@
         }
       ],
       "stradaReverse": "Area d'Arda Est, Autostrada del Sole, Portone, Fiorenzuola d'Arda, Piacenza, Emilia-Romagna, 29017, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "A21",
@@ -754,7 +754,7 @@
         }
       ],
       "stradaReverse": "Autostrada del Sole, Portone, Fiorenzuola d'Arda, Piacenza, Emilia-Romagna, 29017, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "Z99",
@@ -869,7 +869,7 @@
         }
       ],
       "stradaReverse": "Arno Est, Autostrada del Sole, San Giovanni Valdarno, Figline e Incisa Valdarno, Arezzo, Toscana, 52027, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "A66",
@@ -984,7 +984,7 @@
         }
       ],
       "stradaReverse": "Autostrada del Sole, Piani della Rugginosa, Reggello, Unione di Comuni Valdarno e Valdisieve, Firenze, Toscana, 50064, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "J30",
@@ -1063,7 +1063,7 @@
         }
       ],
       "stradaReverse": "Area di Aurelia Sud, SS1dir/A, Zinola, Savona, Liguria, 17047, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "ND"
     },
     {
       "codice": "A70",
@@ -1178,7 +1178,7 @@
         }
       ],
       "stradaReverse": "Autogrill, Autostrada del Sole, Tuori, Viciomaggio, Civitella in Val di Chiana, Arezzo, Toscana, 52041, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "A71",
@@ -1441,7 +1441,7 @@
         }
       ],
       "stradaReverse": "Bevano est, 2741p, Autostrada Adriatica, Quartiere Dismano, Santa Maria Nuova Spallicci, Bertinoro, Unione di Comuni della Romagna Forlivese, Forlì-Cesena, Emilia-Romagna, 47032, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "D30",
@@ -1551,7 +1551,7 @@
         }
       ],
       "stradaReverse": "Brembo nord, Autostrada Serenissima, Osio Sopra, Bergamo, Lombardia, 24040, Italia",
-      "direzione_geografica": "EST"
+      "direzione_geografica": "SUDOVEST"
     },
     {
       "codice": "D20",
@@ -1664,7 +1664,7 @@
         }
       ],
       "stradaReverse": "Brianza Nord, Via Cascina Trivulzina, Omate, Agrate Brianza, Monza e della Brianza, Lombardia, 20864, Italia",
-      "direzione_geografica": "EST"
+      "direzione_geografica": "SUDOVEST"
     },
     {
       "codice": "D21",
@@ -1781,7 +1781,7 @@
         }
       ],
       "stradaReverse": "Brianza Sud, Tangenziale Est Esterna, Caponago, Monza e della Brianza, Lombardia, 20867, Italia",
-      "direzione_geografica": "OVEST"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "H30",
@@ -2054,7 +2054,7 @@
         }
       ],
       "stradaReverse": "Calaggio Nord, Autostrada dei Due Mari, Vallata, Avellino, Campania, 83059, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "OVEST"
     },
     {
       "codice": "P41",
@@ -2133,7 +2133,7 @@
         }
       ],
       "stradaReverse": "Calaggio Sud, Autostrada dei Due Mari, Vallata, Avellino, Campania, 83059, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "O35",
@@ -2212,7 +2212,7 @@
         }
       ],
       "stradaReverse": "Area di Servizio Canne della Battaglia Est, Autostrada Adriatica, Andria, Barletta-Andria-Trani, Puglia, 76123, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "O36",
@@ -2291,7 +2291,7 @@
         }
       ],
       "stradaReverse": "Area di Servizio Canne della Battaglia Ovest, Autostrada Adriatica, Andria, Barletta-Andria-Trani, Puglia, 76123, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "A35",
@@ -2528,7 +2528,7 @@
         }
       ],
       "stradaReverse": "Casilina Est, Via Saudoni, Castrocielo, Frosinone, Lazio, 03031, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "B46",
@@ -2643,7 +2643,7 @@
         }
       ],
       "stradaReverse": "Casilina Ovest, Via Saudoni, Castrocielo, Frosinone, Lazio, 03031, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "M10",
@@ -2801,7 +2801,7 @@
         }
       ],
       "stradaReverse": "Castel Bentivoglio Ovest, Autostrada Bologna-Padova, Bentivoglio, Unione Reno Galliera, Bologna, Emilia-Romagna, 40010, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDOVEST"
     },
     {
       "codice": "B57",
@@ -2880,7 +2880,7 @@
         }
       ],
       "stradaReverse": "Ramo C, Arpino, Cittadella di Casoria, Casoria, Napoli, Campania, 80026, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "ND"
     },
     {
       "codice": "N56",
@@ -2951,7 +2951,7 @@
         }
       ],
       "stradaReverse": "area servizio Conero ovest, Autostrada Adriatica, Numana, Ancona, 60026, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "492",
@@ -3006,7 +3006,7 @@
         }
       ],
       "stradaReverse": "Area di Servizio Doganella ovest, Doganella, Municipalità 3, Capodichino, Napoli, Campania, 80141, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "ND"
     },
     {
       "codice": "N50",
@@ -3121,7 +3121,7 @@
         }
       ],
       "stradaReverse": "Esino Est, Autostrada Adriatica, Chiaravalle, Ancona, 60033, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "N51",
@@ -3200,7 +3200,7 @@
         }
       ],
       "stradaReverse": "Esino Ovest, Autostrada Adriatica, Chiaravalle, Ancona, 60033, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "A85",
@@ -3315,7 +3315,7 @@
         }
       ],
       "stradaReverse": "Autostrada del Sole, Colonnetta, Fabro Scalo, Fabro, Terni, Umbria, 05015, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "A86",
@@ -3509,7 +3509,7 @@
         }
       ],
       "stradaReverse": "Area servizio Fella Est, Autostrada Alpe-Adria, Bagni di Lusnizza, Malborghetto Valbruna, Udine, Friuli-Venezia Giulia, 33010, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "ND"
     },
     {
       "codice": "A55",
@@ -3624,7 +3624,7 @@
         }
       ],
       "stradaReverse": "Firenze Nord, Via di Limite, Padule, Sesto Fiorentino, Firenze, Toscana, 50041, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "ND"
     },
     {
       "codice": "B05",
@@ -3677,7 +3677,7 @@
         }
       ],
       "stradaReverse": "Flaminia Est, Autostrada del Sole, Foglia, Magliano Sabina, Rieti, Lazio, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "B06",
@@ -3835,7 +3835,7 @@
         }
       ],
       "stradaReverse": "Autostrada Adriatica, Foggia, Puglia, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "O21",
@@ -3914,7 +3914,7 @@
         }
       ],
       "stradaReverse": "Autostrada Adriatica, Foggia, Puglia, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "A96",
@@ -4222,7 +4222,7 @@
         }
       ],
       "stradaReverse": "Area di Servizio Irpinia nord, Autostrada dei Due Mari, Partenio, Avellino, Campania, 83100, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "OVEST"
     },
     {
       "codice": "P21",
@@ -4301,7 +4301,7 @@
         }
       ],
       "stradaReverse": "Area di Servizio Irpinia sud, Autostrada dei Due Mari, Partenio, Avellino, Campania, 83100, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "B40",
@@ -4416,7 +4416,7 @@
         }
       ],
       "stradaReverse": "La Macchia Est, Autostrada del Sole, Monte Trave, Cartiera-Stazione, Anagni, Frosinone, Lazio, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "B41",
@@ -4531,7 +4531,7 @@
         }
       ],
       "stradaReverse": "La Macchia ovest, Autostrada del Sole, Monte Trave, Cartiera-Stazione, Anagni, Frosinone, Lazio, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "N05",
@@ -4648,7 +4648,7 @@
         }
       ],
       "stradaReverse": "La Pioppa Est, Autostrada Adriatica, Madonna dei Prati di Tomba, Zola Predosa, Unione dei comuni Valli del Reno, Lavino e Samoggia, Bologna, Emilia-Romagna, 40069, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "OVEST"
     },
     {
       "codice": "N06",
@@ -4765,7 +4765,7 @@
         }
       ],
       "stradaReverse": "La Pioppa ovest, Autostrada Adriatica, Madonna dei Prati di Tomba, Zola Predosa, Unione dei comuni Valli del Reno, Lavino e Samoggia, Bologna, Emilia-Romagna, 40069, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "D11",
@@ -4844,7 +4844,7 @@
         }
       ],
       "stradaReverse": "Area di Lambro Sud, A4, Campo dei Fiori, Cinisello, Cinisello Balsamo, Zona Omogenea Milano Nord, Milano, Lombardia, 20092, Italia",
-      "direzione_geografica": "OVEST"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "I10",
@@ -4899,7 +4899,7 @@
         }
       ],
       "stradaReverse": "Tamoil, Autostrada dei Laghi, Cadorago, Como, Lombardia, 22071, Italia",
-      "direzione_geografica": "NORDOVEST"
+      "direzione_geografica": "NORD"
     },
     {
       "codice": "I11",
@@ -5014,7 +5014,7 @@
         }
       ],
       "stradaReverse": "Area di Lario Ovest, Autostrada dei Laghi, Cadorago, Como, Lombardia, 22071, Italia",
-      "direzione_geografica": "SUDEST"
+      "direzione_geografica": "SUD"
     },
     {
       "codice": "W11",
@@ -5069,7 +5069,7 @@
         }
       ],
       "stradaReverse": "Sarni Oil, Autostrada Alpe-Adria, Casali di Vendoglio, Vendoglio, Colloredo di Monte Albano, Udine, Friuli-Venezia Giulia, 33010, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "ND"
     },
     {
       "codice": "B21",
@@ -5227,7 +5227,7 @@
         }
       ],
       "stradaReverse": "Mirabella Sud, Via Bosco San Prisco, Passo di Mirabella, Mirabella Eclano, Avellino, Campania, 83036, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "X50",
@@ -5500,7 +5500,7 @@
         }
       ],
       "stradaReverse": "Area di servizio Montefeltro Ovest, Autostrada Adriatica, Riccione, Rimini, Emilia-Romagna, 47838, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "O45",
@@ -5579,7 +5579,7 @@
         }
       ],
       "stradaReverse": "Area di Servizio Murge est, Autostrada Adriatica, Modugno, Bari, Puglia, 70026, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "O46",
@@ -5633,7 +5633,7 @@
         }
       ],
       "stradaReverse": "Eni Murge Ovest, Autostrada Adriatica, Modugno, Bari, Puglia, 70026, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "D01",
@@ -5712,7 +5712,7 @@
         }
       ],
       "stradaReverse": "Area di Novate Nord, Via Polveriera, Novate Milanese, Milano, Lombardia, 20026, Italia",
-      "direzione_geografica": "EST"
+      "direzione_geografica": "ND"
     },
     {
       "codice": "K11",
@@ -5791,7 +5791,7 @@
         }
       ],
       "stradaReverse": "Peretola Sud, Autostrada Firenze-Mare, Ponte a Giogoli, Sesto Fiorentino, Firenze, Toscana, 50145, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "ND"
     },
     {
       "codice": "N65",
@@ -5870,7 +5870,7 @@
         }
       ],
       "stradaReverse": "Autostrada Adriatica, Tre Camini, Campofilone, Fermo, 63827, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "N66",
@@ -5949,7 +5949,7 @@
         }
       ],
       "stradaReverse": "Piceno ovest, Autostrada Adriatica, Tre Camini, Campofilone, Fermo, 63827, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "M20",
@@ -6174,7 +6174,7 @@
         }
       ],
       "stradaReverse": "Area di Servizio Po Ovest, Autostrada Bologna-Padova, Ferrara, Emilia-Romagna, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDOVEST"
     },
     {
       "codice": "B25",
@@ -6253,7 +6253,7 @@
         }
       ],
       "stradaReverse": "Autogrill Prenestina Est, Autostrada del Sole, Gallicano nel Lazio, Roma Capitale, Lazio, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "OVEST"
     },
     {
       "codice": "B26",
@@ -6332,7 +6332,7 @@
         }
       ],
       "stradaReverse": "Autogrill Prenestina Ovest, Autostrada del Sole, Gallicano nel Lazio, Roma Capitale, Lazio, 00077, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "N30",
@@ -6413,7 +6413,7 @@
         }
       ],
       "stradaReverse": "Esso, Autostrada Adriatica, Savignano sul Rubicone, Unione Rubicone e mare, Forlì-Cesena, Emilia-Romagna, 47043, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "L90",
@@ -6492,7 +6492,7 @@
         }
       ],
       "stradaReverse": "Sant'Ilario Nord, A12 dir. Genova - Recco/Genova Nervi, Molinetti, Levante, Genova, Liguria, 16167, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "L91",
@@ -6571,7 +6571,7 @@
         }
       ],
       "stradaReverse": "Sant'Ilario Sud, Salita da San Rocco ai Molinetti, Molinetti, Levante, Genova, Liguria, 16167, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "A25",
@@ -6650,7 +6650,7 @@
         }
       ],
       "stradaReverse": "Cortile San Martino, Autostrada del Sole, San Martino, Pedrignano, Parma, Emilia-Romagna, 43122, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "A26",
@@ -6729,7 +6729,7 @@
         }
       ],
       "stradaReverse": "Cortile San Martino, Autostrada del Sole, San Lazzaro, Pedrignano, Parma, Emilia-Romagna, 43122, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "B55",
@@ -6808,7 +6808,7 @@
         }
       ],
       "stradaReverse": "Area servizio San Nicola Est, Autostrada del Sole, San Nicola La Strada, Caserta, Campania, 81022, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "A10",
@@ -6920,7 +6920,7 @@
         }
       ],
       "stradaReverse": "Area di servizio San Zenone est, Autostrada del Sole, Cascina Codazza, San Zenone al Lambro, Milano, Lombardia, 26858, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "A11",
@@ -7027,7 +7027,7 @@
         }
       ],
       "stradaReverse": "Area di servizio San Zenone ovest, Autostrada del Sole, Cascina Codazza, San Zenone al Lambro, Milano, Lombardia, 26858, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "N90",
@@ -7101,7 +7101,7 @@
         }
       ],
       "stradaReverse": "Area di servizio Sangro Est, Autostrada Adriatica, Torino di Sangro, Chieti, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "N91",
@@ -7180,7 +7180,7 @@
         }
       ],
       "stradaReverse": "Autostrada Adriatica, Villalfonsina, Chieti, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "A30",
@@ -7289,7 +7289,7 @@
         }
       ],
       "stradaReverse": "19f, Strada Tre Olmi, Tre Olmi, San Faustino-Madonnina-Quattroville, Tre Olmi, Modena, Emilia-Romagna, 41123, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "A31",
@@ -7378,7 +7378,7 @@
         }
       ],
       "stradaReverse": "Secchia Ovest, Stradello Cenna, Tre Olmi, San Faustino-Madonnina-Quattroville, Tre Olmi, Modena, Emilia-Romagna, 41011, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "Y30",
@@ -7651,7 +7651,7 @@
         }
       ],
       "stradaReverse": "Sillaro est, Via Cà Bianca, Cà Bianca, Zona Industriale San Carlo, Poggio Grande, Castel San Pietro Terme, Nuovo Circondario Imolese, Bologna, Emilia-Romagna, 40024, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "OVEST"
     },
     {
       "codice": "N11",
@@ -7730,7 +7730,7 @@
         }
       ],
       "stradaReverse": "Sillaro ovest, Autostrada Adriatica, Zona Industriale San Carlo, Castel San Pietro Terme, Nuovo Circondario Imolese, Bologna, Emilia-Romagna, 40024, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "A15",
@@ -7809,7 +7809,7 @@
         }
       ],
       "stradaReverse": "Autostrada del Sole, Castagnoni, San Martino del Pizzolano, Somaglia, Lodi, Lombardia, 26867, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "A16",
@@ -7888,7 +7888,7 @@
         }
       ],
       "stradaReverse": "Autostrada del Sole, Castagnoni, San Martino del Pizzolano, Somaglia, Lodi, Lombardia, 26867, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "X20",
@@ -8324,7 +8324,7 @@
         }
       ],
       "stradaReverse": "Tevere est, Autostrada del Sole, Campo del Pero, Civitella d'Agliano, Viterbo, Lazio, 01024, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "L20",
@@ -8403,7 +8403,7 @@
         }
       ],
       "stradaReverse": "Tirreno est, Autostrada Azzurra, La Scaglia, Santa Severa Nord, Tolfa, Roma Capitale, Lazio, 00050, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "OVEST"
     },
     {
       "codice": "L21",
@@ -8482,7 +8482,7 @@
         }
       ],
       "stradaReverse": "Tirreno ovest, Autostrada Azzurra, La Scaglia, Santa Severa Nord, Tolfa, Roma Capitale, Lazio, 00050, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "N80",
@@ -8640,7 +8640,7 @@
         }
       ],
       "stradaReverse": "Torre Cerrano ovest, Autostrada Adriatica, Silvi, Teramo, Abruzzo, 64029, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "O10",
@@ -8719,7 +8719,7 @@
         }
       ],
       "stradaReverse": "Area di servizio Torre Fantine est, Autostrada Adriatica, Chieuti, Foggia, Puglia, Italia",
-      "direzione_geografica": "NORD"
+      "direzione_geografica": "NORDOVEST"
     },
     {
       "codice": "O11",
@@ -8798,7 +8798,7 @@
         }
       ],
       "stradaReverse": "Area di servizio Torre Fantine ovest, Autostrada Adriatica, Chieuti, Foggia, Puglia, Italia",
-      "direzione_geografica": "SUD"
+      "direzione_geografica": "SUDEST"
     },
     {
       "codice": "D50",
@@ -8913,7 +8913,7 @@
         }
       ],
       "stradaReverse": "Val Trompia Nord, Via Enrico Fermi, Roncadelle, Brescia, Lombardia, 25030, Italia",
-      "direzione_geografica": "EST"
+      "direzione_geografica": "OVEST"
     },
     {
       "codice": "D51",
@@ -9010,7 +9010,7 @@
         }
       ],
       "stradaReverse": "Val Trompia Sud, Via Enrico Fermi, Roncadelle, Brescia, Lombardia, 25030, Italia",
-      "direzione_geografica": "OVEST"
+      "direzione_geografica": "EST"
     },
     {
       "codice": "H10",

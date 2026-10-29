@@ -1,95 +1,135 @@
+"""Arricchisce le aree Free To X con i campi usati dall'app:
+
+- stradaReverse: nome della strada secondo Nominatim (reverse geocoding)
+- direzione_geografica: carreggiata (NORD, SUDEST, ...), calcolata come
+  direzione dall'area verso la città indicata nel campo "direzione".
+  Se la destinazione non è una città geolocalizzabile vale "ND" e l'app
+  non scarta la stazione.
+
+Nota: i suffissi nei nomi delle aree ("CALAGGIO NORD") sono una convenzione
+di Autostrade e non indicano la bussola (Calaggio Nord, sull'A16, va verso
+Napoli, cioè a ovest), per questo non vengono usati.
+
+Uso:  python tools/ReverseGeocoding.py   (dopo tools/Download_Free_To_X.py)
+"""
 import json
+import math
 import time
+from pathlib import Path
+
 import requests
 
-geocode_cache = {}
+DATA = Path(__file__).resolve().parent.parent / "data"
+INPUT = DATA / "free_to_x.json.original.json"
+OUTPUT = DATA / "free_to_x_reverse.json"
+
+NOMINATIM = "https://nominatim.openstreetmap.org"
+# Nominatim richiede uno User-Agent che identifichi l'applicazione
+HEADERS = {"User-Agent": "Next-To-X/1.0 (https://github.com/epydemia/Next-To-X)"}
+
+# Sotto questa distanza la direzione verso la città di destinazione non è affidabile
+DISTANZA_MINIMA_KM = 10
+
+PUNTI_CARDINALI = ["NORD", "NORDEST", "EST", "SUDEST", "SUD", "SUDOVEST", "OVEST", "NORDOVEST"]
+
+
+def nominatim(endpoint, **params):
+    response = requests.get(f"{NOMINATIM}/{endpoint}", params={"format": "jsonv2", **params},
+                            headers=HEADERS, timeout=10)
+    response.raise_for_status()
+    time.sleep(1)  # limite d'uso di Nominatim: 1 richiesta al secondo
+    return response.json()
+
 
 def reverse_geocode(lat, lon):
-    rounded_lat = round(lat, 4)
-    rounded_lon = round(lon, 4)
-    if (rounded_lat, rounded_lon) in geocode_cache:
-        return geocode_cache[(rounded_lat, rounded_lon)]
-    headers = {"User-Agent": "ColonnineJS/1.0 (daniele@example.com)"}  # metti il tuo nome o email reale}
-    url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lon}&format=json"
-    response = requests.get(url, headers=headers, timeout=10)
-    response.raise_for_status()
-    data = response.json()
-    street_name = data.get("display_name", "")
-    geocode_cache[(rounded_lat, rounded_lon)] = street_name
-    time.sleep(1)
-    return street_name
+    return nominatim("reverse", lat=lat, lon=lon).get("display_name", "")
 
-def enrich_file_with_reverse_geocoding(input_path="free_to_x.json.original.json", output_path="free_to_x_reverse.json"):
-    with open(input_path, 'r', encoding='utf-8') as file:
-        raw_data = json.load(file)
-        lista_aree = raw_data.get("listaAree", [])
-    
-    total = len(lista_aree)
-    for idx, area in enumerate(lista_aree):
-        lat = area.get("lat")
-        lon = area.get("lon")
-        if lat is not None and lon is not None:
-            area["stradaReverse"] = reverse_geocode(lat, lon)
-        area["direzione_geografica"] = carreggiata_logica(area.get("strada", ""), area.get("nome", ""))
-        percent = int((idx + 1) / total * 100)
-        print(f"Reverse geocoding: {percent}% completato ({idx + 1}/{total})", end="\r")
 
-    with open(output_path, 'w', encoding='utf-8') as file:
-        output_data = {"listaAree": lista_aree}
-        if "data_download" in raw_data:
-            output_data["data_download"] = raw_data["data_download"]
-        json.dump(output_data, file, ensure_ascii=False, indent=2)
-    print(f"\nFile aggiornato salvato in: {output_path}")
+_cache_citta = {}
 
-def get_autostrada_direzionale(nome_strada):
-    direzioni_autostrade = {
-        "A1": "NORD-SUD",    # Milano - Napoli
-        "A2": "NORD-SUD",    # Salerno - Reggio Calabria
-        "A3": "NORD-SUD",    # Napoli - Salerno
-        "A4": "EST-OVEST",   # Torino - Trieste
-        "A5": "NORD-SUD",    # Torino - Monte Bianco
-        "A6": "NORD-SUD",    # Torino - Savona
-        "A7": "NORD-SUD",    # Milano - Genova
-        "A8": "NORDOVEST-SUDEST",  # Varese - Milano
-        "A9": "NORDOVEST-SUDEST",  # Lainate - Chiasso
-        "A10": "EST-OVEST",  # Genova - Ventimiglia
-        "A11": "EST-OVEST",  # Firenze - Pisa
-        "A12": "NORDOVEST-SUDEST", # Genova - Roma
-        "A13": "NORD-SUD",   # Bologna - Padova
-        "A14": "NORD-SUD",   # Bologna - Taranto
-        "A15": "NORD-SUD",   # Parma - La Spezia
-        "A16": "EST-OVEST",  # Napoli - Canosa
-        "A17": "EST-OVEST",  # Bari - Napoli (storica)
-        "A18": "NORD-SUD",   # Messina - Catania
-        "A19": "NORD-SUD",   # Palermo - Catania
-        "A20": "EST-OVEST",  # Messina - Palermo
-        "A21": "EST-OVEST",  # Torino - Brescia
-        "A22": "NORD-SUD",   # Modena - Brennero
-        "A23": "NORD-SUD",   # Palmanova - Tarvisio
-        "A24": "EST-OVEST",  # Roma - Teramo
-        "A25": "EST-OVEST",  # Torano - Pescara
-        "A26": "NORD-SUD",   # Genova Voltri - Gravellona Toce
-        "A27": "NORD-SUD",   # Mestre - Belluno
-        "A28": "EST-OVEST",  # Portogruaro - Conegliano
-        "A29": "EST-OVEST"   # Palermo - Mazara del Vallo
-    }
-    for codice, direzione in direzioni_autostrade.items():
-        if codice in nome_strada:
-            return direzione
-    return "NON DEFINITO"
 
-def carreggiata_logica(nome_strada, nome_area):
-    asse = get_autostrada_direzionale(nome_strada)
-    nome = nome_area.strip().upper()
-    if asse == "NORD-SUD":
-        return "SUD" if "OVEST" in nome or "SUD" in nome else "NORD"
-    elif asse == "EST-OVEST":
-        return "EST" if "NORD" in nome or "EST" in nome else "OVEST"
-    elif asse == "NORDOVEST-SUDEST":
-        return "SUDEST" if "SUD" in nome or "OVEST" in nome else "NORDOVEST"
-    elif asse == "NORDEST-SUDOVEST":
-        return "SUDOVEST" if "SUD" in nome or "EST" in nome else "NORDEST"
-    return "ND"
+def coordinate_citta(nome):
+    """(lat, lon) di una città italiana, oppure None se il nome non è un centro abitato."""
+    if nome not in _cache_citta:
+        risultati = nominatim("search", q=nome, countrycodes="it", featureType="settlement", limit=1)
+        _cache_citta[nome] = (float(risultati[0]["lat"]), float(risultati[0]["lon"])) if risultati else None
+    return _cache_citta[nome]
+
+
+def distanza_km(lat1, lon1, lat2, lon2):
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dp, dl = p2 - p1, math.radians(lon2 - lon1)
+    a = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+    return 6371 * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+
+def bearing(lat1, lon1, lat2, lon2):
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dl = math.radians(lon2 - lon1)
+    y = math.sin(dl) * math.cos(p2)
+    x = math.cos(p1) * math.sin(p2) - math.sin(p1) * math.cos(p2) * math.cos(dl)
+    return (math.degrees(math.atan2(y, x)) + 360) % 360
+
+
+def punto_cardinale(gradi):
+    return PUNTI_CARDINALI[round(gradi / 45) % 8]
+
+
+def direzione_geografica(area, coordinate_destinazione=coordinate_citta):
+    destinazione = (area.get("direzione") or "").strip()
+    lat, lon = area.get("lat"), area.get("lon")
+    if not destinazione or lat is None or lon is None:
+        return "ND"
+    citta = coordinate_destinazione(destinazione)
+    if citta is None or distanza_km(lat, lon, *citta) < DISTANZA_MINIMA_KM:
+        return "ND"
+    return punto_cardinale(bearing(lat, lon, *citta))
+
+
+SUFFISSI = ("NORD", "SUD", "EST", "OVEST")
+
+
+def nome_base(area):
+    """"MURGE OVEST" → "MURGE": le aree gemelle sulle due carreggiate condividono il nome base."""
+    parole = (area.get("nome") or "").strip().upper().split()
+    return " ".join(parole[:-1]) if len(parole) > 1 and parole[-1] in SUFFISSI else None
+
+
+def completa_da_area_gemella(aree):
+    """Assegna a un'area senza carreggiata la direzione opposta a quella della sua gemella."""
+    per_nome = {}
+    for a in aree:
+        if nome_base(a):
+            per_nome.setdefault((a.get("strada"), nome_base(a)), []).append(a)
+
+    for gemelle in per_nome.values():
+        if len(gemelle) != 2:
+            continue
+        for area, altra in (gemelle, gemelle[::-1]):
+            if area["direzione_geografica"] == "ND" and altra["direzione_geografica"] != "ND":
+                opposta = (PUNTI_CARDINALI.index(altra["direzione_geografica"]) + 4) % 8
+                area["direzione_geografica"] = PUNTI_CARDINALI[opposta]
+
+
+def arricchisci(input_path=INPUT, output_path=OUTPUT):
+    dati = json.loads(input_path.read_text(encoding="utf-8"))
+    aree = dati.get("listaAree", [])
+
+    for i, area in enumerate(aree, 1):
+        if area.get("lat") is not None and area.get("lon") is not None:
+            area["stradaReverse"] = reverse_geocode(area["lat"], area["lon"])
+        area["direzione_geografica"] = direzione_geografica(area)
+        print(f"{i}/{len(aree)}  {area.get('nome', '')} → {area['direzione_geografica']}".ljust(70), end="\r")
+    completa_da_area_gemella(aree)
+
+    output = {"listaAree": aree}
+    if "data_download" in dati:
+        output["data_download"] = dati["data_download"]
+    output_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    nd = sum(a["direzione_geografica"] == "ND" for a in aree)
+    print(f"\n{len(aree)} aree salvate in {output_path} ({nd} senza carreggiata)")
+
 
 if __name__ == "__main__":
-    enrich_file_with_reverse_geocoding()
+    arricchisci()
