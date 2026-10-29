@@ -66,6 +66,9 @@ Add an entry to `SORGENTI_DATI` in `js/config.js` pointing at a JSON file in `da
 | --- | --- | --- |
 | Free To X (Italy) | `python tools/Download_Free_To_X.py && python tools/ReverseGeocoding.py` | `data/free_to_x_reverse.json` |
 | IONITY (Italy, Germany) from OpenStreetMap | `python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE` | `data/ionity_osm.json` |
+| Every other operator in motorway service areas (e.g. ASTM network: A4 Torino-Milano, A6, A10, A12…) | `python tools/Download_OSM_Colonnine.py --tutti-gli-operatori --paesi IT` | `data/osm_aree_servizio.json` |
+
+`--tutti-gli-operatori` starts from the service areas instead of an operator, keeps only chargers inside them, and skips areas already in Free To X, A22 or IONITY (same name within 500 m or same spot). Run it after the other sources.
 
 ### Cross-checking Free To X and A22 with OpenStreetMap
 

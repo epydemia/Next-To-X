@@ -68,5 +68,6 @@ function testoPopup(s) {
   const uscita = s.exitRequired ? '<br>⚠️ Richiede uscita dal casello' : '';
   const intestazione = s.isNearest ? '<strong>⚡ PROSSIMA COLONNINA</strong><br>' : '';
   const direzione = s.isNearest && s.direzione ? `<br>→ ${s.direzione}` : '';
-  return `${intestazione}<strong>${s.nome}</strong><br>${s.strada}${direzione}<br>${s.distanza.toFixed(1)} km${uscita}`;
+  const operatore = s.operatore ? `<br>🔌 ${s.operatore}` : '';
+  return `${intestazione}<strong>${s.nome}</strong><br>${s.strada}${direzione}${operatore}<br>${s.distanza.toFixed(1)} km${uscita}`;
 }

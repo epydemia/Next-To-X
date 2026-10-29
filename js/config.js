@@ -10,6 +10,8 @@ export const SORGENTI_DATI = {
   test: { file: 'test.json',                  label: 'Test' },
   // Generato da tools/Download_OSM_Colonnine.py
   ionity: { file: 'ionity_osm.json',          label: 'IONITY' },
+  // Tutti gli altri operatori nelle aree di servizio (--tutti-gli-operatori)
+  osm:    { file: 'osm_aree_servizio.json',   label: 'Altri operatori' },
 };
 
 // Decisioni della revisione manuale fatta nell'editor stazioni

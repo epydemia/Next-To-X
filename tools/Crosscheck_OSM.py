@@ -12,13 +12,12 @@ Uso:  python tools/Crosscheck_OSM.py  [--aggiorna]
 """
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from Download_OSM_Colonnine import (  # noqa: E402
-    CACHE, DATA, PUNTI_CARDINALI, autostrada_piu_vicina, distanza_elemento_m, posizione,
+    CACHE, DATA, PUNTI_CARDINALI, autostrada_piu_vicina, distanza_elemento_m, nome_coincide, posizione,
     punto_cardinale, richiesta_overpass,
 )
 
@@ -73,20 +72,6 @@ def scarica(aree, aggiorna):
         for el in risposta.get("elements", []):
             elementi[(el["type"], el["id"])] = el
     return list(elementi.values())
-
-
-PAROLE_IGNORATE = {"area", "di", "servizio", "ads", "del", "della", "al", "s", "san", "sant", "santo", "santa"}
-
-
-def parole(nome):
-    return set(re.sub(r"[^a-zàèéìòù0-9]+", " ", (nome or "").lower()).split()) - PAROLE_IGNORATE
-
-
-def nome_coincide(nostro, osm):
-    """Tutte le parole significative del nostro nome compaiono in quello OSM.
-    "S.MARTINO EST" ↔ "Area di servizio San Martino Est"; il lato (est/ovest) deve coincidere."""
-    nostre = parole(nostro)
-    return bool(nostre) and nostre <= parole(osm)
 
 
 def differenza_cardinale(a, b):
