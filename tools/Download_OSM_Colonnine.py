@@ -15,11 +15,19 @@ import argparse
 import json
 import math
 import re
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent / "data"
-OVERPASS = "https://overpass-api.de/api/interpreter"
+CACHE = Path(__file__).resolve().parent / "cache"
+# Server pubblici: se il primo è sovraccarico (429/502/504) si passa al successivo
+OVERPASS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+]
+TENTATIVI_PER_SERVER = 2
 HEADERS = {"User-Agent": "Next-To-X/1.0 (https://github.com/epydemia/Next-To-X)"}
 
 AREA_SERVIZIO_MAX_M = 150   # colonnina considerata dentro l'area di servizio
@@ -37,10 +45,11 @@ def query_overpass(paese, operatore):
     return f"""
 [out:json][timeout:300];
 area["ISO3166-1"="{paese}"][admin_level=2]->.paese;
+nwr["amenity"="charging_station"](area.paese)->.tutte;
 (
-  nwr["amenity"="charging_station"]["operator"~"{filtro}",i](area.paese);
-  nwr["amenity"="charging_station"]["network"~"{filtro}",i](area.paese);
-  nwr["amenity"="charging_station"]["brand"~"{filtro}",i](area.paese);
+  nwr.tutte["operator"~"{filtro}",i];
+  nwr.tutte["network"~"{filtro}",i];
+  nwr.tutte["brand"~"{filtro}",i];
 )->.colonnine;
 .colonnine out tags center;
 way(around.colonnine:{USCITA_MAX_M})["highway"="motorway"]->.autostrade;
@@ -50,12 +59,37 @@ nwr(around.colonnine:{CARREGGIATA_MAX_M})["highway"~"^(services|rest_area)$"]->.
 """
 
 
-def scarica(paese, operatore):
+def scarica(paese, operatore, aggiorna=False):
+    """Risposta Overpass per un paese; salvata in tools/cache/ e riusata se già presente."""
+    cache = CACHE / f"{operatore.lower()}_{paese}.json"
+    if cache.exists() and not aggiorna:
+        print(f"{paese}: uso la cache {cache.name} (--aggiorna per riscaricare)")
+        return json.loads(cache.read_text(encoding="utf-8"))
+
+    risposta = richiesta_overpass(query_overpass(paese, operatore), f"{operatore} in {paese}")
+    CACHE.mkdir(exist_ok=True)
+    cache.write_text(json.dumps(risposta), encoding="utf-8")
+    return risposta
+
+
+def richiesta_overpass(query, descrizione):
     import requests
-    print(f"Overpass: {operatore} in {paese}...")
-    r = requests.post(OVERPASS, data={"data": query_overpass(paese, operatore)}, headers=HEADERS, timeout=360)
-    r.raise_for_status()
-    return r.json()
+    errori = []
+    for server in OVERPASS:
+        for tentativo in range(1, TENTATIVI_PER_SERVER + 1):
+            print(f"Overpass ({server.split('/')[2]}, tentativo {tentativo}): {descrizione}...")
+            try:
+                r = requests.post(server, data={"data": query}, headers=HEADERS, timeout=360)
+                if r.status_code in (429, 502, 503, 504):
+                    raise requests.HTTPError(f"HTTP {r.status_code}")
+                r.raise_for_status()
+                return r.json()
+            except (requests.RequestException, ValueError) as err:
+                errori.append(f"{server}: {err}")
+                print(f"  fallito: {err}")
+                if tentativo < TENTATIVI_PER_SERVER:
+                    time.sleep(30 * tentativo)
+    raise RuntimeError("Tutti i server Overpass hanno fallito:\n" + "\n".join(errori))
 
 
 # --- Geometria (piano locale in metri: sufficiente per distanze di qualche km) ---
@@ -174,7 +208,7 @@ def colonnina(el):
     }
 
 
-def elabora(risposta, paese, operatore):
+def elabora(risposta, paese, operatore, dettagli=False):
     """Converte la risposta Overpass in aree nel formato dell'app (vedi data/*.json)."""
     elementi = risposta.get("elements", [])
     colonnine = [e for e in elementi if e.get("tags", {}).get("amenity") == "charging_station"]
@@ -187,13 +221,18 @@ def elabora(risposta, paese, operatore):
         if not p:
             continue
         dist_autostrada, via, direzione = autostrada_piu_vicina(p, autostrade)
+        area_servizio = min(aree_servizio, key=lambda a: distanza_elemento_m(p, a), default=None)
+        dist_area = distanza_elemento_m(p, area_servizio) if area_servizio else math.inf
+        in_area = dist_area <= AREA_SERVIZIO_MAX_M and dist_autostrada <= CARREGGIATA_MAX_M
+
+        if dettagli:
+            esito = "scartata" if dist_autostrada > USCITA_MAX_M else "area di servizio" if in_area else "uscita"
+            nome_area = area_servizio["tags"].get("name", "?") if area_servizio else "-"
+            print(f"  {c.get('tags', {}).get('name', c['id'])!s:40.40} {p[0]:.5f},{p[1]:.5f}  "
+                  f"autostrada {dist_autostrada:6.0f} m  area '{nome_area}' {dist_area:6.0f} m  → {esito}")
+
         if dist_autostrada > USCITA_MAX_M:
             continue
-
-        area_servizio = min(aree_servizio, key=lambda a: distanza_elemento_m(p, a), default=None)
-        in_area = (area_servizio is not None
-                   and distanza_elemento_m(p, area_servizio) <= AREA_SERVIZIO_MAX_M
-                   and dist_autostrada <= CARREGGIATA_MAX_M)
 
         chiave = f"osm:{area_servizio['type']}/{area_servizio['id']}" if in_area else colonnina(c)["codice"]
         if chiave in aree:
@@ -223,11 +262,14 @@ def main():
     parser.add_argument("--operatore", default="IONITY")
     parser.add_argument("--paesi", default="IT,DE", help="codici ISO separati da virgola")
     parser.add_argument("--output", help="file in data/ (default: <operatore>_osm.json)")
+    parser.add_argument("--aggiorna", action="store_true", help="riscarica ignorando tools/cache/")
+    parser.add_argument("--dettagli", action="store_true", help="distanze e classificazione di ogni colonnina")
     args = parser.parse_args()
 
     aree = []
     for paese in [p.strip().upper() for p in args.paesi.split(",")]:
-        trovate = elabora(scarica(paese, args.operatore), paese, args.operatore)
+        risposta = scarica(paese, args.operatore, args.aggiorna)
+        trovate = elabora(risposta, paese, args.operatore, args.dettagli)
         print(f"  {paese}: {len(trovate)} aree ({sum(a['exitRequired'] for a in trovate)} fuori autostrada)")
         aree += trovate
 
