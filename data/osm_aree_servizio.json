@@ -1,6 +1,553 @@
 {
   "listaAree": [
     {
+      "codice": "osm:way/303739446",
+      "nome": "Area di Dorno Est",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 45.147232,
+      "lon": 8.99121,
+      "paese": "IT",
+      "operatore": "Tesla",
+      "distanzaAutostradaM": 14,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/3081365538",
+          "modello": "Dorno Supercharger Est",
+          "operatore": "Tesla",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/303739447",
+      "nome": "Area di Dorno Ovest",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 45.147726,
+      "lon": 8.990623,
+      "paese": "IT",
+      "operatore": "Tesla",
+      "distanzaAutostradaM": 36,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/3081365539",
+          "modello": "Dorno Supercharger Ovest",
+          "operatore": "Tesla",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1149826403",
+      "nome": "Area di servizio Limenella Ovest",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 45.449403,
+      "lon": 11.844724,
+      "paese": "IT",
+      "operatore": "Enel X",
+      "distanzaAutostradaM": 60,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/4855784596",
+          "modello": "Enel X",
+          "operatore": "Enel X",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/211475837",
+      "nome": "Area di Rho Sud",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 45.509453,
+      "lon": 9.039693,
+      "paese": "IT",
+      "operatore": "Enel",
+      "distanzaAutostradaM": 48,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/6616224345",
+          "modello": "Enel",
+          "operatore": "Enel",
+          "connettori": [
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CHAdeMO"
+            },
+            {
+              "modello": "Type 2"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/734746356",
+      "nome": "Area di servizio A22",
+      "strada": "A22",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 46.117108,
+      "lon": 11.089361,
+      "paese": "IT",
+      "operatore": "Alperia",
+      "distanzaAutostradaM": 185,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/7838711771",
+          "modello": "Alperia",
+          "operatore": "Alperia",
+          "connettori": [
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CHAdeMO"
+            },
+            {
+              "modello": "Type 2"
+            },
+            {
+              "modello": "Type 2"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/915818719",
+      "nome": "Area di servizio RA12",
+      "strada": "RA12",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 42.344801,
+      "lon": 14.129037,
+      "paese": "IT",
+      "operatore": "Megalo",
+      "distanzaAutostradaM": 367,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/8500858961",
+          "modello": "Megalo",
+          "operatore": "Megalo",
+          "connettori": []
+        },
+        {
+          "codice": "osm:way/915141435",
+          "modello": "Megalo",
+          "operatore": "Megalo",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1127491251",
+      "nome": "San Casciano Ovest",
+      "strada": "RA3",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 43.618563,
+      "lon": 11.187906,
+      "paese": "IT",
+      "operatore": "Enel X",
+      "distanzaAutostradaM": 49,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/9379898727",
+          "modello": "Enel X",
+          "operatore": "Enel X",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/447971897",
+      "nome": "Castagnolo Est",
+      "strada": "A12",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 43.669458,
+      "lon": 10.35985,
+      "paese": "IT",
+      "operatore": "Blitz Power",
+      "distanzaAutostradaM": 91,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/9714216355",
+          "modello": "Blitz Power",
+          "operatore": "Blitz Power",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/303635846",
+      "nome": "Area di servizio RA3",
+      "strada": "RA3",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 43.59306,
+      "lon": 11.198365,
+      "paese": "IT",
+      "operatore": "Repower",
+      "distanzaAutostradaM": 13,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/9967413090",
+          "modello": "Repower",
+          "operatore": "Repower",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/881905488",
+      "nome": "EnerHub",
+      "strada": "RA12",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 42.416106,
+      "lon": 14.168615,
+      "paese": "IT",
+      "operatore": "sconosciuto",
+      "distanzaAutostradaM": 132,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/10118828448",
+          "modello": "EnerHub",
+          "operatore": "",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/12285326129",
+          "modello": "EnerHub",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/203374710",
+      "nome": "Val Trompia Sud",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 45.532553,
+      "lon": 10.148348,
+      "paese": "IT",
+      "operatore": "sconosciuto",
+      "distanzaAutostradaM": 41,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/10229396593",
+          "modello": "Free to X",
+          "operatore": "",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/10229408302",
+          "modello": "Free to X",
+          "operatore": "",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/12157389353",
+          "modello": "Free to X",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/301723535",
+      "nome": "Serramendola Ovest",
+      "strada": "A18",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 37.058439,
+      "lon": 15.225112,
+      "paese": "IT",
+      "operatore": "Enel X Way",
+      "distanzaAutostradaM": 369,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/10273842220",
+          "modello": "Enel X Way",
+          "operatore": "Enel X Way",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 369 m dall'autostrada, lontana per un'area di servizio"
+    },
+    {
+      "codice": "osm:way/333309475",
+      "nome": "Green Blue",
+      "strada": "",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 37.263864,
+      "lon": 15.141818,
+      "paese": "IT",
+      "operatore": "sconosciuto",
+      "distanzaAutostradaM": 280,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/10281425010",
+          "modello": "Green Blue",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 280 m dall'autostrada, lontana per un'area di servizio"
+    },
+    {
+      "codice": "osm:way/814509912",
+      "nome": "Area di servizio Bazzera Nord",
+      "strada": "A57",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 45.525311,
+      "lon": 12.259722,
+      "paese": "IT",
+      "operatore": "Enel X",
+      "distanzaAutostradaM": 37,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/10794778042",
+          "modello": "Enel X",
+          "operatore": "Enel X",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/532492771",
+      "nome": "Area di Châtillon-Saint Vincent Nord",
+      "strada": "A5",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 45.749035,
+      "lon": 7.623015,
+      "paese": "IT",
+      "operatore": "Duferco",
+      "distanzaAutostradaM": 129,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11013725120",
+          "modello": "Duferco",
+          "operatore": "Duferco",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/11013741410",
+          "modello": "Rendez Vous",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/745957324",
+      "nome": "Aci Sant'Antonio Est",
+      "strada": "A18",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 37.597389,
+      "lon": 15.130757,
+      "paese": "IT",
+      "operatore": "Enel X Way",
+      "distanzaAutostradaM": 83,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11177634790",
+          "modello": "Enel X Way",
+          "operatore": "Enel X Way",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/316205637",
+      "nome": "Area Servizio Zugliano Ovest",
+      "strada": "A23",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 46.01499,
+      "lon": 13.218029,
+      "paese": "IT",
+      "operatore": "sconosciuto",
+      "distanzaAutostradaM": 53,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11215930246",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/889965456",
+      "nome": "Area di servizio Baronissi est",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 40.748285,
+      "lon": 14.786619,
+      "paese": "IT",
+      "operatore": "Galdieri Energy",
+      "distanzaAutostradaM": 50,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11236681488",
+          "modello": "Galdieri Energy",
+          "operatore": "Galdieri Energy",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/889965459",
+      "nome": "Area di servizio Baronissi ovest",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 40.748256,
+      "lon": 14.785317,
+      "paese": "IT",
+      "operatore": "Galdieri Energy",
+      "distanzaAutostradaM": 47,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11236681493",
+          "modello": "Galdieri Energy",
+          "operatore": "Galdieri Energy",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
       "codice": "osm:way/1445301459",
       "nome": "Fratta Nord",
       "strada": "A4",
@@ -23,8 +570,712 @@
       ],
       "daVerificare": false,
       "motivo": ""
+    },
+    {
+      "codice": "osm:way/694818253",
+      "nome": "Area di servizio Monte Baldo Ovest",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 45.411485,
+      "lon": 10.902578,
+      "paese": "IT",
+      "operatore": "Porsche, Tesla, Inc.",
+      "distanzaAutostradaM": 55,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11369408885",
+          "modello": "Porsche",
+          "operatore": "Porsche",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/11369408886",
+          "modello": "Tesla Destination Charger",
+          "operatore": "Tesla, Inc.",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/334110395",
+      "nome": "Area di servizio Scaligera Ovest",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 45.411804,
+      "lon": 11.232382,
+      "paese": "IT",
+      "operatore": "Be Charge",
+      "distanzaAutostradaM": 62,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11390110220",
+          "modello": "Be Charge",
+          "operatore": "Be Charge",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/682158063",
+      "nome": "Enel X",
+      "strada": "A1dir",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 42.147325,
+      "lon": 12.611422,
+      "paese": "IT",
+      "operatore": "Enel X",
+      "distanzaAutostradaM": 128,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11646926317",
+          "modello": "Enel X",
+          "operatore": "Enel X",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/94505188",
+      "nome": "Area Servizio San Rocco",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 45.241753,
+      "lon": 7.974011,
+      "paese": "IT",
+      "operatore": "Enel",
+      "distanzaAutostradaM": 73,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/11700675373",
+          "modello": "Enel X",
+          "operatore": "Enel",
+          "connettori": [
+            {
+              "modello": "CCS 90 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/889309828",
+      "nome": "Area di servizio Cosenza est",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 39.345489,
+      "lon": 16.235913,
+      "paese": "IT",
+      "operatore": "Enel X",
+      "distanzaAutostradaM": 60,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/12157616408",
+          "modello": "Enel X",
+          "operatore": "Enel X",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/889309829",
+      "nome": "Area di servizio Cosenza ovest",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 39.345609,
+      "lon": 16.234455,
+      "paese": "IT",
+      "operatore": "Enel X",
+      "distanzaAutostradaM": 54,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/12157616409",
+          "modello": "Enel X",
+          "operatore": "Enel X",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/327155414",
+      "nome": "Esso",
+      "strada": "RA3",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 43.467516,
+      "lon": 11.154933,
+      "paese": "IT",
+      "operatore": "Enel X",
+      "distanzaAutostradaM": 177,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/12186294813",
+          "modello": "Enel X",
+          "operatore": "Enel X",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1175768896",
+      "nome": "Area di servizio A14",
+      "strada": "A14",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 43.890865,
+      "lon": 12.891131,
+      "paese": "IT",
+      "operatore": "Be Charge s.r.l.",
+      "distanzaAutostradaM": 184,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/12546183586",
+          "modello": "Be Charge s.r.l.",
+          "operatore": "Be Charge s.r.l.",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/121851210",
+      "nome": "Area di Servizio Rio Coloré est",
+      "strada": "A6",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 44.704452,
+      "lon": 7.763979,
+      "paese": "IT",
+      "operatore": "sconosciuto",
+      "distanzaAutostradaM": 61,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/12791243922",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1149254253",
+      "nome": "Sacchitello Nord",
+      "strada": "A19",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 37.578416,
+      "lon": 14.339726,
+      "paese": "IT",
+      "operatore": "Plenitude",
+      "distanzaAutostradaM": 73,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/12801819231",
+          "modello": "Plenitude",
+          "operatore": "Plenitude",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/75359707",
+      "nome": "Good Truck La Sosta",
+      "strada": "A14",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 42.896763,
+      "lon": 13.883606,
+      "paese": "IT",
+      "operatore": "Tesla",
+      "distanzaAutostradaM": 58,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/12880959950",
+          "modello": "San Benedetto del Tronto Supercharger",
+          "operatore": "Tesla",
+          "connettori": [
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/73823285",
+      "nome": "Quiesa Nord",
+      "strada": "A11/A12",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 43.853932,
+      "lon": 10.408364,
+      "paese": "IT",
+      "operatore": "sconosciuto",
+      "distanzaAutostradaM": 40,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/13159876302",
+          "modello": "IPlanet",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1427407258",
+      "nome": "Nection Ronchis",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 45.807494,
+      "lon": 13.017895,
+      "paese": "IT",
+      "operatore": "sconosciuto",
+      "distanzaAutostradaM": 234,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/13328865870",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/13328865871",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/13328865872",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 234 m dall'autostrada, lontana per un'area di servizio"
+    },
+    {
+      "codice": "osm:way/737672136",
+      "nome": "IPlanet",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 45.430135,
+      "lon": 10.714516,
+      "paese": "IT",
+      "operatore": "IPlanet",
+      "distanzaAutostradaM": 74,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/13339846448",
+          "modello": "IPlanet",
+          "operatore": "IPlanet",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/204903761",
+      "nome": "Area di Servizio Cascina Gobba Est",
+      "strada": "A51",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 45.507303,
+      "lon": 9.261512,
+      "paese": "IT",
+      "operatore": "Plenitude",
+      "distanzaAutostradaM": 47,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/13427068197",
+          "modello": "Plenitude",
+          "operatore": "Plenitude",
+          "connettori": [
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1511656886",
+      "nome": "Area di Altivole Nord",
+      "strada": "SPV",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 45.752765,
+      "lon": 11.896583,
+      "paese": "IT",
+      "operatore": "T-electric",
+      "distanzaAutostradaM": 20,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/13987992764",
+          "modello": "T-electric",
+          "operatore": "T-electric",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/385549233",
+      "nome": "Bettole Ovest",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 44.760577,
+      "lon": 8.837015,
+      "paese": "IT",
+      "operatore": "IPlanet",
+      "distanzaAutostradaM": 58,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/14059308126",
+          "modello": "IPlanet",
+          "operatore": "IPlanet",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/102654050",
+      "nome": "Schlern West - Scilliar Ovest",
+      "strada": "A22",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 46.531613,
+      "lon": 11.490476,
+      "paese": "IT",
+      "operatore": "Autostrada del Brennero",
+      "distanzaAutostradaM": 99,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/14093758236",
+          "modello": "Autostrada del Brennero",
+          "operatore": "Autostrada del Brennero",
+          "connettori": [
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/968552888",
+      "nome": "Area di servizio Duino Nord",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 45.777452,
+      "lon": 13.608531,
+      "paese": "IT",
+      "operatore": "plenitude on the road",
+      "distanzaAutostradaM": 53,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/14134717094",
+          "modello": "Duino Nord",
+          "operatore": "plenitude on the road",
+          "connettori": [
+            {
+              "modello": "CCS 110 kW"
+            },
+            {
+              "modello": "CCS 110 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1377867105",
+      "nome": "Area di servizio Colceresa Nord",
+      "strada": "SPV",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 45.712293,
+      "lon": 11.631661,
+      "paese": "IT",
+      "operatore": "Ewiva",
+      "distanzaAutostradaM": 22,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/14159234951",
+          "modello": "Ewiva",
+          "operatore": "Ewiva",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1377867104",
+      "nome": "Area di Colceresa Sud",
+      "strada": "SPV",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 45.711363,
+      "lon": 11.631103,
+      "paese": "IT",
+      "operatore": "Q8",
+      "distanzaAutostradaM": 22,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:node/14159249261",
+          "modello": "Q8",
+          "operatore": "Q8",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/449521510",
+      "nome": "Area di Bordighera Sud",
+      "strada": "A10",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 43.798163,
+      "lon": 7.691292,
+      "paese": "IT",
+      "operatore": "sconosciuto",
+      "distanzaAutostradaM": 29,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:way/1564644725",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/449680750",
+      "nome": "Autoporto / Autoport",
+      "strada": "A5",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 45.737258,
+      "lon": 7.372418,
+      "paese": "IT",
+      "operatore": "Tesla",
+      "distanzaAutostradaM": 81,
+      "tipoArea": "services",
+      "colonnine": [
+        {
+          "codice": "osm:relation/21700712",
+          "modello": "Supercharger Aosta, Italy - A5 dir. Torino",
+          "operatore": "Tesla",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:relation/21700713",
+          "modello": "Supercharger Aosta, Italy - A5 dir. Mont-Blanc",
+          "operatore": "Tesla",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:relation/21700714",
+          "modello": "Supercharger Aosta, Italy - off highway",
+          "operatore": "Tesla",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
     }
   ],
-  "data_download": "2026-10-29T22:48:53.053722+00:00",
+  "data_download": "2026-10-29T23:15:57.755265+00:00",
   "fonte": "© OpenStreetMap contributors, ODbL"
 }
