@@ -33,6 +33,7 @@ HEADERS = {"User-Agent": "Next-To-X/1.0 (https://github.com/epydemia/Next-To-X)"
 AREA_SERVIZIO_MAX_M = 150   # colonnina considerata dentro l'area di servizio
 CARREGGIATA_MAX_M = 400     # autostrada a cui appartiene l'area di servizio
 USCITA_MAX_M = 1500         # oltre, la colonnina non è considerata autostradale
+RAGGRUPPA_M = 200           # colonnine fuori autostrada più vicine di così sono la stessa sede
 
 PUNTI_CARDINALI = ["NORD", "NORDEST", "EST", "SUDEST", "SUD", "SUDOVEST", "OVEST", "NORDOVEST"]
 
@@ -254,7 +255,23 @@ def elabora(risposta, paese, operatore, dettagli=False):
             "operatore": operatore,
             "colonnine": [colonnina(c)],
         }
-    return list(aree.values())
+    return raggruppa_vicine(list(aree.values()))
+
+
+def raggruppa_vicine(aree, raggio_m=RAGGRUPPA_M):
+    """Unisce ogni area fuori autostrada alla sede più vicina entro raggio_m: OSM mappa
+    spesso ogni colonnina di una sede come elemento separato, a volte appena fuori dal
+    perimetro dell'area di servizio. Le aree di servizio restano distinte (una per carreggiata)."""
+    risultato = [a for a in aree if not a["exitRequired"]]
+    for area in (a for a in aree if a["exitRequired"]):
+        p = (area["lat"], area["lon"])
+        vicine = [(distanza_segmento_m(p, (r["lat"], r["lon"]), (r["lat"], r["lon"])), r) for r in risultato]
+        distanza, vicina = min(vicine, key=lambda v: v[0], default=(math.inf, None))
+        if distanza <= raggio_m:
+            vicina["colonnine"] += area["colonnine"]
+        else:
+            risultato.append(area)
+    return risultato
 
 
 def main():
