@@ -16,6 +16,8 @@ let csvWaypoints = [];
 let debugCallback = null;
 // Timer del loop di simulazione debug
 let debugTimer = null;
+// True quando il GPS è negato o non disponibile
+let gpsUnavailable = false;
 // Fattore di accelerazione della simulazione: i timestamp del CSV vengono divisi per questo valore
 const DEBUG_SPEED_MULTIPLIER = 10;
 
@@ -318,6 +320,7 @@ export function initGeolocation(callback, debug = false) {
       },
       (error) => {
         console.warn("Errore nella geolocalizzazione:", error);
+        gpsUnavailable = true;
       },
       {
         enableHighAccuracy: true, // Usa GPS hardware invece del Wi-Fi/IP
@@ -327,6 +330,7 @@ export function initGeolocation(callback, debug = false) {
     );
   } else {
     console.warn("⚠️ Geolocalizzazione non supportata dal browser.");
+    gpsUnavailable = true;
   }
 }
 
@@ -381,14 +385,16 @@ function updateHeading(lat, lon, heading = null) {
  * o dal loop di debug. Utile per i moduli che hanno bisogno della posizione
  * una tantum senza dover sottoscrivere il callback continuo.
  */
-export async function getUserPosition() {
-    console.log("getUserPosition");
+export async function getUserPosition(timeoutMs = 15000) {
   if (userCoordinates) return userCoordinates;
 
   return new Promise(resolve => {
+    const deadline = Date.now() + timeoutMs;
     const check = () => {
       if (userCoordinates) {
         resolve(userCoordinates);
+      } else if (gpsUnavailable || Date.now() >= deadline) {
+        resolve(null);
       } else {
         setTimeout(check, 200);
       }
