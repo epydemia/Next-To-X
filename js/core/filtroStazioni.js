@@ -37,7 +37,7 @@ export function tutteLeStazioni(aree, { lat, lon }) {
  * 3. stazione davanti rispetto all'heading, non già superata.
  * Con mostraTutte nessun filtro viene applicato e tutte risultano "avanti".
  */
-export function filtraStazioni(aree, { lat, lon, heading, strada, codiceAutostrada, mostraTutte }) {
+export function filtraStazioni(aree, { lat, lon, heading, strada, codiceAutostrada, paese, mostraTutte }) {
   const stradaUtente = normalizza(strada);
 
   const stazioni = aree
@@ -46,7 +46,7 @@ export function filtraStazioni(aree, { lat, lon, heading, strada, codiceAutostra
       if (!mostraTutte && stazione.distanza > RAGGIO_STAZIONI_KM) return null;
 
       stazione.isAvanti = mostraTutte || (
-        stradaCompatibile(area, codiceAutostrada, stradaUtente) &&
+        stradaCompatibile(area, codiceAutostrada, stradaUtente, paese) &&
         (stazione.exitRequired || heading == null || stessaDirezione(area.direzione_geografica, heading)) &&
         (heading == null || isDavanti(lat, lon, heading, area.lat, area.lon))
       );
@@ -60,7 +60,10 @@ export function filtraStazioni(aree, { lat, lon, heading, strada, codiceAutostra
   return stazioni;
 }
 
-function stradaCompatibile(area, codiceAutostrada, stradaUtente) {
+function stradaCompatibile(area, codiceAutostrada, stradaUtente, paese) {
+  // La stessa sigla indica strade diverse in paesi diversi (A5 in Germania e in Svizzera).
+  // Le fonti italiane non hanno il campo paese
+  if (paese && (area.paese ?? 'IT') !== paese) return false;
   if (codiceAutostrada) return estraiCodice(area.strada?.toUpperCase()) === codiceAutostrada;
   const stradaArea = normalizza(area.stradaReverse);
   if (!stradaUtente || !stradaArea) return false;

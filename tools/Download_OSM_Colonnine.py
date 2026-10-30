@@ -12,13 +12,14 @@ I casi dubbi vengono marcati daVerificare (con il motivo) per la revisione manua
 nell'editor stazioni; le decisioni finiscono in data/revisioni.json e l'app le applica
 al caricamento, quindi sopravvivono a un nuovo download.
 
-Uso:  python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE
+Uso:  python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT
 Dati © OpenStreetMap contributors, licenza ODbL.
 """
 import argparse
 import json
 import math
 import re
+import subprocess
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -68,7 +69,7 @@ LOTTO_AUTOSTRADE = 40
 
 # Gli Autohof tedeschi sono a volte taggati highway=services, ma si raggiungono uscendo
 NOME_AUTOHOF = re.compile(r"autohof|truck\s?stop", re.I)
-NOME_AREA_SERVIZIO = re.compile(r"rastst[äa]tte|rasthof|rastanlage|area di servizio|\bads\b|autogrill|serways|tank\s?&\s?rast", re.I)
+NOME_AREA_SERVIZIO = re.compile(r"rastst[äa]tte|raststation|rasthof|rastanlage|area di servizio|aire de|\bads\b|autogrill|serways|tank\s?&\s?rast", re.I)
 
 PUNTI_CARDINALI = ["NORD", "NORDEST", "EST", "SUDEST", "SUD", "SUDOVEST", "OVEST", "NORDOVEST"]
 
@@ -146,7 +147,7 @@ def scarica_aree_servizio(paese, aggiorna):
     for i in range(0, len(punti), LOTTO_AUTOSTRADE):
         lotto = punti[i:i + LOTTO_AUTOSTRADE]
         risposta = richiesta_overpass(query_autostrade_vicine(lotto),
-                                      f"autostrade vicine, aree {i + 1}-{i + len(lotto)} di {len(punti)}")
+                                      f"autostrade vicine, aree {i + 1}-{i + len(lotto)} di {len(punti)}", vuota_ok=True)
         for el in risposta.get("elements", []):
             autostrade[el["id"]] = el
 
@@ -168,9 +169,12 @@ nwr["amenity"="charging_station"](area.paese)->.tutte;
   nwr.tutte["brand"~"{filtro}",i];
 )->.colonnine;
 .colonnine out tags center;
-way(around.colonnine:{USCITA_MAX_M})["highway"="motorway"]->.autostrade;
+// around funziona solo a partire dai nodi: le colonnine mappate come poligoni vanno scomposte
+(way.colonnine; way(r.colonnine);)->.vie;
+(node.colonnine; node(w.vie);)->.punti;
+way(around.punti:{USCITA_MAX_M})["highway"="motorway"]->.autostrade;
 .autostrade out tags geom;
-nwr(around.colonnine:{CARREGGIATA_MAX_M})["highway"~"^(services|rest_area)$"]->.aree;
+nwr(around.punti:{CARREGGIATA_MAX_M})["highway"~"^(services|rest_area)$"]->.aree;
 .aree out tags geom;
 """
 
@@ -191,22 +195,39 @@ def scarica(paese, operatore, aggiorna=False):
     return risposta
 
 
-def richiesta_overpass(query, descrizione):
+def post_overpass(server, query):
+    import requests
+    try:
+        r = requests.post(server, data={"data": query}, headers=HEADERS, timeout=360)
+    except requests.exceptions.SSLError:
+        # Il Python di sistema di macOS (LibreSSL) non completa l'handshake con alcuni server
+        esito = subprocess.run(["curl", "-sS", "--fail", "-m", "360", "-A", HEADERS["User-Agent"],
+                                "--data-urlencode", "data@-", server],
+                               input=query, capture_output=True, text=True)
+        if esito.returncode:
+            raise ValueError(esito.stderr.strip())
+        return json.loads(esito.stdout)
+    if r.status_code in (429, 502, 503, 504):
+        raise requests.HTTPError(f"HTTP {r.status_code}")
+    r.raise_for_status()
+    return r.json()
+
+
+def richiesta_overpass(query, descrizione, vuota_ok=False):
     import requests
     errori = []
     for server in OVERPASS:
         for tentativo in range(1, TENTATIVI_PER_SERVER + 1):
             print(f"Overpass ({server.split('/')[2]}, tentativo {tentativo}): {descrizione}...")
             try:
-                r = requests.post(server, data={"data": query}, headers=HEADERS, timeout=360)
-                if r.status_code in (429, 502, 503, 504):
-                    raise requests.HTTPError(f"HTTP {r.status_code}")
-                r.raise_for_status()
-                risposta = r.json()
+                risposta = post_overpass(server, query)
                 # Su timeout o memoria esaurita Overpass risponde 200 con dati parziali e un "remark"
                 avviso = risposta.get("remark", "")
                 if "error" in avviso.lower():
                     raise ValueError(f"risposta parziale: {avviso}")
+                # Alcuni mirror non hanno le aree dei paesi e rispondono 200 senza elementi
+                if not risposta.get("elements") and not vuota_ok:
+                    raise ValueError("risposta vuota")
                 return risposta
             except (requests.RequestException, ValueError) as err:
                 errori.append(f"{server}: {err}")
@@ -497,7 +518,9 @@ def main():
     parser.add_argument("--tutti-gli-operatori", action="store_true",
                         help="colonnine di qualsiasi operatore nelle aree di servizio, escluse quelle già "
                              "presenti in Free To X, A22 e IONITY (output: osm_aree_servizio.json)")
-    parser.add_argument("--paesi", default="IT,DE", help="codici ISO separati da virgola")
+    parser.add_argument("--paesi", default="IT,DE,CH,AT", help="codici ISO separati da virgola")
+    parser.add_argument("--unisci", action="store_true",
+                        help="conserva nel file di output le aree degli altri paesi (e le loro correzioni)")
     parser.add_argument("--output", help="file in data/ (default: <operatore>_osm.json)")
     parser.add_argument("--aggiorna", action="store_true", help="riscarica ignorando tools/cache/")
     parser.add_argument("--dettagli", action="store_true", help="distanze e classificazione di ogni colonnina")
@@ -521,6 +544,9 @@ def main():
 
     predefinito = f"{operatore.lower()}_osm.json" if operatore else "osm_aree_servizio.json"
     output = DATA / (args.output or predefinito)
+    if args.unisci and output.exists():
+        paesi = {a["paese"] for a in aree}
+        aree = [a for a in json.loads(output.read_text(encoding="utf-8"))["listaAree"] if a["paese"] not in paesi] + aree
     output.write_text(json.dumps({
         "listaAree": aree,
         "data_download": datetime.now(timezone.utc).isoformat(),
