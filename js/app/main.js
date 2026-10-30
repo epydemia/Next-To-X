@@ -17,8 +17,8 @@ function aggiorna(stato) {
   mostraStrada(stato);
   mostraDirezione(stato);
 
-  const { heading, strada, codiceAutostrada } = stato;
-  const stazioni = filtraStazioni(aree, { ...stato.coords, heading, strada, codiceAutostrada, mostraTutte });
+  const { heading, strada, codiceAutostrada, paese } = stato;
+  const stazioni = filtraStazioni(aree, { ...stato.coords, heading, strada, codiceAutostrada, paese, mostraTutte });
   disegnaStazioni(stazioni);
   aggiornaPannelli(stazioni);
 }

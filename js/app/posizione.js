@@ -17,6 +17,7 @@ const stato = {
   headingStimato: true,
   strada: '',
   codiceAutostrada: null,
+  paese: null,
 };
 
 let gpsNegato = false;
@@ -109,7 +110,9 @@ function aggiornaStradaSeNecessario(lat, lon) {
 
   ultimoReverse = { pos: { lat, lon }, quando: Date.now() };
   reverseGeocode(lat, lon).then(risultato => {
-    if (!risultato || risultato.strada === stato.strada) return;
+    if (!risultato) return;
+    stato.paese = risultato.paese;
+    if (risultato.strada === stato.strada) return;
     stato.strada = risultato.strada;
     // La sigla OSM ("A14", "A 7") funziona in ogni paese; i nomi italiani restano come riserva
     stato.codiceAutostrada = estraiCodice(risultato.sigla) ?? codiceDaNomeStrada(risultato.strada);
@@ -117,7 +120,7 @@ function aggiornaStradaSeNecessario(lat, lon) {
   });
 }
 
-/** { strada, sigla } della strada più vicina secondo Nominatim, oppure null in caso di errore. */
+/** { strada, sigla, paese } della strada più vicina secondo Nominatim, oppure null in caso di errore. */
 async function reverseGeocode(lat, lon) {
   try {
     // zoom=17: restituisce la strada (non l'edificio); namedetails include la sigla (ref)
@@ -126,7 +129,7 @@ async function reverseGeocode(lat, lon) {
     const strada = data.address?.road || data.name || data.display_name;
     if (!strada) return null;
     const sigla = data.category === 'highway' ? data.namedetails?.ref ?? null : null;
-    return { strada, sigla };
+    return { strada, sigla, paese: data.address?.country_code?.toUpperCase() ?? null };
   } catch (err) {
     console.warn('Reverse geocoding fallito:', err);
     return null;

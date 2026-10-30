@@ -1511,6 +1511,1817 @@
       "motivo": "a 231 m dall'autostrada ma nessuna area di servizio mappata"
     },
     {
+      "codice": "osm:way/107680867",
+      "nome": "Heidiland",
+      "strada": "A13",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 47.011741,
+      "lon": 9.512436,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 20,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1231731269",
+          "modello": "Ionity Heidiland",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/276641501",
+      "nome": "IONITY Martigny",
+      "strada": "A9",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 46.127837,
+      "lon": 7.05984,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 79,
+      "tipoArea": "rest_area",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1386291291",
+          "modello": "IONITY Martigny",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "piazzola di sosta (rest_area), di solito senza servizi"
+    },
+    {
+      "codice": "osm:way/80905320",
+      "nome": "IONITY Kemptthal",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 47.449396,
+      "lon": 8.700224,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 48,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390201304",
+          "modello": "IONITY Kemptthal",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/552067120",
+      "nome": "Bellinzona Sud",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 46.182168,
+      "lon": 9.001709,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 42,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390207875",
+          "modello": "IONITY Bellinzona Süd",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 175 kW"
+            },
+            {
+              "modello": "CCS 175 kW"
+            },
+            {
+              "modello": "CCS 175 kW"
+            },
+            {
+              "modello": "CCS 175 kW"
+            },
+            {
+              "modello": "CCS 175 kW"
+            },
+            {
+              "modello": "CCS 175 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/304570624",
+      "nome": "Bellinzona Nord",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 46.209532,
+      "lon": 9.026617,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 86,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390208347",
+          "modello": "IONITY Bellinzona Nord",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/13820312016",
+      "nome": "IONITY A6",
+      "strada": "A6",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.065357,
+      "lon": 7.291506,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 266,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13820312016",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 266 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:node/14309234422",
+      "nome": "IONITY GmbH IONITY Neuenkirch Ost",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.113357,
+      "lon": 8.232255,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 84,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/14309234422",
+          "modello": "IONITY GmbH IONITY Neuenkirch Ost",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 84 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1135816358",
+      "nome": "Ionity Gossau",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.413013,
+      "lon": 9.240648,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 1285,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1135816358",
+          "modello": "Ionity Gossau",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1390205668",
+      "nome": "IONITY Gotthard Süd",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 46.846644,
+      "lon": 8.632237,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 45,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390205668",
+          "modello": "IONITY Gotthard Süd",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/1390206850",
+          "modello": "IONITY Gotthard Nord",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 45 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1390210080",
+      "nome": "IONITY Lully",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 46.832452,
+      "lon": 6.859377,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 0,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390210080",
+          "modello": "IONITY Lully",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 0 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1390211328",
+      "nome": "IONITY Oftringen",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.30413,
+      "lon": 7.929734,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 240,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390211328",
+          "modello": "IONITY Oftringen",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 240 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1390212016",
+      "nome": "IONITY Grauholz",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 46.990214,
+      "lon": 7.476033,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 54,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390212016",
+          "modello": "IONITY Grauholz",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 54 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1390212992",
+      "nome": "IONITY Gisikon",
+      "strada": "A14",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.125123,
+      "lon": 8.397252,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 213,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390212992",
+          "modello": "IONITY Gisikon",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 213 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1444727307",
+      "nome": "Ionity Lugano Sud",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 45.974845,
+      "lon": 8.927779,
+      "paese": "CH",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 104,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1444727307",
+          "modello": "Ionity Lugano Sud",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 104 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/192901592",
+      "nome": "Raststation Kaiserwald",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 46.95911,
+      "lon": 15.38196,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 113,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/4969076271",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "Type 2"
+            },
+            {
+              "modello": "Type 2"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/47030500",
+      "nome": "Raststation Mondsee",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 47.8366,
+      "lon": 13.395917,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 82,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6158791927",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/404473862",
+      "nome": "Raststation Eisentratten",
+      "strada": "A10",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 46.920063,
+      "lon": 13.579282,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 73,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6388009886",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/525427828",
+      "nome": "Raststation Göttlesbrunn",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 48.056245,
+      "lon": 16.71192,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 134,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6413525439",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/263997273",
+      "nome": "Raststation Angath Nord",
+      "strada": "A12",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 47.519255,
+      "lon": 12.065483,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 113,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6575329915",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/187691678",
+      "nome": "Raststation Steinhäusl",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 48.157816,
+      "lon": 15.94042,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 117,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/8414875606",
+          "modello": "IONITY GmbH",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/177049281",
+      "nome": "IONITY A2",
+      "strada": "A2",
+      "direzione": "Klagenfurt Ost",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 46.639554,
+      "lon": 14.451478,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 196,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9024938271",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/200300459",
+      "nome": "Raststation Golling Ost",
+      "strada": "A10",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 47.584787,
+      "lon": 13.157953,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 104,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9486262048",
+          "modello": "IONITY Golling",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13464003499",
+          "modello": "IONITY Golling",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/42217069",
+      "nome": "Raststation Hochleithen",
+      "strada": "A5",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 48.425308,
+      "lon": 16.547744,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 39,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9486280165",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/471547998",
+      "nome": "Raststation Hohenems",
+      "strada": "A14",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 47.366293,
+      "lon": 9.659085,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 81,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13676116442",
+          "modello": "Raststation Hohenems",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13676116443",
+          "modello": "Raststation Hohenems",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13676116444",
+          "modello": "Raststation Hohenems",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13676116445",
+          "modello": "Raststation Hohenems",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13676116446",
+          "modello": "Raststation Hohenems",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13676116447",
+          "modello": "Raststation Hohenems",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13676116451",
+          "modello": "Raststation Hohenems",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/35323435",
+      "nome": "Raststation Ansfelden Süd",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 48.211008,
+      "lon": 14.27976,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 118,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1417046869",
+          "modello": "IONITY Ansfelden",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/143747639",
+      "nome": "IONITY St. Valentin",
+      "strada": "A1",
+      "direzione": "Enns-Ost",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 48.196364,
+      "lon": 14.528314,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 398,
+      "tipoArea": "rest_area",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1501953432",
+          "modello": "IONITY St. Valentin",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "piazzola di sosta (rest_area), di solito senza servizi; a 398 m dall'autostrada, lontana per un'area di servizio"
+    },
+    {
+      "codice": "osm:node/9392297309",
+      "nome": "IONITY A2",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.37397,
+      "lon": 16.093815,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 283,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9392297309",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 283 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:node/9486255733",
+      "nome": "IONITY A9",
+      "strada": "A9",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.490269,
+      "lon": 14.485326,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 725,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9486255733",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/10267128975",
+      "nome": "IONITY S6",
+      "strada": "S6",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.468679,
+      "lon": 15.344108,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 754,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/10267128975",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/10638599592",
+      "nome": "IONITY A1",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 48.039343,
+      "lon": 13.990789,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 81,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/10638599592",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/1496234412",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 81 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:node/10764725352",
+      "nome": "IONITY A4",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.975934,
+      "lon": 16.854405,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 193,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/10764725352",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 193 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:node/10771245338",
+      "nome": "IONITY A1",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.929335,
+      "lon": 13.501049,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 513,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/10771245338",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/10945009319",
+      "nome": "IONITY A2",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 46.566741,
+      "lon": 13.809214,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 323,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/10945009319",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/11423231672",
+      "nome": "IONITY A8",
+      "strada": "A8",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 48.183588,
+      "lon": 13.785478,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 170,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/11423231672",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 170 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:node/13019682456",
+      "nome": "Ionity Flachau",
+      "strada": "A10",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.362389,
+      "lon": 13.38389,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 962,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13019682456",
+          "modello": "Ionity Flachau",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/13072322794",
+      "nome": "Ionity Amstetten",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 48.131707,
+      "lon": 14.840469,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 527,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13072322794",
+          "modello": "Ionity Amstetten",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/13532381388",
+      "nome": "IONITY Wiener Neustadt",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.804573,
+      "lon": 16.210212,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 741,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13532381388",
+          "modello": "IONITY Wiener Neustadt",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/14145333146",
+      "nome": "IONITY A12",
+      "strada": "A12",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.535509,
+      "lon": 12.093685,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 253,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/14145333146",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 253 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:node/14179977930",
+      "nome": "IONITY Ybbs an der Donau",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 48.161065,
+      "lon": 15.106829,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 352,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/14179977930",
+          "modello": "IONITY Ybbs an der Donau",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "Type 2 350kW"
+            },
+            {
+              "modello": "Type 2 350kW"
+            },
+            {
+              "modello": "Type 2 350kW"
+            },
+            {
+              "modello": "Type 2 350kW"
+            },
+            {
+              "modello": "Type 2 350kW"
+            },
+            {
+              "modello": "Type 2 350kW"
+            },
+            {
+              "modello": "Type 2 350kW"
+            },
+            {
+              "modello": "Type 2 350kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/14221538303",
+      "nome": "IONITY Völkermarkt",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 46.682179,
+      "lon": 14.678428,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 93,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/14221538303",
+          "modello": "IONITY Völkermarkt",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 93 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1463751855",
+      "nome": "IONITY St. Pölten",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 48.180017,
+      "lon": 15.614294,
+      "paese": "AT",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 316,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1463751855",
+          "modello": "IONITY St. Pölten",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
       "codice": "osm:way/368775373",
       "nome": "Raststätte Samerberg Süd",
       "strada": "A8",
@@ -1523,10 +3334,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 129,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/4601340650",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -1546,40 +3359,48 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 53,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/5459085696",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665506",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665507",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665508",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665509",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/14321449993",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/14321449994",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -1599,30 +3420,36 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 65,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/5459085697",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665502",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665503",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665504",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665505",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -1642,10 +3469,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 83,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/5558457044",
           "modello": "Ionity Auetal Süd",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -1665,10 +3494,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 39,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/5564012400",
           "modello": "Ionity Brohltal Ost",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1707,10 +3538,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 338,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6034012624",
           "modello": "Ionity Hohenwarsleben",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1767,10 +3600,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 87,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6087442921",
           "modello": "Ionity GmbH;Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1780,6 +3615,7 @@
         {
           "codice": "osm:node/6087442922",
           "modello": "Ionity GmbH;Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1789,6 +3625,7 @@
         {
           "codice": "osm:node/6087442924",
           "modello": "Ionity GmbH;Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1798,6 +3635,7 @@
         {
           "codice": "osm:node/6087442958",
           "modello": "Ionity GmbH;Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1807,6 +3645,7 @@
         {
           "codice": "osm:node/6087442959",
           "modello": "Ionity GmbH;Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1816,6 +3655,7 @@
         {
           "codice": "osm:node/6087442960",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1839,10 +3679,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 84,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6087473539",
           "modello": "Ionity GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1852,6 +3694,7 @@
         {
           "codice": "osm:node/6087473540",
           "modello": "Ionity GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1861,6 +3704,7 @@
         {
           "codice": "osm:node/6087473541",
           "modello": "Ionity GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1870,6 +3714,7 @@
         {
           "codice": "osm:node/6087473542",
           "modello": "Ionity GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1893,20 +3738,24 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 79,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6088810463",
           "modello": "",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/6088810465",
           "modello": "",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/6088810468",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -1939,10 +3788,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 94,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6111469814",
           "modello": "Buddikate Ost",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -1975,10 +3826,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 155,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6124896312",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2017,10 +3870,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 93,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6170378490",
           "modello": "IONITY Neckarburg West",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2059,10 +3914,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 124,
       "tipoArea": "rest_area",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6271620572",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -2072,6 +3929,7 @@
         {
           "codice": "osm:node/6271620573",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -2081,6 +3939,7 @@
         {
           "codice": "osm:node/6271620574",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -2090,6 +3949,7 @@
         {
           "codice": "osm:node/6271620575",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -2113,10 +3973,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 114,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6535156702",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2126,6 +3988,7 @@
         {
           "codice": "osm:node/6535156703",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2135,6 +3998,7 @@
         {
           "codice": "osm:node/6535156704",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2144,6 +4008,7 @@
         {
           "codice": "osm:node/8542159079",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2153,6 +4018,7 @@
         {
           "codice": "osm:node/12360440742",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2162,6 +4028,7 @@
         {
           "codice": "osm:node/12360440743",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2185,10 +4052,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 79,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/6795828758",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2198,6 +4067,7 @@
         {
           "codice": "osm:node/6795828760",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2207,6 +4077,7 @@
         {
           "codice": "osm:node/6795828761",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2216,6 +4087,7 @@
         {
           "codice": "osm:node/6795828762",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2225,6 +4097,7 @@
         {
           "codice": "osm:node/6795828763",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2234,6 +4107,7 @@
         {
           "codice": "osm:node/6795828764",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2257,15 +4131,18 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 92,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/7006319387",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/7006319388",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2304,10 +4181,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 126,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/7017014536",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2317,6 +4196,7 @@
         {
           "codice": "osm:node/7017014537",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2326,6 +4206,7 @@
         {
           "codice": "osm:node/7017014538",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2335,6 +4216,7 @@
         {
           "codice": "osm:node/7017014539",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2344,6 +4226,7 @@
         {
           "codice": "osm:node/14229023035",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2353,6 +4236,7 @@
         {
           "codice": "osm:node/14229023036",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2376,10 +4260,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 173,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/7076851205",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2389,6 +4275,7 @@
         {
           "codice": "osm:node/7076851206",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2398,6 +4285,7 @@
         {
           "codice": "osm:node/7076851207",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2407,6 +4295,7 @@
         {
           "codice": "osm:node/7076851208",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2416,6 +4305,7 @@
         {
           "codice": "osm:node/13031323487",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2425,6 +4315,7 @@
         {
           "codice": "osm:node/13031323488",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2448,10 +4339,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 81,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/7076851209",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2461,6 +4354,7 @@
         {
           "codice": "osm:node/7076851210",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2470,6 +4364,7 @@
         {
           "codice": "osm:node/7076851211",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2479,6 +4374,7 @@
         {
           "codice": "osm:node/7076851212",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2488,6 +4384,7 @@
         {
           "codice": "osm:node/13031323484",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2497,6 +4394,7 @@
         {
           "codice": "osm:node/13031323485",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2520,10 +4418,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 73,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/7210797482",
           "modello": "IONITY Haidt Süd",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2542,6 +4442,7 @@
         {
           "codice": "osm:node/12102839842",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -2561,10 +4462,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 125,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8039565368",
           "modello": "Ionity Autetal Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -2597,25 +4500,30 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 70,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8251661431",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8251661432",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8251661433",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8251661434",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -2635,10 +4543,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 107,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8255456984",
           "modello": "Ostetal-Sud",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -2671,10 +4581,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 59,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8255497308",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -2707,10 +4619,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 39,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8331848437",
           "modello": "Lüneburger Heide Ost Ladestation",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -2743,10 +4657,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 16,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8397932373",
           "modello": "Reinhardshain Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 360"
@@ -2756,6 +4672,7 @@
         {
           "codice": "osm:node/8397932374",
           "modello": "Reinhardshain Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 360"
@@ -2765,6 +4682,7 @@
         {
           "codice": "osm:node/8397932375",
           "modello": "Reinhardshain Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 360"
@@ -2774,6 +4692,7 @@
         {
           "codice": "osm:node/8397932376",
           "modello": "Reinhardshain Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2797,10 +4716,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 95,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8521024520",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2810,6 +4731,7 @@
         {
           "codice": "osm:node/9529934062",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2819,6 +4741,7 @@
         {
           "codice": "osm:node/9529934063",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2828,6 +4751,7 @@
         {
           "codice": "osm:node/9529934064",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2851,10 +4775,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 83,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8533422415",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2864,6 +4790,7 @@
         {
           "codice": "osm:node/8533422416",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2873,6 +4800,7 @@
         {
           "codice": "osm:node/8533422817",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2882,6 +4810,7 @@
         {
           "codice": "osm:node/8533422818",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2905,25 +4834,30 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 85,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8533430345",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8533430346",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8533430347",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8533430348",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -2943,10 +4877,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 71,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8545250864",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -2985,10 +4921,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 99,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8675354124",
           "modello": "Ionity Augsburg Ost",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -2998,6 +4936,7 @@
         {
           "codice": "osm:node/9100322493",
           "modello": "Ionity Augsburg Ost",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -3007,6 +4946,7 @@
         {
           "codice": "osm:node/9100322494",
           "modello": "Ionity Augsburg Ost",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -3016,6 +4956,7 @@
         {
           "codice": "osm:node/9100322495",
           "modello": "Ionity Augsburg Ost",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -3025,6 +4966,7 @@
         {
           "codice": "osm:node/10743565348",
           "modello": "Ionity Augsburg Ost",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -3034,6 +4976,7 @@
         {
           "codice": "osm:node/10743565349",
           "modello": "Ionity Augsburg Ost",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -3057,10 +5000,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 33,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8708177304",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3070,6 +5015,7 @@
         {
           "codice": "osm:node/8708177305",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3079,6 +5025,7 @@
         {
           "codice": "osm:node/8708177306",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3088,6 +5035,7 @@
         {
           "codice": "osm:node/8708177307",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3111,10 +5059,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 127,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8708204615",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3124,6 +5074,7 @@
         {
           "codice": "osm:node/8708204616",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3133,6 +5084,7 @@
         {
           "codice": "osm:node/8708213117",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3142,6 +5094,7 @@
         {
           "codice": "osm:node/8708213118",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3151,6 +5104,7 @@
         {
           "codice": "osm:node/13750398002",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3160,6 +5114,7 @@
         {
           "codice": "osm:node/13750398003",
           "modello": "HPC-Lader IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3183,25 +5138,30 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 73,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8760665494",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665495",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665496",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665497",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -3221,25 +5181,30 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 90,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8760665498",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665499",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665500",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8760665501",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -3259,10 +5224,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 126,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8873370339",
           "modello": "HPC IONITY Thüringer Wald Süd",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3272,6 +5239,7 @@
         {
           "codice": "osm:node/8873370340",
           "modello": "HPC IONITY Thüringer Wald Süd",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3281,6 +5249,7 @@
         {
           "codice": "osm:node/8873370341",
           "modello": "HPC IONITY Thüringer Wald Süd",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3290,6 +5259,7 @@
         {
           "codice": "osm:node/8873370342",
           "modello": "HPC IONITY Thüringer Wald Süd",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3313,10 +5283,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 69,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9045534831",
           "modello": "IONITY Charging Station",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -3336,10 +5308,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 112,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9060793543",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CHAdeMO 350"
@@ -3372,10 +5346,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 137,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9324273595",
           "modello": "Am Fichtenplan Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3408,10 +5384,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 39,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9324748774",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -3431,10 +5409,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 116,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9360375663",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3473,10 +5453,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 120,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9398537538",
           "modello": "HPC IONITY Thüringer Wald Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3486,6 +5468,7 @@
         {
           "codice": "osm:node/9398537539",
           "modello": "HPC IONITY Thüringer Wald Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3495,6 +5478,7 @@
         {
           "codice": "osm:node/9398537540",
           "modello": "HPC IONITY Thüringer Wald Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3504,6 +5488,7 @@
         {
           "codice": "osm:node/9398537541",
           "modello": "HPC IONITY Thüringer Wald Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3527,10 +5512,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 89,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9398819446",
           "modello": "IONITY Bayerischer Wald Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3540,6 +5527,7 @@
         {
           "codice": "osm:node/9398819447",
           "modello": "IONITY Bayerischer Wald Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3549,6 +5537,7 @@
         {
           "codice": "osm:node/9398819448",
           "modello": "IONITY Bayerischer Wald Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3558,6 +5547,7 @@
         {
           "codice": "osm:node/9398819449",
           "modello": "IONITY Bayerischer Wald Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3581,10 +5571,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 74,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9528513138",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3594,6 +5586,7 @@
         {
           "codice": "osm:node/9528513139",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3603,6 +5596,7 @@
         {
           "codice": "osm:node/9528513140",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3612,6 +5606,7 @@
         {
           "codice": "osm:node/9528513141",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3635,10 +5630,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 74,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9774190044",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -3658,10 +5655,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 336,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9864022828",
           "modello": "Ionity Schwabhausen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3700,10 +5699,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 104,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9875827108",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3736,10 +5737,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 96,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9875864209",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3772,10 +5775,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 70,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9990965844",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -3794,6 +5799,7 @@
         {
           "codice": "osm:node/9990965845",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -3812,6 +5818,7 @@
         {
           "codice": "osm:node/9990965846",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -3830,6 +5837,7 @@
         {
           "codice": "osm:node/9990965847",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -3862,15 +5870,18 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 80,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/10273886795",
           "modello": "Ionity Nempitz",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13275430504",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -3890,10 +5901,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 209,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/10591506362",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -3950,10 +5963,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 86,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/10671929865",
           "modello": "IONITY Charging Station",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -3973,10 +5988,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 277,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/10833069389",
           "modello": "Ionity Kirchheim 2",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4019,6 +6036,7 @@
         {
           "codice": "osm:node/8548432158",
           "modello": "Ionity Kirchheim (Tal)",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4057,10 +6075,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 140,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11149967954",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -4080,10 +6100,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 320,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11423208781",
           "modello": "Ionity Knetzgau",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4140,10 +6162,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 266,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11423233769",
           "modello": "Ionity Oberkrämer",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4200,10 +6224,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 79,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11510985456",
           "modello": "IONITY Mahlberg Ost",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4236,10 +6262,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 116,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11510985462",
           "modello": "IONITY Mahlberg West",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4272,10 +6300,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 58,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11711239227",
           "modello": "",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -4295,25 +6325,30 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 104,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12194126971",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12194150535",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12194162849",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12194164541",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -4333,10 +6368,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 58,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12327808216",
           "modello": "Lüneburger Heide West Ladestation",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -4369,10 +6406,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 42,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12566201225",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -4447,35 +6486,42 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 85,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12757630700",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12757674701",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12757674702",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12757674703",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12757674704",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12757674705",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -4495,10 +6541,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 57,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/13464030158",
           "modello": "IONITY Holzkirchen Süd",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4537,10 +6585,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 88,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/13464034053",
           "modello": "IONITY Holzkirchen Nord",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4567,6 +6617,31 @@
       "motivo": ""
     },
     {
+      "codice": "osm:way/598383168",
+      "nome": "Raststätte Katzenfurt",
+      "strada": "A45",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 50.620337,
+      "lon": 8.363006,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 120,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1117738426",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
       "codice": "osm:way/376634341",
       "nome": "Raststätte Lichtendorf Süd",
       "strada": "A1",
@@ -4579,10 +6654,603 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 95,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:way/1213690632",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/961635296",
+      "nome": "Rosis Leintal Nörten-Hardenberg",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 51.628885,
+      "lon": 9.922363,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 250,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1294482512",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 250 m dall'autostrada, lontana per un'area di servizio"
+    },
+    {
+      "codice": "osm:way/296507866",
+      "nome": "Brokenlande",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 54.014213,
+      "lon": 9.933284,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 93,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1316249001",
+          "modello": "Ionity Brokenlande Ost",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/221160721",
+      "nome": "Aalbek-West",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 54.092666,
+      "lon": 9.929086,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 128,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1316249006",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/264518694",
+      "nome": "Donautal West",
+      "strada": "A3",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 48.589494,
+      "lon": 13.365336,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 72,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1417044109",
+          "modello": "IONITY Donautal West",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/264518693",
+      "nome": "Donautal Ost",
+      "strada": "A3",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 48.58822,
+      "lon": 13.366651,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 64,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1417045530",
+          "modello": "IONITY Donautal Ost",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/244273281",
+      "nome": "Rasthof Lonetal",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 48.584246,
+      "lon": 10.178946,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 71,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1426006963",
+          "modello": "IONITY GmbH",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/509122226",
+      "nome": "Raststätte Dollenberg Ost",
+      "strada": "A45",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 50.688495,
+      "lon": 8.295868,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 87,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1453911751",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/243267567",
+      "nome": "Rasthof Dresdner Tor",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 51.063243,
+      "lon": 13.57113,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 147,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1476661151",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/185408825",
+      "nome": "Rasthof Dresdner Tor",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 51.060261,
+      "lon": 13.571989,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 166,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1476661152",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/325323170",
+      "nome": "Rasthof Spessart Nord",
+      "strada": "A3",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 49.898214,
+      "lon": 9.394488,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 105,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1485110128",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/357225540",
+      "nome": "Euro Rastpark Guxhagen",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 51.202562,
+      "lon": 9.468766,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 121,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1553174357",
+          "modello": "IONITY",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/349215236",
+      "nome": "IONITY A2",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 51.695889,
+      "lon": 7.966194,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 234,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1562248099",
+          "modello": "IONITY GmbH",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 234 m dall'autostrada, lontana per un'area di servizio"
+    },
+    {
+      "codice": "osm:way/683437947",
+      "nome": "Aachener Land Nord",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 50.817673,
+      "lon": 6.213906,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 65,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1562288225",
+          "modello": "IONITY GmbH",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/683437941",
+      "nome": "Aachener Land Süd",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 50.817349,
+      "lon": 6.216749,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 67,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1562288226",
+          "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4615,10 +7283,144 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 46,
       "tipoArea": "services",
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:way/1563290246",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/244273282",
+      "nome": "Rasthof Lonetal",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 48.583927,
+      "lon": 10.175586,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 74,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1563828388",
+          "modello": "IONITY GmbH",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/550645507",
+      "nome": "Wunnenstein Ost",
+      "strada": "A81",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 49.045296,
+      "lon": 9.266196,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 99,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1563847147",
+          "modello": "IONITY GmbH",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/550645506",
+      "nome": "Wunnenstein West",
+      "strada": "A81",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 49.044269,
+      "lon": 9.261622,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 99,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1563847149",
+          "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4646,7 +7448,7 @@
     },
     {
       "codice": "osm:node/6600036324",
-      "nome": "Ionity Sangerhausen",
+      "nome": "24 Autohof Sangerhausen",
       "strada": "A38",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -4656,11 +7458,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 54,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "24 Autohof Sangerhausen",
       "colonnine": [
         {
           "codice": "osm:node/6600036324",
           "modello": "Ionity Sangerhausen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350"
@@ -4678,11 +7482,11 @@
         }
       ],
       "daVerificare": true,
-      "motivo": "a 54 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro 24 Autohof Sangerhausen ma a 54 m dall'autostrada"
     },
     {
       "codice": "osm:node/6875643503",
-      "nome": "IONITY A3",
+      "nome": "Autohof Neumarkt",
       "strada": "A3",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -4692,11 +7496,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 362,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Neumarkt",
       "colonnine": [
         {
           "codice": "osm:node/6875643503",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4719,12 +7525,12 @@
           ]
         }
       ],
-      "daVerificare": false,
-      "motivo": ""
+      "daVerificare": true,
+      "motivo": "dentro Autohof Neumarkt ma a 362 m dall'autostrada"
     },
     {
       "codice": "osm:node/7006342685",
-      "nome": "Ionity Nahetal",
+      "nome": "Autohof Nahetal",
       "strada": "A61",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -4734,11 +7540,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 284,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Nahetal",
       "colonnine": [
         {
           "codice": "osm:node/7006342685",
           "modello": "Ionity Nahetal",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4762,11 +7570,11 @@
         }
       ],
       "daVerificare": true,
-      "motivo": "a 284 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Autohof Nahetal ma a 284 m dall'autostrada"
     },
     {
       "codice": "osm:node/8363710072",
-      "nome": "Ionity Pilsting",
+      "nome": "Autohof Pilsting",
       "strada": "A92",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -4776,11 +7584,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 264,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Pilsting",
       "colonnine": [
         {
           "codice": "osm:node/8363710072",
           "modello": "Ionity Pilsting",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4804,11 +7614,11 @@
         }
       ],
       "daVerificare": true,
-      "motivo": "a 264 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Autohof Pilsting ma a 264 m dall'autostrada"
     },
     {
       "codice": "osm:node/8456465162",
-      "nome": "IONITY A30",
+      "nome": "Autohof Salzbergen",
       "strada": "A30",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -4818,41 +7628,48 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 300,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Salzbergen",
       "colonnine": [
         {
           "codice": "osm:node/8456465162",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8456465163",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8456465164",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8456465165",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8456465166",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8456465167",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
       "daVerificare": true,
-      "motivo": "a 300 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Autohof Salzbergen ma a 300 m dall'autostrada"
     },
     {
       "codice": "osm:node/8675354123",
@@ -4867,10 +7684,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 198,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8675354123",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4880,6 +7699,7 @@
         {
           "codice": "osm:node/9100322483",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4889,6 +7709,7 @@
         {
           "codice": "osm:node/9100322484",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4898,6 +7719,7 @@
         {
           "codice": "osm:node/9100322485",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4907,6 +7729,7 @@
         {
           "codice": "osm:node/10242678026",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4916,6 +7739,7 @@
         {
           "codice": "osm:node/10242678027",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -4939,30 +7763,36 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 44,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/8873370326",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8873370327",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8873370328",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/8873370329",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/10219208886",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -4982,10 +7812,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 1066,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9063867841",
           "modello": "Detmeroder Markt",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5018,10 +7850,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 510,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9198308072",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5031,6 +7865,7 @@
         {
           "codice": "osm:node/12570785455",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5040,6 +7875,7 @@
         {
           "codice": "osm:node/12570785456",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5049,6 +7885,7 @@
         {
           "codice": "osm:node/12570785457",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5058,6 +7895,7 @@
         {
           "codice": "osm:node/12570785458",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5067,6 +7905,7 @@
         {
           "codice": "osm:node/12570785459",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5076,6 +7915,7 @@
         {
           "codice": "osm:node/12570794004",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5085,6 +7925,7 @@
         {
           "codice": "osm:node/12570794005",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5094,6 +7935,7 @@
         {
           "codice": "osm:node/12570794006",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5103,6 +7945,7 @@
         {
           "codice": "osm:node/12570794007",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5112,6 +7955,7 @@
         {
           "codice": "osm:node/12570794008",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5121,6 +7965,7 @@
         {
           "codice": "osm:node/12570794009",
           "modello": "IONITY Heiligengrabe",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5133,7 +7978,7 @@
     },
     {
       "codice": "osm:node/9875873342",
-      "nome": "Ionity",
+      "nome": "Autohof Wernberg",
       "strada": "A93",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -5143,11 +7988,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 319,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Wernberg",
       "colonnine": [
         {
           "codice": "osm:node/9875873342",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5170,8 +8017,8 @@
           ]
         }
       ],
-      "daVerificare": false,
-      "motivo": ""
+      "daVerificare": true,
+      "motivo": "dentro Autohof Wernberg ma a 319 m dall'autostrada"
     },
     {
       "codice": "osm:node/9890189176",
@@ -5186,10 +8033,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 776,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/9890189176",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -5217,7 +8066,7 @@
     },
     {
       "codice": "osm:node/9976893614",
-      "nome": "IONITY - Bad Honnef",
+      "nome": "Autohof Dachsberg",
       "strada": "A3",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -5227,11 +8076,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 53,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Dachsberg",
       "colonnine": [
         {
           "codice": "osm:node/9976893614",
           "modello": "IONITY - Bad Honnef",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5273,7 +8124,7 @@
         }
       ],
       "daVerificare": true,
-      "motivo": "a 53 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Autohof Dachsberg ma a 53 m dall'autostrada"
     },
     {
       "codice": "osm:node/10282229992",
@@ -5288,10 +8139,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 1182,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/10282229992",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5330,10 +8183,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 1433,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/10310536492",
           "modello": "",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5372,10 +8227,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 761,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11001557302",
           "modello": "Ionity Oberhausen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5385,6 +8242,7 @@
         {
           "codice": "osm:node/11364358201",
           "modello": "Ionity Oberhausen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5394,6 +8252,7 @@
         {
           "codice": "osm:node/11364358202",
           "modello": "Ionity Oberhausen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5403,6 +8262,7 @@
         {
           "codice": "osm:node/11364358203",
           "modello": "Ionity Oberhausen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5412,6 +8272,7 @@
         {
           "codice": "osm:node/11364358204",
           "modello": "Ionity Oberhausen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5421,6 +8282,7 @@
         {
           "codice": "osm:node/11364358205",
           "modello": "Ionity Oberhausen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5444,10 +8306,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 763,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11014614525",
           "modello": "Ionity Dettelbach",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5504,10 +8368,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 781,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11057219098",
           "modello": "Ionity Leinefelde-Worbis",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5546,10 +8412,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 967,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11159847631",
           "modello": "Ionity Polch",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5588,10 +8456,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 540,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11211921312",
           "modello": "Ionity Castrop Rauxel",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5648,20 +8518,24 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 285,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11262690248",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12612804956",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12612804957",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5701,11 +8575,13 @@
         {
           "codice": "osm:node/12612804958",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12612804959",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5745,11 +8621,13 @@
         {
           "codice": "osm:node/12612804960",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12612804961",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5789,21 +8667,25 @@
         {
           "codice": "osm:node/12612804962",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12612804963",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12612804964",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/12612804965",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -5823,10 +8705,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 208,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11287669313",
           "modello": "Ionity Merklingen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5919,10 +8803,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 401,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11293487160",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -5961,10 +8847,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 117,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11423268252",
           "modello": "Ionity Dietmannsried",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6009,10 +8897,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 629,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11472699854",
           "modello": "Ionity Garching",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6055,21 +8945,25 @@
         {
           "codice": "osm:node/14078534936",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/14078537110",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/14078559303",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/14078559304",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -6089,10 +8983,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 476,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11472712035",
           "modello": "Ionity Kaiserslautern",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6120,7 +9016,7 @@
     },
     {
       "codice": "osm:node/11560314355",
-      "nome": "IONITY A9",
+      "nome": "Aral Autohof Bitterfeld",
       "strada": "A9",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -6130,11 +9026,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 206,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Aral Autohof Bitterfeld",
       "colonnine": [
         {
           "codice": "osm:node/11560314355",
           "modello": "ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350"
@@ -6176,7 +9074,7 @@
         }
       ],
       "daVerificare": true,
-      "motivo": "a 206 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Aral Autohof Bitterfeld ma a 206 m dall'autostrada"
     },
     {
       "codice": "osm:node/11690066688",
@@ -6191,10 +9089,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 1246,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/11690066688",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6204,6 +9104,7 @@
         {
           "codice": "osm:node/11690066689",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6213,6 +9114,7 @@
         {
           "codice": "osm:node/11690066690",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6222,6 +9124,7 @@
         {
           "codice": "osm:node/11690066691",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6231,6 +9134,7 @@
         {
           "codice": "osm:node/11690066692",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6240,6 +9144,7 @@
         {
           "codice": "osm:node/11690066693",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6249,6 +9154,7 @@
         {
           "codice": "osm:node/11690066695",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6258,6 +9164,7 @@
         {
           "codice": "osm:node/11690066696",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6267,6 +9174,7 @@
         {
           "codice": "osm:node/11690066697",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200 kW"
@@ -6279,6 +9187,7 @@
         {
           "codice": "osm:node/11690066698",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200 kW"
@@ -6294,7 +9203,7 @@
     },
     {
       "codice": "osm:node/11828810474",
-      "nome": "IONITY A44",
+      "nome": "Autohof Elsinger Höhe",
       "strada": "A44",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -6304,11 +9213,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 44,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Elsinger Höhe",
       "colonnine": [
         {
           "codice": "osm:node/11828810474",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -6351,61 +9262,72 @@
         {
           "codice": "osm:node/13855365247",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13855365248",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13855365250",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13855365256",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13855365264",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13855365267",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13855365271",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13855365274",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13855365278",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13865899958",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:way/1519460027",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
       "daVerificare": true,
-      "motivo": "a 44 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Autohof Elsinger Höhe ma a 44 m dall'autostrada"
     },
     {
       "codice": "osm:node/12047895867",
@@ -6420,10 +9342,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 89,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12047895867",
           "modello": "IONITY - Oberhonnefeld",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6480,10 +9404,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 77,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12331318939",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -6503,10 +9429,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 1465,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12438315827",
           "modello": "IONITY Erfurt",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -6551,15 +9479,18 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 30,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12465202408",
           "modello": "IONITY Bernau am Chiemsee",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13463999527",
           "modello": "IONITY Bernau am Chiemsee",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6586,10 +9517,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 158,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12513256993",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200 kW"
@@ -6602,6 +9535,7 @@
         {
           "codice": "osm:node/12513256994",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200 kW"
@@ -6614,6 +9548,7 @@
         {
           "codice": "osm:node/12513256995",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200 kW"
@@ -6629,7 +9564,7 @@
     },
     {
       "codice": "osm:node/12697063543",
-      "nome": "IONITY A44",
+      "nome": "Autohof Geseke",
       "strada": "A44",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -6639,16 +9574,18 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 136,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Geseke",
       "colonnine": [
         {
           "codice": "osm:node/12697063543",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
       "daVerificare": true,
-      "motivo": "a 136 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Autohof Geseke ma a 136 m dall'autostrada"
     },
     {
       "codice": "osm:node/12917473545",
@@ -6663,10 +9600,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 107,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/12917473545",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -6686,15 +9625,18 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 517,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/13190926861",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:way/1435127233",
           "modello": "IONITY Deutschland",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -6703,7 +9645,7 @@
     },
     {
       "codice": "osm:node/13272374392",
-      "nome": "IONITY A9",
+      "nome": "Autohof Himmelkron West",
       "strada": "A9",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -6713,11 +9655,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 626,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Himmelkron West",
       "colonnine": [
         {
           "codice": "osm:node/13272374392",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 400"
@@ -6760,6 +9704,7 @@
         {
           "codice": "osm:way/1385344201",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 400"
@@ -6785,12 +9730,12 @@
           ]
         }
       ],
-      "daVerificare": false,
-      "motivo": ""
+      "daVerificare": true,
+      "motivo": "dentro Autohof Himmelkron West ma a 626 m dall'autostrada"
     },
     {
       "codice": "osm:node/13272380801",
-      "nome": "IONITY A14",
+      "nome": "24-TOTAL Autohof Halle-Tornau",
       "strada": "A14",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -6800,41 +9745,48 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 182,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "24-TOTAL Autohof Halle-Tornau",
       "colonnine": [
         {
           "codice": "osm:node/13272380801",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13308157106",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13308157107",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13308157108",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13308157109",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         },
         {
           "codice": "osm:node/13308157114",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
       "daVerificare": true,
-      "motivo": "a 182 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro 24-TOTAL Autohof Halle-Tornau ma a 182 m dall'autostrada"
     },
     {
       "codice": "osm:node/13404185928",
@@ -6849,10 +9801,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 392,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/13404185928",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 400 kW"
@@ -6901,7 +9855,7 @@
     },
     {
       "codice": "osm:node/13463885580",
-      "nome": "Ionity Schweitenkirchen",
+      "nome": "Autohof Schweitenkirchen",
       "strada": "A9",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -6911,11 +9865,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 146,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Schweitenkirchen",
       "colonnine": [
         {
           "codice": "osm:node/13463885580",
           "modello": "Ionity Schweitenkirchen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -6975,7 +9931,7 @@
         }
       ],
       "daVerificare": true,
-      "motivo": "a 146 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Autohof Schweitenkirchen ma a 146 m dall'autostrada"
     },
     {
       "codice": "osm:node/13464026042",
@@ -6990,10 +9946,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 493,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/13464026042",
           "modello": "IONITY Parsdorf",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7048,6 +10006,7 @@
         {
           "codice": "osm:node/13464026043",
           "modello": "IONITY Parsdorf",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 400 kW"
@@ -7092,10 +10051,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 46,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/13730258601",
           "modello": "IONITY GmbH",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -7115,10 +10076,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 171,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/13745769604",
           "modello": "IONITY Ladepark",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -7138,10 +10101,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 1378,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/13748827693",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -7150,7 +10115,7 @@
     },
     {
       "codice": "osm:node/13925516052",
-      "nome": "IONITY A45",
+      "nome": "Autohof Neuberg",
       "strada": "A45",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -7160,20 +10125,22 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 285,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Neuberg",
       "colonnine": [
         {
           "codice": "osm:node/13925516052",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
       "daVerificare": true,
-      "motivo": "a 285 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Autohof Neuberg ma a 285 m dall'autostrada"
     },
     {
       "codice": "osm:node/13965692797",
-      "nome": "IONITY A63",
+      "nome": "24-TOTAL Autohof Wörrstadt",
       "strada": "A63",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -7183,11 +10150,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 183,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "24-TOTAL Autohof Wörrstadt",
       "colonnine": [
         {
           "codice": "osm:node/13965692797",
           "modello": "IONITY",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7217,7 +10186,7 @@
         }
       ],
       "daVerificare": true,
-      "motivo": "a 183 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro 24-TOTAL Autohof Wörrstadt ma a 183 m dall'autostrada"
     },
     {
       "codice": "osm:node/13981011672",
@@ -7232,10 +10201,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 230,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/13981011672",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200kW"
@@ -7248,6 +10219,7 @@
         {
           "codice": "osm:node/13981011673",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200kW"
@@ -7260,6 +10232,7 @@
         {
           "codice": "osm:node/13981011674",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200kW"
@@ -7272,6 +10245,7 @@
         {
           "codice": "osm:node/13981011675",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200kW"
@@ -7281,6 +10255,7 @@
         {
           "codice": "osm:node/13981011676",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 200kW"
@@ -7304,10 +10279,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 314,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/14019575298",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS"
@@ -7356,6 +10333,7 @@
         {
           "codice": "osm:way/1511770595",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -7375,10 +10353,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 226,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/14028578025",
           "modello": "IONITY Euro Rastpark Aichstetten",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -7387,7 +10367,7 @@
     },
     {
       "codice": "osm:node/14079778354",
-      "nome": "IONITY A1",
+      "nome": "Autohof Werne",
       "strada": "A1",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -7397,11 +10377,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 310,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Werne",
       "colonnine": [
         {
           "codice": "osm:node/14079778354",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 600 kW"
@@ -7414,6 +10396,7 @@
         {
           "codice": "osm:node/14157856194",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 600 kW"
@@ -7426,6 +10409,7 @@
         {
           "codice": "osm:node/14157856195",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 600 kW"
@@ -7438,6 +10422,7 @@
         {
           "codice": "osm:node/14157856196",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 600 kW"
@@ -7448,8 +10433,8 @@
           ]
         }
       ],
-      "daVerificare": false,
-      "motivo": ""
+      "daVerificare": true,
+      "motivo": "dentro Autohof Werne ma a 310 m dall'autostrada"
     },
     {
       "codice": "osm:node/14153014083",
@@ -7464,10 +10449,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 1042,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/14153014083",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "Type 2 400 kW"
@@ -7494,10 +10481,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 496,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/14200608646",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
@@ -7506,7 +10495,7 @@
     },
     {
       "codice": "osm:node/14201148092",
-      "nome": "IONITY A2",
+      "nome": "Aral Autohof Porta Westfalica/Holtrup",
       "strada": "A2",
       "direzione": "",
       "direzione_geografica": "ND",
@@ -7516,11 +10505,13 @@
       "paese": "DE",
       "operatore": "IONITY",
       "distanzaAutostradaM": 58,
-      "tipoArea": null,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Aral Autohof Porta Westfalica/Holtrup",
       "colonnine": [
         {
           "codice": "osm:node/14201148092",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7530,6 +10521,7 @@
         {
           "codice": "osm:node/14201148093",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7539,6 +10531,7 @@
         {
           "codice": "osm:node/14201148094",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7548,6 +10541,7 @@
         {
           "codice": "osm:node/14201148095",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7557,6 +10551,7 @@
         {
           "codice": "osm:node/14201148096",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7566,6 +10561,7 @@
         {
           "codice": "osm:node/14201148097",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7575,6 +10571,7 @@
         {
           "codice": "osm:way/1228303398",
           "modello": "Ionity Porta Westfalica",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7598,7 +10595,7 @@
         }
       ],
       "daVerificare": true,
-      "motivo": "a 58 m dall'autostrada ma nessuna area di servizio mappata"
+      "motivo": "dentro Aral Autohof Porta Westfalica/Holtrup ma a 58 m dall'autostrada"
     },
     {
       "codice": "osm:node/14228705351",
@@ -7613,10 +10610,12 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 175,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/14228705351",
           "modello": "Ionity Illertissen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7626,6 +10625,7 @@
         {
           "codice": "osm:node/14232435979",
           "modello": "Ionity Illertissen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7635,6 +10635,7 @@
         {
           "codice": "osm:node/14232435980",
           "modello": "Ionity Illertissen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7644,6 +10645,7 @@
         {
           "codice": "osm:node/14232435981",
           "modello": "Ionity Illertissen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7653,6 +10655,7 @@
         {
           "codice": "osm:node/14232435982",
           "modello": "Ionity Illertissen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7662,6 +10665,7 @@
         {
           "codice": "osm:node/14232435983",
           "modello": "Ionity Illertissen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7671,6 +10675,7 @@
         {
           "codice": "osm:relation/21459224",
           "modello": "Ionity Illertissen",
+          "operatore": "IONITY",
           "connettori": [
             {
               "modello": "CCS 350 kW"
@@ -7709,17 +10714,766 @@
       "operatore": "IONITY",
       "distanzaAutostradaM": 212,
       "tipoArea": null,
+      "dentroAreaServizio": null,
       "colonnine": [
         {
           "codice": "osm:node/14267862772",
           "modello": "Ionity",
+          "operatore": "IONITY",
           "connettori": []
         }
       ],
       "daVerificare": true,
       "motivo": "a 212 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1315591276",
+      "nome": "IONITY A7",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 53.742805,
+      "lon": 9.942871,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 280,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1315591276",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 280 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1352205681",
+      "nome": "Ionity Memmingen",
+      "strada": "A96",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 47.999443,
+      "lon": 10.155253,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 227,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1352205681",
+          "modello": "Ionity Memmingen",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            },
+            {
+              "modello": "CCS 350"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 227 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1358332352",
+      "nome": "IONITY A5",
+      "strada": "A5",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 50.737462,
+      "lon": 9.245005,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 149,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1358332352",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 149 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1377051509",
+      "nome": "IONITY A45",
+      "strada": "A45",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 50.999014,
+      "lon": 7.838592,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 320,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1377051509",
+          "modello": "",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1377432235",
+      "nome": "Ionity Aurach",
+      "strada": "A6",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 49.250532,
+      "lon": 10.422995,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 531,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1377432235",
+          "modello": "Ionity Aurach",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1471913890",
+      "nome": "Wolfsburg Forum Autovision",
+      "strada": "A39",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 52.424843,
+      "lon": 10.745711,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 504,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1471913890",
+          "modello": "Wolfsburg Forum Autovision",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1476435566",
+      "nome": "Ionity Oelde",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 51.811979,
+      "lon": 8.130985,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 505,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1476435566",
+          "modello": "Ionity Oelde",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1476921904",
+      "nome": "IONITY A14",
+      "strada": "A14",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 51.153718,
+      "lon": 13.118218,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 325,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1476921904",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1478428925",
+      "nome": "IONITY A4",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 50.856715,
+      "lon": 12.313189,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 106,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1478428925",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 106 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1478428926",
+      "nome": "IONITY A4",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 50.860681,
+      "lon": 12.307973,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 108,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1478428926",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 108 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1509243282",
+      "nome": "IONITY D&W",
+      "strada": "A40",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 51.474081,
+      "lon": 7.151447,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 129,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1509243282",
+          "modello": "IONITY D&W",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 129 m dall'autostrada ma nessuna area di servizio mappata"
+    },
+    {
+      "codice": "osm:way/1511164606",
+      "nome": "IONITY Herrenberg",
+      "strada": "A81",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 48.581856,
+      "lon": 8.891947,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 505,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1511164606",
+          "modello": "IONITY Herrenberg",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1538980121",
+      "nome": "Ionity Achern",
+      "strada": "A5",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 48.640618,
+      "lon": 8.038232,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 747,
+      "tipoArea": null,
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1538980121",
+          "modello": "Ionity Achern",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1567280018",
+      "nome": "Autohof Lutterberg",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "ND",
+      "exitRequired": true,
+      "lat": 51.370315,
+      "lon": 9.633596,
+      "paese": "DE",
+      "operatore": "IONITY",
+      "distanzaAutostradaM": 250,
+      "tipoArea": "services",
+      "dentroAreaServizio": "Autohof Lutterberg",
+      "colonnine": [
+        {
+          "codice": "osm:way/1567280018",
+          "modello": "Ionity",
+          "operatore": "IONITY",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CCS 350 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "dentro Autohof Lutterberg ma a 250 m dall'autostrada"
     }
   ],
-  "data_download": "2026-10-29T22:10:45.092836+00:00",
+  "data_download": "2026-10-30T13:51:24.777243+00:00",
   "fonte": "© OpenStreetMap contributors, ODbL"
 }

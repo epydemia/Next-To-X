@@ -1274,8 +1274,2782 @@
       ],
       "daVerificare": false,
       "motivo": ""
+    },
+    {
+      "codice": "osm:way/205826207",
+      "nome": "Area di servizio A1",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 47.459656,
+      "lon": 9.092907,
+      "paese": "CH",
+      "operatore": "EVite, GOFAST",
+      "distanzaAutostradaM": 55,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/4801780189",
+          "modello": "EVite",
+          "operatore": "EVite",
+          "connettori": []
+        },
+        {
+          "codice": "osm:way/1390043935",
+          "modello": "GOFAST Thurau Süd",
+          "operatore": "GOFAST",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/29200565",
+      "nome": "Raststätte Sankt Katharina Süd",
+      "strada": "A14",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 47.118732,
+      "lon": 8.375823,
+      "paese": "CH",
+      "operatore": "MOVE",
+      "distanzaAutostradaM": 26,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/4835027117",
+          "modello": "MOVE St. Katharina Süd",
+          "operatore": "MOVE",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/255061849",
+      "nome": "Knonauer Amt",
+      "strada": "A4",
+      "direzione": "Wettswil",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 47.271392,
+      "lon": 8.439157,
+      "paese": "CH",
+      "operatore": "Electra, Green Motion, Plug'n Roll, Tesla",
+      "distanzaAutostradaM": 51,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/5475380345",
+          "modello": "Plug'n Roll",
+          "operatore": "Plug'n Roll",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/6032549789",
+          "modello": "Plug'n Roll",
+          "operatore": "Plug'n Roll",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/9060318158",
+          "modello": "evpass 11kW",
+          "operatore": "Green Motion",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/13326278453",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/13326278454",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/13326278455",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/13764632012",
+          "modello": "Electra",
+          "operatore": "Electra",
+          "connettori": []
+        },
+        {
+          "codice": "osm:way/1385938763",
+          "modello": "Affoltern Supercharger",
+          "operatore": "Tesla",
+          "connettori": [
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/1385938764",
+          "modello": "Obfelden Supercharger",
+          "operatore": "Tesla",
+          "connettori": [
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            },
+            {
+              "modello": "CCS 250 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/1408833432",
+          "modello": "",
+          "operatore": "Electra",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1046812785",
+      "nome": "Kölliken-Süd",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 47.323606,
+      "lon": 8.022295,
+      "paese": "CH",
+      "operatore": "GOFAST",
+      "distanzaAutostradaM": 33,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/5737446169",
+          "modello": "GOFAST Kölliken McDonald's",
+          "operatore": "GOFAST",
+          "connettori": [
+            {
+              "modello": "CCS 60 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "Type 2"
+            },
+            {
+              "modello": "Type 2"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/11250814779",
+          "modello": "GOFAST Kölliken Süd",
+          "operatore": "GOFAST",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1046812454",
+      "nome": "Kölliken-Nord",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 47.329798,
+      "lon": 8.029775,
+      "paese": "CH",
+      "operatore": "EVite, Socar",
+      "distanzaAutostradaM": 51,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/5737468035",
+          "modello": "EVite",
+          "operatore": "EVite",
+          "connettori": [
+            {
+              "modello": "CHAdeMO 17 kW"
+            },
+            {
+              "modello": "CHAdeMO 17 kW"
+            },
+            {
+              "modello": "Type 2 17 kW"
+            },
+            {
+              "modello": "Type 2 17 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13371454192",
+          "modello": "Kölliken Nord",
+          "operatore": "Socar",
+          "connettori": [
+            {
+              "modello": "Type 2 400 kW"
+            },
+            {
+              "modello": "Type 2 400 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13371454193",
+          "modello": "Kölliken Nord",
+          "operatore": "Socar",
+          "connettori": [
+            {
+              "modello": "Type 2 200 kW"
+            },
+            {
+              "modello": "Type 2 200 kW"
+            },
+            {
+              "modello": "Type 2 200 kW"
+            },
+            {
+              "modello": "Type 2 200 kW"
+            },
+            {
+              "modello": "Type 2 200 kW"
+            },
+            {
+              "modello": "Type 2 200 kW"
+            },
+            {
+              "modello": "Type 2 200 kW"
+            },
+            {
+              "modello": "Type 2 200 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/932337610",
+      "nome": "Herrlisberg Süd",
+      "strada": "A3",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 47.219476,
+      "lon": 8.661646,
+      "paese": "CH",
+      "operatore": "MOVE",
+      "distanzaAutostradaM": 45,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6058802242",
+          "modello": "Herrlisberg Süd",
+          "operatore": "MOVE",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/552405759",
+      "nome": "Rheintal",
+      "strada": "A13",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 47.1455,
+      "lon": 9.502003,
+      "paese": "CH",
+      "operatore": "Plug'n Roll",
+      "distanzaAutostradaM": 50,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/7594638875",
+          "modello": "Plug'n Roll",
+          "operatore": "Plug'n Roll",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/2028353956",
+      "nome": "Neuenkirch West",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 47.110831,
+      "lon": 8.233845,
+      "paese": "CH",
+      "operatore": "MOVE",
+      "distanzaAutostradaM": 19,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/8255318050",
+          "modello": "MOVE Neuenkirch West",
+          "operatore": "MOVE",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/9148475490",
+          "modello": "MOVE Neuenkirch West",
+          "operatore": "MOVE",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/546521279",
+      "nome": "Glarnerland",
+      "strada": "A3",
+      "direzione": "Niederurnen",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 47.137865,
+      "lon": 9.049719,
+      "paese": "CH",
+      "operatore": "ABB groupe Move",
+      "distanzaAutostradaM": 30,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/8812728216",
+          "modello": "ABB groupe Move",
+          "operatore": "ABB groupe Move",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/313888371",
+      "nome": "Bavois",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 46.674779,
+      "lon": 6.569358,
+      "paese": "CH",
+      "operatore": "Groupe E",
+      "distanzaAutostradaM": 54,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9008150058",
+          "modello": "Groupe E",
+          "operatore": "Groupe E",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/9008150062",
+          "modello": "Groupe E",
+          "operatore": "Groupe E",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/10169204622",
+          "modello": "Groupe E",
+          "operatore": "Groupe E",
+          "connettori": [
+            {
+              "modello": "CCS 350 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/159325351",
+      "nome": "Restoroute de la Gruyère",
+      "strada": "A12",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 46.683118,
+      "lon": 7.087097,
+      "paese": "CH",
+      "operatore": "Groupe E",
+      "distanzaAutostradaM": 37,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9076183426",
+          "modello": "Groupe E",
+          "operatore": "Groupe E",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/9076183427",
+          "modello": "Groupe E",
+          "operatore": "Groupe E",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/304539755",
+      "nome": "San Gottardo Sud Stalvedro",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 46.521079,
+      "lon": 8.635568,
+      "paese": "CH",
+      "operatore": "GOFAST",
+      "distanzaAutostradaM": 82,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9443182994",
+          "modello": "Area Servizio Stalvedro",
+          "operatore": "GOFAST",
+          "connettori": [
+            {
+              "modello": "CCS 100 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/10689667438",
+          "modello": "Area Servizio Stalvedro",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/79499435",
+      "nome": "Forrenberg Nord",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 47.526728,
+      "lon": 8.734215,
+      "paese": "CH",
+      "operatore": "energie30",
+      "distanzaAutostradaM": 33,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9518868854",
+          "modello": "energie30",
+          "operatore": "energie30",
+          "connettori": [
+            {
+              "modello": "CCS 80 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "Type 2"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/546521277",
+      "nome": "Glarnerland",
+      "strada": "A3",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 47.138188,
+      "lon": 9.050862,
+      "paese": "CH",
+      "operatore": "MOVE",
+      "distanzaAutostradaM": 53,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9806997104",
+          "modello": "MOVE Mobility Charging Station",
+          "operatore": "MOVE",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/551937983",
+      "nome": "Coldrerio-Est",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 45.849486,
+      "lon": 8.985443,
+      "paese": "CH",
+      "operatore": "GOFAST",
+      "distanzaAutostradaM": 20,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9919302503",
+          "modello": "GOFAST Coldrerio Est",
+          "operatore": "GOFAST",
+          "connettori": [
+            {
+              "modello": "CCS 120 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/551896999",
+      "nome": "Coldrerio",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 45.85033,
+      "lon": 8.983063,
+      "paese": "CH",
+      "operatore": "GOFAST",
+      "distanzaAutostradaM": 47,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9919365039",
+          "modello": "GOFAST Coldrerio Ovest",
+          "operatore": "GOFAST",
+          "connettori": [
+            {
+              "modello": "CCS 120 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/217836144",
+      "nome": "Münsingen",
+      "strada": "A6",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 46.878495,
+      "lon": 7.542359,
+      "paese": "CH",
+      "operatore": "Evite",
+      "distanzaAutostradaM": 26,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/10304786135",
+          "modello": "BP Ladestation",
+          "operatore": "Evite",
+          "connettori": [
+            {
+              "modello": "CCS 20 kW"
+            },
+            {
+              "modello": "CHAdeMO 20 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/776358649",
+      "nome": "Münsingen",
+      "strada": "A6",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 46.877451,
+      "lon": 7.541918,
+      "paese": "CH",
+      "operatore": "Evite",
+      "distanzaAutostradaM": 22,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/10537072485",
+          "modello": "BP Ladestation",
+          "operatore": "Evite",
+          "connettori": [
+            {
+              "modello": "CCS 20 kW"
+            },
+            {
+              "modello": "CHAdeMO 20 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/546582549",
+      "nome": "Bergsboden Walensee",
+      "strada": "A3",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 47.113353,
+      "lon": 9.267696,
+      "paese": "CH",
+      "operatore": "GOFAST",
+      "distanzaAutostradaM": 53,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/11128951282",
+          "modello": "GOFAST Walensee Nord",
+          "operatore": "GOFAST",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/1355361336",
+          "modello": "GOFAST Walensee Süd",
+          "operatore": "GOFAST",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:node/2576640871",
+      "nome": "Coop Pronto",
+      "strada": "A13",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 46.918954,
+      "lon": 9.562757,
+      "paese": "CH",
+      "operatore": "GOFAST",
+      "distanzaAutostradaM": 71,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13563090685",
+          "modello": "GOFAST Zizers",
+          "operatore": "GOFAST",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/205826206",
+      "nome": "GOFAST Ladepark Thurau",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 47.460981,
+      "lon": 9.094704,
+      "paese": "CH",
+      "operatore": "GOFAST",
+      "distanzaAutostradaM": 42,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1145424307",
+          "modello": "GOFAST Ladepark Thurau",
+          "operatore": "",
+          "connettori": []
+        },
+        {
+          "codice": "osm:way/1145424308",
+          "modello": "GOFAST Thurau Nord",
+          "operatore": "GOFAST",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/137215704",
+      "nome": "Raststätte Gunzgen Süd",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 47.310222,
+      "lon": 7.847021,
+      "paese": "CH",
+      "operatore": "GOFAST",
+      "distanzaAutostradaM": 54,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390130063",
+          "modello": "GOFAST Gunzgen Süd",
+          "operatore": "GOFAST",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/465881342",
+      "nome": "Raststätte Gunzgen Nord",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 47.310149,
+      "lon": 7.831864,
+      "paese": "CH",
+      "operatore": "GOFAST",
+      "distanzaAutostradaM": 36,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1390130283",
+          "modello": "GOFAST Gunzgen Nord",
+          "operatore": "GOFAST",
+          "connettori": [
+            {
+              "modello": "CCS 60 kW"
+            },
+            {
+              "modello": "CHAdeMO 60 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/17503288",
+      "nome": "Herrlisberg Nord",
+      "strada": "A3",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 47.220903,
+      "lon": 8.661361,
+      "paese": "CH",
+      "operatore": "Tamoil",
+      "distanzaAutostradaM": 52,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1427395291",
+          "modello": "Herrlisberg Nord",
+          "operatore": "Tamoil",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CHAdeMO 300 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/29200563",
+      "nome": "Raststätte Sankt Katharina Nord",
+      "strada": "A14",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 47.119643,
+      "lon": 8.374182,
+      "paese": "CH",
+      "operatore": "MOVE",
+      "distanzaAutostradaM": 62,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1431745270",
+          "modello": "MOVE St. Katharina Nord",
+          "operatore": "MOVE",
+          "connettori": [
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            },
+            {
+              "modello": "CCS"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/39520107",
+      "nome": "Fuchsberg Nord",
+      "strada": "A3",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 47.196185,
+      "lon": 8.751637,
+      "paese": "CH",
+      "operatore": "SOCAR",
+      "distanzaAutostradaM": 28,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1522984829",
+          "modello": "SOCAR",
+          "operatore": "SOCAR",
+          "connettori": [
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            },
+            {
+              "modello": "CCS 200 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/1522984830",
+          "modello": "SOCAR",
+          "operatore": "",
+          "connettori": [
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/35323434",
+      "nome": "Raststation Ansfelden Nord",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 48.21549,
+      "lon": 14.279538,
+      "paese": "AT",
+      "operatore": "Linz AG Strom, Mer",
+      "distanzaAutostradaM": 289,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/5849378099",
+          "modello": "Linz AG Strom",
+          "operatore": "Linz AG Strom",
+          "connettori": [
+            {
+              "modello": "CCS 50kW"
+            },
+            {
+              "modello": "CHAdeMO 50kW"
+            },
+            {
+              "modello": "Type 2 43kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/12090245438",
+          "modello": "Mer",
+          "operatore": "Mer",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW;300 kW"
+            },
+            {
+              "modello": "CCS 150 kW;300 kW"
+            },
+            {
+              "modello": "CCS 150 kW;300 kW"
+            },
+            {
+              "modello": "CCS 150 kW;300 kW"
+            },
+            {
+              "modello": "CCS 150 kW;300 kW"
+            },
+            {
+              "modello": "CCS 150 kW;300 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/324026491",
+      "nome": "Raststation Guntramsdorf",
+      "strada": "A2",
+      "direzione": "Wiener Neustadt;Traiskirchen",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 48.033826,
+      "lon": 16.337819,
+      "paese": "AT",
+      "operatore": "da emobil",
+      "distanzaAutostradaM": 88,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/5882406795",
+          "modello": "da emobil",
+          "operatore": "da emobil",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CHAdeMO 75"
+            },
+            {
+              "modello": "Type 2 43"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/478125158",
+      "nome": "Raststation Simmering",
+      "strada": "A4",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 48.181578,
+      "lon": 16.444235,
+      "paese": "AT",
+      "operatore": "SMATRICS",
+      "distanzaAutostradaM": 57,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/5993592536",
+          "modello": "SMATRICS",
+          "operatore": "SMATRICS",
+          "connettori": [
+            {
+              "modello": "CCS 50kW"
+            },
+            {
+              "modello": "CHAdeMO 50kW"
+            },
+            {
+              "modello": "Type 2 43kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/404477042",
+      "nome": "Raststation Eben Süd",
+      "strada": "A10",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 47.420994,
+      "lon": 13.378652,
+      "paese": "AT",
+      "operatore": "Holzbau Oppeneiger GmbH, Kelag",
+      "distanzaAutostradaM": 107,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6351094950",
+          "modello": "Holzbau Oppeneiger GmbH",
+          "operatore": "Holzbau Oppeneiger GmbH",
+          "connettori": []
+        },
+        {
+          "codice": "osm:node/6407548537",
+          "modello": "Kelag",
+          "operatore": "Kelag",
+          "connettori": [
+            {
+              "modello": "CCS 50kW"
+            },
+            {
+              "modello": "CCS 50kW"
+            },
+            {
+              "modello": "CHAdeMO 50kW"
+            },
+            {
+              "modello": "CHAdeMO 50kW"
+            },
+            {
+              "modello": "Type 2 43kW"
+            },
+            {
+              "modello": "Type 2 43kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/47029995",
+      "nome": "Raststation St. Pölten",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 48.177079,
+      "lon": 15.55323,
+      "paese": "AT",
+      "operatore": "da emobil",
+      "distanzaAutostradaM": 98,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6406849291",
+          "modello": "da emobil",
+          "operatore": "da emobil",
+          "connettori": [
+            {
+              "modello": "CCS 3x75+1x150kW"
+            },
+            {
+              "modello": "CCS 3x75+1x150kW"
+            },
+            {
+              "modello": "CCS 3x75+1x150kW"
+            },
+            {
+              "modello": "CCS 3x75+1x150kW"
+            },
+            {
+              "modello": "CHAdeMO 75kW"
+            },
+            {
+              "modello": "Type 2 43kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/84961923",
+      "nome": "Area di servizio A8",
+      "strada": "A8",
+      "direzione": "Staatsgrenze",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 48.394618,
+      "lon": 13.42788,
+      "paese": "AT",
+      "operatore": "SMATRICS, Smatrics, Tesla",
+      "distanzaAutostradaM": 230,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6440138055",
+          "modello": "Smatrics",
+          "operatore": "Smatrics",
+          "connettori": [
+            {
+              "modello": "CCS 50kW"
+            },
+            {
+              "modello": "CHAdeMO 50kW"
+            },
+            {
+              "modello": "Type 2 43kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13307893380",
+          "modello": "Smatrics Suben",
+          "operatore": "SMATRICS",
+          "connettori": [
+            {
+              "modello": "CCS 400kW"
+            },
+            {
+              "modello": "CCS 400kW"
+            },
+            {
+              "modello": "CCS 400kW"
+            },
+            {
+              "modello": "CCS 400kW"
+            },
+            {
+              "modello": "CCS 400kW"
+            },
+            {
+              "modello": "CCS 400kW"
+            },
+            {
+              "modello": "CCS 400kW"
+            },
+            {
+              "modello": "CCS 400kW"
+            },
+            {
+              "modello": "CCS 400kW"
+            },
+            {
+              "modello": "CCS 400kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13307893381",
+          "modello": "Tesla Supercharger",
+          "operatore": "Tesla",
+          "connettori": [
+            {
+              "modello": "CCS 250kW"
+            },
+            {
+              "modello": "CCS 250kW"
+            },
+            {
+              "modello": "CCS 250kW"
+            },
+            {
+              "modello": "CCS 250kW"
+            },
+            {
+              "modello": "CCS 250kW"
+            },
+            {
+              "modello": "CCS 250kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/322544067",
+      "nome": "Raststation Ybbs",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 48.158279,
+      "lon": 15.112398,
+      "paese": "AT",
+      "operatore": "Smatrics",
+      "distanzaAutostradaM": 77,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6440145521",
+          "modello": "Smatrics",
+          "operatore": "Smatrics",
+          "connettori": [
+            {
+              "modello": "CCS 50kW"
+            },
+            {
+              "modello": "CHAdeMO 50kW"
+            },
+            {
+              "modello": "Type 2 43kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/47030786",
+      "nome": "Raststation Pettnau",
+      "strada": "A12",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 47.284401,
+      "lon": 11.16415,
+      "paese": "AT",
+      "operatore": "da emobil",
+      "distanzaAutostradaM": 95,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6575327086",
+          "modello": "da emobil",
+          "operatore": "da emobil",
+          "connettori": [
+            {
+              "modello": "CCS 75 kW;150 kW"
+            },
+            {
+              "modello": "CCS 75 kW;150 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/94438967",
+      "nome": "Raststation Kammern",
+      "strada": "A9",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 47.38615,
+      "lon": 14.899764,
+      "paese": "AT",
+      "operatore": "Kelag",
+      "distanzaAutostradaM": 47,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6716481274",
+          "modello": "",
+          "operatore": "Kelag",
+          "connettori": [
+            {
+              "modello": "CCS 240 kW"
+            },
+            {
+              "modello": "CCS 240 kW"
+            },
+            {
+              "modello": "CHAdeMO"
+            },
+            {
+              "modello": "CHAdeMO"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1111051108",
+      "nome": "Raststation Bodensee Hörbranz",
+      "strada": "A14",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 47.545102,
+      "lon": 9.737309,
+      "paese": "AT",
+      "operatore": "illwerke vkw",
+      "distanzaAutostradaM": 67,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6742176174",
+          "modello": "Raststation Bodensee Hörbranz",
+          "operatore": "illwerke vkw",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/9714445976",
+          "modello": "Raststation Bodensee Hörbranz",
+          "operatore": "illwerke vkw",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13753189216",
+          "modello": "Raststation Bodensee Hörbranz",
+          "operatore": "illwerke vkw",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13753189221",
+          "modello": "Raststation Bodensee Hörbranz",
+          "operatore": "illwerke vkw",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:relation/20699872",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/401257103",
+      "nome": "Raststation Mils",
+      "strada": "A12",
+      "direzione": "",
+      "direzione_geografica": "EST",
+      "exitRequired": false,
+      "lat": 47.214248,
+      "lon": 10.700148,
+      "paese": "AT",
+      "operatore": "TIWAG",
+      "distanzaAutostradaM": 39,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/6797314017",
+          "modello": "TIWAG",
+          "operatore": "TIWAG",
+          "connettori": [
+            {
+              "modello": "Type 2 22 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/47027527",
+      "nome": "Raststation Zöbern",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "SUDOVEST",
+      "exitRequired": false,
+      "lat": 47.542602,
+      "lon": 16.116872,
+      "paese": "AT",
+      "operatore": "EVN",
+      "distanzaAutostradaM": 46,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9213388750",
+          "modello": "A2 Zöbern, Shell Raststation",
+          "operatore": "EVN",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CCS 150 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/245596053",
+      "nome": "Raststation Aistersheim",
+      "strada": "A8",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 48.179089,
+      "lon": 13.747074,
+      "paese": "AT",
+      "operatore": "da emobil GmbH & Co KG",
+      "distanzaAutostradaM": 108,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/9398821900",
+          "modello": "da emobil GmbH & Co KG",
+          "operatore": "da emobil GmbH & Co KG",
+          "connettori": [
+            {
+              "modello": "Type 2 34 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/9398821901",
+          "modello": "da emobil GmbH & Co KG",
+          "operatore": "da emobil GmbH & Co KG",
+          "connettori": [
+            {
+              "modello": "CCS 225 kW"
+            },
+            {
+              "modello": "CCS 225 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/320569653",
+      "nome": "Raststation Europabrücke",
+      "strada": "A13",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 47.19743,
+      "lon": 11.397729,
+      "paese": "AT",
+      "operatore": "IKB",
+      "distanzaAutostradaM": 44,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/10879711231",
+          "modello": "Europabrücke Parkplatz",
+          "operatore": "IKB",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/11102224193",
+          "modello": "Europabrücke Parkplatz",
+          "operatore": "IKB",
+          "connettori": [
+            {
+              "modello": "CCS 150 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/11102224215",
+          "modello": "Europabrücke Parkplatz",
+          "operatore": "IKB",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13105423700",
+          "modello": "Europabrücke unterer Parkplatz",
+          "operatore": "IKB",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13105427901",
+          "modello": "Europabrücke unterer Parkplatz",
+          "operatore": "IKB",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13105427902",
+          "modello": "Europabrücke unterer Parkplatz",
+          "operatore": "IKB",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:relation/20818003",
+          "modello": "Europabrücke unterer Parkplatz",
+          "operatore": "IKB",
+          "connettori": []
+        },
+        {
+          "codice": "osm:relation/20818007",
+          "modello": "Europabrücke Parkplatz",
+          "operatore": "IKB",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/192707339",
+      "nome": "Gralla West",
+      "strada": "A9",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 46.832945,
+      "lon": 15.547586,
+      "paese": "AT",
+      "operatore": "Shell Recharge",
+      "distanzaAutostradaM": 76,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/11795591629",
+          "modello": "Shell Recharge",
+          "operatore": "Shell Recharge",
+          "connettori": [
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/11795638999",
+          "modello": "Shell Recharge",
+          "operatore": "Shell Recharge",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/1553988249",
+      "nome": "OMV",
+      "strada": "A7",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 48.314488,
+      "lon": 14.299865,
+      "paese": "AT",
+      "operatore": "EnBW, Linz AG, Linz AG Linien, da-emobil",
+      "distanzaAutostradaM": 369,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/11964971995",
+          "modello": "da-emobil",
+          "operatore": "da-emobil",
+          "connettori": [
+            {
+              "modello": "Type 2 22 kW"
+            },
+            {
+              "modello": "Type 2 22 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/12598207766",
+          "modello": "Linz AG",
+          "operatore": "Linz AG",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            },
+            {
+              "modello": "Type 2 11 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/115388982",
+          "modello": "EnBW",
+          "operatore": "EnBW",
+          "connettori": [
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/115388988",
+          "modello": "EnBW",
+          "operatore": "EnBW",
+          "connettori": [
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/115388995",
+          "modello": "EnBW",
+          "operatore": "EnBW",
+          "connettori": [
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/115389017",
+          "modello": "EnBW",
+          "operatore": "EnBW",
+          "connettori": [
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CCS 300kW"
+            },
+            {
+              "modello": "CHAdeMO 50 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/1553988189",
+          "modello": "Linz AG Linien",
+          "operatore": "Linz AG Linien",
+          "connettori": []
+        }
+      ],
+      "daVerificare": true,
+      "motivo": "a 369 m dall'autostrada, lontana per un'area di servizio"
+    },
+    {
+      "codice": "osm:way/235790130",
+      "nome": "Raststation Deutschfeistritz",
+      "strada": "A9",
+      "direzione": "",
+      "direzione_geografica": "SUDEST",
+      "exitRequired": false,
+      "lat": 47.205166,
+      "lon": 15.315685,
+      "paese": "AT",
+      "operatore": "OMV eMotion",
+      "distanzaAutostradaM": 93,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/12000388796",
+          "modello": "OMV eMotion",
+          "operatore": "OMV eMotion",
+          "connettori": [
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "CCS 50 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            },
+            {
+              "modello": "Type 2 43 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/193064709",
+      "nome": "Gralla Ost",
+      "strada": "A9",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 46.831098,
+      "lon": 15.552779,
+      "paese": "AT",
+      "operatore": "Shell Recharge",
+      "distanzaAutostradaM": 70,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/12011772896",
+          "modello": "Shell Recharge",
+          "operatore": "Shell Recharge",
+          "connettori": [
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/404477039",
+      "nome": "Raststation Eben Nord",
+      "strada": "A10",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 47.421099,
+      "lon": 13.383045,
+      "paese": "AT",
+      "operatore": "Shell Recharge Solutions",
+      "distanzaAutostradaM": 26,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/12174500669",
+          "modello": "Shell Recharge Solutions",
+          "operatore": "Shell Recharge Solutions",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/892039574",
+      "nome": "Raststation Alland",
+      "strada": "A21",
+      "direzione": "",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 48.070057,
+      "lon": 16.067049,
+      "paese": "AT",
+      "operatore": "BP",
+      "distanzaAutostradaM": 124,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13338498103",
+          "modello": "BP pulse Aussenringautobahn A21",
+          "operatore": "BP",
+          "connettori": [
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            },
+            {
+              "modello": "CCS 400 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/372330817",
+      "nome": "Raststation Brennerpass",
+      "strada": "A13",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 47.007591,
+      "lon": 11.507074,
+      "paese": "AT",
+      "operatore": "Shell",
+      "distanzaAutostradaM": 122,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13649627932",
+          "modello": "Gries Brennerstrasse",
+          "operatore": "Shell",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/13828090185",
+          "modello": "Gries Brennerstrasse",
+          "operatore": "Shell",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:way/1513571617",
+          "modello": "Gries Brennerstrasse",
+          "operatore": "Shell",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        },
+        {
+          "codice": "osm:relation/20684061",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/47030388",
+      "nome": "Raststation Voralpenkreuz",
+      "strada": "A8",
+      "direzione": "Wels",
+      "direzione_geografica": "NORDOVEST",
+      "exitRequired": false,
+      "lat": 48.066567,
+      "lon": 14.033998,
+      "paese": "AT",
+      "operatore": "da emobil",
+      "distanzaAutostradaM": 70,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13739716493",
+          "modello": "da emobil",
+          "operatore": "da emobil",
+          "connettori": []
+        },
+        {
+          "codice": "osm:way/1500706127",
+          "modello": "da emobil",
+          "operatore": "da emobil",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/372330818",
+      "nome": "Raststation Brennersee",
+      "strada": "A13",
+      "direzione": "",
+      "direzione_geografica": "SUD",
+      "exitRequired": false,
+      "lat": 47.014361,
+      "lon": 11.505947,
+      "paese": "AT",
+      "operatore": "OMV eMotion",
+      "distanzaAutostradaM": 17,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13828631078",
+          "modello": "OMV Brennerautobahn Gries am Brenner",
+          "operatore": "OMV eMotion",
+          "connettori": [
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            },
+            {
+              "modello": "CCS 300 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/322545232",
+      "nome": "Raststation Strengberg",
+      "strada": "A1",
+      "direzione": "",
+      "direzione_geografica": "OVEST",
+      "exitRequired": false,
+      "lat": 48.11466,
+      "lon": 14.666414,
+      "paese": "AT",
+      "operatore": "Shell",
+      "distanzaAutostradaM": 63,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/13911936327",
+          "modello": "Shell",
+          "operatore": "Shell",
+          "connettori": [
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            },
+            {
+              "modello": "CCS 360 kW"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/129127252",
+      "nome": "Raststation Föhrenberg",
+      "strada": "A2",
+      "direzione": "",
+      "direzione_geografica": "NORD",
+      "exitRequired": false,
+      "lat": 47.84873,
+      "lon": 16.183036,
+      "paese": "AT",
+      "operatore": "Shell Austra Gmbh",
+      "distanzaAutostradaM": 84,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/14177661445",
+          "modello": "Shell Recharge",
+          "operatore": "Shell Austra Gmbh",
+          "connettori": [
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/14177661446",
+          "modello": "Shell Recharge",
+          "operatore": "Shell Austra Gmbh",
+          "connettori": [
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/14177661447",
+          "modello": "Shell Recharge",
+          "operatore": "Shell Austra Gmbh",
+          "connettori": [
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            }
+          ]
+        },
+        {
+          "codice": "osm:node/14177661448",
+          "modello": "Shell Recharge",
+          "operatore": "Shell Austra Gmbh",
+          "connettori": [
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            },
+            {
+              "modello": "CCS 300"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/100496555",
+      "nome": "Raststation Kapfenberg Süd",
+      "strada": "S6",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 47.450442,
+      "lon": 15.340385,
+      "paese": "AT",
+      "operatore": "sconosciuto",
+      "distanzaAutostradaM": 44,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:node/14254597469",
+          "modello": "",
+          "operatore": "",
+          "connettori": []
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
+    },
+    {
+      "codice": "osm:way/49360021",
+      "nome": "Rastplatz Schottwien",
+      "strada": "S6",
+      "direzione": "",
+      "direzione_geografica": "NORDEST",
+      "exitRequired": false,
+      "lat": 47.649211,
+      "lon": 15.858307,
+      "paese": "AT",
+      "operatore": "Smartics",
+      "distanzaAutostradaM": 45,
+      "tipoArea": "services",
+      "dentroAreaServizio": null,
+      "colonnine": [
+        {
+          "codice": "osm:way/1227219298",
+          "modello": "Smartics",
+          "operatore": "Smartics",
+          "connettori": [
+            {
+              "modello": "CHAdeMO 50"
+            },
+            {
+              "modello": "Type 2 22.2"
+            },
+            {
+              "modello": "Type 2 22.2"
+            }
+          ]
+        }
+      ],
+      "daVerificare": false,
+      "motivo": ""
     }
   ],
-  "data_download": "2026-10-29T23:15:57.755265+00:00",
+  "data_download": "2026-10-30T13:46:49.892388+00:00",
   "fonte": "© OpenStreetMap contributors, ODbL"
 }

@@ -247,8 +247,9 @@ body {
   animation: car-bounce 1s ease-in-out infinite;
 }
 @keyframes car-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+  /* scaleX: l'emoji guarda a sinistra, la barra va verso destra */
+  0%, 100% { transform: translateY(0) scaleX(-1); }
+  50% { transform: translateY(-3px) scaleX(-1); }
 }
 #distance-bar {
   flex: 1;

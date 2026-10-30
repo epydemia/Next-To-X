@@ -49,9 +49,10 @@ export function codiceDaNomeStrada(nomeStrada) {
 
 /**
  * Codice autostrada contenuto in un testo, oppure null.
- * "A14 BOLOGNA-TARANTO" → "A14", "A 7;E 45" (sigla tedesca in OSM) → "A7".
+ * "A14 BOLOGNA-TARANTO" → "A14", "A 7;E 45" (sigla tedesca in OSM) → "A7",
+ * "S 6" (superstrada austriaca) → "S6".
  */
 export function estraiCodice(testo) {
-  const m = testo?.toUpperCase().match(/\bA\s?(\d+)\b/);
-  return m ? `A${m[1]}` : null;
+  const m = testo?.toUpperCase().match(/\b([AS])\s?(\d+)\b/);
+  return m ? `${m[1]}${m[2]}` : null;
 }
