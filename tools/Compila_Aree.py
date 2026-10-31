@@ -5,8 +5,9 @@ diverse; qui un convertitore per fonte produce record nel FORMATO UNICO descritt
 e un controllo segnala errori (bloccanti) e avvisi. Output: data/aree.json.
 
 Poi le aree che sono lo stesso posto fisico in fonti diverse vengono unite in un solo
-record, e si applicano le correzioni di data/revisioni.json. Passo successivo (non ancora
-fatto): far leggere data/aree.json all'app.
+record, e si applicano le correzioni di data/revisioni.json. L'app e l'editor leggono
+data/aree.json; le revisioni le riapplicano anche loro al caricamento, partendo dai valori
+originali conservati in "correzioni", così una revisione salvata vale subito.
 
 Formato di un'area:
   id             "ftx:493", "a22:A22_001", "osm:way/123" (le aree OSM tengono l'id OSM:
@@ -28,7 +29,8 @@ Formato di un'area:
   colonnine      [{id, operatore, modello, potenzaKw, attivaDal, guasti,
                    connettori: [{tipo, potenzaKw}]}]
                  tipo: CCS | CHAdeMO | Type 2 | Tesla | altro
-  verifica       motivo per cui va controllata a mano, o null
+  verifica       motivo per cui la classificazione automatica è dubbia, o null (resta anche
+                 dopo una revisione: è l'app a non chiederla più se c'è un esito)
   correzioni     campi corretti da revisioni.json: {campo: {da: valore originale, nota}}
   esclusa        true se una revisione l'ha marcata "non autostradale" (l'app la nasconde)
 
@@ -377,20 +379,19 @@ def applica_revisioni(aree, revisioni):
             if not rev:
                 continue
             usate.add(chiave)
-            nota = rev.get("nota") or (f"revisione del {rev['data']}" if rev.get("data") else "revisione")
+            # "nota" spiega la correzione di carreggiata; esito e posizione riportano la data
+            manuale = f"revisione del {rev['data']}" if rev.get("data") else "revisione"
             esito = rev.get("esito")
             if esito == "esclusa":
                 area["esclusa"] = True
             elif esito in ("area_servizio", "uscita") and area["accesso"] != esito:
-                area["correzioni"]["accesso"] = {"da": area["accesso"], "nota": nota}
+                area["correzioni"]["accesso"] = {"da": area["accesso"], "nota": manuale}
                 area["accesso"] = esito
-            if esito:
-                area["verifica"] = None
             if rev.get("direzione_geografica") and rev["direzione_geografica"] != area["carreggiata"]:
-                area["correzioni"]["carreggiata"] = {"da": area["carreggiata"], "nota": nota}
+                area["correzioni"]["carreggiata"] = {"da": area["carreggiata"], "nota": rev.get("nota") or manuale}
                 area["carreggiata"] = rev["direzione_geografica"]
             if rev.get("lat") is not None and rev.get("lon") is not None:
-                area["correzioni"]["posizione"] = {"da": [area["lat"], area["lon"]], "nota": nota}
+                area["correzioni"]["posizione"] = {"da": [area["lat"], area["lon"]], "nota": manuale}
                 area["lat"], area["lon"] = rev["lat"], rev["lon"]
     return sorted(set(revisioni) - usate)
 

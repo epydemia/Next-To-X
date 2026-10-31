@@ -1,78 +1,92 @@
-import { CARTELLA_DATI, SORGENTI_DATI, FILE_REVISIONI } from '../config.js';
+import { CARTELLA_DATI, FILE_AREE, FILE_REVISIONI } from '../config.js';
 
-/**
- * Carica tutte le sorgenti JSON in parallelo. Una sorgente che fallisce viene
- * registrata in console e restituita vuota, senza bloccare le altre.
- * Gli oggetti area restano quelli originali del JSON, così l'editor può
- * modificarli e risalvarli tali e quali.
- *
- * @returns {Promise<Array<{chiave, file, label, aree, json}>>}  json: il file originale intero
- */
-export async function caricaSorgenti() {
-  return Promise.all(
-    Object.entries(SORGENTI_DATI).map(async ([chiave, sorgente]) => {
-      try {
-        const res = await fetch(CARTELLA_DATI + sorgente.file);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = await res.json();
-        return { chiave, ...sorgente, aree: json.listaAree ?? [], json };
-      } catch (err) {
-        console.error(`Errore caricamento ${sorgente.file}:`, err);
-        return { chiave, ...sorgente, aree: [], json: {} };
-      }
-    })
-  );
+// Le aree vengono da data/aree.json, compilato da tools/Compila_Aree.py (formato descritto
+// in cima a quello script). Le revisioni (data/revisioni.json) sono applicate qui al
+// caricamento, partendo dai valori originali: così una revisione salvata dall'editor ha
+// effetto subito, senza ricompilare, e annullarla ripristina davvero il dato di partenza.
+
+async function leggiJson(file) {
+  const res = await fetch(CARTELLA_DATI + file);
+  if (!res.ok) throw new Error(`${file}: HTTP ${res.status}`);
+  return res.json();
 }
 
 /**
- * Correzioni ai dati: { [idArea]: { esito?, direzione_geografica?, nota?, data } }.
- * esito ("area_servizio" | "uscita" | "esclusa") viene dalla revisione manuale,
- * direzione_geografica corregge la carreggiata (es. dal crosscheck con OSM).
+ * Correzioni ai dati: { [chiave]: { esito?, direzione_geografica?, lat?, lon?, nota?, data } }.
+ * La chiave è l'id dell'area o uno dei suoi codiciOrigine. esito: "area_servizio" | "uscita" | "esclusa".
  * File assente = nessuna correzione.
  */
 export async function caricaRevisioni() {
   try {
-    const res = await fetch(CARTELLA_DATI + FILE_REVISIONI);
-    if (!res.ok) return {};
-    return (await res.json()).revisioni ?? {};
+    return (await leggiJson(FILE_REVISIONI)).revisioni ?? {};
   } catch {
     return {};
   }
 }
 
-/** Identificativo stabile di un'area, anche per quelle senza codice nel JSON. */
-export function idArea(area) {
-  return area.codice != null ? String(area.codice) : `nome:${area.nome}`;
+/** Aree come escono dalle fonti, senza le correzioni che la compilazione aveva già applicato. */
+export async function caricaAreeOriginali() {
+  const { aree } = await leggiJson(FILE_AREE);
+  return aree.map(originale);
 }
 
-/** Copia dell'area con le correzioni applicate, oppure null se esclusa. */
+export function originale(area) {
+  const o = { ...area, correzioni: {}, esclusa: false };
+  const c = area.correzioni ?? {};
+  if (c.accesso) o.accesso = c.accesso.da;
+  if (c.carreggiata) o.carreggiata = c.carreggiata.da;
+  if (c.posizione) [o.lat, o.lon] = c.posizione.da;
+  return o;
+}
+
+export function chiaviArea(area) {
+  return [area.id, ...(area.codiciOrigine ?? [])];
+}
+
+/** { chiave, revisione } della revisione che riguarda l'area, oppure null. */
+export function revisioneDi(revisioni, area) {
+  const chiave = chiaviArea(area).find(k => revisioni[k]);
+  return chiave ? { chiave, revisione: revisioni[chiave] } : null;
+}
+
+/** Copia dell'area con la revisione applicata; i valori sostituiti finiscono in correzioni. */
 export function applicaRevisione(area, revisione) {
   if (!revisione) return area;
-  if (revisione.esito === 'esclusa') return null;
-  const corretta = { ...area };
-  if (revisione.esito) {
-    corretta.exitRequired = revisione.esito === 'uscita';
-    corretta.daVerificare = false;
+  const r = { ...area, correzioni: { ...area.correzioni } };
+  // "nota" spiega la correzione di carreggiata (es. "crosscheck OSM"); esito e posizione
+  // vengono dall'editor e riportano la data della revisione
+  const notaManuale = revisione.data ? `revisione del ${revisione.data}` : 'revisione';
+  if (revisione.esito === 'esclusa') r.esclusa = true;
+  else if (revisione.esito && revisione.esito !== r.accesso) {
+    r.correzioni.accesso = { da: r.accesso, nota: notaManuale };
+    r.accesso = revisione.esito;
   }
-  if (revisione.direzione_geografica) corretta.direzione_geografica = revisione.direzione_geografica;
-  return corretta;
+  if (revisione.direzione_geografica && revisione.direzione_geografica !== r.carreggiata) {
+    r.correzioni.carreggiata = { da: r.carreggiata, nota: revisione.nota || notaManuale };
+    r.carreggiata = revisione.direzione_geografica;
+  }
+  if (revisione.lat != null && revisione.lon != null) {
+    r.correzioni.posizione = { da: [r.lat, r.lon], nota: notaManuale };
+    r.lat = revisione.lat;
+    r.lon = revisione.lon;
+  }
+  return r;
 }
 
 let cacheAree = null;
 
-/** Tutte le aree di servizio con coordinate valide, da tutte le sorgenti, revisioni applicate. */
+/** Aree pronte per l'app: revisioni applicate, escluse tolte. */
 export async function caricaAree() {
   if (!cacheAree) {
-    const [sorgenti, revisioni] = await Promise.all([caricaSorgenti(), caricaRevisioni()]);
-    cacheAree = sorgenti
-      .flatMap(s => s.aree)
-      .filter(haCoordinate)
-      .map(a => applicaRevisione(a, revisioni[idArea(a)]))
-      .filter(Boolean);
+    const [aree, revisioni] = await Promise.all([caricaAreeOriginali(), caricaRevisioni()]);
+    cacheAree = aree
+      .map(a => applicaRevisione(a, revisioneDi(revisioni, a)?.revisione))
+      .filter(a => !a.esclusa && Number.isFinite(a.lat) && Number.isFinite(a.lon));
   }
   return cacheAree;
 }
 
-export function haCoordinate(area) {
-  return Number.isFinite(area.lat) && Number.isFinite(area.lon);
+/** "A1 Milano-Napoli", "A7", oppure null. */
+export function nomeStrada(area) {
+  return [area.autostrada, area.tratta].filter(Boolean).join(' ') || null;
 }

@@ -133,7 +133,7 @@ class TestRevisioni(unittest.TestCase):
         aree = unisci([da_free_to_x({**FREE_TO_X, "daVerificare": True, "motivo": "posizione"})])
         applica_revisioni(aree, {"493": {"esito": "uscita", "lat": 44.91, "lon": 9.91, "data": "2026-11-01"}})
         a = aree[0]
-        self.assertEqual((a["accesso"], a["lat"], a["lon"], a["verifica"]), ("uscita", 44.91, 9.91, None))
+        self.assertEqual((a["accesso"], a["lat"], a["lon"], a["verifica"]), ("uscita", 44.91, 9.91, "posizione"))
         self.assertEqual(set(a["correzioni"]), {"accesso", "posizione"})
 
 

@@ -1,55 +1,82 @@
-import { SORGENTI_DATI as SOURCES, TILE_EDITOR, TILE_SATELLITE, FILE_REVISIONI } from '../config.js';
-import { caricaSorgenti, caricaRevisioni, haCoordinate, idArea } from '../core/dati.js';
+import { FONTI, TILE_EDITOR, TILE_SATELLITE, FILE_REVISIONI } from '../config.js';
+import { caricaAreeOriginali, caricaRevisioni, applicaRevisione, revisioneDi, nomeStrada } from '../core/dati.js';
+
+// Editor delle aree: legge data/aree.json e salva ogni modifica (classificazione,
+// spostamento) in data/revisioni.json. I file delle fonti non vengono mai toccati,
+// così le correzioni sopravvivono a un nuovo download dei dati.
 
 const ESITI = {
   area_servizio: '🅿️ In area di servizio',
   uscita:        '⚠️ Fuori, richiede uscita',
   esclusa:       '🚫 Non autostradale',
 };
+const ESITO_FUORI_AUTOSTRADA = '🛣️ Fuori autostrada';
 
 // --- State ---
 let map;
-let allAree      = [];    // flat array of all loaded areas
+let originali    = new Map();  // id → area come esce dalle fonti
+let allAree      = [];         // aree con le revisioni applicate
 let filteredAree = [];
-const markers    = new Map();  // codice → L.Marker
-let selectedCodice = null;
-let currentFilter  = 'all';
-let currentSearch  = '';
+const markers    = new Map();  // id → L.Marker
+let selectedId   = null;
+let currentFilter = 'all';
+let currentSearch = '';
 
-// Per-file data tracking (needed for saving back to correct JSON)
-const areasByFile = {};   // filename → area[] (same object refs as allAree)
-const jsonByFile  = {};   // filename → original JSON, to keep its other fields on save
-const areaSourceKey = new Map(); // codice → source key ('ftx'|'a22'|'test')
-
-// Manual review: idArea → { esito, data }; saved to data/revisioni.json
 let revisioni = {};
 let layerStrade, layerSatellite;
 
 // Edit state
-let moveMode    = false;
-let moveCodice  = null;
-let dirHandle   = null;  // File System Access API directory handle
-const pendingChanges = new Set(); // filenames with unsaved edits
+let moveMode = false;
+let moveId   = null;
+let dirHandle = null;  // File System Access API directory handle
+let modificheNonSalvate = false;
 
-// --- Data loading (per file, so edits can be saved back to the right JSON) ---
 async function loadData() {
-  const [sorgenti, rev] = await Promise.all([caricaSorgenti(), caricaRevisioni()]);
+  const [aree, rev] = await Promise.all([caricaAreeOriginali(), caricaRevisioni()]);
   revisioni = rev;
-  for (const { chiave, file, aree, json } of sorgenti) {
-    areasByFile[file] = aree;
-    jsonByFile[file] = json;
-    aree.forEach(a => areaSourceKey.set(idArea(a), chiave));
-    allAree.push(...aree.filter(haCoordinate));
-  }
+  originali = new Map(aree.filter(a => Number.isFinite(a.lat) && Number.isFinite(a.lon)).map(a => [a.id, a]));
+  ricalcola();
 }
+
+/** Riapplica le revisioni correnti a tutte le aree (dopo ogni modifica). */
+function ricalcola() {
+  allAree = [...originali.values()].map(a => applicaRevisione(a, revisioneDi(revisioni, a)?.revisione));
+}
+
+const areaDa = id => allAree.find(a => a.id === id);
 
 // --- Review helpers ---
 function esito(area) {
-  return revisioni[idArea(area)]?.esito ?? (area.exitRequired ? 'uscita' : 'area_servizio');
+  return area.esclusa ? 'esclusa' : area.accesso;
 }
 
 function inAttesa(area) {
-  return !!area.daVerificare && !revisioni[idArea(area)]?.esito;
+  return !!area.verifica && !revisioneDi(revisioni, area)?.revisione.esito;
+}
+
+/** Chiave sotto cui salvare una revisione: quella già usata per l'area, altrimenti il suo id. */
+function chiaveRevisione(area) {
+  return revisioneDi(revisioni, area)?.chiave ?? area.id;
+}
+
+function aggiornaRevisione(area, modifica) {
+  const chiave = chiaveRevisione(area);
+  const nuova = { ...revisioni[chiave], ...modifica, data: new Date().toISOString().slice(0, 10) };
+  Object.keys(nuova).forEach(k => nuova[k] === undefined && delete nuova[k]);
+  const restaQualcosa = ['esito', 'direzione_geografica', 'lat'].some(k => nuova[k] != null);
+  if (restaQualcosa) revisioni[chiave] = nuova;
+  else delete revisioni[chiave];
+  modificheNonSalvate = true;
+  ricalcola();
+  updateSaveBar();
+}
+
+function fonte(area) {
+  return area.fonti[0];
+}
+
+function badgeFonti(area) {
+  return area.fonti.map(f => `<span class="source-badge ${FONTI[f]?.classe ?? ''}">${FONTI[f]?.label ?? f}</span>`).join(' ');
 }
 
 // --- Map ---
@@ -70,15 +97,14 @@ function mostraSatellite() {
 }
 
 // --- Marker icons ---
-function createIcon(codice, state = 'default') {
+function createIcon(id, state = 'default') {
   // state: 'default' | 'selected' | 'moving'
-  const area = allAree.find(a => idArea(a) === codice);
-  const sourceKey = areaSourceKey.get(codice) ?? 'ftx';
+  const area = areaDa(id);
   const cls = state === 'selected' ? 'marker-selected'
             : state === 'moving'   ? 'marker-moving'
-            : area && esito(area) === 'esclusa' ? 'marker-esclusa'
+            : area?.esclusa ? 'marker-esclusa'
             : area && inAttesa(area) ? 'marker-verifica'
-            : `marker-${sourceKey in SOURCES ? sourceKey : 'ftx'}`;
+            : `marker-${FONTI[area && fonte(area)]?.classe ?? 'ftx'}`;
   const size = state !== 'default' ? 22 : 14;
   return L.divIcon({
     className: '',
@@ -88,8 +114,8 @@ function createIcon(codice, state = 'default') {
   });
 }
 
-function setMarkerState(codice, state) {
-  markers.get(codice)?.setIcon(createIcon(codice, state));
+function setMarkerState(id, state) {
+  markers.get(id)?.setIcon(createIcon(id, state));
 }
 
 // --- Render all markers ---
@@ -98,26 +124,25 @@ function renderMarkers() {
   markers.clear();
 
   allAree.forEach(area => {
-    if (!area.lat || !area.lon) return;
-    const marker = L.marker([area.lat, area.lon], { icon: createIcon(idArea(area)) })
+    const marker = L.marker([area.lat, area.lon], { icon: createIcon(area.id) })
       .addTo(map)
-      .on('click',        () => selectStation(idArea(area)))
-      .on('contextmenu',  (e) => onMarkerRightClick(e, idArea(area)));
-    markers.set(idArea(area), marker);
+      .on('click',        () => selectStation(area.id))
+      .on('contextmenu',  (e) => onMarkerRightClick(e, area.id));
+    markers.set(area.id, marker);
   });
 }
 
 // --- Selection ---
-function selectStation(codice) {
+function selectStation(id) {
   if (moveMode) return; // ignore clicks during move mode
 
-  if (selectedCodice && selectedCodice !== codice) {
-    setMarkerState(selectedCodice, 'default');
+  if (selectedId && selectedId !== id) {
+    setMarkerState(selectedId, 'default');
   }
-  selectedCodice = codice;
-  setMarkerState(codice, 'selected');
+  selectedId = id;
+  setMarkerState(id, 'selected');
 
-  const area = allAree.find(a => idArea(a) === codice);
+  const area = areaDa(id);
   if (!area) return;
 
   // In revisione serve vedere l'area di servizio da vicino
@@ -125,74 +150,76 @@ function selectStation(codice) {
   else map.panTo([area.lat, area.lon]);
 
   document.querySelectorAll('.station-item').forEach(el => {
-    el.classList.toggle('selected', el.dataset.codice === codice);
+    el.classList.toggle('selected', el.dataset.id === id);
   });
 
   showDetail(area);
 
-  const listItem = document.querySelector(`.station-item[data-codice="${CSS.escape(codice)}"]`);
+  const listItem = document.querySelector(`.station-item[data-id="${CSS.escape(id)}"]`);
   listItem?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
 function deselectStation() {
   document.getElementById('detail-panel').classList.remove('open');
-  if (selectedCodice) {
-    setMarkerState(selectedCodice, 'default');
-    selectedCodice = null;
+  if (selectedId) {
+    setMarkerState(selectedId, 'default');
+    selectedId = null;
   }
   document.querySelectorAll('.station-item').forEach(el => el.classList.remove('selected'));
 }
 
 // --- Detail panel ---
-function showDetail(area) {
-  const srcKey = areaSourceKey.get(idArea(area)) ?? 'ftx';
-  const srcLabel = SOURCES[srcKey]?.label ?? srcKey;
-  const totalConn = (area.colonnine || []).reduce((s, c) => s + (c.connettori?.length || 0), 0);
+function riga(etichetta, valore) {
+  return valore == null || valore === '' ? ''
+    : `<div class="detail-row"><span class="detail-label">${etichetta}</span><span class="detail-value">${valore}</span></div>`;
+}
 
-  const chargersHtml = (area.colonnine || []).map(c => {
-    const connectors = (c.connettori || []).map(cn =>
-      `<span class="connector-pill">${cn.modello}</span>`
-    ).join('');
+function correzione(area, campo, formatta = v => v ?? 'ND') {
+  const c = area.correzioni?.[campo];
+  return c ? ` <span style="color:#999;">(corretta, era ${formatta(c.da)}${c.nota ? ` — ${c.nota}` : ''})</span>` : '';
+}
+
+function connettoreHtml(n) {
+  return `<span class="connector-pill">${n.tipo}${n.potenzaKw ? ` ${n.potenzaKw} kW` : ''}</span>`;
+}
+
+function showDetail(area) {
+  const totalConn = area.colonnine.reduce((s, c) => s + c.connettori.length, 0);
+  const piuOperatori = area.operatori.length > 1;
+
+  const chargersHtml = area.colonnine.map(c => {
     const fault = c.guasti ? `<div class="fault-badge">⚠ ${c.guasti}</div>` : '';
-    const activation = c.dataAttivazione
-      ? `<span style="color:#999;font-size:11px;margin-left:4px;">dal ${new Date(c.dataAttivazione).toLocaleDateString('it-IT')}</span>`
-      : '';
+    const dettagli = [piuOperatori && c.operatore, c.attivaDal && `dal ${new Date(c.attivaDal).toLocaleDateString('it-IT')}`]
+      .filter(Boolean).join(' · ');
     return `
       <div class="charger-item">
-        <div class="charger-model">${c.modello || c.codice}${activation}</div>
-        <div>${connectors}</div>${fault}
+        <div class="charger-model">${c.modello || c.id}${c.potenzaKw && !String(c.modello).includes(c.potenzaKw) ? ` · ${c.potenzaKw} kW` : ''}
+          ${dettagli ? `<span style="color:#999;font-size:11px;margin-left:4px;">${dettagli}</span>` : ''}</div>
+        <div>${c.connettori.map(connettoreHtml).join('')}</div>${fault}
       </div>`;
   }).join('');
+
+  const posizione = `${area.lat.toFixed(5)}, ${area.lon.toFixed(5)}` +
+    correzione(area, 'posizione', da => da.map(v => v.toFixed(5)).join(', ')) +
+    (revisioneDi(revisioni, area)?.revisione.lat != null ? ' <button id="reset-posizione" class="link-btn">ripristina</button>' : '');
 
   document.getElementById('detail-content').innerHTML = `
     <div id="detail-header">
       <div>
         <div id="detail-title">${area.nome}</div>
-        <span class="source-badge ${srcKey}">${srcLabel}</span>
+        ${badgeFonti(area)}
       </div>
       <button id="detail-close" title="Chiudi">✕</button>
     </div>
-    <div class="detail-row">
-      <span class="detail-label">Autostrada</span>
-      <span class="detail-value">${area.strada || '–'}</span>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label">Direzione</span>
-      <span class="detail-value">${area.direzione || '–'}</span>
-    </div>
-    ${area.km != null ? `<div class="detail-row"><span class="detail-label">Km</span><span class="detail-value">${area.km}</span></div>` : ''}
-    ${area.paese ? `<div class="detail-row"><span class="detail-label">Paese</span><span class="detail-value">${area.paese}</span></div>` : ''}
-    ${area.operatore ? `<div class="detail-row"><span class="detail-label">Operatore</span><span class="detail-value">${area.operatore}</span></div>` : ''}
-    ${carreggiataHtml(area)}
-    ${area.traE ? `<div class="detail-row"><span class="detail-label">Tratta</span><span class="detail-value">${area.traE}</span></div>` : ''}
-    <div class="detail-row">
-      <span class="detail-label">Coordinate</span>
-      <span class="detail-value">${area.lat.toFixed(5)}, ${area.lon.toFixed(5)}</span>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label">Connettori</span>
-      <span class="detail-value">${totalConn} (${area.colonnine?.length || 0} colonnine)</span>
-    </div>
+    ${riga('Autostrada', nomeStrada(area) || '–')}
+    ${riga('Direzione', area.destinazione || '–')}
+    ${riga('Km', area.km)}
+    ${riga('Paese', area.paese)}
+    ${riga('Operatori', area.operatori.join(', '))}
+    ${area.carreggiata || area.correzioni?.carreggiata ? riga('Carreggiata', (area.carreggiata ?? 'ND') + correzione(area, 'carreggiata')) : ''}
+    ${riga('Coordinate', posizione)}
+    ${riga('Indirizzo', area.indirizzo)}
+    ${riga('Connettori', `${totalConn} (${area.colonnine.length} colonnine)`)}
     ${revisioneHtml(area)}
     <div class="detail-section-title">Colonnine</div>
     ${chargersHtml || '<div style="color:#aaa;font-size:12px;">Nessuna colonnina registrata</div>'}
@@ -203,64 +230,52 @@ function showDetail(area) {
   document.querySelectorAll('.review-btn').forEach(btn =>
     btn.addEventListener('click', () => decidi(area, btn.dataset.esito)));
   document.getElementById('review-reset')?.addEventListener('click', () => decidi(area, null));
-}
-
-function carreggiataHtml(area) {
-  const corretta = revisioni[idArea(area)]?.direzione_geografica;
-  const originale = area.direzione_geografica || 'ND';
-  if (!corretta && originale === 'ND') return '';
-  const valore = corretta
-    ? `${corretta} <span style="color:#999;">(corretta, era ${originale}${revisioni[idArea(area)].nota ? ` — ${revisioni[idArea(area)].nota}` : ''})</span>`
-    : originale;
-  return `<div class="detail-row"><span class="detail-label">Carreggiata</span><span class="detail-value">${valore}</span></div>`;
+  document.getElementById('reset-posizione')?.addEventListener('click', () => {
+    aggiornaRevisione(area, { lat: undefined, lon: undefined });
+    const ripristinata = areaDa(area.id);
+    markers.get(area.id)?.setLatLng([ripristinata.lat, ripristinata.lon]);
+    showDetail(ripristinata);
+  });
 }
 
 function revisioneHtml(area) {
-  const rev = revisioni[idArea(area)]?.esito ? revisioni[idArea(area)] : null;
+  const rev = revisioneDi(revisioni, area)?.revisione;
+  const manuale = rev?.esito ? rev : null;
   const attuale = esito(area);
   const pulsanti = Object.entries(ESITI).map(([chiave, label]) =>
     `<button class="review-btn${chiave === attuale ? ' active' : ''}" data-esito="${chiave}">${label}</button>`
   ).join('');
   return `
     <div class="detail-section-title">Classificazione</div>
-    <div class="detail-row">
-      <span class="detail-label">Esito</span>
-      <span class="detail-value">${ESITI[attuale]} <span style="color:#999;">(${rev ? `revisione del ${rev.data}` : 'automatico'})</span></span>
-    </div>
-    ${area.distanzaAutostradaM != null ? `<div class="detail-row"><span class="detail-label">Autostrada</span><span class="detail-value">a ${area.distanzaAutostradaM} m</span></div>` : ''}
-    ${inAttesa(area) ? `<div class="review-reason">❓ Da verificare: ${area.motivo}</div>` : ''}
+    ${riga('Esito', `${ESITI[attuale] ?? ESITO_FUORI_AUTOSTRADA} <span style="color:#999;">(${manuale ? `revisione del ${manuale.data}` : 'automatico'})</span>`)}
+    ${area.distanzaAutostradaM != null ? riga('Autostrada', `a ${area.distanzaAutostradaM} m`) : ''}
+    ${inAttesa(area) ? `<div class="review-reason">❓ Da verificare: ${area.verifica}</div>` : ''}
     <div class="review-buttons">${pulsanti}</div>
-    ${rev ? '<button id="review-reset">Annulla revisione</button>' : ''}`;
+    ${manuale ? '<button id="review-reset">Annulla revisione</button>' : ''}`;
 }
 
 function decidi(area, nuovoEsito) {
-  const id = idArea(area);
-  const { esito: _, ...altreCorrezioni } = revisioni[id] ?? {};
-  if (nuovoEsito) revisioni[id] = { ...altreCorrezioni, esito: nuovoEsito, data: new Date().toISOString().slice(0, 10) };
-  else if (altreCorrezioni.direzione_geografica) revisioni[id] = altreCorrezioni;
-  else delete revisioni[id];
-  pendingChanges.add(FILE_REVISIONI);
-  updateSaveBar();
-  setMarkerState(id, 'selected');
+  aggiornaRevisione(area, { esito: nuovoEsito ?? undefined });
+  setMarkerState(area.id, 'selected');
 
   if (currentFilter !== 'verifica') {
-    showDetail(area);
+    showDetail(areaDa(area.id));
     renderList();
     return;
   }
   // In revisione si passa direttamente al prossimo caso da verificare
   applyFilters();
-  setMarkerState(id, 'default');
-  if (filteredAree.length) selectStation(idArea(filteredAree[0]));
+  setMarkerState(area.id, 'default');
+  if (filteredAree.length) selectStation(filteredAree[0].id);
   else { deselectStation(); showToast('Revisione completata — ricordati di salvare'); }
 }
 
 // --- Context menu ---
-function onMarkerRightClick(e, codice) {
+function onMarkerRightClick(e, id) {
   L.DomEvent.preventDefault(e.originalEvent);
   closeContextMenu();
 
-  const area = allAree.find(a => idArea(a) === codice);
+  const area = areaDa(id);
   if (!area) return;
 
   const menu = document.getElementById('context-menu');
@@ -274,7 +289,7 @@ function onMarkerRightClick(e, codice) {
   menu.style.top  = `${Math.min(y, window.innerHeight - menuH - 10)}px`;
   menu.style.display = 'block';
 
-  document.getElementById('ctx-move').onclick = () => enterMoveMode(codice);
+  document.getElementById('ctx-move').onclick = () => enterMoveMode(id);
 }
 
 function closeContextMenu() {
@@ -289,21 +304,20 @@ document.addEventListener('click', (e) => {
 });
 
 // --- Move mode ---
-function enterMoveMode(codice) {
+function enterMoveMode(id) {
   closeContextMenu();
-  moveMode   = true;
-  moveCodice = codice;
+  moveMode = true;
+  moveId   = id;
 
   // Deselect current selection visually, mark moving marker orange
-  if (selectedCodice && selectedCodice !== codice) setMarkerState(selectedCodice, 'default');
-  setMarkerState(codice, 'moving');
-  selectedCodice = null;
+  if (selectedId && selectedId !== id) setMarkerState(selectedId, 'default');
+  setMarkerState(id, 'moving');
+  selectedId = null;
   document.querySelectorAll('.station-item').forEach(el => el.classList.remove('selected'));
   document.getElementById('detail-panel').classList.remove('open');
 
   // UI feedback
-  const area = allAree.find(a => idArea(a) === codice);
-  document.getElementById('move-status-name').textContent = area?.nome ?? codice;
+  document.getElementById('move-status-name').textContent = areaDa(id)?.nome ?? id;
   document.getElementById('move-status').classList.add('visible');
   map.getContainer().style.cursor = 'crosshair';
 
@@ -314,10 +328,10 @@ function cancelMoveMode() {
   if (!moveMode) return;
   map.off('click', onMapClickForMove);
 
-  setMarkerState(moveCodice, 'default');
+  setMarkerState(moveId, 'default');
 
-  moveMode   = false;
-  moveCodice = null;
+  moveMode = false;
+  moveId   = null;
   map.getContainer().style.cursor = '';
   document.getElementById('move-status').classList.remove('visible');
 }
@@ -325,30 +339,17 @@ function cancelMoveMode() {
 function onMapClickForMove(e) {
   if (!moveMode) return;
 
-  const codice    = moveCodice;
-  const { lat, lng } = e.latlng;
-  const area      = allAree.find(a => idArea(a) === codice);
+  const id   = moveId;
+  const area = areaDa(id);
   if (!area) { cancelMoveMode(); return; }
 
-  // Update area object in place (same ref as areasByFile entry)
-  area.lat = lat;
-  area.lon = lng;
-
-  // Move marker
-  markers.get(codice)?.setLatLng([lat, lng]);
-  setMarkerState(codice, 'default');
-
-  // Track which file needs saving
-  const srcKey   = areaSourceKey.get(codice) ?? 'ftx';
-  const filename = SOURCES[srcKey].file;
-  pendingChanges.add(filename);
-
-  // Refresh detail if this station was open
-  if (selectedCodice === codice) showDetail(area);
+  const { lat, lng } = e.latlng;
+  aggiornaRevisione(area, { lat: +lat.toFixed(6), lon: +lng.toFixed(6) });
+  markers.get(id)?.setLatLng([lat, lng]);
+  setMarkerState(id, 'default');
 
   cancelMoveMode();
-  updateSaveBar();
-  showToast(`Posizione aggiornata — ${pendingChanges.size} file con modifiche non salvate`);
+  showToast('Posizione aggiornata — ricordati di salvare');
 }
 
 // ESC key to cancel move mode
@@ -362,20 +363,21 @@ document.addEventListener('keydown', (e) => {
 // --- Save bar ---
 function updateSaveBar() {
   const bar = document.getElementById('save-bar');
-  if (pendingChanges.size === 0) {
+  if (!modificheNonSalvate) {
     bar.classList.remove('visible');
     return;
   }
-  const files = [...pendingChanges].join(', ');
-  document.getElementById('save-label').textContent = `Modifiche non salvate: ${files}`;
+  document.getElementById('save-label').textContent = `Modifiche non salvate: ${FILE_REVISIONI}`;
   bar.classList.add('visible');
+}
+
+function contenutoRevisioni() {
+  return JSON.stringify({ revisioni }, null, 2) + '\n';
 }
 
 // --- Save via File System Access API ---
 async function saveChanges() {
-  const fsaSupported = 'showDirectoryPicker' in window;
-
-  if (!fsaSupported) {
+  if (!('showDirectoryPicker' in window)) {
     downloadPendingFiles();
     return;
   }
@@ -385,20 +387,14 @@ async function saveChanges() {
       showToast('Seleziona la cartella data/ del progetto…');
       dirHandle = await window.showDirectoryPicker({ mode: 'readwrite', startIn: 'documents' });
     }
+    const fileHandle = await dirHandle.getFileHandle(FILE_REVISIONI, { create: true });
+    const writable   = await fileHandle.createWritable();
+    await writable.write(contenutoRevisioni());
+    await writable.close();
 
-    for (const filename of pendingChanges) {
-      const contenuto = contenutoFile(filename);
-      if (!contenuto) continue;
-
-      const fileHandle = await dirHandle.getFileHandle(filename, { create: true });
-      const writable   = await fileHandle.createWritable();
-      await writable.write(contenuto);
-      await writable.close();
-    }
-
-    pendingChanges.clear();
+    modificheNonSalvate = false;
     updateSaveBar();
-    showToast('File salvati con successo!');
+    showToast('Revisioni salvate!');
   } catch (err) {
     if (err.name === 'AbortError') return; // user cancelled picker
     console.error('Errore salvataggio:', err);
@@ -408,26 +404,15 @@ async function saveChanges() {
   }
 }
 
-function contenutoFile(filename) {
-  if (filename === FILE_REVISIONI) return JSON.stringify({ revisioni }, null, 2) + '\n';
-  const aree = areasByFile[filename];
-  return aree ? JSON.stringify({ ...jsonByFile[filename], listaAree: aree }, null, 2) : null;
-}
-
 // --- Download fallback ---
 function downloadPendingFiles() {
-  pendingChanges.forEach(filename => {
-    const contenuto = contenutoFile(filename);
-    if (!contenuto) return;
-    const blob = new Blob([contenuto], { type: 'application/json' });
-    const url  = URL.createObjectURL(blob);
-    const a    = Object.assign(document.createElement('a'), { href: url, download: filename });
-    a.click();
-    URL.revokeObjectURL(url);
-  });
-  pendingChanges.clear();
+  const blob = new Blob([contenutoRevisioni()], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  Object.assign(document.createElement('a'), { href: url, download: FILE_REVISIONI }).click();
+  URL.revokeObjectURL(url);
+  modificheNonSalvate = false;
   updateSaveBar();
-  showToast('File scaricati — sostituisci quelli nella cartella data/');
+  showToast(`${FILE_REVISIONI} scaricato — sostituisci quello nella cartella data/`);
 }
 
 // --- Toast ---
@@ -444,16 +429,15 @@ function showToast(msg) {
 function applyFilters() {
   const search = currentSearch.toLowerCase();
   filteredAree = allAree.filter(area => {
-    const srcKey = areaSourceKey.get(idArea(area)) ?? 'ftx';
-    if (currentFilter === 'verifica' ? !inAttesa(area) : currentFilter !== 'all' && srcKey !== currentFilter) return false;
-    if (search && !area.nome?.toLowerCase().includes(search) && !area.strada?.toLowerCase().includes(search)) return false;
+    if (currentFilter === 'verifica' ? !inAttesa(area) : currentFilter !== 'all' && !area.fonti.includes(currentFilter)) return false;
+    if (search && !area.nome.toLowerCase().includes(search) && !(nomeStrada(area) ?? '').toLowerCase().includes(search)) return false;
     return true;
   });
 
-  markers.forEach((marker, codice) => {
-    const visible = filteredAree.some(a => idArea(a) === codice);
-    if (visible  && !map.hasLayer(marker)) marker.addTo(map);
-    if (!visible &&  map.hasLayer(marker)) marker.remove();
+  const visibili = new Set(filteredAree.map(a => a.id));
+  markers.forEach((marker, id) => {
+    if (visibili.has(id)  && !map.hasLayer(marker)) marker.addTo(map);
+    if (!visibili.has(id) &&  map.hasLayer(marker)) marker.remove();
   });
 
   const daVerificare = allAree.filter(inAttesa).length;
@@ -471,29 +455,23 @@ function renderList() {
     return;
   }
 
-  container.innerHTML = filteredAree.map(area => {
-    const srcKey   = areaSourceKey.get(idArea(area)) ?? 'ftx';
-    const srcLabel = SOURCES[srcKey]?.label ?? srcKey;
-    const nChargers = area.colonnine?.length || 0;
-    const isSelected = idArea(area) === selectedCodice;
-    return `
-      <div class="station-item${isSelected ? ' selected' : ''}" data-codice="${idArea(area)}">
+  container.innerHTML = filteredAree.map(area => `
+      <div class="station-item${area.id === selectedId ? ' selected' : ''}" data-id="${area.id}">
         <div class="station-item-name">${area.nome}</div>
         <div class="station-item-meta">
-          <span class="source-badge ${srcKey}">${srcLabel}</span>
+          ${badgeFonti(area)}
           ${inAttesa(area) ? '<span class="verifica-badge">❓ da verificare</span>' : ''}
           ${esito(area) === 'uscita' ? '<span class="exit-badge">⚠️ uscita</span>' : ''}
           ${esito(area) === 'esclusa' ? '<span class="exit-badge">🚫 esclusa</span>' : ''}
-          <span>${area.strada || ''}</span>
-          ${area.direzione ? `<span>→ ${area.direzione}</span>` : ''}
+          <span>${nomeStrada(area) ?? ''}</span>
+          ${area.destinazione ? `<span>→ ${area.destinazione}</span>` : ''}
           ${area.km != null ? `<span>km ${area.km}</span>` : ''}
-          <span>⚡ ${nChargers}</span>
+          <span>⚡ ${area.colonnine.length}</span>
         </div>
-      </div>`;
-  }).join('');
+      </div>`).join('');
 
   container.querySelectorAll('.station-item').forEach(el => {
-    el.addEventListener('click', () => selectStation(el.dataset.codice));
+    el.addEventListener('click', () => selectStation(el.dataset.id));
   });
 }
 
@@ -520,7 +498,7 @@ async function init() {
       applyFilters();
       if (currentFilter === 'verifica') {
         mostraSatellite();
-        if (filteredAree.length) selectStation(idArea(filteredAree[0]));
+        if (filteredAree.length) selectStation(filteredAree[0].id);
       }
     });
   });
