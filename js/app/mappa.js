@@ -16,6 +16,11 @@ export function creaMappa(idElemento) {
   });
 }
 
+/** Da chiamare quando cambia lo spazio della mappa (es. la barra distanze si sposta). */
+export function aggiornaDimensioniMappa() {
+  map?.invalidateSize();
+}
+
 export function mostraPanoramicaItalia() {
   map.setView([CENTRO_ITALIA.lat, CENTRO_ITALIA.lon], 6);
 }

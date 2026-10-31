@@ -2,8 +2,10 @@ import { caricaAree } from '../core/dati.js';
 import { filtraStazioni, tutteLeStazioni } from '../core/filtroStazioni.js';
 import { avviaPosizione, attendiPrimaPosizione, getStato } from './posizione.js';
 import { caricaTracciaCSV } from './simulazione.js';
-import { creaMappa, aggiornaUtente, disegnaStazioni, mostraPanoramicaItalia } from './mappa.js';
-import { collegaPannelli, mostraStrada, mostraDirezione, mostraAvvisoGps, aggiornaPannelli } from './hud.js';
+import { creaMappa, aggiornaUtente, disegnaStazioni, mostraPanoramicaItalia, aggiornaDimensioniMappa } from './mappa.js';
+import {
+  collegaPannelli, collegaOrientamentoBarra, mostraStrada, mostraDirezione, mostraAvvisoGps, aggiornaPannelli,
+} from './hud.js';
 import { ATTESA_GPS_MS, CENTRO_ITALIA } from '../config.js';
 
 const CHIAVE_SIMULAZIONE = 'debugPosizione';
@@ -54,6 +56,7 @@ window.addEventListener('load', async () => {
   collegaPannelli();
   collegaImpostazioni(simulazione);
   creaMappa('map');
+  collegaOrientamentoBarra(aggiornaDimensioniMappa);
 
   aree = await caricaAree();
   avviaPosizione({ simulazione, onAggiornamento: aggiorna });
