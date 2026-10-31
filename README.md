@@ -93,6 +93,10 @@ The OSM script marks uncertain sites as `daVerificare` with a reason (e.g. close
 - [OpenStreetMap Nominatim](https://nominatim.org/) for reverse geocoding (throttled)
 - [Overpass API](https://overpass-api.de/) for OpenStreetMap charger data (© OpenStreetMap contributors, ODbL)
 
+## Anonymous statistics
+
+The pages send a few anonymous counts to [GoatCounter](https://www.goatcounter.com) (`js/statistiche.js`), without cookies and without loading third-party scripts: page visits (`/app`, `/editor`, `/autostrade`), how the app started (`avvio/gps`, `avvio/gps-non-disponibile`, `avvio/simulazione`), and, while driving, the operator and country of each station proposed as next (`prossima/IT/free-to-x`, once per station per visit) or tapped in the distance bar (`tocco/…`). Never coordinates, routes, station names or identifiers. Nothing is sent when the "Statistiche anonime" setting is off, with Do Not Track, on localhost, or (for driving events) in simulation.
+
 ## Licenses and attribution
 
 - **Leaflet**: BSD-2-Clause.

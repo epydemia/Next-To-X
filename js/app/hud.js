@@ -1,5 +1,6 @@
 import { puntoCardinale } from '../core/geo.js';
 import { estraiCodice } from '../core/autostrade.js';
+import { contaEvento, slugOperatori } from '../statistiche.js';
 
 // Tutto ciò che nell'app di guida non è mappa: HUD, pannelli, barra distanze, tabella.
 
@@ -131,6 +132,7 @@ function aggiornaBarraDistanze(avanti) {
       e.stopPropagation();
       if (fumettoAperto === chiaveStazione(s)) return chiudiFumetto();
       fumettoAperto = chiaveStazione(s);
+      contaEvento(`tocco/${s.paese}/${slugOperatori(s.operatore)}`, `Tocco su stazione: ${s.operatore || 'operatore sconosciuto'} (${s.paese})`, { guida: true });
       clearTimeout(timerFumetto);
       timerFumetto = setTimeout(chiudiFumetto, DURATA_FUMETTO_MS);
       mostraFumetto(barra, comando, s, pos(s.distanza));

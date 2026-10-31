@@ -1,5 +1,6 @@
 import { FONTI, TILE_EDITOR, TILE_SATELLITE, FILE_REVISIONI } from '../config.js';
 import { creaSfondo, aggiungiAttribuzioneOsm } from '../sfondi.js';
+import { contaPagina } from '../statistiche.js';
 import { caricaAreeOriginali, caricaRevisioni, applicaRevisione, revisioneDi, nomeStrada } from '../core/dati.js';
 
 // Editor delle aree: legge data/aree.json e salva ogni modifica (classificazione,
@@ -479,6 +480,7 @@ function renderList() {
 
 // --- Init ---
 async function init() {
+  contaPagina('/editor', 'Editor stazioni');
   initMap();
 
   await loadData();
