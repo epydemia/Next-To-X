@@ -4,14 +4,17 @@ Ogni fonte (Free To X, A22, IONITY, altri operatori da OSM) ha campi e convenzio
 diverse; qui un convertitore per fonte produce record nel FORMATO UNICO descritto sotto,
 e un controllo segnala errori (bloccanti) e avvisi. Output: data/aree.json.
 
-Passi successivi (non ancora fatti): unire le aree che sono lo stesso posto fisico
-in fonti diverse, e far leggere data/aree.json all'app.
+Poi le aree che sono lo stesso posto fisico in fonti diverse vengono unite in un solo
+record, e si applicano le correzioni di data/revisioni.json. Passo successivo (non ancora
+fatto): far leggere data/aree.json all'app.
 
 Formato di un'area:
   id             "ftx:493", "a22:A22_001", "osm:way/123" (le aree OSM tengono l'id OSM:
                  la stessa area in due fonti OSM ha lo stesso id, utile per unirle)
-  codiceOrigine  chiave usata finora da revisioni.json (codice originale o "nome:...")
-  fonte          "free_to_x" | "a22" | "test" | "ionity" | "osm"
+  fonti          fonti da cui viene l'area, la più autorevole per prima:
+                 "free_to_x" | "a22" | "test" | "osm" | "ionity"
+  codiciOrigine  chiavi con cui l'app e revisioni.json identificano l'area in ogni fonte
+                 (codice originale o "nome:...")
   nome, paese    paese ISO a due lettere
   autostrada     sigla ("A1", "A7", "RA3"…) o null
   tratta         es. "Milano-Napoli" o null
@@ -26,12 +29,15 @@ Formato di un'area:
                    connettori: [{tipo, potenzaKw}]}]
                  tipo: CCS | CHAdeMO | Type 2 | Tesla | altro
   verifica       motivo per cui va controllata a mano, o null
+  correzioni     campi corretti da revisioni.json: {campo: {da: valore originale, nota}}
+  esclusa        true se una revisione l'ha marcata "non autostradale" (l'app la nasconde)
 
 Uso:  python tools/Compila_Aree.py            (scrive data/aree.json)
       python tools/Compila_Aree.py --controlla (solo controllo, non scrive)
 """
 import argparse
 import json
+import math
 import re
 import sys
 from datetime import datetime, timezone
@@ -39,6 +45,10 @@ from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 OUTPUT = DATA / "aree.json"
+REVISIONI = DATA / "revisioni.json"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from Download_OSM_Colonnine import nome_coincide, parole  # noqa: E402
 
 CARREGGIATE = ["NORD", "NORDEST", "EST", "SUDEST", "SUD", "SUDOVEST", "OVEST", "NORDOVEST"]
 ACCESSI = {"area_servizio", "uscita", "fuori_autostrada"}
@@ -49,6 +59,12 @@ FONTI = {"free_to_x", "a22", "test", "ionity", "osm"}
 LAT_MIN, LAT_MAX, LON_MIN, LON_MAX = 34.0, 56.0, -10.0, 30.0
 POTENZA_MAX_KW = 1000
 POTENZA_MAX_AC_KW = 43
+
+# Unione: a parità di area vince la fonte che viene prima
+PRIORITA_FONTI = ["free_to_x", "a22", "test", "osm", "ionity"]
+STESSO_POSTO_M = 60          # più vicine di così sono la stessa area
+STESSO_NOME_M = 300          # con lo stesso nome, fino a questa distanza
+POSSIBILE_DOPPIONE_M = 150   # oltre STESSO_POSTO_M e con nomi diversi: solo avviso
 
 
 # --- Conversioni di base ---
@@ -267,10 +283,6 @@ def controlla(aree):
             errori.append(f"{chi}: id ripetuto nella stessa fonte")
         visti[chiave] = a
 
-        if a.get("accesso") == "area_servizio" and not a.get("autostrada"):
-            avvisi.setdefault(f"{chi}: area di servizio senza autostrada")
-        if a.get("accesso") == "area_servizio" and a.get("carreggiata") is None:
-            avvisi.setdefault(f"{chi}: area di servizio senza carreggiata")
         if not a.get("colonnine"):
             avvisi.setdefault(f"{chi}: nessuna colonnina")
         for c in a.get("colonnine", []):
@@ -285,12 +297,140 @@ def controlla(aree):
     return errori, list(avvisi)
 
 
-def doppioni_tra_fonti(aree):
-    """Id presenti in più fonti: sono la stessa area OSM, da unire nel passo successivo."""
-    per_id = {}
+# --- Unione delle aree presenti in più fonti ---
+
+def distanza_m(a, b):
+    dx = (a["lon"] - b["lon"]) * 111320 * math.cos(math.radians((a["lat"] + b["lat"]) / 2))
+    return math.hypot((a["lat"] - b["lat"]) * 110540, dx)
+
+
+def compatto(nome):
+    return "".join(sorted(parole(nome)))
+
+
+def stesso_nome(a, b):
+    """Nomi dello stesso posto: "Affi" ↔ "Ionity Affi", "Valtrompia Sud" ↔ "Val Trompia Sud"."""
+    na, nb = a.get("nome"), b.get("nome")
+    senza_spazi = lambda n: re.sub(r"[^a-zàèéìòùäöüß0-9]", "", (n or "").lower())
+    return (nome_coincide(na, nb) or nome_coincide(nb, na)
+            or (bool(senza_spazi(na)) and senza_spazi(na) == senza_spazi(nb)))
+
+
+def carreggiate_opposte(a, b):
+    ca, cb = a.get("carreggiata"), b.get("carreggiata")
+    if ca is None or cb is None:
+        return False
+    d = abs(CARREGGIATE.index(ca) - CARREGGIATE.index(cb)) % 8
+    return min(d, 8 - d) * 45 > 90
+
+
+def stesso_posto(a, b):
+    if a["fonte"] == b["fonte"] or carreggiate_opposte(a, b):
+        return False
+    d = distanza_m(a, b)
+    return d <= STESSO_POSTO_M or (d <= STESSO_NOME_M and stesso_nome(a, b))
+
+
+def unisci(aree):
+    """Raggruppa le aree che sono lo stesso posto fisico e le fonde in un record:
+    i campi vengono dalla fonte più autorevole (PRIORITA_FONTI), quelli mancanti dalle
+    altre; le colonnine e gli operatori sono l'unione di tutte."""
+    aree = sorted(aree, key=lambda a: PRIORITA_FONTI.index(a["fonte"]))
+    gruppi = []
     for a in aree:
-        per_id.setdefault(a["id"], set()).add(a["fonte"])
-    return {i: sorted(f) for i, f in per_id.items() if len(f) > 1}
+        gruppo = next((g for g in gruppi if any(stesso_posto(a, b) for b in g)), None)
+        if gruppo:
+            gruppo.append(a)
+        else:
+            gruppi.append([a])
+    return [fondi(g) for g in gruppi]
+
+
+def fondi(gruppo):
+    principale = gruppo[0]
+    r = {k: v for k, v in principale.items() if k not in ("fonte", "codiceOrigine")}
+    r["fonti"] = [a["fonte"] for a in gruppo]
+    r["codiciOrigine"] = [a["codiceOrigine"] for a in gruppo]
+    for altra in gruppo[1:]:
+        for campo, valore in altra.items():
+            if r.get(campo) is None and valore is not None and campo not in ("fonte", "codiceOrigine"):
+                r[campo] = valore
+        ids = {c["id"] for c in r["colonnine"]}
+        r["colonnine"] = r["colonnine"] + [c for c in altra["colonnine"] if c["id"] not in ids]
+    motivi = [a["verifica"] for a in gruppo if a.get("verifica")]
+    r["verifica"] = "; ".join(motivi) or None
+    r["correzioni"] = {}
+    r["esclusa"] = False
+    return con_operatori(r)
+
+
+# --- Revisioni (data/revisioni.json) ---
+
+def applica_revisioni(aree, revisioni):
+    """Applica le correzioni manuali e del crosscheck. Una revisione si riferisce a un'area
+    con la chiave usata dall'app (codiceOrigine) o con il nuovo id.
+    Restituisce le chiavi delle revisioni che non corrispondono a nessuna area."""
+    usate = set()
+    for area in aree:
+        for chiave in [area["id"], *area["codiciOrigine"]]:
+            rev = revisioni.get(chiave)
+            if not rev:
+                continue
+            usate.add(chiave)
+            nota = rev.get("nota") or (f"revisione del {rev['data']}" if rev.get("data") else "revisione")
+            esito = rev.get("esito")
+            if esito == "esclusa":
+                area["esclusa"] = True
+            elif esito in ("area_servizio", "uscita") and area["accesso"] != esito:
+                area["correzioni"]["accesso"] = {"da": area["accesso"], "nota": nota}
+                area["accesso"] = esito
+            if esito:
+                area["verifica"] = None
+            if rev.get("direzione_geografica") and rev["direzione_geografica"] != area["carreggiata"]:
+                area["correzioni"]["carreggiata"] = {"da": area["carreggiata"], "nota": nota}
+                area["carreggiata"] = rev["direzione_geografica"]
+            if rev.get("lat") is not None and rev.get("lon") is not None:
+                area["correzioni"]["posizione"] = {"da": [area["lat"], area["lon"]], "nota": nota}
+                area["lat"], area["lon"] = rev["lat"], rev["lon"]
+    return sorted(set(revisioni) - usate)
+
+
+def controlla_unite(aree):
+    """Controlli sul risultato finale: id univoci e possibili doppioni non uniti."""
+    errori, avvisi = [], []
+    visti = set()
+    for a in aree:
+        if a["id"] in visti:
+            errori.append(f"{a['id']} ({a['nome']}): id ripetuto dopo l'unione")
+        visti.add(a["id"])
+        if a["carreggiata"] is not None and a["carreggiata"] not in CARREGGIATE:
+            errori.append(f"{a['id']} ({a['nome']}): carreggiata '{a['carreggiata']}' non valida dopo le revisioni")
+    attive = [a for a in aree if not a["esclusa"]]
+    for a in attive:
+        if a["accesso"] == "area_servizio" and not a["autostrada"]:
+            avvisi.append(f"{a['id']} ({a['nome']}): area di servizio senza autostrada")
+        if a["accesso"] == "area_servizio" and a["carreggiata"] is None:
+            avvisi.append(f"{a['id']} ({a['nome']}): area di servizio senza carreggiata")
+    for i, a in enumerate(attive):
+        for b in attive[i + 1:]:
+            if (set(a["fonti"]).isdisjoint(b["fonti"]) and not carreggiate_opposte(a, b)
+                    and distanza_m(a, b) <= POSSIBILE_DOPPIONE_M):
+                avvisi.append(f"{a['id']} ({a['nome']}) e {b['id']} ({b['nome']}): forse la stessa area "
+                              f"(a {distanza_m(a, b):.0f} m)")
+    return errori, avvisi
+
+
+def stampa(errori, avvisi, mostra_avvisi):
+    tipi = {}
+    for av in avvisi:
+        tipo = av.split(": ", 1)[1].split(" da ")[0].split(" '")[0].split(" a ")[0]
+        tipi[tipo] = tipi.get(tipo, 0) + 1
+    print(f"{len(avvisi)} avvisi: {tipi}")
+    if mostra_avvisi:
+        for av in avvisi:
+            print("  avviso:", av)
+    for e in errori:
+        print("  ERRORE:", e)
 
 
 def main():
@@ -299,34 +439,37 @@ def main():
     parser.add_argument("--avvisi", action="store_true", help="elenca tutti gli avvisi")
     args = parser.parse_args()
 
-    aree = converti_tutto()
-    errori, avvisi = controlla(aree)
-
+    convertite = converti_tutto()
+    errori, avvisi = controlla(convertite)
     per_fonte = {}
-    for a in aree:
+    for a in convertite:
         per_fonte[a["fonte"]] = per_fonte.get(a["fonte"], 0) + 1
-    print(f"{len(aree)} aree: " + ", ".join(f"{f} {n}" for f, n in per_fonte.items()))
-    doppioni = doppioni_tra_fonti(aree)
-    if doppioni:
-        print(f"{len(doppioni)} aree presenti in più fonti (da unire): {list(doppioni.items())[:5]}")
+    print(f"{len(convertite)} aree convertite: " + ", ".join(f"{f} {n}" for f, n in per_fonte.items()))
 
-    tipi_avviso = {}
-    for av in avvisi:
-        tipo = av.split(": ", 1)[1].split(" da ")[0].split(" '")[0]
-        tipi_avviso[tipo] = tipi_avviso.get(tipo, 0) + 1
-    print(f"{len(avvisi)} avvisi: {tipi_avviso}")
-    if args.avvisi:
-        for av in avvisi:
-            print("  avviso:", av)
-    for e in errori:
-        print("  ERRORE:", e)
+    aree = unisci(convertite) if not errori else []
+    for a in aree:
+        if len(a["fonti"]) > 1:
+            print(f"  unita: {a['nome']} ← {' + '.join(a['fonti'])} ({', '.join(a['operatori'])})")
+
+    revisioni = json.loads(REVISIONI.read_text(encoding="utf-8")).get("revisioni", {}) if REVISIONI.exists() else {}
+    orfane = applica_revisioni(aree, revisioni)
+    corrette = sum(bool(a["correzioni"]) for a in aree)
+    escluse = sum(a["esclusa"] for a in aree)
+    print(f"{len(aree)} aree dopo l'unione; revisioni: {len(revisioni) - len(orfane)} applicate "
+          f"({corrette} aree corrette, {escluse} escluse)")
+    avvisi += [f"revisione {k}: nessuna area con questa chiave" for k in orfane]
+
+    errori_unite, avvisi_unite = controlla_unite(aree)
+    errori += errori_unite
+    avvisi += avvisi_unite
+    stampa(errori, avvisi, args.avvisi)
     if errori:
         print(f"{len(errori)} errori: data/aree.json non scritto")
         sys.exit(1)
 
     if not args.controlla:
         OUTPUT.write_text(json.dumps({
-            "versione": 1,
+            "versione": 2,
             "generato": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "aree": aree,
         }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -4,7 +4,9 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from Compila_Aree import controlla, da_a22, da_free_to_x, da_osm, potenza_kw, tipo_connettore  # noqa: E402
+from Compila_Aree import (  # noqa: E402
+    applica_revisioni, controlla, controlla_unite, da_a22, da_free_to_x, da_osm, potenza_kw, tipo_connettore, unisci,
+)
 
 FREE_TO_X = {
     "codice": "493", "nome": "ARDA EST", "strada": "A1 MILANO-NAPOLI", "direzione": "MILANO",
@@ -74,6 +76,65 @@ class TestControllo(unittest.TestCase):
                    "ionity")
         _, avvisi = controlla([a])
         self.assertEqual(len(avvisi), 1)
+
+
+def osm(id_, nome, lat, lon, carreggiata, operatore, fonte="osm"):
+    return da_osm({"codice": id_, "nome": nome, "strada": "A4", "paese": "IT", "direzione_geografica": carreggiata,
+                   "lat": lat, "lon": lon,
+                   "colonnine": [{"codice": id_ + "/c", "operatore": operatore, "connettori": [{"modello": "CCS 150 kW"}]}]},
+                  fonte)
+
+
+class TestUnione(unittest.TestCase):
+    def setUp(self):
+        self.ftx = da_free_to_x({**FREE_TO_X, "codice": "D51", "nome": "VALTROMPIA SUD", "direzione_geografica": "EST",
+                                 "lat": 45.5, "lon": 10.2})
+
+    def test_stesso_nome_unisce(self):
+        aree = unisci([osm("osm:way/1", "Val Trompia Sud", 45.5008, 10.2, "SUDEST", "Tesla"), self.ftx])
+        self.assertEqual(len(aree), 1)
+        a = aree[0]
+        self.assertEqual((a["id"], a["fonti"], a["codiciOrigine"]), ("ftx:D51", ["free_to_x", "osm"], ["D51", "osm:way/1"]))
+        self.assertEqual(a["operatori"], ["Free To X", "Tesla"])
+        self.assertEqual(len(a["colonnine"]), 2)
+
+    def test_carreggiate_opposte_non_unisce(self):
+        aree = unisci([osm("osm:way/1", "Val Trompia Sud", 45.5003, 10.2, "OVEST", "Tesla"), self.ftx])
+        self.assertEqual(len(aree), 2)
+
+    def test_nome_diverso_lontano_non_unisce_ma_avvisa(self):
+        aree = unisci([osm("osm:way/1", "Raststation", 45.501, 10.2, "EST", "Tesla"), self.ftx])
+        self.assertEqual(len(aree), 2)
+        _, avvisi = controlla_unite(aree)
+        self.assertTrue(any("forse la stessa area" in a for a in avvisi))
+
+    def test_campi_mancanti_dalla_fonte_secondaria(self):
+        senza = da_free_to_x({**FREE_TO_X, "codice": "D51", "nome": "VALTROMPIA SUD", "direzione_geografica": "ND",
+                              "lat": 45.5, "lon": 10.2})
+        a = unisci([senza, osm("osm:way/1", "Val Trompia Sud", 45.5003, 10.2, "SUDEST", "Tesla")])[0]
+        self.assertEqual(a["carreggiata"], "SUDEST")
+
+
+class TestRevisioni(unittest.TestCase):
+    def test_applica_e_segnala_orfane(self):
+        aree = unisci([da_free_to_x(FREE_TO_X), osm("osm:way/9", "Altra", 45.0, 11.0, "NORD", "Tesla")])
+        orfane = applica_revisioni(aree, {
+            "493": {"direzione_geografica": "NORD", "nota": "crosscheck OSM"},
+            "osm:way/9": {"esito": "esclusa", "data": "2026-10-31"},
+            "XYZ": {"esito": "uscita"},
+        })
+        ftx, altra = aree
+        self.assertEqual(ftx["carreggiata"], "NORD")
+        self.assertEqual(ftx["correzioni"]["carreggiata"], {"da": "NORDOVEST", "nota": "crosscheck OSM"})
+        self.assertTrue(altra["esclusa"])
+        self.assertEqual(orfane, ["XYZ"])
+
+    def test_esito_e_posizione(self):
+        aree = unisci([da_free_to_x({**FREE_TO_X, "daVerificare": True, "motivo": "posizione"})])
+        applica_revisioni(aree, {"493": {"esito": "uscita", "lat": 44.91, "lon": 9.91, "data": "2026-11-01"}})
+        a = aree[0]
+        self.assertEqual((a["accesso"], a["lat"], a["lon"], a["verifica"]), ("uscita", 44.91, 9.91, None))
+        self.assertEqual(set(a["correzioni"]), {"accesso", "posizione"})
 
 
 if __name__ == "__main__":
