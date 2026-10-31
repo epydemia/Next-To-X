@@ -1,4 +1,5 @@
 import { FONTI, TILE_EDITOR, TILE_SATELLITE, FILE_REVISIONI } from '../config.js';
+import { creaSfondo, aggiungiAttribuzioneOsm } from '../sfondi.js';
 import { caricaAreeOriginali, caricaRevisioni, applicaRevisione, revisioneDi, nomeStrada } from '../core/dati.js';
 
 // Editor delle aree: legge data/aree.json e salva ogni modifica (classificazione,
@@ -82,8 +83,9 @@ function badgeFonti(area) {
 // --- Map ---
 function initMap() {
   map = L.map('map', { zoomControl: true }).setView([43.5, 12.5], 6);
-  layerStrade = L.tileLayer(TILE_EDITOR.url, TILE_EDITOR.options).addTo(map);
-  layerSatellite = L.tileLayer(TILE_SATELLITE.url, TILE_SATELLITE.options);
+  layerStrade = creaSfondo(TILE_EDITOR).addTo(map);
+  layerSatellite = creaSfondo(TILE_SATELLITE);
+  aggiungiAttribuzioneOsm(map);
   L.control.layers({ 'Mappa': layerStrade, 'Satellite': layerSatellite }).addTo(map);
 
   // Close context menu when clicking on map (not a marker)

@@ -48,6 +48,8 @@ from pathlib import Path
 DATA = Path(__file__).resolve().parent.parent / "data"
 OUTPUT = DATA / "aree.json"
 REVISIONI = DATA / "revisioni.json"
+LICENZA = ("Contiene dati © OpenStreetMap contributors, disponibili con licenza ODbL 1.0 "
+           "(https://opendatacommons.org/licenses/odbl/1-0/). Dettagli per fonte: data/README.md")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from Download_OSM_Colonnine import nome_coincide, parole  # noqa: E402
@@ -472,6 +474,7 @@ def main():
         OUTPUT.write_text(json.dumps({
             "versione": 2,
             "generato": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "licenza": LICENZA,
             "aree": aree,
         }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"Scritto {OUTPUT.relative_to(DATA.parent)}")

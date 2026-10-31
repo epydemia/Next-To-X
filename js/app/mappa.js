@@ -1,4 +1,5 @@
 import { TILE_GUIDA, CENTRO_ITALIA, ZOOM_GUIDA } from '../config.js';
+import { creaSfondo, aggiungiAttribuzioneOsm } from '../sfondi.js';
 
 let map = null;
 let markerUtente = null;
@@ -7,7 +8,8 @@ const livelloStazioni = L.layerGroup();
 
 export function creaMappa(idElemento) {
   map = L.map(idElemento).setView([CENTRO_ITALIA.lat, CENTRO_ITALIA.lon], ZOOM_GUIDA);
-  L.tileLayer(TILE_GUIDA.url, TILE_GUIDA.options).addTo(map);
+  creaSfondo(TILE_GUIDA).addTo(map);
+  aggiungiAttribuzioneOsm(map);
   livelloStazioni.addTo(map);
 
   // Dopo uno zoom Leaflet può spostare la vista: la ricentriamo sull'utente

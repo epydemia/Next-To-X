@@ -19,23 +19,31 @@ export const FONTI = {
 export const FILE_REVISIONI = 'revisioni.json';
 
 const ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services';
-// Strade (Nominatim) e colonnine IONITY provengono da OpenStreetMap (licenza ODbL)
-const ESRI_ATTRIBUTION = 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> · Dati &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
+// Mappe di sfondo Esri. Esri chiede di citare tutti i fornitori dei dati di ogni mappa:
+// il testo esatto lo dichiara il servizio stesso (campo copyrightText) e js/sfondi.js lo
+// legge al caricamento; "attribuzione" è la riserva se la lettura fallisce
+// (testi da leaflet-providers, BSD-2-Clause).
 export const TILE_GUIDA = {
-  url: `${ESRI}/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}`,
-  options: { attribution: ESRI_ATTRIBUTION, maxZoom: 16 },
+  servizio: `${ESRI}/Canvas/World_Dark_Gray_Base/MapServer`,
+  attribuzione: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+  options: { maxZoom: 16 },
 };
 
 export const TILE_EDITOR = {
-  url: `${ESRI}/World_Street_Map/MapServer/tile/{z}/{y}/{x}`,
-  options: { attribution: ESRI_ATTRIBUTION, maxZoom: 18 },
+  servizio: `${ESRI}/World_Street_Map/MapServer`,
+  attribuzione: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012',
+  options: { maxZoom: 18 },
 };
 
 export const TILE_SATELLITE = {
-  url: `${ESRI}/World_Imagery/MapServer/tile/{z}/{y}/{x}`,
-  options: { attribution: ESRI_ATTRIBUTION, maxZoom: 19 },
+  servizio: `${ESRI}/World_Imagery/MapServer`,
+  attribuzione: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+  options: { maxZoom: 19 },
 };
+
+// Strade (Nominatim) e colonnine da OSM: attribuzione richiesta dalla licenza ODbL
+export const ATTRIBUZIONE_OSM = 'Dati &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
 
 export const CENTRO_ITALIA = { lat: 41.9, lon: 12.5 };
 export const ZOOM_GUIDA = 15;
