@@ -233,6 +233,9 @@ body {
   background: var(--surface);
   border-top: 1px solid var(--border);
   flex-shrink: 0;
+  /* il fumetto della barra distanze sale sopra la mappa e i suoi overlay */
+  position: relative;
+  z-index: 1100;
 }
 
 #distance-bar-container {
@@ -261,14 +264,43 @@ body {
 .bar-station {
   position: absolute;
   top: -6px;
-  transform: translateX(-50%);
+  transform: translate(-50%, -6px);
   font-size: 18px;
   line-height: 1;
+  /* area di tocco più grande dell'emoji */
+  padding: 6px;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .bar-station--next {
   top: -10px;
   font-size: 22px;
 }
+
+.bar-tooltip {
+  position: absolute;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 160px;
+  max-width: min(280px, 90vw);
+  padding: 8px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.5);
+  font-size: .82em;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.bar-tooltip strong { color: var(--text); font-size: 1.05em; }
+.bar-tooltip-dist { color: var(--green); font-weight: 600; }
 
 #stations-toggle-btn {
   width: 100%;
