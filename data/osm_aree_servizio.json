@@ -1576,7 +1576,7 @@
       "lat": 47.329798,
       "lon": 8.029775,
       "paese": "CH",
-      "operatore": "EVite, Socar",
+      "operatore": "EVite, SOCAR",
       "distanzaAutostradaM": 51,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -1603,7 +1603,7 @@
         {
           "codice": "osm:node/13371454192",
           "modello": "Kölliken Nord",
-          "operatore": "Socar",
+          "operatore": "SOCAR",
           "connettori": [
             {
               "modello": "Type 2 400 kW"
@@ -1616,7 +1616,7 @@
         {
           "codice": "osm:node/13371454193",
           "modello": "Kölliken Nord",
-          "operatore": "Socar",
+          "operatore": "SOCAR",
           "connettori": [
             {
               "modello": "Type 2 200 kW"
@@ -1759,7 +1759,7 @@
       "lat": 47.137865,
       "lon": 9.049719,
       "paese": "CH",
-      "operatore": "ABB groupe Move",
+      "operatore": "MOVE",
       "distanzaAutostradaM": 30,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -1767,7 +1767,7 @@
         {
           "codice": "osm:node/8812728216",
           "modello": "ABB groupe Move",
-          "operatore": "ABB groupe Move",
+          "operatore": "MOVE",
           "connettori": []
         }
       ],
@@ -2076,7 +2076,7 @@
       "lat": 46.878495,
       "lon": 7.542359,
       "paese": "CH",
-      "operatore": "Evite",
+      "operatore": "EVite",
       "distanzaAutostradaM": 26,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -2084,7 +2084,7 @@
         {
           "codice": "osm:node/10304786135",
           "modello": "BP Ladestation",
-          "operatore": "Evite",
+          "operatore": "EVite",
           "connettori": [
             {
               "modello": "CCS 20 kW"
@@ -2111,7 +2111,7 @@
       "lat": 46.877451,
       "lon": 7.541918,
       "paese": "CH",
-      "operatore": "Evite",
+      "operatore": "EVite",
       "distanzaAutostradaM": 22,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -2119,7 +2119,7 @@
         {
           "codice": "osm:node/10537072485",
           "modello": "BP Ladestation",
-          "operatore": "Evite",
+          "operatore": "EVite",
           "connettori": [
             {
               "modello": "CCS 20 kW"
@@ -2504,7 +2504,7 @@
       "lat": 48.21549,
       "lon": 14.279538,
       "paese": "AT",
-      "operatore": "Linz AG Strom, Mer",
+      "operatore": "Linz AG, Mer",
       "distanzaAutostradaM": 289,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -2512,7 +2512,7 @@
         {
           "codice": "osm:node/5849378099",
           "modello": "Linz AG Strom",
-          "operatore": "Linz AG Strom",
+          "operatore": "Linz AG",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -2743,7 +2743,7 @@
       "lat": 48.394618,
       "lon": 13.42788,
       "paese": "AT",
-      "operatore": "SMATRICS, Smatrics, Tesla",
+      "operatore": "SMATRICS, Tesla",
       "distanzaAutostradaM": 230,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -2751,7 +2751,7 @@
         {
           "codice": "osm:node/6440138055",
           "modello": "Smatrics",
-          "operatore": "Smatrics",
+          "operatore": "SMATRICS",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -2840,7 +2840,7 @@
       "lat": 48.158279,
       "lon": 15.112398,
       "paese": "AT",
-      "operatore": "Smatrics",
+      "operatore": "SMATRICS",
       "distanzaAutostradaM": 77,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -2848,7 +2848,7 @@
         {
           "codice": "osm:node/6440145521",
           "modello": "Smatrics",
-          "operatore": "Smatrics",
+          "operatore": "SMATRICS",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -3104,7 +3104,7 @@
       "lat": 48.179089,
       "lon": 13.747074,
       "paese": "AT",
-      "operatore": "da emobil GmbH & Co KG",
+      "operatore": "da emobil",
       "distanzaAutostradaM": 108,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3112,7 +3112,7 @@
         {
           "codice": "osm:node/9398821900",
           "modello": "da emobil GmbH & Co KG",
-          "operatore": "da emobil GmbH & Co KG",
+          "operatore": "da emobil",
           "connettori": [
             {
               "modello": "Type 2 34 kW"
@@ -3122,7 +3122,7 @@
         {
           "codice": "osm:node/9398821901",
           "modello": "da emobil GmbH & Co KG",
-          "operatore": "da emobil GmbH & Co KG",
+          "operatore": "da emobil",
           "connettori": [
             {
               "modello": "CCS 225 kW"
@@ -3337,7 +3337,7 @@
       "lat": 48.314488,
       "lon": 14.299865,
       "paese": "AT",
-      "operatore": "EnBW, Linz AG, Linz AG Linien, da-emobil",
+      "operatore": "EnBW, Linz AG, da emobil",
       "distanzaAutostradaM": 369,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3345,7 +3345,7 @@
         {
           "codice": "osm:node/11964971995",
           "modello": "da-emobil",
-          "operatore": "da-emobil",
+          "operatore": "da emobil",
           "connettori": [
             {
               "modello": "Type 2 22 kW"
@@ -3462,7 +3462,7 @@
         {
           "codice": "osm:way/1553988189",
           "modello": "Linz AG Linien",
-          "operatore": "Linz AG Linien",
+          "operatore": "Linz AG",
           "connettori": []
         }
       ],
@@ -3555,7 +3555,7 @@
       "lat": 47.421099,
       "lon": 13.383045,
       "paese": "AT",
-      "operatore": "Shell Recharge Solutions",
+      "operatore": "Shell Recharge",
       "distanzaAutostradaM": 26,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3563,7 +3563,7 @@
         {
           "codice": "osm:node/12174500669",
           "modello": "Shell Recharge Solutions",
-          "operatore": "Shell Recharge Solutions",
+          "operatore": "Shell Recharge",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -3667,7 +3667,7 @@
       "lat": 47.007591,
       "lon": 11.507074,
       "paese": "AT",
-      "operatore": "Shell",
+      "operatore": "Shell Recharge",
       "distanzaAutostradaM": 122,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3675,7 +3675,7 @@
         {
           "codice": "osm:node/13649627932",
           "modello": "Gries Brennerstrasse",
-          "operatore": "Shell",
+          "operatore": "Shell Recharge",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -3688,7 +3688,7 @@
         {
           "codice": "osm:node/13828090185",
           "modello": "Gries Brennerstrasse",
-          "operatore": "Shell",
+          "operatore": "Shell Recharge",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -3701,7 +3701,7 @@
         {
           "codice": "osm:way/1513571617",
           "modello": "Gries Brennerstrasse",
-          "operatore": "Shell",
+          "operatore": "Shell Recharge",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -3806,7 +3806,7 @@
       "lat": 48.11466,
       "lon": 14.666414,
       "paese": "AT",
-      "operatore": "Shell",
+      "operatore": "Shell Recharge",
       "distanzaAutostradaM": 63,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3814,7 +3814,7 @@
         {
           "codice": "osm:node/13911936327",
           "modello": "Shell",
-          "operatore": "Shell",
+          "operatore": "Shell Recharge",
           "connettori": [
             {
               "modello": "CCS 360 kW"
@@ -3856,7 +3856,7 @@
       "lat": 47.84873,
       "lon": 16.183036,
       "paese": "AT",
-      "operatore": "Shell Austra Gmbh",
+      "operatore": "Shell Recharge",
       "distanzaAutostradaM": 84,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3864,7 +3864,7 @@
         {
           "codice": "osm:node/14177661445",
           "modello": "Shell Recharge",
-          "operatore": "Shell Austra Gmbh",
+          "operatore": "Shell Recharge",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -3895,7 +3895,7 @@
         {
           "codice": "osm:node/14177661446",
           "modello": "Shell Recharge",
-          "operatore": "Shell Austra Gmbh",
+          "operatore": "Shell Recharge",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -3926,7 +3926,7 @@
         {
           "codice": "osm:node/14177661447",
           "modello": "Shell Recharge",
-          "operatore": "Shell Austra Gmbh",
+          "operatore": "Shell Recharge",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -3957,7 +3957,7 @@
         {
           "codice": "osm:node/14177661448",
           "modello": "Shell Recharge",
-          "operatore": "Shell Austra Gmbh",
+          "operatore": "Shell Recharge",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -4024,7 +4024,7 @@
       "lat": 47.649211,
       "lon": 15.858307,
       "paese": "AT",
-      "operatore": "Smartics",
+      "operatore": "SMATRICS",
       "distanzaAutostradaM": 45,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4032,7 +4032,7 @@
         {
           "codice": "osm:way/1227219298",
           "modello": "Smartics",
-          "operatore": "Smartics",
+          "operatore": "SMATRICS",
           "connettori": [
             {
               "modello": "CHAdeMO 50"

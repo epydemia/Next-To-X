@@ -60,6 +60,17 @@ NOMI_OPERATORI = [(re.compile(r, re.I), nome) for r, nome in [
     (r"\bewiva\b", "Ewiva"),
     (r"\bedison\b", "Edison Next"),
     (r"autostrada del brennero|^a22$", "Autostrada del Brennero"),
+    (r"smatrics|smartics", "SMATRICS"),
+    (r"\bshell\b", "Shell Recharge"),
+    (r"\bda[\s-]?emobil\b", "da emobil"),
+    (r"\bevite\b", "EVite"),
+    (r"\blinz\s?ag\b", "Linz AG"),
+    (r"\bsocar\b", "SOCAR"),
+    (r"\bmove\b", "MOVE"),
+    (r"\bgo\s?fast\b", "GOFAST"),
+    (r"\bomv\b", "OMV eMotion"),
+    (r"illwerke|\bvkw\b", "illwerke vkw"),
+    (r"\benbw\b", "EnBW"),
 ]]
 DOPPIONE_M = 60
 DOPPIONE_NOME_M = 500
