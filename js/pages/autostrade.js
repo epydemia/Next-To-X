@@ -1,8 +1,11 @@
-import { caricaAree } from '../core/dati.js';
-import { AUTOSTRADE, estraiCodice } from '../core/autostrade.js';
+import { caricaAree, nomeStrada } from '../core/dati.js';
+import { AUTOSTRADE } from '../core/autostrade.js';
+import { stessaDirezione } from '../core/geo.js';
 
 // Panoramica: per un'autostrada mostra le stazioni sulle due carreggiate,
-// posizionate secondo la progressiva chilometrica.
+// posizionate secondo la progressiva chilometrica (solo le fonti che la forniscono).
+
+const ANGOLI = { NORD: 0, NORDEST: 45, EST: 90, SUDEST: 135, SUD: 180, SUDOVEST: 225, OVEST: 270, NORDOVEST: 315 };
 
 function popolaSelect(autostrade) {
   const select = document.getElementById('autostradaSelect');
@@ -10,32 +13,34 @@ function popolaSelect(autostrade) {
 }
 
 /** Direzioni delle due carreggiate, es. "NORD-SUD" → ["NORD", "SUD"]; null se non noto. */
-function carreggiate(autostrada) {
-  const asse = AUTOSTRADE[estraiCodice(autostrada)]?.asse;
+function carreggiate(sigla) {
+  const asse = AUTOSTRADE[sigla]?.asse;
   return asse ? asse.split('-') : null;
 }
 
-function disegnaBarra(aree, autostrada) {
+function disegnaBarra(aree, strada) {
   const barraSopra = document.getElementById('visual-bar-top');
   const barraSotto = document.getElementById('visual-bar-bottom');
   barraSopra.innerHTML = '';
   barraSotto.innerHTML = '';
 
-  // "A14 BOLOGNA-TARANTO" → "BOLOGNA" … "TARANTO"
-  const [inizio, fine] = autostrada.replace(/^A\d+\s*/, '').split('-').map(s => s.trim());
+  const stazioni = aree.filter(a => nomeStrada(a) === strada && typeof a.km === 'number');
+  // "Milano-Napoli" → "Milano" … "Napoli"
+  const [inizio, fine] = (stazioni[0]?.tratta ?? '').split('-').map(s => s.trim());
   document.getElementById('label-inizio').textContent = inizio || 'Inizio';
   document.getElementById('label-fine').textContent = fine || 'Fine';
 
-  const stazioni = aree.filter(a => a.strada === autostrada && typeof a.km === 'number');
-  const direzioni = carreggiate(autostrada);
+  const direzioni = carreggiate(stazioni[0]?.autostrada);
   if (stazioni.length === 0 || !direzioni) return;
 
   const minKm = Math.min(...stazioni.map(a => a.km));
   const intervallo = Math.max(...stazioni.map(a => a.km)) - minKm || 1;
 
   stazioni.forEach(a => {
-    const barra = a.direzione_geografica === direzioni[0] ? barraSopra
-                : a.direzione_geografica === direzioni[1] ? barraSotto
+    // Carreggiata della stazione (es. NORDOVEST) assegnata alla corsia con direzione compatibile
+    const barra = !a.carreggiata ? null
+                : stessaDirezione(a.carreggiata, ANGOLI[direzioni[0]]) ? barraSopra
+                : stessaDirezione(a.carreggiata, ANGOLI[direzioni[1]]) ? barraSotto
                 : null;
     if (!barra) return;
     const marker = document.createElement('div');
@@ -48,8 +53,8 @@ function disegnaBarra(aree, autostrada) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   const aree = await caricaAree();
-  const autostrade = [...new Set(aree.map(a => a.strada).filter(Boolean))].sort();
-  popolaSelect(autostrade);
-  disegnaBarra(aree, autostrade[0]);
+  const strade = [...new Set(aree.filter(a => typeof a.km === 'number').map(nomeStrada).filter(Boolean))].sort();
+  popolaSelect(strade);
+  disegnaBarra(aree, strade[0]);
   document.getElementById('autostradaSelect').addEventListener('change', e => disegnaBarra(aree, e.target.value));
 });

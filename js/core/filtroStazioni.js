@@ -1,24 +1,26 @@
 import { distanzaKm, isDavanti, stessaDirezione } from './geo.js';
 import { estraiCodice } from './autostrade.js';
+import { nomeStrada } from './dati.js';
 import { RAGGIO_STAZIONI_KM } from '../config.js';
 
 /**
  * Stazione pronta per la UI:
- * { nome, strada, direzione, lat, lon, distanza, colonnine, exitRequired,
+ * { nome, strada, direzione, operatore, lat, lon, distanza, colonnine, exitRequired,
  *   isAvanti: raggiungibile proseguendo sulla strada attuale,
  *   isNearest: la più vicina tra quelle avanti }
  */
 function versoStazione(area, lat, lon) {
   return {
     nome: area.nome,
-    strada: area.strada || area.stradaReverse || 'Strada sconosciuta',
-    direzione: area.direzione ?? '',
-    operatore: area.operatore ?? '',
+    strada: nomeStrada(area) || area.indirizzo || 'Strada sconosciuta',
+    direzione: area.destinazione ?? '',
+    operatore: (area.operatori ?? []).join(', '),
     lat: area.lat,
     lon: area.lon,
     distanza: distanzaKm(lat, lon, area.lat, area.lon),
     colonnine: area.colonnine ?? [],
-    exitRequired: !!area.exitRequired,
+    // Fuori dal casello (o fuori autostrada) si raggiunge da entrambe le direzioni
+    exitRequired: area.accesso !== 'area_servizio',
     isAvanti: false,
     isNearest: false,
   };
@@ -33,7 +35,7 @@ export function tutteLeStazioni(aree, { lat, lon }) {
  * Stazioni entro RAGGIO_STAZIONI_KM ordinate per distanza, con isAvanti calcolato da:
  * 1. strada compatibile: codice autostrada (es. "A14") se noto, altrimenti
  *    confronto testuale col nome restituito dal reverse geocoding;
- * 2. stessa carreggiata (salvo stazioni "exitRequired", raggiungibili da entrambe);
+ * 2. stessa carreggiata (salvo stazioni fuori dal casello, raggiungibili da entrambe);
  * 3. stazione davanti rispetto all'heading, non già superata.
  * Con mostraTutte nessun filtro viene applicato e tutte risultano "avanti".
  */
@@ -47,7 +49,7 @@ export function filtraStazioni(aree, { lat, lon, heading, strada, codiceAutostra
 
       stazione.isAvanti = mostraTutte || (
         stradaCompatibile(area, codiceAutostrada, stradaUtente, paese) &&
-        (stazione.exitRequired || heading == null || stessaDirezione(area.direzione_geografica, heading)) &&
+        (stazione.exitRequired || heading == null || stessaDirezione(area.carreggiata, heading)) &&
         (heading == null || isDavanti(lat, lon, heading, area.lat, area.lon))
       );
       return stazione;
@@ -61,11 +63,10 @@ export function filtraStazioni(aree, { lat, lon, heading, strada, codiceAutostra
 }
 
 function stradaCompatibile(area, codiceAutostrada, stradaUtente, paese) {
-  // La stessa sigla indica strade diverse in paesi diversi (A5 in Germania e in Svizzera).
-  // Le fonti italiane non hanno il campo paese
-  if (paese && (area.paese ?? 'IT') !== paese) return false;
-  if (codiceAutostrada) return estraiCodice(area.strada?.toUpperCase()) === codiceAutostrada;
-  const stradaArea = normalizza(area.stradaReverse);
+  // La stessa sigla indica strade diverse in paesi diversi (A5 in Germania e in Svizzera)
+  if (paese && area.paese !== paese) return false;
+  if (codiceAutostrada) return estraiCodice(area.autostrada) === codiceAutostrada;
+  const stradaArea = normalizza(area.indirizzo);
   if (!stradaUtente || !stradaArea) return false;
   return stradaArea.includes(stradaUtente) || stradaUtente.includes(stradaArea);
 }

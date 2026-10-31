@@ -2,16 +2,17 @@
 
 export const CARTELLA_DATI = './data/';
 
-// Una voce per ogni file JSON di aree di servizio. La chiave identifica la
-// sorgente nell'editor (badge, filtri, colore dei marker).
-export const SORGENTI_DATI = {
-  ftx:  { file: 'free_to_x_reverse.json',     label: 'Free To X' },
-  a22:  { file: 'a22_brennero_geocoded.json', label: 'A22 Brennero' },
-  test: { file: 'test.json',                  label: 'Test' },
-  // Generato da tools/Download_OSM_Colonnine.py
-  ionity: { file: 'ionity_osm.json',          label: 'IONITY' },
-  // Tutti gli altri operatori nelle aree di servizio (--tutti-gli-operatori)
-  osm:    { file: 'osm_aree_servizio.json',   label: 'Altri operatori' },
+// Tutte le aree, unite e nel formato unico: generato da tools/Compila_Aree.py
+// a partire dai file delle singole fonti (free_to_x_reverse.json, ionity_osm.json…)
+export const FILE_AREE = 'aree.json';
+
+// Fonti possibili nel campo "fonti" di un'area: etichetta e classe CSS nell'editor
+export const FONTI = {
+  free_to_x: { label: 'Free To X',       classe: 'ftx' },
+  a22:       { label: 'A22 Brennero',    classe: 'a22' },
+  test:      { label: 'Test',            classe: 'test' },
+  ionity:    { label: 'IONITY',          classe: 'ionity' },
+  osm:       { label: 'Altri operatori', classe: 'osm' },
 };
 
 // Decisioni della revisione manuale fatta nell'editor stazioni

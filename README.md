@@ -20,11 +20,11 @@ Live: published on GitHub Pages on every push to `main` (`.github/workflows/stat
 index.html, stazioni.html, autostrade.html
 css/app.css                 Driving app styles (dark theme)
 js/
-├── config.js               Data sources, map tiles, tunable constants
+├── config.js               Data file, source labels, map tiles, tunable constants
 ├── core/                   Pure logic, no DOM
 │   ├── geo.js              Distance, bearing, heading helpers
 │   ├── autostrade.js       Highway table (names, axis) and code lookup
-│   ├── dati.js             Loads the JSON data sources
+│   ├── dati.js             Loads data/aree.json and applies revisioni.json
 │   └── filtroStazioni.js   Which stations are ahead / next
 ├── app/                    Driving app (index.html)
 │   ├── main.js             Entry point: wires everything together
@@ -35,8 +35,8 @@ js/
 └── pages/
     ├── stazioni.js         Station editor
     └── autostrade.js       Highway overview
-data/                       Station datasets (JSON)
-tools/                      Python scripts that download and geocode the datasets
+data/                       aree.json (what the pages read), the per-source files it is built from, revisioni.json
+tools/                      Python scripts that download, check and compile the datasets
 ```
 
 Data flow in the driving app: `posizione.js` produces a position state (`coords`, `heading`, `strada`, `codiceAutostrada`) → `main.js` passes it to `filtroStazioni.js` → the result is drawn by `mappa.js` and `hud.js`.
@@ -56,9 +56,11 @@ Geolocation requires `localhost` or HTTPS.
 
 Open ⚙ → **Simula posizione**. The app replays a default route on the A14, or a CSV track you upload (TeslaFi export format: `Latitude`, `Longitude`, optional `Timestamp (CEST)`), 10× faster than real time.
 
-## Adding a data source
+## How the data is organised
 
-Add an entry to `SORGENTI_DATI` in `js/config.js` pointing at a JSON file in `data/` with the shape `{ "listaAree": [...] }`. Each area needs at least `codice`, `nome`, `strada`, `lat`, `lon`; `direzione_geografica` and `exitRequired` improve filtering.
+The pages read a single file, `data/aree.json`, built by `python tools/Compila_Aree.py` from the files of each source (`free_to_x_reverse.json`, `a22_brennero_geocoded.json`, `ionity_osm.json`, `osm_aree_servizio.json`). **Run it after updating any source.** Manual corrections live in `data/revisioni.json` and are applied by the pages on load, so saving them from the editor takes effect without recompiling.
+
+To add a source: write a converter in `tools/Compila_Aree.py` (add it to `SORGENTI`, its name to `FONTI` and `PRIORITA_FONTI`), and a label in `FONTI` in `js/config.js`.
 
 ## Updating the data
 
@@ -76,13 +78,13 @@ Add an entry to `SORGENTI_DATI` in `js/config.js` pointing at a JSON file in `da
 
 ### Reviewing the classification
 
-The OSM script marks uncertain sites as `daVerificare` with a reason (e.g. close to the motorway but no service area mapped, name says "Autohof"). Open `stazioni.html`, click **❓ Da verificare**: the map switches to satellite and walks through the doubtful sites; for each choose *In area di servizio*, *Fuori, richiede uscita* or *Non autostradale*, then **Salva** (pick the `data/` folder) or **Scarica**. Decisions go to `data/revisioni.json`, keyed by area code, and the app applies them on load, so they survive a new download.
+The OSM script marks uncertain sites as `daVerificare` with a reason (e.g. close to the motorway but no service area mapped, name says "Autohof"). Open `stazioni.html`, click **❓ Da verificare**: the map switches to satellite and walks through the doubtful sites; for each choose *In area di servizio*, *Fuori, richiede uscita* or *Non autostradale*, then **Salva** (pick the `data/` folder) or **Scarica**. Right-click a marker → *Sposta stazione* to fix a position. Every change goes to `data/revisioni.json` (the source files are never modified) and the pages apply it on load, so it survives a new download.
 
-`Download_OSM_Colonnine.py` keeps only chargers in a motorway service area (carriageway taken from the direction of the nearest one-way motorway) or within 1.5 km of a motorway (`exitRequired`). It works for other operators and countries too; add the output file to `SORGENTI_DATI`.
+`Download_OSM_Colonnine.py` keeps only chargers in a motorway service area (carriageway taken from the direction of the nearest one-way motorway) or within 1.5 km of a motorway (`exitRequired`). It works for other operators and countries too; to use a new output file, add it to `SORGENTI` in `tools/Compila_Aree.py`.
 
-### Unified format (work in progress)
+### Unified format
 
-`python tools/Compila_Aree.py` converts every source into one format (highway code and section, carriageway, destination, access type, operators, chargers with connector type and power in kW) and checks it: errors stop the build, warnings are listed with `--avvisi`. Areas that are the same place in different sources (same name within 300 m, or within 60 m, carriageways not opposite) are merged into one record with all operators, the most authoritative source winning on conflicts; then `data/revisioni.json` is applied (corrections are recorded in `correzioni`, excluded areas flagged `esclusa`). Output: `data/aree.json`, **not used by the app yet** (next step: switch the app and the editor to this file). Run it again after updating any source or saving revisions. The format is documented at the top of the script; tests: `python -m unittest discover tools`.
+`python tools/Compila_Aree.py` converts every source into one format (highway code and section, carriageway, destination, access type, operators, chargers with connector type and power in kW) and checks it: errors stop the build, warnings are listed with `--avvisi`. Areas that are the same place in different sources (same name within 300 m, or within 60 m, carriageways not opposite) are merged into one record with all operators, the most authoritative source winning on conflicts; then `data/revisioni.json` is applied (corrections are recorded in `correzioni`, excluded areas flagged `esclusa`). Output: `data/aree.json`, read by the app, the editor and the highway overview. The original values of corrected fields are kept in `correzioni`, so the pages can re-apply the current revisions from scratch. The format is documented at the top of the script; tests: `python -m unittest discover tools`.
 
 ## External services
 
