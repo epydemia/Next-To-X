@@ -80,6 +80,10 @@ The OSM script marks uncertain sites as `daVerificare` with a reason (e.g. close
 
 `Download_OSM_Colonnine.py` keeps only chargers in a motorway service area (carriageway taken from the direction of the nearest one-way motorway) or within 1.5 km of a motorway (`exitRequired`). It works for other operators and countries too; add the output file to `SORGENTI_DATI`.
 
+### Unified format (work in progress)
+
+`python tools/Compila_Aree.py` converts every source into one format (highway code and section, carriageway, destination, access type, operators, chargers with connector type and power in kW) and checks it: errors stop the build, warnings are listed with `--avvisi`. Output: `data/aree.json`, **not used by the app yet** (next steps: merge areas present in more than one source, apply `revisioni.json`, switch the app to this file). The format is documented at the top of the script; tests: `python -m unittest discover tools`.
+
 ## External services
 
 - [Leaflet](https://leafletjs.com/) (via cdnjs) for the map
