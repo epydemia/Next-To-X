@@ -238,51 +238,121 @@ body {
   z-index: 1100;
 }
 
+/* ── Barra distanze ──────────────────────────────
+   Orizzontale nel pannello in basso (schermo in orizzontale), verticale sul bordo
+   destro della mappa (schermo in verticale): hud.js sposta il contenitore e aggiunge
+   .verticale. Ogni elemento ha --pos, la posizione lungo la barra in %. */
 #distance-bar-container {
   display: flex;
   align-items: center;
-  padding: 10px 16px;
   gap: 12px;
+  /* spazio per l'etichetta della prossima stazione sopra e le tacche sotto */
+  padding: 36px 16px 24px;
   border-bottom: 1px solid var(--border);
 }
-.car-icon {
-  font-size: 20px;
-  animation: car-bounce 1s ease-in-out infinite;
+.bar-posizione {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(59,158,255,.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-@keyframes car-bounce {
-  /* scaleX: l'emoji guarda a sinistra, la barra va verso destra */
-  0%, 100% { transform: translateY(0) scaleX(-1); }
-  50% { transform: translateY(-3px) scaleX(-1); }
-}
+.bar-posizione svg { width: 16px; height: 16px; transform: rotate(90deg); }
+
 #distance-bar {
   flex: 1;
-  height: 4px;
-  background: var(--border);
-  border-radius: 2px;
   position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
 }
-.bar-station {
+.bar-percorso {
   position: absolute;
-  top: -6px;
-  transform: translate(-50%, -6px);
-  font-size: 18px;
-  line-height: 1;
-  /* area di tocco più grande dell'emoji */
-  padding: 6px;
-  margin: 0;
-  background: none;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: var(--pos);
+  border-radius: 3px;
+  background: var(--green);
+  opacity: .55;
+}
+.bar-tacca {
+  position: absolute;
+  left: var(--pos);
+  top: 12px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #8b949e;
+  white-space: nowrap;
+}
+.bar-tacca--fine { transform: translateX(-100%); }
+.bar-tacca--fine::after { content: ' km'; }
+
+.bar-punto {
+  position: absolute;
+  left: var(--pos);
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+  padding: 0;
   border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.bar-punto::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--green);
+}
+.bar-punto--uscita::before { border-color: var(--amber); }
+.bar-punto--prossima { pointer-events: none; }
+.bar-punto--prossima::before {
+  width: 12px;
+  height: 12px;
+  border: none;
+  background: var(--green);
+  box-shadow: 0 0 0 3px var(--surface);
+}
+.bar-punto--prossima.bar-punto--uscita::before { background: var(--amber); }
+
+.bar-etichetta {
+  position: absolute;
+  left: var(--pos);
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px 5px 8px;
+  border: none;
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--bg);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.bar-station--next {
-  top: -10px;
-  font-size: 22px;
-}
+.bar-etichetta--uscita { background: var(--amber); }
+.bar-etichetta svg { width: 14px; height: 14px; fill: currentColor; }
 
 .bar-tooltip {
   position: absolute;
-  bottom: 22px;
+  bottom: 52px;
   transform: translateX(-50%);
   z-index: 10;
   display: flex;
@@ -301,6 +371,43 @@ body {
 }
 .bar-tooltip strong { color: var(--text); font-size: 1.05em; }
 .bar-tooltip-dist { color: var(--green); font-weight: 600; }
+
+/* Schermo in verticale: striscia sul bordo destro della mappa, si sale verso la meta */
+#distance-bar-container.verticale {
+  position: absolute;
+  right: 10px;
+  top: 76px;
+  bottom: 112px;
+  z-index: 1000;
+  width: 64px;
+  box-sizing: border-box;
+  flex-direction: column-reverse;
+  gap: 10px;
+  padding: 16px 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(13,17,23,.82);
+}
+.verticale .bar-posizione svg { transform: none; }
+.verticale #distance-bar { width: 6px; height: auto; }
+.verticale .bar-percorso { top: auto; bottom: 0; width: 100%; height: var(--pos); }
+.verticale .bar-tacca { left: auto; top: auto; right: 14px; bottom: var(--pos); transform: translateY(50%); }
+.verticale .bar-tacca--fine::after { content: ''; }
+.verticale .bar-punto { left: 50%; top: auto; bottom: var(--pos); transform: translate(-50%, 50%); }
+.verticale .bar-etichetta {
+  left: auto;
+  right: 44px;
+  bottom: var(--pos);
+  transform: translateY(50%);
+  box-shadow: 0 2px 10px rgba(0,0,0,.45);
+}
+.verticale .bar-tooltip {
+  left: auto !important;
+  right: 44px;
+  min-width: 220px;
+  bottom: var(--pos);
+  transform: translateY(50%);
+}
 
 #stations-toggle-btn {
   width: 100%;
