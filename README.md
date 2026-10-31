@@ -82,7 +82,7 @@ The OSM script marks uncertain sites as `daVerificare` with a reason (e.g. close
 
 ### Unified format (work in progress)
 
-`python tools/Compila_Aree.py` converts every source into one format (highway code and section, carriageway, destination, access type, operators, chargers with connector type and power in kW) and checks it: errors stop the build, warnings are listed with `--avvisi`. Output: `data/aree.json`, **not used by the app yet** (next steps: merge areas present in more than one source, apply `revisioni.json`, switch the app to this file). The format is documented at the top of the script; tests: `python -m unittest discover tools`.
+`python tools/Compila_Aree.py` converts every source into one format (highway code and section, carriageway, destination, access type, operators, chargers with connector type and power in kW) and checks it: errors stop the build, warnings are listed with `--avvisi`. Areas that are the same place in different sources (same name within 300 m, or within 60 m, carriageways not opposite) are merged into one record with all operators, the most authoritative source winning on conflicts; then `data/revisioni.json` is applied (corrections are recorded in `correzioni`, excluded areas flagged `esclusa`). Output: `data/aree.json`, **not used by the app yet** (next step: switch the app and the editor to this file). Run it again after updating any source or saving revisions. The format is documented at the top of the script; tests: `python -m unittest discover tools`.
 
 ## External services
 
