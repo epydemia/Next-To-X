@@ -92,3 +92,9 @@ The OSM script marks uncertain sites as `daVerificare` with a reason (e.g. close
 - [Esri basemaps](https://www.esri.com/) for map tiles
 - [OpenStreetMap Nominatim](https://nominatim.org/) for reverse geocoding (throttled)
 - [Overpass API](https://overpass-api.de/) for OpenStreetMap charger data (© OpenStreetMap contributors, ODbL)
+
+## Licenses and attribution
+
+- **Leaflet**: BSD-2-Clause.
+- **Esri basemaps**: proprietary, Esri terms of use; every data provider must be credited. The map reads the exact credit line from each Esri service at load time (`js/sfondi.js`).
+- **OpenStreetMap data** (Nominatim, Overpass): © OpenStreetMap contributors, ODbL 1.0. The files derived from it in `data/` are distributed under ODbL as well: see `data/README.md`.
