@@ -1,6 +1,7 @@
 import { caricaAree, nomeStrada } from '../core/dati.js';
 import { AUTOSTRADE } from '../core/autostrade.js';
 import { stessaDirezione } from '../core/geo.js';
+import { contaPagina } from '../statistiche.js';
 
 // Panoramica: per un'autostrada mostra le stazioni sulle due carreggiate,
 // posizionate secondo la progressiva chilometrica (solo le fonti che la forniscono).
@@ -52,6 +53,7 @@ function disegnaBarra(aree, strada) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  contaPagina('/autostrade', 'Panoramica autostrade');
   const aree = await caricaAree();
   const strade = [...new Set(aree.filter(a => typeof a.km === 'number').map(nomeStrada).filter(Boolean))].sort();
   popolaSelect(strade);
