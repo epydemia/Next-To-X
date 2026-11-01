@@ -41,6 +41,10 @@ tools/                      Python scripts that download, check and compile the 
 
 Data flow in the driving app: `posizione.js` produces a position state (`coords`, `heading`, `strada`, `codiceAutostrada`) → `main.js` passes it to `filtroStazioni.js` → the result is drawn by `mappa.js` and `hud.js`.
 
+## Publishing
+
+Every push to `main` is published by `.github/workflows/static.yml`. Before uploading, `tools/versiona_asset.py` adds `?v=<commit>` to the CSS and scripts of the pages and to every relative module import, so browsers fetch the new files at once instead of waiting for the GitHub Pages cache (10 minutes). Data files are fetched with `cache: 'no-cache'`, so they are revalidated on every load. GitHub Pages must use **GitHub Actions** as its source (Settings → Pages).
+
 ## Running locally
 
 ES modules need an HTTP server:

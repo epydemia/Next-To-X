@@ -6,7 +6,9 @@ import { CARTELLA_DATI, FILE_AREE, FILE_REVISIONI } from '../config.js';
 // effetto subito, senza ricompilare, e annullarla ripristina davvero il dato di partenza.
 
 async function leggiJson(file) {
-  const res = await fetch(CARTELLA_DATI + file);
+  // no-cache: il browser ricontrolla sempre col server (se il file non è cambiato riceve una
+  // risposta vuota), così dati e revisioni aggiornati si vedono subito
+  const res = await fetch(CARTELLA_DATI + file, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`${file}: HTTP ${res.status}`);
   return res.json();
 }
