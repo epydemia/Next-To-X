@@ -542,6 +542,18 @@ body {
 }
 .leaflet-popup-tip { background: var(--surface2); }
 .leaflet-popup-close-button { color: var(--muted) !important; }
+/* Attribuzione dei dati: discreta, senza fondo chiaro, leggibile sul tema scuro */
+.leaflet-container .leaflet-control-attribution {
+  background: transparent;
+  color: rgba(255,255,255,.5);
+  font-size: 10px;
+  line-height: 1.4;
+  padding: 0 6px 2px;
+}
+.leaflet-container .leaflet-control-attribution a { color: rgba(255,255,255,.65); }
+/* sopra la sfumatura del pannello "prossima stazione", che altrimenti la nasconde */
+#map .leaflet-bottom { z-index: 1001; }
+
 .leaflet-control-zoom a {
   background: var(--surface2) !important;
   color: var(--text) !important;

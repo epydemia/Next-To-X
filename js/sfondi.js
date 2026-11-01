@@ -19,8 +19,10 @@ export function creaSfondo(tile) {
   return livello;
 }
 
-/** Attribuzione dei dati OpenStreetMap, una volta per mappa. */
-export function aggiungiAttribuzioneOsm(map) {
+/** Attribuzioni di una mappa: il link a Leaflet (senza la bandiera che Leaflet aggiunge di
+ *  default dalla versione 1.8) e i dati OpenStreetMap. Una volta per mappa. */
+export function preparaAttribuzioni(map) {
+  map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
   map.attributionControl.addAttribution(ATTRIBUZIONE_OSM);
 }
 
