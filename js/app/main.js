@@ -12,6 +12,8 @@ import {
 } from '../statistiche.js';
 
 const CHIAVE_SIMULAZIONE = 'debugPosizione';
+// La simulazione è uno strumento di sviluppo: compare solo aprendo la pagina con ?debug=true
+const MODALITA_DEBUG = ['true', '1'].includes(new URLSearchParams(location.search).get('debug'));
 
 let aree = [];
 let mostraTutte = false;
@@ -41,6 +43,7 @@ function aggiorna(stato) {
 }
 
 function collegaImpostazioni(simulazione) {
+  document.getElementById('riga-simulazione').hidden = !MODALITA_DEBUG;
   const toggleSimulazione = document.getElementById('toggleDebug');
   toggleSimulazione.checked = simulazione;
   // Cambiare sorgente di posizione richiede di reinizializzare tutto: si ricarica la pagina
@@ -69,7 +72,8 @@ function collegaImpostazioni(simulazione) {
 }
 
 window.addEventListener('load', async () => {
-  const simulazione = localStorage.getItem(CHIAVE_SIMULAZIONE) === '1';
+  // Senza ?debug=true si usa sempre il GPS, anche se la simulazione era rimasta attiva
+  const simulazione = MODALITA_DEBUG && localStorage.getItem(CHIAVE_SIMULAZIONE) === '1';
 
   // I controlli vanno collegati prima di ogni await, così rispondono anche senza GPS
   collegaPannelli();

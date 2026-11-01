@@ -54,7 +54,7 @@ Geolocation requires `localhost` or HTTPS.
 
 ## Simulated position
 
-Open ⚙ → **Simula posizione**. The app replays a default route on the A14, or a CSV track you upload (TeslaFi export format: `Latitude`, `Longitude`, optional `Timestamp (CEST)`), 10× faster than real time.
+Open the page with `?debug=true` (e.g. `index.html?debug=true`), then ⚙ → **Simula posizione**: without the parameter the setting is hidden and the app always uses the real GPS. The app replays a default route on the A14, or a CSV track you upload (TeslaFi export format: `Latitude`, `Longitude`, optional `Timestamp (CEST)`), 10× faster than real time.
 
 ## How the data is organised
 
