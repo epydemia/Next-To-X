@@ -63,6 +63,7 @@ body {
 }
 #options-close:active { background: var(--surface2); }
 
+.setting-row[hidden] { display: none; }
 .setting-row {
   display: flex;
   align-items: center;
