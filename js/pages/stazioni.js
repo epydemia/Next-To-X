@@ -1,5 +1,5 @@
 import { FONTI, TILE_EDITOR, TILE_SATELLITE, FILE_REVISIONI } from '../config.js';
-import { creaSfondo, aggiungiAttribuzioneOsm } from '../sfondi.js';
+import { creaSfondo, preparaAttribuzioni } from '../sfondi.js';
 import { contaPagina } from '../statistiche.js';
 import { caricaAreeOriginali, caricaRevisioni, applicaRevisione, revisioneDi, nomeStrada } from '../core/dati.js';
 
@@ -86,7 +86,7 @@ function initMap() {
   map = L.map('map', { zoomControl: true }).setView([43.5, 12.5], 6);
   layerStrade = creaSfondo(TILE_EDITOR).addTo(map);
   layerSatellite = creaSfondo(TILE_SATELLITE);
-  aggiungiAttribuzioneOsm(map);
+  preparaAttribuzioni(map);
   L.control.layers({ 'Mappa': layerStrade, 'Satellite': layerSatellite }).addTo(map);
 
   // Close context menu when clicking on map (not a marker)
