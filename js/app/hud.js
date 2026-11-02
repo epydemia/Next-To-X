@@ -51,7 +51,10 @@ function mostraProssimaStazione(s) {
     ? '<span class="next-station-exit">⚠️ uscita</span>'
     : s.direzione ? `<span class="next-station-dir">→ ${s.direzione}</span>` : '';
   pannello.innerHTML = `
-    <span class="next-station-name">${s.nome}</span>
+    <span class="next-station-titolo">
+      <span class="next-station-name">${s.nome}</span>
+      ${s.operatore ? `<span class="next-station-op">${s.operatore}</span>` : ''}
+    </span>
     ${dettaglio}
     <span class="next-station-dist">${s.distanza.toFixed(1)} km</span>
   `;

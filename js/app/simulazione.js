@@ -16,6 +16,7 @@ const PERCORSO_DEFAULT = [
 
 let percorso = PERCORSO_DEFAULT;
 let onPunto = null;
+let onProgresso = null;
 let timer = null;
 
 /** Avvia la riproduzione in loop del percorso corrente; onPunto(lat, lon) a ogni passo. */
@@ -37,6 +38,18 @@ export function caricaTracciaCSV(testo) {
   return punti.length;
 }
 
+/** onProgresso({ indice, totale, trascorsoMs, durataMs }) a ogni passo, per il cursore di riproduzione. */
+export function osservaProgresso(callback) {
+  onProgresso = callback;
+}
+
+/** Salta al punto i del percorso e prosegue da lì. */
+export function vaiAlPunto(i) {
+  if (!onPunto) return;
+  clearTimeout(timer);
+  passo(Math.min(Math.max(i, 0), percorso.length - 1));
+}
+
 function riparti() {
   clearTimeout(timer);
   passo(0);
@@ -45,6 +58,12 @@ function riparti() {
 function passo(i) {
   const { lat, lon } = percorso[i];
   onPunto(lat, lon);
+  onProgresso?.({
+    indice: i,
+    totale: percorso.length,
+    trascorsoMs: percorso[i].ts - percorso[0].ts,
+    durataMs: percorso.at(-1).ts - percorso[0].ts,
+  });
 
   // Attesa proporzionale al tempo reale tra i due punti; dopo l'ultimo si torna al primo
   const prossimo = (i + 1) % percorso.length;
