@@ -18,7 +18,10 @@ export function collegaPannelli() {
 }
 
 export function mostraStrada({ strada, codiceAutostrada }) {
-  if (!strada) return;
+  if (!strada) {
+    document.getElementById('strada').textContent = '🛣️';
+    return;
+  }
   const testo = codiceAutostrada && estraiCodice(strada) !== codiceAutostrada
     ? `${codiceAutostrada} – ${strada}`
     : strada;

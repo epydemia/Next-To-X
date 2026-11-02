@@ -1,10 +1,13 @@
 import { distanzaKm, bearing } from '../core/geo.js';
 import { codiceDaNomeStrada, estraiCodice } from '../core/autostrade.js';
 import { avviaSimulazione } from './simulazione.js';
+import { autostradaInPosizione } from '../core/reteAutostradale.js';
 import {
   REVERSE_GEOCODING_INTERVALLO_MS,
   REVERSE_GEOCODING_DISTANZA_KM,
+  REVERSE_GEOCODING_PAUSA_MINIMA_MS,
   HEADING_SPOSTAMENTO_MINIMO_KM,
+  AUTOSTRADA_TENUTA_KM,
 } from '../config.js';
 
 /**
@@ -36,7 +39,10 @@ export function avviaPosizione({ simulazione, onAggiornamento: callback }) {
   onAggiornamento = callback;
 
   if (simulazione) {
-    avviaSimulazione((lat, lon) => nuovaPosizione(lat, lon, null));
+    avviaSimulazione((lat, lon, salto) => {
+      if (salto) dimenticaTraccia();
+      nuovaPosizione(lat, lon, null);
+    });
     return;
   }
 
@@ -75,16 +81,60 @@ export function attendiPrimaPosizione(timeoutMs) {
 function nuovaPosizione(lat, lon, headingDispositivo) {
   stato.coords = { lat, lon };
   aggiornaHeading(lat, lon, headingDispositivo);
-  aggiornaStradaSeNecessario(lat, lon);
+  if (!riconosciAutostrada(lat, lon)) aggiornaStradaSeNecessario(lat, lon);
   onAggiornamento(stato);
 }
 
+// Ultimo punto agganciato al tracciato locale delle autostrade
+let ultimaAutostrada = null;
+
+/**
+ * Strada dal tracciato locale delle autostrade; true se si è (ancora) in autostrada.
+ * Fuori autostrada, o con la rete non ancora caricata, la strada la dà Nominatim.
+ */
+function riconosciAutostrada(lat, lon) {
+  const trovata = autostradaInPosizione(lat, lon, headingNoto ? stato.heading : null);
+  if (trovata) {
+    ultimaAutostrada = { lat, lon };
+    // Una risposta di Nominatim chiesta prima dell'aggancio non deve sovrascriverlo
+    generazioneReverse++;
+    Object.assign(stato, {
+      strada: trovata.nome || trovata.codice,
+      codiceAutostrada: estraiCodice(trovata.codice),
+      paese: trovata.paese,
+    });
+    return true;
+  }
+  if (!ultimaAutostrada) return false;
+  if (distanzaKm(ultimaAutostrada.lat, ultimaAutostrada.lon, lat, lon) < AUTOSTRADA_TENUTA_KM) return true;
+  // Uscita dall'autostrada: finché Nominatim non risponde la strada è sconosciuta
+  ultimaAutostrada = null;
+  Object.assign(stato, { strada: '', codiceAutostrada: null });
+  return false;
+}
+
+/**
+ * Dopo un salto della simulazione nulla della traccia precedente vale più: l'heading
+ * calcolato tra i due punti, la strada riconosciuta e le risposte di Nominatim in arrivo.
+ */
+function dimenticaTraccia() {
+  ultimaPosizioneHeading = null;
+  headingNoto = false;
+  ultimaAutostrada = null;
+  ultimoReverse = { ...ultimoReverse, pos: null };
+  generazioneReverse++;
+  Object.assign(stato, { strada: '', codiceAutostrada: null, paese: null });
+}
+
 let ultimaPosizioneHeading = null;
+// False finché l'heading non viene dal dispositivo o da uno spostamento reale (all'avvio vale 0)
+let headingNoto = false;
 
 function aggiornaHeading(lat, lon, headingDispositivo) {
   if (headingDispositivo != null && !isNaN(headingDispositivo)) {
     stato.heading = headingDispositivo;
     stato.headingStimato = false;
+    headingNoto = true;
     ultimaPosizioneHeading = { lat, lon };
     return;
   }
@@ -93,30 +143,41 @@ function aggiornaHeading(lat, lon, headingDispositivo) {
     const { lat: lat0, lon: lon0 } = ultimaPosizioneHeading;
     if (distanzaKm(lat0, lon0, lat, lon) < HEADING_SPOSTAMENTO_MINIMO_KM) return;
     stato.heading = bearing(lat0, lon0, lat, lon);
+    headingNoto = true;
   }
   stato.headingStimato = true;
   ultimaPosizioneHeading = { lat, lon };
 }
 
 let ultimoReverse = { pos: null, quando: 0 };
+// Le risposte possono arrivare in disordine: si applica solo la più recente, e mai una
+// partita prima dell'ultimo salto della simulazione (generazione diversa)
+let generazioneReverse = 0;
+let ultimaRichiesta = 0;
+let ultimaApplicata = 0;
 
 // Throttling per rispettare i limiti d'uso di Nominatim
 function aggiornaStradaSeNecessario(lat, lon) {
   const { pos, quando } = ultimoReverse;
+  if (Date.now() - quando < REVERSE_GEOCODING_PAUSA_MINIMA_MS) return;
   const necessario = !pos
     || Date.now() - quando > REVERSE_GEOCODING_INTERVALLO_MS
     || distanzaKm(pos.lat, pos.lon, lat, lon) > REVERSE_GEOCODING_DISTANZA_KM;
   if (!necessario) return;
 
   ultimoReverse = { pos: { lat, lon }, quando: Date.now() };
+  const richiesta = ++ultimaRichiesta;
+  const generazione = generazioneReverse;
   reverseGeocode(lat, lon).then(risultato => {
-    if (!risultato) return;
-    stato.paese = risultato.paese;
-    if (risultato.strada === stato.strada) return;
-    stato.strada = risultato.strada;
+    if (!risultato || generazione !== generazioneReverse || richiesta < ultimaApplicata) return;
+    ultimaApplicata = richiesta;
     // La sigla OSM ("A14", "A 7") funziona in ogni paese; i nomi italiani restano come riserva
-    stato.codiceAutostrada = estraiCodice(risultato.sigla) ?? codiceDaNomeStrada(risultato.strada);
-    onAggiornamento(stato);
+    const codiceAutostrada = estraiCodice(risultato.sigla) ?? codiceDaNomeStrada(risultato.strada);
+    const cambiata = risultato.strada !== stato.strada
+      || codiceAutostrada !== stato.codiceAutostrada
+      || risultato.paese !== stato.paese;
+    Object.assign(stato, { strada: risultato.strada, codiceAutostrada, paese: risultato.paese });
+    if (cambiata) onAggiornamento(stato);
   });
 }
 

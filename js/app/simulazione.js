@@ -19,7 +19,10 @@ let onPunto = null;
 let onProgresso = null;
 let timer = null;
 
-/** Avvia la riproduzione in loop del percorso corrente; onPunto(lat, lon) a ogni passo. */
+/**
+ * Avvia la riproduzione in loop del percorso corrente; onPunto(lat, lon, salto) a ogni passo.
+ * salto è true quando il punto non segue il precedente (nuova traccia, cursore, ripartenza del giro).
+ */
 export function avviaSimulazione(callback) {
   onPunto = callback;
   riparti();
@@ -47,17 +50,17 @@ export function osservaProgresso(callback) {
 export function vaiAlPunto(i) {
   if (!onPunto) return;
   clearTimeout(timer);
-  passo(Math.min(Math.max(i, 0), percorso.length - 1));
+  passo(Math.min(Math.max(i, 0), percorso.length - 1), true);
 }
 
 function riparti() {
   clearTimeout(timer);
-  passo(0);
+  passo(0, true);
 }
 
-function passo(i) {
+function passo(i, salto = i === 0) {
   const { lat, lon } = percorso[i];
-  onPunto(lat, lon);
+  onPunto(lat, lon, salto);
   onProgresso?.({
     indice: i,
     totale: percorso.length,
@@ -91,7 +94,7 @@ export function parseTracciaCSV(testo) {
   }
 
   const punti = [];
-  righe.slice(1).forEach((riga, i) => {
+  righe.slice(1).forEach(riga => {
     if (!riga.trim()) return;
     const campi = parseRigaCSV(riga);
     const lat = parseFloat(campi[iLat]);
@@ -99,7 +102,8 @@ export function parseTracciaCSV(testo) {
     if (isNaN(lat) || isNaN(lon)) return;
     // "2025-07-01 10:00:00" → "2025-07-01T10:00:00", formato accettato da Date() ovunque
     const tsLetto = iTs !== -1 ? new Date((campi[iTs] ?? '').replace(' ', 'T')).getTime() : NaN;
-    const ts = isNaN(tsLetto) ? i * 30000 : tsLetto;
+    // Senza timestamp leggibile: 30 s dopo il punto precedente, così non si mescola con quelli veri
+    const ts = isNaN(tsLetto) ? (punti.at(-1)?.ts ?? 0) + 30000 : tsLetto;
     punti.push({ lat, lon, ts });
   });
   return punti;

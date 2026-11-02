@@ -1,4 +1,5 @@
 import { caricaAree } from '../core/dati.js';
+import { caricaReteAutostradale } from '../core/reteAutostradale.js';
 import { filtraStazioni, tutteLeStazioni } from '../core/filtroStazioni.js';
 import { avviaPosizione, attendiPrimaPosizione, getStato } from './posizione.js';
 import { caricaTracciaCSV, osservaProgresso, vaiAlPunto } from './simulazione.js';
@@ -106,7 +107,10 @@ window.addEventListener('load', async () => {
   contaPagina('/app', 'App di guida');
   collegaOrientamentoBarra(aggiornaDimensioniMappa);
 
+  // Senza la rete autostradale l'app funziona lo stesso: la strada la dà Nominatim
+  const rete = caricaReteAutostradale().catch(err => console.warn('Rete autostradale non disponibile:', err));
   aree = await caricaAree();
+  await rete;
   avviaPosizione({ simulazione, onAggiornamento: aggiorna });
 
   const posizione = await attendiPrimaPosizione(ATTESA_GPS_MS);
