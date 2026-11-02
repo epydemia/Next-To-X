@@ -54,15 +54,16 @@ function passo(i) {
 }
 
 /**
- * Colonne richieste: "Latitude", "Longitude". Opzionale: "Timestamp (CEST)";
- * se assente si assume un punto ogni 30 s.
+ * Colonne richieste: "Latitude", "Longitude". Opzionale: "Timestamp (<fuso>)",
+ * es. "Timestamp (CEST)" o "Timestamp (CET)"; se assente si assume un punto ogni 30 s.
  */
 export function parseTracciaCSV(testo) {
   const righe = testo.trim().split(/\r?\n/);
   if (righe.length < 2) return [];
 
   const header = parseRigaCSV(righe[0]);
-  const iTs  = header.indexOf('Timestamp (CEST)');
+  // Il fuso nell'intestazione cambia con l'ora legale; contano solo gli intervalli tra i punti
+  const iTs  = header.findIndex(h => /^Timestamp\b/.test(h));
   const iLat = header.indexOf('Latitude');
   const iLon = header.indexOf('Longitude');
   if (iLat === -1 || iLon === -1) {
@@ -78,7 +79,8 @@ export function parseTracciaCSV(testo) {
     const lon = parseFloat(campi[iLon]);
     if (isNaN(lat) || isNaN(lon)) return;
     // "2025-07-01 10:00:00" → "2025-07-01T10:00:00", formato accettato da Date() ovunque
-    const ts = iTs !== -1 ? new Date(campi[iTs].replace(' ', 'T')).getTime() : i * 30000;
+    const tsLetto = iTs !== -1 ? new Date((campi[iTs] ?? '').replace(' ', 'T')).getTime() : NaN;
+    const ts = isNaN(tsLetto) ? i * 30000 : tsLetto;
     punti.push({ lat, lon, ts });
   });
   return punti;
