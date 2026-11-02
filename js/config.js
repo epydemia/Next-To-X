@@ -5,6 +5,7 @@ export const CARTELLA_DATI = './data/';
 // Tutte le aree, unite e nel formato unico: generato da tools/Compila_Aree.py
 // a partire dai file delle singole fonti (free_to_x_reverse.json, ionity_osm.json…)
 export const FILE_AREE = 'aree.json';
+export const FILE_AUTOSTRADE = 'autostrade.json';
 
 // Fonti possibili nel campo "fonti" di un'area: etichetta e classe CSS nell'editor
 export const FONTI = {
@@ -51,7 +52,14 @@ export const ZOOM_GUIDA = 15;
 // Stazioni oltre questo raggio vengono ignorate (salvo "Mostra tutte")
 export const RAGGIO_STAZIONI_KM = 100;
 
-// Reverse geocoding (Nominatim): al massimo una chiamata ogni N ms o ogni N km percorsi
+// Riconoscimento locale dell'autostrada (data/autostrade.json): distanza massima dalla
+// carreggiata, scarto massimo tra heading e verso della carreggiata, e per quanti km
+// dall'ultimo aggancio si resta sulla stessa autostrada (aree di servizio, svincoli, GPS impreciso)
+export const AUTOSTRADA_DISTANZA_MAX_M = 35;
+export const AUTOSTRADA_ANGOLO_MAX = 60;
+export const AUTOSTRADA_TENUTA_KM = 1.5;
+
+// Reverse geocoding (Nominatim), usato solo fuori autostrada: al massimo una chiamata ogni N ms o ogni N km percorsi
 export const REVERSE_GEOCODING_INTERVALLO_MS = 10000;
 export const REVERSE_GEOCODING_DISTANZA_KM = 0.1;
 // Mai più di una chiamata al secondo (policy Nominatim), anche trascinando il cursore della simulazione

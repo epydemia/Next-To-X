@@ -1,11 +1,13 @@
 import { distanzaKm, bearing } from '../core/geo.js';
 import { codiceDaNomeStrada, estraiCodice } from '../core/autostrade.js';
 import { avviaSimulazione } from './simulazione.js';
+import { autostradaInPosizione } from '../core/reteAutostradale.js';
 import {
   REVERSE_GEOCODING_INTERVALLO_MS,
   REVERSE_GEOCODING_DISTANZA_KM,
   REVERSE_GEOCODING_PAUSA_MINIMA_MS,
   HEADING_SPOSTAMENTO_MINIMO_KM,
+  AUTOSTRADA_TENUTA_KM,
 } from '../config.js';
 
 /**
@@ -79,8 +81,36 @@ export function attendiPrimaPosizione(timeoutMs) {
 function nuovaPosizione(lat, lon, headingDispositivo) {
   stato.coords = { lat, lon };
   aggiornaHeading(lat, lon, headingDispositivo);
-  aggiornaStradaSeNecessario(lat, lon);
+  if (!riconosciAutostrada(lat, lon)) aggiornaStradaSeNecessario(lat, lon);
   onAggiornamento(stato);
+}
+
+// Ultimo punto agganciato al tracciato locale delle autostrade
+let ultimaAutostrada = null;
+
+/**
+ * Strada dal tracciato locale delle autostrade; true se si è (ancora) in autostrada.
+ * Fuori autostrada, o con la rete non ancora caricata, la strada la dà Nominatim.
+ */
+function riconosciAutostrada(lat, lon) {
+  const trovata = autostradaInPosizione(lat, lon, headingNoto ? stato.heading : null);
+  if (trovata) {
+    ultimaAutostrada = { lat, lon };
+    // Una risposta di Nominatim chiesta prima dell'aggancio non deve sovrascriverlo
+    generazioneReverse++;
+    Object.assign(stato, {
+      strada: trovata.nome || trovata.codice,
+      codiceAutostrada: estraiCodice(trovata.codice),
+      paese: trovata.paese,
+    });
+    return true;
+  }
+  if (!ultimaAutostrada) return false;
+  if (distanzaKm(ultimaAutostrada.lat, ultimaAutostrada.lon, lat, lon) < AUTOSTRADA_TENUTA_KM) return true;
+  // Uscita dall'autostrada: finché Nominatim non risponde la strada è sconosciuta
+  ultimaAutostrada = null;
+  Object.assign(stato, { strada: '', codiceAutostrada: null });
+  return false;
 }
 
 /**
@@ -89,17 +119,22 @@ function nuovaPosizione(lat, lon, headingDispositivo) {
  */
 function dimenticaTraccia() {
   ultimaPosizioneHeading = null;
+  headingNoto = false;
+  ultimaAutostrada = null;
   ultimoReverse = { ...ultimoReverse, pos: null };
   generazioneReverse++;
   Object.assign(stato, { strada: '', codiceAutostrada: null, paese: null });
 }
 
 let ultimaPosizioneHeading = null;
+// False finché l'heading non viene dal dispositivo o da uno spostamento reale (all'avvio vale 0)
+let headingNoto = false;
 
 function aggiornaHeading(lat, lon, headingDispositivo) {
   if (headingDispositivo != null && !isNaN(headingDispositivo)) {
     stato.heading = headingDispositivo;
     stato.headingStimato = false;
+    headingNoto = true;
     ultimaPosizioneHeading = { lat, lon };
     return;
   }
@@ -108,6 +143,7 @@ function aggiornaHeading(lat, lon, headingDispositivo) {
     const { lat: lat0, lon: lon0 } = ultimaPosizioneHeading;
     if (distanzaKm(lat0, lon0, lat, lon) < HEADING_SPOSTAMENTO_MINIMO_KM) return;
     stato.heading = bearing(lat0, lon0, lat, lon);
+    headingNoto = true;
   }
   stato.headingStimato = true;
   ultimaPosizioneHeading = { lat, lon };
