@@ -54,6 +54,8 @@ export const RAGGIO_STAZIONI_KM = 100;
 // Reverse geocoding (Nominatim): al massimo una chiamata ogni N ms o ogni N km percorsi
 export const REVERSE_GEOCODING_INTERVALLO_MS = 10000;
 export const REVERSE_GEOCODING_DISTANZA_KM = 0.1;
+// Mai più di una chiamata al secondo (policy Nominatim), anche trascinando il cursore della simulazione
+export const REVERSE_GEOCODING_PAUSA_MINIMA_MS = 1100;
 
 // Sotto questo spostamento l'heading stimato non viene ricalcolato (rumore GPS a veicolo fermo)
 export const HEADING_SPOSTAMENTO_MINIMO_KM = 0.01;

@@ -4,6 +4,7 @@ import { avviaSimulazione } from './simulazione.js';
 import {
   REVERSE_GEOCODING_INTERVALLO_MS,
   REVERSE_GEOCODING_DISTANZA_KM,
+  REVERSE_GEOCODING_PAUSA_MINIMA_MS,
   HEADING_SPOSTAMENTO_MINIMO_KM,
 } from '../config.js';
 
@@ -36,7 +37,10 @@ export function avviaPosizione({ simulazione, onAggiornamento: callback }) {
   onAggiornamento = callback;
 
   if (simulazione) {
-    avviaSimulazione((lat, lon) => nuovaPosizione(lat, lon, null));
+    avviaSimulazione((lat, lon, salto) => {
+      if (salto) dimenticaTraccia();
+      nuovaPosizione(lat, lon, null);
+    });
     return;
   }
 
@@ -79,6 +83,17 @@ function nuovaPosizione(lat, lon, headingDispositivo) {
   onAggiornamento(stato);
 }
 
+/**
+ * Dopo un salto della simulazione nulla della traccia precedente vale più: l'heading
+ * calcolato tra i due punti, la strada riconosciuta e le risposte di Nominatim in arrivo.
+ */
+function dimenticaTraccia() {
+  ultimaPosizioneHeading = null;
+  ultimoReverse = { ...ultimoReverse, pos: null };
+  generazioneReverse++;
+  Object.assign(stato, { strada: '', codiceAutostrada: null, paese: null });
+}
+
 let ultimaPosizioneHeading = null;
 
 function aggiornaHeading(lat, lon, headingDispositivo) {
@@ -99,24 +114,34 @@ function aggiornaHeading(lat, lon, headingDispositivo) {
 }
 
 let ultimoReverse = { pos: null, quando: 0 };
+// Le risposte possono arrivare in disordine: si applica solo la più recente, e mai una
+// partita prima dell'ultimo salto della simulazione (generazione diversa)
+let generazioneReverse = 0;
+let ultimaRichiesta = 0;
+let ultimaApplicata = 0;
 
 // Throttling per rispettare i limiti d'uso di Nominatim
 function aggiornaStradaSeNecessario(lat, lon) {
   const { pos, quando } = ultimoReverse;
+  if (Date.now() - quando < REVERSE_GEOCODING_PAUSA_MINIMA_MS) return;
   const necessario = !pos
     || Date.now() - quando > REVERSE_GEOCODING_INTERVALLO_MS
     || distanzaKm(pos.lat, pos.lon, lat, lon) > REVERSE_GEOCODING_DISTANZA_KM;
   if (!necessario) return;
 
   ultimoReverse = { pos: { lat, lon }, quando: Date.now() };
+  const richiesta = ++ultimaRichiesta;
+  const generazione = generazioneReverse;
   reverseGeocode(lat, lon).then(risultato => {
-    if (!risultato) return;
-    stato.paese = risultato.paese;
-    if (risultato.strada === stato.strada) return;
-    stato.strada = risultato.strada;
+    if (!risultato || generazione !== generazioneReverse || richiesta < ultimaApplicata) return;
+    ultimaApplicata = richiesta;
     // La sigla OSM ("A14", "A 7") funziona in ogni paese; i nomi italiani restano come riserva
-    stato.codiceAutostrada = estraiCodice(risultato.sigla) ?? codiceDaNomeStrada(risultato.strada);
-    onAggiornamento(stato);
+    const codiceAutostrada = estraiCodice(risultato.sigla) ?? codiceDaNomeStrada(risultato.strada);
+    const cambiata = risultato.strada !== stato.strada
+      || codiceAutostrada !== stato.codiceAutostrada
+      || risultato.paese !== stato.paese;
+    Object.assign(stato, { strada: risultato.strada, codiceAutostrada, paese: risultato.paese });
+    if (cambiata) onAggiornamento(stato);
   });
 }
 
