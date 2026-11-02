@@ -1,7 +1,7 @@
 import { caricaAree } from '../core/dati.js';
 import { filtraStazioni, tutteLeStazioni } from '../core/filtroStazioni.js';
 import { avviaPosizione, attendiPrimaPosizione, getStato } from './posizione.js';
-import { caricaTracciaCSV } from './simulazione.js';
+import { caricaTracciaCSV, osservaProgresso, vaiAlPunto } from './simulazione.js';
 import { creaMappa, aggiornaUtente, disegnaStazioni, mostraPanoramicaItalia, aggiornaDimensioniMappa } from './mappa.js';
 import {
   collegaPannelli, collegaOrientamentoBarra, mostraStrada, mostraDirezione, mostraAvvisoGps, aggiornaPannelli,
@@ -69,6 +69,29 @@ function collegaImpostazioni(simulazione) {
     document.getElementById('csvStatus').textContent =
       punti ? `✅ ${file.name} (${punti} punti)` : '❌ Formato non valido';
   });
+
+  collegaCursoreSimulazione(simulazione);
+}
+
+/** Cursore sulla mappa per scorrere avanti e indietro lungo la traccia simulata. */
+function collegaCursoreSimulazione(simulazione) {
+  document.getElementById('sim-cursore').hidden = !simulazione;
+  if (!simulazione) return;
+  const cursore = document.getElementById('simSlider');
+  const tempo = document.getElementById('simTempo');
+  cursore.addEventListener('input', e => vaiAlPunto(Number(e.target.value)));
+  osservaProgresso(({ indice, totale, trascorsoMs, durataMs }) => {
+    cursore.max = totale - 1;
+    cursore.value = indice;
+    tempo.textContent = `${formattaDurata(trascorsoMs)} / ${formattaDurata(durataMs)}`;
+  });
+}
+
+function formattaDurata(ms) {
+  const s = Math.round(ms / 1000);
+  const hh = Math.floor(s / 3600);
+  const mm = String(Math.floor(s / 60) % 60).padStart(2, '0');
+  return `${hh}:${mm}:${String(s % 60).padStart(2, '0')}`;
 }
 
 window.addEventListener('load', async () => {
