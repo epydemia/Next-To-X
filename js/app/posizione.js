@@ -100,7 +100,8 @@ function riconosciAutostrada(lat, lon) {
     generazioneReverse++;
     Object.assign(stato, {
       strada: trovata.nome || trovata.codice,
-      codiceAutostrada: estraiCodice(trovata.codice),
+      // Alcuni tratti in OSM non hanno la sigla ma solo il nome ("A12 dir. Genova…", "Autostrada dei Vini")
+      codiceAutostrada: estraiCodice(trovata.codice) ?? estraiCodice(trovata.nome) ?? codiceDaNomeStrada(trovata.nome),
       paese: trovata.paese,
     });
     return true;
