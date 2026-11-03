@@ -35,6 +35,9 @@ TOLLERANZA_M = 10   # errore massimo della semplificazione: l'app accetta posizi
 SCALA = 100_000     # coordinate intere in centomillesimi di grado
 
 
+SENZA_SIGLA = "nome:"  # prefisso del gruppo delle vie senza ref
+
+
 def query_autostrade(paese):
     return f"""
 [out:json][timeout:300];
@@ -152,15 +155,18 @@ def elabora(paese, elementi, strade, linee):
     gruppi = defaultdict(list)
     nomi = defaultdict(Counter)
     for codice, nome, senso_unico, punti in vie(elementi):
-        gruppi[(codice, senso_unico)].append(punti)
+        # Senza sigla si raggruppa per nome: altrimenti tutte le vie senza ref del paese
+        # diventerebbero un'unica strada, con il nome della più frequente
+        gruppo = codice or f"{SENZA_SIGLA}{nome}"
+        gruppi[(gruppo, senso_unico)].append(punti)
         if nome:
-            nomi[codice][nome] += 1
+            nomi[gruppo][nome] += 1
 
     punti_prima = punti_dopo = 0
-    for (codice, senso_unico), vie_gruppo in sorted(gruppi.items()):
-        chiave = (paese, codice)
+    for (gruppo, senso_unico), vie_gruppo in sorted(gruppi.items()):
+        chiave = (paese, gruppo)
         if chiave not in strade:
-            nome = nomi[codice].most_common(1)[0][0] if nomi[codice] else ""
+            nome = nomi[gruppo].most_common(1)[0][0] if nomi[gruppo] else ""
             strade[chiave] = (len(strade), nome)
         for linea in unisci(vie_gruppo):
             semplice = semplifica(linea, TOLLERANZA_M)
@@ -181,7 +187,8 @@ def main():
         elabora(paese, scarica(paese, args.aggiorna).get("elements", []), strade, linee)
 
     elenco = [None] * len(strade)
-    for (paese, codice), (indice, nome) in strade.items():
+    for (paese, gruppo), (indice, nome) in strade.items():
+        codice = "" if gruppo.startswith(SENZA_SIGLA) else gruppo
         elenco[indice] = {"paese": paese, "codice": codice, "nome": nome}
     risultato = {
         "versione": 1,

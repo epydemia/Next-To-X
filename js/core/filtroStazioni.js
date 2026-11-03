@@ -1,5 +1,5 @@
 import { distanzaKm, isDavanti, stessaDirezione } from './geo.js';
-import { estraiCodice } from './autostrade.js';
+import { codiciAutostradali } from './autostrade.js';
 import { nomeStrada } from './dati.js';
 import { RAGGIO_STAZIONI_KM } from '../config.js';
 
@@ -66,7 +66,8 @@ export function filtraStazioni(aree, { lat, lon, heading, strada, codiceAutostra
 function stradaCompatibile(area, codiceAutostrada, stradaUtente, paese) {
   // La stessa sigla indica strade diverse in paesi diversi (A5 in Germania e in Svizzera)
   if (paese && area.paese !== paese) return false;
-  if (codiceAutostrada) return estraiCodice(area.autostrada) === codiceAutostrada;
+  // Un'area può stare su un tratto comune a più autostrade ("A11/A12")
+  if (codiceAutostrada) return codiciAutostradali(area.autostrada).includes(codiceAutostrada);
   const stradaArea = normalizza(area.indirizzo);
   if (!stradaUtente || !stradaArea) return false;
   return stradaArea.includes(stradaUtente) || stradaUtente.includes(stradaArea);

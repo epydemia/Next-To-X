@@ -47,12 +47,23 @@ export function codiceDaNomeStrada(nomeStrada) {
   return null;
 }
 
+// Sigle di autostrade e raccordi: A14, A1DIR, A1VAR, RA3 (raccordi italiani), S6 (Austria),
+// T4 (trafori), SPV (Pedemontana Veneta). Non le strade statali (SS16) o le europee (E45)
+const SIGLA_AUTOSTRADALE = /^(?:(?:A|RA|S|T)\d+[A-Z]*|SPV)$/;
+
 /**
- * Codice autostrada contenuto in un testo, oppure null.
- * "A14 BOLOGNA-TARANTO" → "A14", "A 7;E 45" (sigla tedesca in OSM) → "A7",
- * "S 6" (superstrada austriaca) → "S6".
+ * Sigle autostradali in un testo, nella forma usata da tutte le fonti (maiuscole, senza spazi).
+ * "A14 Bologna-Taranto" → ["A14"], "A 7;E 45" → ["A7"], "A11/A12" → ["A11", "A12"],
+ * "A1dir" → ["A1DIR"], "RA 3" → ["RA3"], "SS16" → [].
  */
+export function codiciAutostradali(testo) {
+  return (testo ?? '').toUpperCase()
+    .replace(/\b([A-Z]{1,3})\s+(?=\d)/g, '$1')  // "A 7" → "A7", "RA 3" → "RA3"
+    .split(/[\s;,/]+/)
+    .filter(t => SIGLA_AUTOSTRADALE.test(t));
+}
+
+/** La prima sigla autostradale di un testo, oppure null. */
 export function estraiCodice(testo) {
-  const m = testo?.toUpperCase().match(/\b([AS])\s?(\d+)\b/);
-  return m ? `${m[1]}${m[2]}` : null;
+  return codiciAutostradali(testo)[0] ?? null;
 }
