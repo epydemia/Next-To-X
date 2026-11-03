@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Next-to-X</title>
+  <title>Next-To-X</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0d1117" />
+  <meta name="apple-mobile-web-app-title" content="Next-To-X" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
@@ -15,7 +20,13 @@
 <!-- Pannello impostazioni (slide da destra) -->
 <div id="options-panel">
   <div id="options-header">
-    <span>Impostazioni</span>
+    <div id="options-brand">
+      <img src="img/icona-192.png" alt="" width="32" height="32" />
+      <div>
+        <div id="options-app">Next-To-X</div>
+        <div id="options-title">Impostazioni</div>
+      </div>
+    </div>
     <button id="options-close">✕</button>
   </div>
   <label class="setting-row" id="riga-simulazione" hidden>

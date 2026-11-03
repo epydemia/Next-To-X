@@ -1,4 +1,6 @@
-# ⚡ Next-To-X
+<p align="center"><img src="img/logo.png" alt="Next-To-X" width="240"></p>
+
+# Next-To-X
 
 **Next-To-X** is a lightweight web app for driving on highways in Italy, Germany, Switzerland and Austria: it follows your GPS position and heading and shows the next EV charging station ahead of you, on your side of the highway.
 
