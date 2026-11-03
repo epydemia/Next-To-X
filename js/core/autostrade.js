@@ -7,14 +7,14 @@ export const AUTOSTRADE = {
   A2:  { nomi: ['Salerno Reggio Calabria', 'Autostrada del Mediterraneo'], asse: 'NORD-SUD' },
   A3:  { nomi: ['Napoli Salerno'],                                     asse: 'NORD-SUD' },
   A4:  { nomi: ['Torino Trieste', 'Serenissima'],                      asse: 'EST-OVEST' },
-  A5:  { nomi: ['Torino Aosta Monte Bianco'],                          asse: 'NORD-SUD' },
+  A5:  { nomi: ['Torino Aosta Monte Bianco', "Autostrada della Valle d'Aosta"], asse: 'NORD-SUD' },
   A6:  { nomi: ['Torino Savona'],                                      asse: 'NORD-SUD' },
   A7:  { nomi: ['Milano Genova', 'Autostrada dei Giovi'],              asse: 'NORD-SUD' },
   A8:  { nomi: ['Milano Varese', 'Autostrada dei Laghi'],              asse: 'NORDOVEST-SUDEST' },
   A9:  { nomi: ['Lainate Chiasso', 'Autostrada dei Laghi'],            asse: 'NORDOVEST-SUDEST' },
   A10: { nomi: ['Genova Ventimiglia', 'Autostrada dei Fiori'],         asse: 'EST-OVEST' },
   A11: { nomi: ['Firenze Pisa', 'Firenze Mare'],                       asse: 'EST-OVEST' },
-  A12: { nomi: ['Genova Roma', 'Autostrada Tirrenica'],                asse: 'NORDOVEST-SUDEST' },
+  A12: { nomi: ['Genova Roma', 'Autostrada Tirrenica', 'Autostrada Azzurra'], asse: 'NORDOVEST-SUDEST' },
   A13: { nomi: ['Bologna Padova'],                                     asse: 'NORD-SUD' },
   A14: { nomi: ['Bologna Taranto', 'Autostrada Adriatica'],            asse: 'NORD-SUD' },
   A15: { nomi: ['Parma La Spezia', 'Autostrada della Cisa'],           asse: 'NORD-SUD' },
@@ -32,7 +32,15 @@ export const AUTOSTRADE = {
   A27: { nomi: ['Mestre Belluno'],                                     asse: 'NORD-SUD' },
   A28: { nomi: ['Portogruaro Conegliano'],                             asse: 'EST-OVEST' },
   A29: { nomi: ['Palermo Mazara del Vallo', 'Autostrada del Sale'],    asse: 'EST-OVEST' },
+  A31: { nomi: ['Autostrada della Valdastico'],                        asse: 'NORD-SUD' },
+  A32: { nomi: ['Autostrada del Frejus'],                              asse: 'EST-OVEST' },
+  A33: { nomi: ['Autostrada Asti Cuneo'],                              asse: 'NORDEST-SUDOVEST' },
+  A56: { nomi: ['Tangenziale di Napoli'],                              asse: 'EST-OVEST' },
+  SPV: { nomi: ['Pedemontana Veneta'],                                 asse: 'EST-OVEST' },
 };
+
+// "Autostrada Bologna-Padova" e "Bologna Padova" devono coincidere
+const normalizzaNome = s => (s ?? '').toLowerCase().replace(/[-–—]/g, ' ').replace(/\s+/g, ' ').trim();
 
 /**
  * Codice autostrada (es. "A14") dal nome di strada restituito dal reverse geocoding,
@@ -40,9 +48,10 @@ export const AUTOSTRADE = {
  * restituire nomi parziali o con parole in più.
  */
 export function codiceDaNomeStrada(nomeStrada) {
-  const normalizzato = nomeStrada?.toLowerCase() ?? '';
+  const normalizzato = normalizzaNome(nomeStrada);
+  if (!normalizzato) return null;
   for (const [codice, { nomi }] of Object.entries(AUTOSTRADE)) {
-    if (nomi.some(n => normalizzato.includes(n.toLowerCase()))) return codice;
+    if (nomi.some(n => normalizzato.includes(normalizzaNome(n)))) return codice;
   }
   return null;
 }
