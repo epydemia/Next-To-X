@@ -74,9 +74,9 @@ To add a source: write a converter in `tools/Compila_Aree.py` (add it to `SORGEN
 | --- | --- | --- |
 | Free To X (Italy) | `python tools/Download_Free_To_X.py && python tools/ReverseGeocoding.py` | `data/free_to_x_reverse.json` |
 | IONITY (Italy, Germany, Switzerland, Austria) from OpenStreetMap | `python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT` | `data/ionity_osm.json` |
-| Every other operator in motorway service areas (e.g. ASTM network: A4 Torino-Milano, A6, A10, A12…) | `python tools/Download_OSM_Colonnine.py --tutti-gli-operatori --paesi IT,CH,AT` | `data/osm_aree_servizio.json` |
+| Every other operator in motorway service areas (e.g. ASTM network in Italy, EnBW/Tesla/Aral pulse in Germany) | `python tools/Download_OSM_Colonnine.py --tutti-gli-operatori --paesi IT,DE,CH,AT` | `data/osm_aree_servizio.json` |
 
-`--tutti-gli-operatori` starts from the service areas instead of an operator, keeps only chargers inside them, and skips areas already in Free To X, A22 or IONITY (same name within 500 m or same spot). Run it after the other sources. Add `--unisci` to refresh only the listed countries and keep the others in the output file untouched.
+`--tutti-gli-operatori` starts from the service areas instead of an operator and keeps only chargers inside them, except Free To X and IONITY chargers, which have their own source. An area that is also in another source (e.g. a German Rastanlage with IONITY and EnBW) is kept: `Compila_Aree.py` merges the two into one area with all operators. Add `--unisci` to refresh only the listed countries and keep the others in the output file untouched.
 
 ### Cross-checking Free To X and A22 with OpenStreetMap
 
