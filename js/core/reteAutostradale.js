@@ -1,4 +1,5 @@
 import { differenzaAngolare } from './geo.js';
+import { codiceDaNomeStrada } from './autostrade.js';
 import { CARTELLA_DATI, FILE_AUTOSTRADE, AUTOSTRADA_DISTANZA_MAX_M, AUTOSTRADA_ANGOLO_MAX } from '../config.js';
 
 // Riconoscimento locale dell'autostrada: la posizione viene confrontata con il tracciato
@@ -52,10 +53,19 @@ function indicizzaLinea([strada, sensoUnico, lat0, lon0, ...differenze]) {
   }
 }
 
-// Le strade con lo stesso paese e la stessa sigla (o lo stesso nome, se senza sigla) sono
-// un'unica autostrada: in OSM l'A1, per esempio, è spezzata in più tratte con nomi diversi
+// Le strade con lo stesso paese e la stessa sigla sono un'unica autostrada: in OSM l'A1, per
+// esempio, è spezzata in più tratte con nomi diversi. Alcune tratte non hanno la sigla ma solo
+// il nome (l'A14 tra Castel San Pietro e Imola è solo "Autostrada Adriatica"): la sigla si
+// ricava da un'altra tratta con lo stesso nome o, in Italia, dalla tabella delle autostrade.
 function raggruppaTracciati(linee) {
-  const chiave = ({ paese, codice, nome }) => `${paese}|${codice || 'nome:' + nome}`;
+  const siglaPerNome = new Map();
+  strade.forEach(({ paese, codice, nome }) => {
+    if (codice && nome && !siglaPerNome.has(`${paese}|${nome}`)) siglaPerNome.set(`${paese}|${nome}`, codice);
+  });
+  const chiave = ({ paese, codice, nome }) => {
+    const sigla = codice || siglaPerNome.get(`${paese}|${nome}`) || (paese === 'IT' ? codiceDaNomeStrada(nome) : null);
+    return `${paese}|${sigla || 'nome:' + nome}`;
+  };
   const perChiave = new Map();
   for (const [strada, , lat0, lon0, ...differenze] of linee) {
     const punti = [[lat0 / SCALA, lon0 / SCALA]];
