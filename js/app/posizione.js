@@ -21,6 +21,8 @@ const stato = {
   strada: '',
   codiceAutostrada: null,
   paese: null,
+  // Indice della strada nel tracciato locale (per evidenziarla sulla mappa), null se sconosciuta
+  autostrada: null,
 };
 
 let gpsNegato = false;
@@ -103,6 +105,7 @@ function riconosciAutostrada(lat, lon) {
       // Alcuni tratti in OSM non hanno la sigla ma solo il nome ("A12 dir. Genova…", "Autostrada dei Vini")
       codiceAutostrada: estraiCodice(trovata.codice) ?? estraiCodice(trovata.nome) ?? codiceDaNomeStrada(trovata.nome),
       paese: trovata.paese,
+      autostrada: trovata.indice,
     });
     return true;
   }
@@ -110,7 +113,7 @@ function riconosciAutostrada(lat, lon) {
   if (distanzaKm(ultimaAutostrada.lat, ultimaAutostrada.lon, lat, lon) < AUTOSTRADA_TENUTA_KM) return true;
   // Uscita dall'autostrada: finché Nominatim non risponde la strada è sconosciuta
   ultimaAutostrada = null;
-  Object.assign(stato, { strada: '', codiceAutostrada: null });
+  Object.assign(stato, { strada: '', codiceAutostrada: null, autostrada: null });
   return false;
 }
 
@@ -124,7 +127,7 @@ function dimenticaTraccia() {
   ultimaAutostrada = null;
   ultimoReverse = { ...ultimoReverse, pos: null };
   generazioneReverse++;
-  Object.assign(stato, { strada: '', codiceAutostrada: null, paese: null });
+  Object.assign(stato, { strada: '', codiceAutostrada: null, paese: null, autostrada: null });
 }
 
 let ultimaPosizioneHeading = null;
