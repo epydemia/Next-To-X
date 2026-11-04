@@ -329,7 +329,13 @@ def carreggiate_opposte(a, b):
 
 
 def stesso_posto(a, b):
-    if a["fonte"] == b["fonte"] or carreggiate_opposte(a, b):
+    if a["fonte"] == b["fonte"]:
+        return False
+    # Stesso oggetto OSM (es. l'area di servizio in ionity_osm.json e in osm_aree_servizio.json):
+    # è lo stesso posto anche se le colonnine stanno vicino a carreggiate diverse
+    if a["id"].startswith("osm:") and a["id"] == b["id"]:
+        return True
+    if carreggiate_opposte(a, b):
         return False
     d = distanza_m(a, b)
     return d <= STESSO_POSTO_M or (d <= STESSO_NOME_M and stesso_nome(a, b))

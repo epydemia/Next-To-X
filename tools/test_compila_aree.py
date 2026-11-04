@@ -118,6 +118,16 @@ class TestUnione(unittest.TestCase):
         self.assertEqual(aree[0]["operatori"], ["EnBW", "IONITY"])
         self.assertEqual(aree[0]["fonti"], ["osm", "ionity"])
 
+    def test_stesso_oggetto_osm_unito_anche_con_carreggiate_opposte(self):
+        # Area che serve entrambe le direzioni: le colonnine delle due fonti risultano su
+        # carreggiate diverse, ma l'oggetto OSM è lo stesso
+        ionity = osm("osm:way/183899749", "IONITY A9", 52.1601, 12.7799, "SUDOVEST", "IONITY", fonte="ionity")
+        altri = osm("osm:way/183899749", "Rastanlage Fläming", 52.1604, 12.7803, "NORDEST", "EnBW")
+        aree = unisci([ionity, altri])
+        self.assertEqual(len(aree), 1)
+        self.assertEqual(aree[0]["operatori"], ["EnBW", "IONITY"])
+        self.assertEqual(controlla_unite(aree)[0], [])
+
     def test_campi_mancanti_dalla_fonte_secondaria(self):
         senza = da_free_to_x({**FREE_TO_X, "codice": "D51", "nome": "VALTROMPIA SUD", "direzione_geografica": "ND",
                               "lat": 45.5, "lon": 10.2})
