@@ -76,7 +76,7 @@ To add a source: write a converter in `tools/Compila_Aree.py` (add it to `SORGEN
 | IONITY (Italy, Germany, Switzerland, Austria) from OpenStreetMap | `python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT` | `data/ionity_osm.json` |
 | Every other operator in motorway service areas (e.g. ASTM network in Italy, EnBW/Tesla/Aral pulse in Germany) | `python tools/Download_OSM_Colonnine.py --tutti-gli-operatori --paesi IT,DE,CH,AT` | `data/osm_aree_servizio.json` |
 
-`--tutti-gli-operatori` starts from the service areas instead of an operator and keeps only chargers inside them, except Free To X and IONITY chargers, which have their own source. An area that is also in another source (e.g. a German Rastanlage with IONITY and EnBW) is kept: `Compila_Aree.py` merges the two into one area with all operators. Add `--unisci` to refresh only the listed countries and keep the others in the output file untouched.
+`--tutti-gli-operatori` starts from the service areas instead of an operator and keeps only chargers inside them, except Free To X and IONITY chargers, which have their own source. An area that is also in another source (e.g. a German Rastanlage with IONITY and EnBW) is kept: `Compila_Aree.py` merges the two into one area with all operators. Add `--unisci` to refresh only the listed countries and keep the others in the output file untouched. If Overpass fails for a country, its areas from the previous download are kept, the script exits with an error, and running it again resumes from the step that failed (every step is cached in `tools/cache/`). Chain the next commands with `&&` so they do not run after a failure.
 
 ### Cross-checking Free To X and A22 with OpenStreetMap
 
