@@ -1016,7 +1016,7 @@
       "lat": 45.608201,
       "lon": 12.297217,
       "paese": "IT",
-      "operatore": "Vari, vari",
+      "operatore": "sconosciuto",
       "distanzaAutostradaM": 51,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -1024,13 +1024,13 @@
         {
           "codice": "osm:node/10889379541",
           "modello": "Vari",
-          "operatore": "Vari",
+          "operatore": "",
           "connettori": []
         },
         {
           "codice": "osm:node/10889380966",
           "modello": "vari",
-          "operatore": "vari",
+          "operatore": "",
           "connettori": []
         }
       ],
@@ -2740,7 +2740,7 @@
       "lat": 52.231088,
       "lon": 7.876861,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 77,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -2748,7 +2748,7 @@
         {
           "codice": "osm:node/1997429705",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -2761,7 +2761,7 @@
         {
           "codice": "osm:node/12911288118",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -2785,7 +2785,7 @@
       "lat": 52.232392,
       "lon": 7.880835,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 79,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -2793,7 +2793,7 @@
         {
           "codice": "osm:node/1997429706",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -2809,7 +2809,7 @@
         {
           "codice": "osm:node/6301590848",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -2836,7 +2836,7 @@
       "lat": 51.467681,
       "lon": 7.596868,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 97,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -2844,7 +2844,7 @@
         {
           "codice": "osm:node/2058532862",
           "modello": "Schnellladestation Lichtendorf Süd",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": []
         }
       ],
@@ -3389,7 +3389,7 @@
       "lat": 49.769589,
       "lon": 10.470294,
       "paese": "DE",
-      "operatore": "E.ON, NomadPower, Tesla",
+      "operatore": "E.ON Drive, Nomad Power, Tesla",
       "distanzaAutostradaM": 91,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3506,7 +3506,7 @@
         {
           "codice": "osm:node/7210852097",
           "modello": "EON Schnellader Geiselwind",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -3537,7 +3537,7 @@
         {
           "codice": "osm:node/7210930106",
           "modello": "NomadPower",
-          "operatore": "NomadPower",
+          "operatore": "Nomad Power",
           "connettori": []
         },
         {
@@ -3560,7 +3560,7 @@
       "lat": 48.411029,
       "lon": 10.440173,
       "paese": "DE",
-      "operatore": "Lechwerke AG, Shell Recharge, Tesla",
+      "operatore": "LEW, Shell Recharge, Tesla",
       "distanzaAutostradaM": 188,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3568,7 +3568,7 @@
         {
           "codice": "osm:node/3844468071",
           "modello": "LEW Autostrom",
-          "operatore": "Lechwerke AG",
+          "operatore": "LEW",
           "connettori": [
             {
               "modello": "Type 2 22 kW"
@@ -3688,7 +3688,7 @@
       "lat": 49.176299,
       "lon": 11.728858,
       "paese": "DE",
-      "operatore": "ChargeOne, MER",
+      "operatore": "ChargeOne, Mer",
       "distanzaAutostradaM": 325,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3696,7 +3696,7 @@
         {
           "codice": "osm:node/3904736311",
           "modello": "Mer",
-          "operatore": "MER",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS 300kW"
@@ -3745,7 +3745,7 @@
       "lat": 53.694524,
       "lon": 10.324987,
       "paese": "DE",
-      "operatore": "mer",
+      "operatore": "Mer",
       "distanzaAutostradaM": 107,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3753,7 +3753,7 @@
         {
           "codice": "osm:node/3944859134",
           "modello": "mer",
-          "operatore": "mer",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS"
@@ -3917,7 +3917,7 @@
       "lat": 49.271807,
       "lon": 11.601959,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 60,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3925,7 +3925,7 @@
         {
           "codice": "osm:node/4088478613",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -3949,7 +3949,7 @@
       "lat": 49.271967,
       "lon": 11.599556,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 85,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3957,7 +3957,7 @@
         {
           "codice": "osm:node/4088478614",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -3984,7 +3984,7 @@
       "lat": 52.160595,
       "lon": 12.781663,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 143,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -3992,7 +3992,7 @@
         {
           "codice": "osm:node/4104338123",
           "modello": "schnell-laden-berlin",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -4092,7 +4092,7 @@
       "lat": 48.588531,
       "lon": 13.366727,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 55,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4100,7 +4100,7 @@
         {
           "codice": "osm:node/4331480825",
           "modello": "E.ON Donautal Ost",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -4130,7 +4130,7 @@
       "lat": 48.808812,
       "lon": 8.181017,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 96,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4138,7 +4138,7 @@
         {
           "codice": "osm:node/4355909676",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -4165,7 +4165,7 @@
       "lat": 49.35651,
       "lon": 11.201663,
       "paese": "DE",
-      "operatore": "E.ON, Tank & Rast",
+      "operatore": "E.ON Drive, Tank & Rast",
       "distanzaAutostradaM": 77,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4189,7 +4189,7 @@
         {
           "codice": "osm:node/4970302922",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -4216,7 +4216,7 @@
       "lat": 48.406481,
       "lon": 10.602265,
       "paese": "DE",
-      "operatore": "ChargePoint, Lechwerke AG, Nio Power, Sortimo Innovationspark Zusmarshausen GmbH, Tesla",
+      "operatore": "ChargePoint, LEW, NIO Power, Sortimo Innovationspark Zusmarshausen GmbH, Tesla",
       "distanzaAutostradaM": 374,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4224,7 +4224,7 @@
         {
           "codice": "osm:node/4406867007",
           "modello": "Lechwerke AG",
-          "operatore": "Lechwerke AG",
+          "operatore": "LEW",
           "connettori": [
             {
               "modello": "Type 2 22kW"
@@ -4479,7 +4479,7 @@
         {
           "codice": "osm:node/10721517701",
           "modello": "Nio Power",
-          "operatore": "Nio Power",
+          "operatore": "NIO Power",
           "connettori": []
         },
         {
@@ -4508,7 +4508,7 @@
       "lat": 50.263488,
       "lon": 9.88098,
       "paese": "DE",
-      "operatore": "e-on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 75,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4516,7 +4516,7 @@
         {
           "codice": "osm:node/4420098689",
           "modello": "e-on",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -4537,7 +4537,7 @@
       "lat": 50.26762,
       "lon": 9.88247,
       "paese": "DE",
-      "operatore": "innogy",
+      "operatore": "Innogy",
       "distanzaAutostradaM": 88,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4545,7 +4545,7 @@
         {
           "codice": "osm:node/4467375734",
           "modello": "innogy",
-          "operatore": "innogy",
+          "operatore": "Innogy",
           "connettori": [
             {
               "modello": "CCS"
@@ -4900,7 +4900,7 @@
       "lat": 49.781137,
       "lon": 10.244865,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 108,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4908,7 +4908,7 @@
         {
           "codice": "osm:node/4594587354",
           "modello": "Charge-ON GmbH",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -4935,7 +4935,7 @@
       "lat": 49.748517,
       "lon": 11.514098,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 138,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4943,7 +4943,7 @@
         {
           "codice": "osm:node/4599903791",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -4967,7 +4967,7 @@
       "lat": 47.829721,
       "lon": 11.907254,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH, Energie Südbayern ESB",
+      "operatore": "Charge-ON, Energie Südbayern ESB",
       "distanzaAutostradaM": 84,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -4975,7 +4975,7 @@
         {
           "codice": "osm:node/4600169808",
           "modello": "Charge-ON GmbH",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -5008,7 +5008,7 @@
       "lat": 49.748403,
       "lon": 11.509963,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 141,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -5016,7 +5016,7 @@
         {
           "codice": "osm:node/4600208792",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -5075,7 +5075,7 @@
       "lat": 48.123424,
       "lon": 11.757956,
       "paese": "DE",
-      "operatore": "E-Wald GmbH",
+      "operatore": "E-WALD",
       "distanzaAutostradaM": 47,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -5083,7 +5083,7 @@
         {
           "codice": "osm:node/4621829671",
           "modello": "E-Wald GmbH",
-          "operatore": "E-Wald GmbH",
+          "operatore": "E-WALD",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -5342,7 +5342,7 @@
       "lat": 47.828992,
       "lon": 12.590216,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 86,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -5350,7 +5350,7 @@
         {
           "codice": "osm:node/4692029364",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -5415,7 +5415,7 @@
       "lat": 50.405437,
       "lon": 11.775272,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH, Tank & Rast",
+      "operatore": "E.ON Drive, Tank & Rast",
       "distanzaAutostradaM": 81,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -5429,7 +5429,7 @@
         {
           "codice": "osm:way/1396465843",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -5671,7 +5671,7 @@
       "lat": 50.488424,
       "lon": 9.708693,
       "paese": "DE",
-      "operatore": "Tesla, allego",
+      "operatore": "Allego, Tesla",
       "distanzaAutostradaM": 106,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -5679,7 +5679,7 @@
         {
           "codice": "osm:node/4773446323",
           "modello": "Stromtankstelle",
-          "operatore": "allego",
+          "operatore": "Allego",
           "connettori": []
         },
         {
@@ -5930,7 +5930,7 @@
       "lat": 49.350061,
       "lon": 8.630607,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 42,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -5938,7 +5938,7 @@
         {
           "codice": "osm:node/4809660922",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -6440,7 +6440,7 @@
       "lat": 49.745617,
       "lon": 8.591016,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 84,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -6448,7 +6448,7 @@
         {
           "codice": "osm:node/4886192623",
           "modello": "E.ON Drive",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -6516,7 +6516,7 @@
       "lat": 50.874921,
       "lon": 11.846657,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 75,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -6524,7 +6524,7 @@
         {
           "codice": "osm:node/4917512590",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -6639,7 +6639,7 @@
       "lat": 48.605964,
       "lon": 9.631759,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 135,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -6647,7 +6647,7 @@
         {
           "codice": "osm:node/4949806061",
           "modello": "E.On Gruibingen Süd",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -6671,7 +6671,7 @@
       "lat": 50.806775,
       "lon": 7.219527,
       "paese": "DE",
-      "operatore": "Autobahn Tank & Rast Gruppe GmbH",
+      "operatore": "Tank & Rast",
       "distanzaAutostradaM": 82,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -6679,7 +6679,7 @@
         {
           "codice": "osm:node/5030202838",
           "modello": "Schnellladestation Siegburg West",
-          "operatore": "Autobahn Tank & Rast Gruppe GmbH",
+          "operatore": "Tank & Rast",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -6706,7 +6706,7 @@
       "lat": 50.809402,
       "lon": 7.219981,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 83,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -6714,7 +6714,7 @@
         {
           "codice": "osm:node/5030411246",
           "modello": "Schnellladestation Siegburg Ost",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -6814,7 +6814,7 @@
       "lat": 50.096922,
       "lon": 8.353356,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 73,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -6822,7 +6822,7 @@
         {
           "codice": "osm:node/5075789265",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -7058,7 +7058,7 @@
       "lat": 48.33761,
       "lon": 11.608169,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 49,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -7066,7 +7066,7 @@
         {
           "codice": "osm:node/5159615796",
           "modello": "Ladesäule 1",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 160 kW"
@@ -7082,7 +7082,7 @@
         {
           "codice": "osm:node/8711380686",
           "modello": "Ladesäule 4",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -7098,7 +7098,7 @@
         {
           "codice": "osm:node/8711380687",
           "modello": "Ladesäule 3",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -7114,7 +7114,7 @@
         {
           "codice": "osm:node/8711380688",
           "modello": "Ladesäule 2",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 160 kW"
@@ -7308,7 +7308,7 @@
       "lat": 50.300132,
       "lon": 8.234582,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 95,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -7316,7 +7316,7 @@
         {
           "codice": "osm:node/5169469671",
           "modello": "Charge-ON GmbH",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -7343,7 +7343,7 @@
       "lat": 54.366119,
       "lon": 9.670754,
       "paese": "DE",
-      "operatore": "Autobahn Tank & Rast GmbH",
+      "operatore": "Tank & Rast",
       "distanzaAutostradaM": 56,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -7351,7 +7351,7 @@
         {
           "codice": "osm:node/5200384705",
           "modello": "Autobahn Tank & Rast GmbH",
-          "operatore": "Autobahn Tank & Rast GmbH",
+          "operatore": "Tank & Rast",
           "connettori": [
             {
               "modello": "CCS"
@@ -7378,7 +7378,7 @@
       "lat": 54.363664,
       "lon": 9.670503,
       "paese": "DE",
-      "operatore": "Autobahn Tank & Rast GmbH",
+      "operatore": "Tank & Rast",
       "distanzaAutostradaM": 102,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -7386,7 +7386,7 @@
         {
           "codice": "osm:node/5200384706",
           "modello": "Autobahn Tank & Rast GmbH",
-          "operatore": "Autobahn Tank & Rast GmbH",
+          "operatore": "Tank & Rast",
           "connettori": [
             {
               "modello": "CCS"
@@ -7583,7 +7583,7 @@
       "lat": 49.946458,
       "lon": 8.608146,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 126,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -7591,7 +7591,7 @@
         {
           "codice": "osm:node/5214676821",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -7697,7 +7697,7 @@
       "lat": 48.555682,
       "lon": 11.588369,
       "paese": "DE",
-      "operatore": "Autobahn Tank & Rast GmbH",
+      "operatore": "Tank & Rast",
       "distanzaAutostradaM": 22,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -7705,7 +7705,7 @@
         {
           "codice": "osm:node/5298191785",
           "modello": "Autobahn Tank & Rast GmbH",
-          "operatore": "Autobahn Tank & Rast GmbH",
+          "operatore": "Tank & Rast",
           "connettori": [
             {
               "modello": "CCS"
@@ -7791,7 +7791,7 @@
       "lat": 48.437523,
       "lon": 10.213392,
       "paese": "DE",
-      "operatore": "innogy SE",
+      "operatore": "Innogy",
       "distanzaAutostradaM": 109,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -7799,7 +7799,7 @@
         {
           "codice": "osm:node/5312470631",
           "modello": "innogy SE",
-          "operatore": "innogy SE",
+          "operatore": "Innogy",
           "connettori": [
             {
               "modello": "CCS"
@@ -7949,7 +7949,7 @@
       "lat": 48.959975,
       "lon": 12.093567,
       "paese": "DE",
-      "operatore": "innogy SE",
+      "operatore": "Innogy",
       "distanzaAutostradaM": 51,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -7957,7 +7957,7 @@
         {
           "codice": "osm:node/5376539532",
           "modello": "innogy SE",
-          "operatore": "innogy SE",
+          "operatore": "Innogy",
           "connettori": [
             {
               "modello": "CCS"
@@ -7984,7 +7984,7 @@
       "lat": 50.821331,
       "lon": 12.764779,
       "paese": "DE",
-      "operatore": "Autobahn Tank & Rast",
+      "operatore": "Tank & Rast",
       "distanzaAutostradaM": 83,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -7992,7 +7992,7 @@
         {
           "codice": "osm:node/5392279533",
           "modello": "Raststätte Rabensteiner Wald Süd",
-          "operatore": "Autobahn Tank & Rast",
+          "operatore": "Tank & Rast",
           "connettori": []
         }
       ],
@@ -8009,7 +8009,7 @@
       "lat": 52.257483,
       "lon": 9.306416,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 74,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8017,7 +8017,7 @@
         {
           "codice": "osm:node/5400788492",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -8126,7 +8126,7 @@
       "lat": 51.090983,
       "lon": 13.236835,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 71,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8134,7 +8134,7 @@
         {
           "codice": "osm:node/5433531445",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -8193,7 +8193,7 @@
       "lat": 49.690243,
       "lon": 8.603836,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 73,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8201,7 +8201,7 @@
         {
           "codice": "osm:node/5484519823",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -8266,7 +8266,7 @@
       "lat": 53.521793,
       "lon": 10.802858,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 48,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8274,7 +8274,7 @@
         {
           "codice": "osm:node/5498438800",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -8301,7 +8301,7 @@
       "lat": 53.520087,
       "lon": 10.805803,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 39,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8309,7 +8309,7 @@
         {
           "codice": "osm:node/5498438801",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -8336,7 +8336,7 @@
       "lat": 53.115188,
       "lon": 12.469104,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 60,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8344,7 +8344,7 @@
         {
           "codice": "osm:node/5498499331",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -8371,7 +8371,7 @@
       "lat": 53.115299,
       "lon": 12.466831,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 54,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8379,7 +8379,7 @@
         {
           "codice": "osm:node/5498499336",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -8568,7 +8568,7 @@
       "lat": 49.946831,
       "lon": 8.611259,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 81,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8576,7 +8576,7 @@
         {
           "codice": "osm:node/5588627321",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -8672,7 +8672,7 @@
       "lat": 50.056371,
       "lon": 8.908252,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 80,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8680,7 +8680,7 @@
         {
           "codice": "osm:node/5619875232",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -8707,7 +8707,7 @@
       "lat": 52.539243,
       "lon": 8.114501,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 65,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8731,7 +8731,7 @@
         {
           "codice": "osm:node/13716104958",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -8818,7 +8818,7 @@
       "lat": 53.298958,
       "lon": 9.535005,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 112,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8826,7 +8826,7 @@
         {
           "codice": "osm:node/5652025944",
           "modello": "Raststätte Ostetal Süd Ladestation",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -8929,7 +8929,7 @@
       "lat": 49.320788,
       "lon": 8.567842,
       "paese": "DE",
-      "operatore": "mblty GmbH",
+      "operatore": "mblty",
       "distanzaAutostradaM": 81,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -8937,7 +8937,7 @@
         {
           "codice": "osm:node/5727444821",
           "modello": "mblty GmbH",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -8953,7 +8953,7 @@
         {
           "codice": "osm:node/5727444822",
           "modello": "4026",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -9079,7 +9079,7 @@
       "lat": 52.250751,
       "lon": 12.309335,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 81,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9087,7 +9087,7 @@
         {
           "codice": "osm:node/5747548948",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -9104,7 +9104,7 @@
       "lat": 52.252101,
       "lon": 12.307848,
       "paese": "DE",
-      "operatore": "e.on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 85,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9112,7 +9112,7 @@
         {
           "codice": "osm:node/5747554564",
           "modello": "e.on",
-          "operatore": "e.on",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -9154,7 +9154,7 @@
       "lat": 51.105574,
       "lon": 11.957221,
       "paese": "DE",
-      "operatore": "E.ON, eon",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 90,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9162,7 +9162,7 @@
         {
           "codice": "osm:node/5752941086",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -9175,7 +9175,7 @@
         {
           "codice": "osm:node/5882239685",
           "modello": "eon",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -9188,7 +9188,7 @@
         {
           "codice": "osm:node/9108415890",
           "modello": "eon",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -9201,7 +9201,7 @@
         {
           "codice": "osm:node/9108415891",
           "modello": "eon",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -9214,7 +9214,7 @@
         {
           "codice": "osm:node/9108415892",
           "modello": "eon",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -9231,7 +9231,7 @@
       "lat": 51.104646,
       "lon": 11.954746,
       "paese": "DE",
-      "operatore": "E.ON, MER",
+      "operatore": "E.ON Drive, Mer",
       "distanzaAutostradaM": 67,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9239,7 +9239,7 @@
         {
           "codice": "osm:node/5752967081",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -9255,7 +9255,7 @@
         {
           "codice": "osm:node/10087861102",
           "modello": "Mer",
-          "operatore": "MER",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS 150"
@@ -9279,7 +9279,7 @@
       "lat": 48.412646,
       "lon": 10.911604,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 140,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9287,7 +9287,7 @@
         {
           "codice": "osm:node/5761697704",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -9314,7 +9314,7 @@
       "lat": 51.222948,
       "lon": 7.670093,
       "paese": "DE",
-      "operatore": "e-on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 93,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9322,7 +9322,7 @@
         {
           "codice": "osm:node/5779453059",
           "modello": "e-on",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -9450,7 +9450,7 @@
       "lat": 51.630183,
       "lon": 7.873438,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 71,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9458,7 +9458,7 @@
         {
           "codice": "osm:node/5825250737",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -9530,7 +9530,7 @@
       "lat": 52.018216,
       "lon": 8.635085,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH, MAN Truck & Bus SE / HoLa Projekt",
+      "operatore": "E.ON Drive, MAN Truck & Bus SE / HoLa Projekt",
       "distanzaAutostradaM": 100,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9538,7 +9538,7 @@
         {
           "codice": "osm:node/5827677540",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -9593,7 +9593,7 @@
       "lat": 50.405765,
       "lon": 11.772718,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH, Tank & Rast",
+      "operatore": "E.ON Drive, Tank & Rast",
       "distanzaAutostradaM": 74,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9607,7 +9607,7 @@
         {
           "codice": "osm:way/1396464784",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -9684,7 +9684,7 @@
       "lat": 52.071855,
       "lon": 8.66461,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 85,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9692,7 +9692,7 @@
         {
           "codice": "osm:node/5887679711",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -9893,7 +9893,7 @@
       "lat": 50.759783,
       "lon": 9.357828,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 64,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -9901,7 +9901,7 @@
         {
           "codice": "osm:node/5940220706",
           "modello": "e.on Drive",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -10137,7 +10137,7 @@
       "lat": 52.42232,
       "lon": 9.554548,
       "paese": "DE",
-      "operatore": "eon",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 85,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -10145,7 +10145,7 @@
         {
           "codice": "osm:node/6139071986",
           "modello": "eon",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CHAdeMO"
@@ -10194,7 +10194,7 @@
       "lat": 51.771917,
       "lon": 7.176998,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 55,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -10202,7 +10202,7 @@
         {
           "codice": "osm:node/6166061006",
           "modello": "Schnellladestation Hohe Mark Ost",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -10254,7 +10254,7 @@
       "lat": 51.381193,
       "lon": 9.239658,
       "paese": "DE",
-      "operatore": "Eon",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 78,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -10262,7 +10262,7 @@
         {
           "codice": "osm:node/6239648004",
           "modello": "Eon",
-          "operatore": "Eon",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -10286,7 +10286,7 @@
       "lat": 52.128458,
       "lon": 10.04997,
       "paese": "DE",
-      "operatore": "Inogy",
+      "operatore": "Innogy",
       "distanzaAutostradaM": 65,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -10294,7 +10294,7 @@
         {
           "codice": "osm:node/6254000513",
           "modello": "Ladepunkt Hildesheimer Börde Ost",
-          "operatore": "Inogy",
+          "operatore": "Innogy",
           "connettori": [
             {
               "modello": "CCS 50kW"
@@ -10321,7 +10321,7 @@
       "lat": 51.927673,
       "lon": 8.52884,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 64,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -10329,7 +10329,7 @@
         {
           "codice": "osm:node/6316294715",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -10553,7 +10553,7 @@
       "lat": 47.927119,
       "lon": 11.401699,
       "paese": "DE",
-      "operatore": "innogy eMobility Solutions",
+      "operatore": "Innogy",
       "distanzaAutostradaM": 57,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -10561,7 +10561,7 @@
         {
           "codice": "osm:node/6515575601",
           "modello": "Autobahnraststätte Höhenrain West",
-          "operatore": "innogy eMobility Solutions",
+          "operatore": "Innogy",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -10588,7 +10588,7 @@
       "lat": 47.926921,
       "lon": 11.402918,
       "paese": "DE",
-      "operatore": "innogy eMobility Solutions",
+      "operatore": "Innogy",
       "distanzaAutostradaM": 23,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -10596,7 +10596,7 @@
         {
           "codice": "osm:node/6515575602",
           "modello": "Autobahnraststätte Höhenrain Ost",
-          "operatore": "innogy eMobility Solutions",
+          "operatore": "Innogy",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -10817,7 +10817,7 @@
       "lat": 51.265533,
       "lon": 7.248995,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 70,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -10825,7 +10825,7 @@
         {
           "codice": "osm:node/6565225669",
           "modello": "Schnellladestation Kucksiepen",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -10925,7 +10925,7 @@
       "lat": 51.929991,
       "lon": 8.532084,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 16,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -10933,7 +10933,7 @@
         {
           "codice": "osm:node/6665702437",
           "modello": "E.ON Drive Infrastructure GmbH",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -11298,7 +11298,7 @@
       "lat": 51.158212,
       "lon": 7.230583,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 147,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -11306,7 +11306,7 @@
         {
           "codice": "osm:node/7017014540",
           "modello": "Schnellladestation Remscheid Ost",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -11333,7 +11333,7 @@
       "lat": 50.05466,
       "lon": 8.908162,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 82,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -11341,7 +11341,7 @@
         {
           "codice": "osm:node/7081862858",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -11368,7 +11368,7 @@
       "lat": 50.094561,
       "lon": 8.352452,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 60,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -11376,7 +11376,7 @@
         {
           "codice": "osm:node/7083496646",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -11462,7 +11462,7 @@
       "lat": 50.622174,
       "lon": 8.897324,
       "paese": "DE",
-      "operatore": "e-on Drive",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 125,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -11470,7 +11470,7 @@
         {
           "codice": "osm:node/7210852106",
           "modello": "e-on Drive",
-          "operatore": "e-on Drive",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -11494,7 +11494,7 @@
       "lat": 50.356508,
       "lon": 8.692376,
       "paese": "DE",
-      "operatore": "e-on Drive",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 123,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -11502,7 +11502,7 @@
         {
           "codice": "osm:node/7210852108",
           "modello": "e-on Drive",
-          "operatore": "e-on Drive",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -11529,7 +11529,7 @@
       "lat": 50.356496,
       "lon": 8.695466,
       "paese": "DE",
-      "operatore": "e-on Drive",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 69,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -11537,7 +11537,7 @@
         {
           "codice": "osm:node/7210852109",
           "modello": "e-on Drive",
-          "operatore": "e-on Drive",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -11596,7 +11596,7 @@
       "lat": 48.516276,
       "lon": 9.759347,
       "paese": "DE",
-      "operatore": "Aral, Revolution E, Tesla",
+      "operatore": "Aral pulse, Revolution E, Tesla",
       "distanzaAutostradaM": 220,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -11604,7 +11604,7 @@
         {
           "codice": "osm:node/7302373497",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -11879,7 +11879,7 @@
       "lat": 51.435231,
       "lon": 11.426718,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 93,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -11887,7 +11887,7 @@
         {
           "codice": "osm:node/7511768835",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -12043,7 +12043,7 @@
       "lat": 50.433635,
       "lon": 12.130536,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 86,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12051,7 +12051,7 @@
         {
           "codice": "osm:node/7681376089",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -12075,7 +12075,7 @@
       "lat": 52.132286,
       "lon": 12.750156,
       "paese": "DE",
-      "operatore": "Mer, mer",
+      "operatore": "Mer",
       "distanzaAutostradaM": 90,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12083,7 +12083,7 @@
         {
           "codice": "osm:node/7707693754",
           "modello": "Mer",
-          "operatore": "mer",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS"
@@ -12116,7 +12116,7 @@
       "lat": 51.125616,
       "lon": 6.602011,
       "paese": "DE",
-      "operatore": "E-on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 80,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12124,7 +12124,7 @@
         {
           "codice": "osm:node/7728663572",
           "modello": "E-on",
-          "operatore": "E-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -12183,7 +12183,7 @@
       "lat": 53.483849,
       "lon": 10.024307,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 64,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12191,7 +12191,7 @@
         {
           "codice": "osm:node/7808567841",
           "modello": "Stillhorn West",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -12218,7 +12218,7 @@
       "lat": 50.893577,
       "lon": 12.940766,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 95,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12226,7 +12226,7 @@
         {
           "codice": "osm:node/7837398395",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -12500,7 +12500,7 @@
       "lat": 50.897535,
       "lon": 7.153289,
       "paese": "DE",
-      "operatore": "innogy eMobility Solutions GmbH",
+      "operatore": "Innogy",
       "distanzaAutostradaM": 76,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12508,7 +12508,7 @@
         {
           "codice": "osm:node/8037752676",
           "modello": "Königsforst West",
-          "operatore": "innogy eMobility Solutions GmbH",
+          "operatore": "Innogy",
           "connettori": []
         }
       ],
@@ -12525,7 +12525,7 @@
       "lat": 52.215084,
       "lon": 11.079187,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 154,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12533,7 +12533,7 @@
         {
           "codice": "osm:node/8083274900",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 150"
@@ -12588,7 +12588,7 @@
       "lat": 51.559976,
       "lon": 13.922185,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 71,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12596,7 +12596,7 @@
         {
           "codice": "osm:node/8224851893",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 160 kW"
@@ -12620,7 +12620,7 @@
       "lat": 51.567747,
       "lon": 13.927777,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 82,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12628,7 +12628,7 @@
         {
           "codice": "osm:node/8224925036",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 160 kW"
@@ -12652,7 +12652,7 @@
       "lat": 52.96127,
       "lon": 9.893762,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 128,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12660,7 +12660,7 @@
         {
           "codice": "osm:node/8233431777",
           "modello": "Charge-ON GmbH",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -12687,7 +12687,7 @@
       "lat": 53.194328,
       "lon": 9.289099,
       "paese": "DE",
-      "operatore": "Aral, EWE Go GmbH, Shell Recharge",
+      "operatore": "Aral pulse, EWE Go, Shell Recharge",
       "distanzaAutostradaM": 133,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12695,7 +12695,7 @@
         {
           "codice": "osm:node/8248254261",
           "modello": "McDonald's Ladestation",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "connettori": [
             {
               "modello": "CCS 400 kW"
@@ -12714,7 +12714,7 @@
         {
           "codice": "osm:node/12235837450",
           "modello": "Aral Ladestation",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -12860,7 +12860,7 @@
       "lat": 52.302965,
       "lon": 13.01733,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 49,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12868,7 +12868,7 @@
         {
           "codice": "osm:node/8252117847",
           "modello": "e•on drive",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 160 kW"
@@ -12892,7 +12892,7 @@
       "lat": 53.484224,
       "lon": 10.026474,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 29,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -12900,7 +12900,7 @@
         {
           "codice": "osm:node/8255297804",
           "modello": "Stillhorn Ost",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -13073,7 +13073,7 @@
       "lat": 50.857258,
       "lon": 6.804012,
       "paese": "DE",
-      "operatore": "e-on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 83,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13081,7 +13081,7 @@
         {
           "codice": "osm:node/8378607684",
           "modello": "e-on",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -13176,7 +13176,7 @@
       "lat": 52.210055,
       "lon": 13.607937,
       "paese": "DE",
-      "operatore": "EON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 56,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13184,7 +13184,7 @@
         {
           "codice": "osm:node/8445238414",
           "modello": "",
-          "operatore": "EON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -13201,7 +13201,7 @@
       "lat": 49.836814,
       "lon": 12.172388,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 42,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13209,19 +13209,19 @@
         {
           "codice": "osm:node/8460766117",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         },
         {
           "codice": "osm:node/8460766119",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         },
         {
           "codice": "osm:node/11789436588",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -13279,7 +13279,7 @@
       "lat": 51.494218,
       "lon": 7.338915,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 73,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13287,7 +13287,7 @@
         {
           "codice": "osm:node/8514487400",
           "modello": "Aral Tankstelle Rastplatz Beverbach",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": []
         }
       ],
@@ -13304,7 +13304,7 @@
       "lat": 51.772066,
       "lon": 7.174763,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 87,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13312,7 +13312,7 @@
         {
           "codice": "osm:node/8514510104",
           "modello": "Schnellladestation Hohe Mark West",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -13339,7 +13339,7 @@
       "lat": 50.89936,
       "lon": 7.152171,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 63,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13347,7 +13347,7 @@
         {
           "codice": "osm:node/8514837709",
           "modello": "Königsforst Ost",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": []
         }
       ],
@@ -13480,7 +13480,7 @@
       "lat": 51.468367,
       "lon": 7.594016,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 72,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13488,7 +13488,7 @@
         {
           "codice": "osm:node/8545256626",
           "modello": "Schnellladestation Lichtendorf Nord",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": []
         }
       ],
@@ -13549,7 +13549,7 @@
       "lat": 51.261938,
       "lon": 12.708152,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 113,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13557,7 +13557,7 @@
         {
           "codice": "osm:node/8639517135",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -13581,7 +13581,7 @@
       "lat": 51.260746,
       "lon": 12.705265,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 82,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13589,7 +13589,7 @@
         {
           "codice": "osm:node/8639517949",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -13720,7 +13720,7 @@
       "lat": 47.906326,
       "lon": 11.717442,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 60,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13728,7 +13728,7 @@
         {
           "codice": "osm:node/8712275777",
           "modello": "Charge-ON GmbH",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 160 kW"
@@ -13923,7 +13923,7 @@
       "lat": 51.198012,
       "lon": 14.330236,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 97,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13931,7 +13931,7 @@
         {
           "codice": "osm:node/8788297634",
           "modello": "E.ON, Tank & Rast",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -13955,7 +13955,7 @@
       "lat": 51.200117,
       "lon": 14.329918,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 109,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13963,7 +13963,7 @@
         {
           "codice": "osm:node/8788297681",
           "modello": "E.ON, Tank & Rast",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -13987,7 +13987,7 @@
       "lat": 50.466026,
       "lon": 12.184664,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 101,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -13995,7 +13995,7 @@
         {
           "codice": "osm:node/8808250163",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -14019,7 +14019,7 @@
       "lat": 50.858084,
       "lon": 6.806648,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 83,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14027,7 +14027,7 @@
         {
           "codice": "osm:node/8856833290",
           "modello": "Charge-ON GmbH",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": []
         }
       ],
@@ -14044,7 +14044,7 @@
       "lat": 51.125467,
       "lon": 6.7975,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 121,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14052,7 +14052,7 @@
         {
           "codice": "osm:node/8878636559",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -14076,7 +14076,7 @@
       "lat": 51.629886,
       "lon": 9.92161,
       "paese": "DE",
-      "operatore": "EWE-GO, mer",
+      "operatore": "EWE Go, Mer",
       "distanzaAutostradaM": 160,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14084,13 +14084,13 @@
         {
           "codice": "osm:node/8901845086",
           "modello": "mer",
-          "operatore": "mer",
+          "operatore": "Mer",
           "connettori": []
         },
         {
           "codice": "osm:node/11199912424",
           "modello": "",
-          "operatore": "EWE-GO",
+          "operatore": "EWE Go",
           "connettori": []
         },
         {
@@ -14113,7 +14113,7 @@
       "lat": 51.036189,
       "lon": 9.489674,
       "paese": "DE",
-      "operatore": "e-on Drive",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 82,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14121,7 +14121,7 @@
         {
           "codice": "osm:node/8977932632",
           "modello": "e-on Drive",
-          "operatore": "e-on Drive",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -14138,7 +14138,7 @@
       "lat": 49.41026,
       "lon": 8.341668,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 60,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14146,7 +14146,7 @@
         {
           "codice": "osm:node/8986426677",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -14159,7 +14159,7 @@
         {
           "codice": "osm:node/8986426678",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -14172,7 +14172,7 @@
         {
           "codice": "osm:node/8986426679",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -14185,7 +14185,7 @@
         {
           "codice": "osm:node/8986426680",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -14244,7 +14244,7 @@
       "lat": 50.643212,
       "lon": 6.942013,
       "paese": "DE",
-      "operatore": "Tank & Rast; innogy; e-on",
+      "operatore": "Tank & Rast",
       "distanzaAutostradaM": 56,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14252,7 +14252,7 @@
         {
           "codice": "osm:node/9020767905",
           "modello": "Innogy HPC",
-          "operatore": "Tank & Rast; innogy; e-on",
+          "operatore": "Tank & Rast",
           "connettori": []
         }
       ],
@@ -14269,7 +14269,7 @@
       "lat": 51.942234,
       "lon": 7.551107,
       "paese": "DE",
-      "operatore": "Charge-On GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 73,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14277,7 +14277,7 @@
         {
           "codice": "osm:node/9038359325",
           "modello": "Schnellladestation Münsterland Ost",
-          "operatore": "Charge-On GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 160 kW"
@@ -14301,7 +14301,7 @@
       "lat": 51.945518,
       "lon": 7.547794,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 73,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14309,7 +14309,7 @@
         {
           "codice": "osm:node/9038378182",
           "modello": "Schnellladestation Münsterland West",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -14640,7 +14640,7 @@
       "lat": 50.388574,
       "lon": 9.530613,
       "paese": "DE",
-      "operatore": "EWE Go GmbH, Shell Recharge, e-on",
+      "operatore": "E.ON Drive, EWE Go, Shell Recharge",
       "distanzaAutostradaM": 105,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14648,7 +14648,7 @@
         {
           "codice": "osm:node/9150244273",
           "modello": "e-on",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -14664,7 +14664,7 @@
         {
           "codice": "osm:node/10797146626",
           "modello": "EWE Go GmbH",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "connettori": [
             {
               "modello": "CCS"
@@ -14725,7 +14725,7 @@
       "lat": 51.817946,
       "lon": 6.444026,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 172,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14733,7 +14733,7 @@
         {
           "codice": "osm:node/9208147950",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -14749,7 +14749,7 @@
         {
           "codice": "osm:node/9208147951",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -14765,7 +14765,7 @@
         {
           "codice": "osm:node/9208147952",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -14781,7 +14781,7 @@
         {
           "codice": "osm:node/9208147957",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -14808,7 +14808,7 @@
       "lat": 51.866437,
       "lon": 8.369608,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 64,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14816,7 +14816,7 @@
         {
           "codice": "osm:node/9221649319",
           "modello": "Schnellladestation A2 Gütersloh Nord 1",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -14832,7 +14832,7 @@
         {
           "codice": "osm:node/12857309420",
           "modello": "Schnellladestation A2 Gütersloh Nord 2",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -14859,7 +14859,7 @@
       "lat": 51.864902,
       "lon": 8.369847,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 81,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -14867,7 +14867,7 @@
         {
           "codice": "osm:node/9221650968",
           "modello": "Schnellladestation A2 Gütersloh Süd 1",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -14883,7 +14883,7 @@
         {
           "codice": "osm:node/12857309419",
           "modello": "Schnellladestation A2 Gütersloh Süd 2",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -15009,7 +15009,7 @@
       "lat": 47.802832,
       "lon": 12.178792,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 39,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -15017,7 +15017,7 @@
         {
           "codice": "osm:node/9324793403",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS"
@@ -15041,7 +15041,7 @@
       "lat": 52.333153,
       "lon": 9.413996,
       "paese": "DE",
-      "operatore": "EWE Go GmbH",
+      "operatore": "EWE Go",
       "distanzaAutostradaM": 346,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -15074,7 +15074,7 @@
         {
           "codice": "osm:node/9349613622",
           "modello": "EWE Go GmbH",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "connettori": [
             {
               "modello": "CCS"
@@ -15098,7 +15098,7 @@
       "lat": 50.95007,
       "lon": 11.195021,
       "paese": "DE",
-      "operatore": "e-on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 125,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -15106,7 +15106,7 @@
         {
           "codice": "osm:node/9581103473",
           "modello": "e-on",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -15123,7 +15123,7 @@
       "lat": 51.653532,
       "lon": 6.197708,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 74,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -15131,7 +15131,7 @@
         {
           "codice": "osm:node/9606215550",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -15252,7 +15252,7 @@
       "lat": 53.841373,
       "lon": 12.290175,
       "paese": "DE",
-      "operatore": "MER",
+      "operatore": "Mer",
       "distanzaAutostradaM": 126,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -15260,13 +15260,13 @@
         {
           "codice": "osm:node/9791870714",
           "modello": "Mer",
-          "operatore": "MER",
+          "operatore": "Mer",
           "connettori": []
         },
         {
           "codice": "osm:node/9791870715",
           "modello": "Mer",
-          "operatore": "MER",
+          "operatore": "Mer",
           "connettori": []
         }
       ],
@@ -15445,7 +15445,7 @@
       "lat": 50.947876,
       "lon": 11.196961,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 111,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -15453,7 +15453,7 @@
         {
           "codice": "osm:node/9903654432",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -15703,7 +15703,7 @@
       "lat": 50.302179,
       "lon": 8.236405,
       "paese": "DE",
-      "operatore": "mblty GmbH",
+      "operatore": "mblty",
       "distanzaAutostradaM": 81,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -15717,37 +15717,37 @@
         {
           "codice": "osm:node/12328316768",
           "modello": "mblty GmbH",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "connettori": []
         },
         {
           "codice": "osm:node/12328316769",
           "modello": "mblty GmbH",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "connettori": []
         },
         {
           "codice": "osm:node/12328316770",
           "modello": "mblty GmbH",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "connettori": []
         },
         {
           "codice": "osm:node/12328316771",
           "modello": "mblty GmbH",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "connettori": []
         },
         {
           "codice": "osm:node/12328316772",
           "modello": "mblty GmbH",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "connettori": []
         },
         {
           "codice": "osm:node/12328316773",
           "modello": "mblty GmbH",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "connettori": []
         }
       ],
@@ -15860,7 +15860,7 @@
       "lat": 54.054543,
       "lon": 12.630507,
       "paese": "DE",
-      "operatore": "MER Germany GmbH",
+      "operatore": "Mer",
       "distanzaAutostradaM": 84,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -15868,19 +15868,19 @@
         {
           "codice": "osm:node/10586703840",
           "modello": "MER Germany GmbH",
-          "operatore": "MER Germany GmbH",
+          "operatore": "Mer",
           "connettori": []
         },
         {
           "codice": "osm:node/10586703841",
           "modello": "MER Germany GmbH",
-          "operatore": "MER Germany GmbH",
+          "operatore": "Mer",
           "connettori": []
         },
         {
           "codice": "osm:node/10586703842",
           "modello": "MER Germany GmbH",
-          "operatore": "MER Germany GmbH",
+          "operatore": "Mer",
           "connettori": []
         }
       ],
@@ -15897,7 +15897,7 @@
       "lat": 51.060455,
       "lon": 13.572348,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 145,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -15905,7 +15905,7 @@
         {
           "codice": "osm:node/10604248305",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -16044,7 +16044,7 @@
       "lat": 51.911153,
       "lon": 13.79683,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 84,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16052,7 +16052,7 @@
         {
           "codice": "osm:node/10963114392",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -16097,7 +16097,7 @@
       "lat": 53.909044,
       "lon": 11.757439,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 73,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16105,7 +16105,7 @@
         {
           "codice": "osm:node/10969663399",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -16121,7 +16121,7 @@
         {
           "codice": "osm:node/10969663400",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -16137,7 +16137,7 @@
         {
           "codice": "osm:node/10969663401",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -16164,7 +16164,7 @@
       "lat": 51.888565,
       "lon": 13.837133,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 68,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16172,7 +16172,7 @@
         {
           "codice": "osm:node/11056692896",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": []
         }
       ],
@@ -16384,7 +16384,7 @@
       "lat": 52.892218,
       "lon": 9.767652,
       "paese": "DE",
-      "operatore": "EnBW, MBLTY",
+      "operatore": "EnBW, mblty",
       "distanzaAutostradaM": 121,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16392,13 +16392,13 @@
         {
           "codice": "osm:node/11665345005",
           "modello": "MBLTY",
-          "operatore": "MBLTY",
+          "operatore": "mblty",
           "connettori": []
         },
         {
           "codice": "osm:node/11665345006",
           "modello": "MBLTY",
-          "operatore": "MBLTY",
+          "operatore": "mblty",
           "connettori": []
         },
         {
@@ -16421,7 +16421,7 @@
       "lat": 52.540731,
       "lon": 8.112472,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 69,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16429,7 +16429,7 @@
         {
           "codice": "osm:node/11711239228",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -16534,7 +16534,7 @@
       "lat": 52.49965,
       "lon": 13.744724,
       "paese": "DE",
-      "operatore": "Allego, Aral, EnBW",
+      "operatore": "Allego, Aral pulse, EnBW",
       "distanzaAutostradaM": 177,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16554,7 +16554,7 @@
         {
           "codice": "osm:node/12587799732",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": []
         }
       ],
@@ -16681,7 +16681,7 @@
       "lat": 50.929298,
       "lon": 6.774868,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 50,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16689,7 +16689,7 @@
         {
           "codice": "osm:node/12358353321",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -16706,7 +16706,7 @@
       "lat": 53.366986,
       "lon": 9.736264,
       "paese": "DE",
-      "operatore": "e-on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 113,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16714,7 +16714,7 @@
         {
           "codice": "osm:node/12533966025",
           "modello": "E-on Ladestation",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -16763,7 +16763,7 @@
       "lat": 52.544105,
       "lon": 13.692373,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 129,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16771,7 +16771,7 @@
         {
           "codice": "osm:node/12587730047",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -16788,7 +16788,7 @@
       "lat": 52.542201,
       "lon": 13.689708,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 133,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16796,7 +16796,7 @@
         {
           "codice": "osm:node/12587730050",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": []
         }
       ],
@@ -16894,7 +16894,7 @@
       "lat": 53.42414,
       "lon": 9.96636,
       "paese": "DE",
-      "operatore": "e-on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 62,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16902,7 +16902,7 @@
         {
           "codice": "osm:node/12855718616",
           "modello": "E-on Ladestation",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -16938,7 +16938,7 @@
       "lat": 53.424081,
       "lon": 9.963039,
       "paese": "DE",
-      "operatore": "e-on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 62,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16946,7 +16946,7 @@
         {
           "codice": "osm:node/12855718617",
           "modello": "E-on Ladestation",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -16979,7 +16979,7 @@
       "lat": 53.959638,
       "lon": 10.260847,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 46,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -16987,7 +16987,7 @@
         {
           "codice": "osm:node/12866641694",
           "modello": "Aral Schackendorf West",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -17003,7 +17003,7 @@
         {
           "codice": "osm:node/12866641695",
           "modello": "Aral Schackendorf West",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -17019,7 +17019,7 @@
         {
           "codice": "osm:way/1390052713",
           "modello": "Aral Schackendorf West",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -17080,7 +17080,7 @@
       "lat": 51.498552,
       "lon": 8.985,
       "paese": "DE",
-      "operatore": "E.ON Drive Infrastructure GmbH",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 44,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -17088,7 +17088,7 @@
         {
           "codice": "osm:node/12916940819",
           "modello": "Schnelladestation Am Biggenkopf Süd Diemelstadt",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -17463,7 +17463,7 @@
       "lat": 51.063078,
       "lon": 13.57082,
       "paese": "DE",
-      "operatore": "E.ON",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 129,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -17471,7 +17471,7 @@
         {
           "codice": "osm:node/13544630154",
           "modello": "E.ON",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 100 kW"
@@ -17828,7 +17828,7 @@
       "lat": 53.275352,
       "lon": 10.401502,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 210,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -17836,7 +17836,7 @@
         {
           "codice": "osm:way/1265667744",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -17872,7 +17872,7 @@
       "lat": 53.716693,
       "lon": 9.93751,
       "paese": "DE",
-      "operatore": "Mer Germany GmbH",
+      "operatore": "Mer",
       "distanzaAutostradaM": 72,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -17880,7 +17880,7 @@
         {
           "codice": "osm:way/1315591278",
           "modello": "Mer TuR Holmmoor West",
-          "operatore": "Mer Germany GmbH",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS 120 kW"
@@ -17916,7 +17916,7 @@
       "lat": 53.717093,
       "lon": 9.940007,
       "paese": "DE",
-      "operatore": "Mer Germany GmbH",
+      "operatore": "Mer",
       "distanzaAutostradaM": 77,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -17924,7 +17924,7 @@
         {
           "codice": "osm:way/1315591279",
           "modello": "Mer TuR Holmmoor Ost",
-          "operatore": "Mer Germany GmbH",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -17960,7 +17960,7 @@
       "lat": 54.013965,
       "lon": 9.933176,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 85,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -17968,7 +17968,7 @@
         {
           "codice": "osm:way/1316249000",
           "modello": "E.ON Drive Brokenlande Ost",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW;175 kW"
@@ -18007,7 +18007,7 @@
       "lat": 54.092709,
       "lon": 9.92956,
       "paese": "DE",
-      "operatore": "Charge-ON GmbH",
+      "operatore": "Charge-ON",
       "distanzaAutostradaM": 100,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -18015,7 +18015,7 @@
         {
           "codice": "osm:way/1316249007",
           "modello": "E.ON Drive Aalbek West",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "connettori": [
             {
               "modello": "CCS 50 kW;175 kW"
@@ -18095,7 +18095,7 @@
       "lat": 52.434047,
       "lon": 13.191818,
       "paese": "DE",
-      "operatore": "Mer Germany",
+      "operatore": "Mer",
       "distanzaAutostradaM": 55,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -18103,7 +18103,7 @@
         {
           "codice": "osm:way/1382926669",
           "modello": "Mer Germany",
-          "operatore": "Mer Germany",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -18325,7 +18325,7 @@
       "lat": 51.225896,
       "lon": 14.902236,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 284,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -18333,7 +18333,7 @@
         {
           "codice": "osm:way/1467285851",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -18394,7 +18394,7 @@
       "lat": 50.893428,
       "lon": 12.945985,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 95,
       "tipoArea": "services",
       "dentroAreaServizio": null,
@@ -18402,7 +18402,7 @@
         {
           "codice": "osm:way/1476644179",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -19068,7 +19068,7 @@
       "lat": 50.181928,
       "lon": 9.006722,
       "paese": "DE",
-      "operatore": "Allego, LKW - Kühlladung, Tesla, fast E",
+      "operatore": "Allego, Fast-E, LKW - Kühlladung, Tesla",
       "distanzaAutostradaM": 398,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Neuberg",
@@ -19113,7 +19113,7 @@
         {
           "codice": "osm:node/5588627621",
           "modello": "fast E",
-          "operatore": "fast E",
+          "operatore": "Fast-E",
           "connettori": []
         },
         {
@@ -19278,7 +19278,7 @@
       "lat": 51.087228,
       "lon": 9.485105,
       "paese": "DE",
-      "operatore": "Tesla, allego",
+      "operatore": "Allego, Tesla",
       "distanzaAutostradaM": 37,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Malsfeld",
@@ -19317,7 +19317,7 @@
         {
           "codice": "osm:node/6751382237",
           "modello": "allego",
-          "operatore": "allego",
+          "operatore": "Allego",
           "connettori": []
         }
       ],
@@ -19768,7 +19768,7 @@
       "lat": 51.683334,
       "lon": 8.721778,
       "paese": "DE",
-      "operatore": "Aral, Tesla",
+      "operatore": "Aral pulse, Tesla",
       "distanzaAutostradaM": 569,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Paderborn-Mönkeloh",
@@ -19782,7 +19782,7 @@
         {
           "codice": "osm:node/10141637262",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -19798,7 +19798,7 @@
         {
           "codice": "osm:node/10141637263",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -19814,7 +19814,7 @@
         {
           "codice": "osm:node/13034159297",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS"
@@ -19873,7 +19873,7 @@
       "lat": 52.32598,
       "lon": 7.429616,
       "paese": "DE",
-      "operatore": "innogy;Autohof",
+      "operatore": "Innogy",
       "distanzaAutostradaM": 263,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Salzbergen",
@@ -19881,7 +19881,7 @@
         {
           "codice": "osm:node/5638563088",
           "modello": "innogy Rheine Nord",
-          "operatore": "innogy;Autohof",
+          "operatore": "Innogy",
           "connettori": [
             {
               "modello": "Type 2"
@@ -19940,7 +19940,7 @@
       "lat": 52.597895,
       "lon": 8.116778,
       "paese": "DE",
-      "operatore": "Allego.DE",
+      "operatore": "Allego",
       "distanzaAutostradaM": 165,
       "tipoArea": "services",
       "dentroAreaServizio": "Total Autohof Holdorf",
@@ -19948,7 +19948,7 @@
         {
           "codice": "osm:node/5808132261",
           "modello": "Allego.DE",
-          "operatore": "Allego.DE",
+          "operatore": "Allego",
           "connettori": [
             {
               "modello": "CCS"
@@ -20061,7 +20061,7 @@
       "lat": 51.896966,
       "lon": 11.692519,
       "paese": "DE",
-      "operatore": "Aral, Stadtwerk Staßfurt",
+      "operatore": "Aral pulse, Stadtwerk Staßfurt",
       "distanzaAutostradaM": 121,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Brumby",
@@ -20091,7 +20091,7 @@
         {
           "codice": "osm:way/449711027",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -20171,7 +20171,7 @@
       "lat": 52.160831,
       "lon": 9.996761,
       "paese": "DE",
-      "operatore": "Aral pulse, EWE Go GmbH, Fastned",
+      "operatore": "Aral pulse, EWE Go, Fastned",
       "distanzaAutostradaM": 585,
       "tipoArea": "services",
       "dentroAreaServizio": "Aral Autohof",
@@ -20204,7 +20204,7 @@
         {
           "codice": "osm:node/11119843868",
           "modello": "EWE Go Glockensteinfeld",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -20259,7 +20259,7 @@
       "lat": 47.625693,
       "lon": 7.606963,
       "paese": "DE",
-      "operatore": "wikidata=Q75560554",
+      "operatore": "sconosciuto",
       "distanzaAutostradaM": 117,
       "tipoArea": "services",
       "dentroAreaServizio": "Shell Autohof Dreiländereck Binzen",
@@ -20267,7 +20267,7 @@
         {
           "codice": "osm:node/6562208192",
           "modello": "wikidata=Q75560554",
-          "operatore": "wikidata=Q75560554",
+          "operatore": "",
           "connettori": []
         }
       ],
@@ -20449,7 +20449,7 @@
       "lat": 52.236895,
       "lon": 12.060062,
       "paese": "DE",
-      "operatore": "Allego GmbH",
+      "operatore": "Allego",
       "distanzaAutostradaM": 405,
       "tipoArea": "services",
       "dentroAreaServizio": "Euro Rastpark Theeßen",
@@ -20457,7 +20457,7 @@
         {
           "codice": "osm:node/7098425469",
           "modello": "Allego GmbH",
-          "operatore": "Allego GmbH",
+          "operatore": "Allego",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -20470,7 +20470,7 @@
         {
           "codice": "osm:node/10625205258",
           "modello": "Allego GmbH",
-          "operatore": "Allego GmbH",
+          "operatore": "Allego",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -20486,7 +20486,7 @@
         {
           "codice": "osm:node/10625205259",
           "modello": "Allego GmbH",
-          "operatore": "Allego GmbH",
+          "operatore": "Allego",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -20535,7 +20535,7 @@
       "lat": 47.909215,
       "lon": 7.592228,
       "paese": "DE",
-      "operatore": "e-on",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 183,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Bremgarten",
@@ -20543,7 +20543,7 @@
         {
           "codice": "osm:node/7902710785",
           "modello": "e-on",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -20556,7 +20556,7 @@
         {
           "codice": "osm:node/7902710885",
           "modello": "e-on",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -20569,7 +20569,7 @@
         {
           "codice": "osm:node/7902710886",
           "modello": "e-on",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -20582,7 +20582,7 @@
         {
           "codice": "osm:node/7902710887",
           "modello": "e-on",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -20631,7 +20631,7 @@
       "lat": 52.811513,
       "lon": 8.215741,
       "paese": "DE",
-      "operatore": "EWE Go GmbH",
+      "operatore": "EWE Go",
       "distanzaAutostradaM": 355,
       "tipoArea": "services",
       "dentroAreaServizio": "Hoyer Autohof Cloppenburger Land",
@@ -20639,7 +20639,7 @@
         {
           "codice": "osm:node/8245708768",
           "modello": "EWE Go GmbH",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "connettori": [
             {
               "modello": "Type 2 22 kW"
@@ -20719,7 +20719,7 @@
       "lat": 53.263217,
       "lon": 7.75553,
       "paese": "DE",
-      "operatore": "Aral, EWE Go",
+      "operatore": "Aral pulse, EWE Go",
       "distanzaAutostradaM": 384,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof A28 Apen",
@@ -20740,7 +20740,7 @@
         {
           "codice": "osm:node/13534253774",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": []
         }
       ],
@@ -20880,7 +20880,7 @@
       "lat": 51.597545,
       "lon": 8.515406,
       "paese": "DE",
-      "operatore": "Aral, EWEgo",
+      "operatore": "Aral pulse, EWE Go",
       "distanzaAutostradaM": 51,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Geseke",
@@ -20888,19 +20888,19 @@
         {
           "codice": "osm:node/8856864571",
           "modello": "Aral Autohof Geseke",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": []
         },
         {
           "codice": "osm:node/8856864572",
           "modello": "Aral Autohof Geseke",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": []
         },
         {
           "codice": "osm:node/12697063542",
           "modello": "EWEgo",
-          "operatore": "EWEgo",
+          "operatore": "EWE Go",
           "connettori": []
         }
       ],
@@ -20917,7 +20917,7 @@
       "lat": 52.303654,
       "lon": 12.971232,
       "paese": "DE",
-      "operatore": "Circle",
+      "operatore": "Circle K",
       "distanzaAutostradaM": 100,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Ferch",
@@ -20925,7 +20925,7 @@
         {
           "codice": "osm:node/8987160852",
           "modello": "Circle",
-          "operatore": "Circle",
+          "operatore": "Circle K",
           "connettori": []
         }
       ],
@@ -20942,7 +20942,7 @@
       "lat": 52.146585,
       "lon": 7.735753,
       "paese": "DE",
-      "operatore": "Aral, EWE Go GmbH",
+      "operatore": "Aral pulse, EWE Go",
       "distanzaAutostradaM": 200,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Ladbergen",
@@ -20950,7 +20950,7 @@
         {
           "codice": "osm:node/9022821701",
           "modello": "Aral Ladepunkt Ladbergen",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS"
@@ -20993,7 +20993,7 @@
         {
           "codice": "osm:node/12911359351",
           "modello": "EWE Go GmbH",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -21017,7 +21017,7 @@
       "lat": 50.934413,
       "lon": 11.389516,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 231,
       "tipoArea": "services",
       "dentroAreaServizio": "Aral Autohof Mellingen",
@@ -21025,7 +21025,7 @@
         {
           "codice": "osm:node/9141421962",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS"
@@ -21041,7 +21041,7 @@
         {
           "codice": "osm:node/9141421963",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS"
@@ -21178,7 +21178,7 @@
       "lat": 52.673502,
       "lon": 9.688575,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 314,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Schwarmstedt",
@@ -21186,7 +21186,7 @@
         {
           "codice": "osm:node/9234273138",
           "modello": "Aral Pulse",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -21265,7 +21265,7 @@
         {
           "codice": "osm:node/13580144132",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 600 kW"
@@ -21326,7 +21326,7 @@
       "lat": 49.804517,
       "lon": 12.184245,
       "paese": "DE",
-      "operatore": "Allego GmbH, Tesla",
+      "operatore": "Allego, Tesla",
       "distanzaAutostradaM": 123,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Bergler Neuhaus",
@@ -21334,7 +21334,7 @@
         {
           "codice": "osm:node/9399111043",
           "modello": "DC-Autohof Bergler",
-          "operatore": "Allego GmbH",
+          "operatore": "Allego",
           "connettori": [
             {
               "modello": "CCS 50 kW"
@@ -21442,7 +21442,7 @@
       "lat": 52.906041,
       "lon": 12.750017,
       "paese": "DE",
-      "operatore": "Total",
+      "operatore": "TotalEnergies",
       "distanzaAutostradaM": 626,
       "tipoArea": "services",
       "dentroAreaServizio": "Total Autohof Neuruppin",
@@ -21450,7 +21450,7 @@
         {
           "codice": "osm:node/9620742478",
           "modello": "Total",
-          "operatore": "Total",
+          "operatore": "TotalEnergies",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -21536,7 +21536,7 @@
       "lat": 52.314475,
       "lon": 13.663494,
       "paese": "DE",
-      "operatore": "BP Europa SE",
+      "operatore": "BP",
       "distanzaAutostradaM": 151,
       "tipoArea": "services",
       "dentroAreaServizio": "Aral Autohof Niederlehme",
@@ -21544,7 +21544,7 @@
         {
           "codice": "osm:node/9826280678",
           "modello": "Aral Autohof Niederlehme",
-          "operatore": "BP Europa SE",
+          "operatore": "BP",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -21643,7 +21643,7 @@
       "lat": 50.054855,
       "lon": 11.622637,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 319,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Berneck-Himmelkron",
@@ -21651,7 +21651,7 @@
         {
           "codice": "osm:node/9979573020",
           "modello": "Aral Pulse 300kW",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": []
         }
       ],
@@ -21943,7 +21943,7 @@
       "lat": 49.672874,
       "lon": 8.597034,
       "paese": "DE",
-      "operatore": "Aral, EWE Go",
+      "operatore": "Aral pulse, EWE Go",
       "distanzaAutostradaM": 210,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Bensheim",
@@ -21951,7 +21951,7 @@
         {
           "codice": "osm:node/10312022475",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -22042,7 +22042,7 @@
       "lat": 49.311397,
       "lon": 11.001596,
       "paese": "DE",
-      "operatore": "Pulse, pulse",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 130,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Schwabach - West",
@@ -22050,7 +22050,7 @@
         {
           "codice": "osm:node/10556468555",
           "modello": "Pulse",
-          "operatore": "Pulse",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -22066,7 +22066,7 @@
         {
           "codice": "osm:node/10556468556",
           "modello": "pulse",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -22082,7 +22082,7 @@
         {
           "codice": "osm:node/11950739697",
           "modello": "pulse",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -22098,7 +22098,7 @@
         {
           "codice": "osm:node/11950739698",
           "modello": "pulse",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -22114,7 +22114,7 @@
         {
           "codice": "osm:node/12944094389",
           "modello": "pulse",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS"
@@ -22130,7 +22130,7 @@
         {
           "codice": "osm:node/12944094390",
           "modello": "pulse",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS"
@@ -22157,7 +22157,7 @@
       "lat": 50.858209,
       "lon": 9.722432,
       "paese": "DE",
-      "operatore": "Total EV Charge",
+      "operatore": "TotalEnergies",
       "distanzaAutostradaM": 508,
       "tipoArea": "services",
       "dentroAreaServizio": "TOTAL Truckstop",
@@ -22165,7 +22165,7 @@
         {
           "codice": "osm:node/10584257533",
           "modello": "Total EV Charge",
-          "operatore": "Total EV Charge",
+          "operatore": "TotalEnergies",
           "connettori": [
             {
               "modello": "CCS 475 kW"
@@ -22195,7 +22195,7 @@
       "lat": 49.258732,
       "lon": 10.501463,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 104,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Herrieden",
@@ -22203,7 +22203,7 @@
         {
           "codice": "osm:node/10654083842",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -22246,7 +22246,7 @@
         {
           "codice": "osm:node/13899529989",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -22282,7 +22282,7 @@
       "lat": 50.115385,
       "lon": 7.598359,
       "paese": "DE",
-      "operatore": "E.ON Charging Station",
+      "operatore": "E.ON Drive",
       "distanzaAutostradaM": 312,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Pfalzfeld",
@@ -22290,7 +22290,7 @@
         {
           "codice": "osm:node/10757200252",
           "modello": "",
-          "operatore": "E.ON Charging Station",
+          "operatore": "E.ON Drive",
           "connettori": [
             {
               "modello": "CCS 175 kW"
@@ -22332,7 +22332,7 @@
       "lat": 52.997087,
       "lon": 9.921169,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 513,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Soltauer Heide",
@@ -22340,7 +22340,7 @@
         {
           "codice": "osm:node/10778058185",
           "modello": "Aral Ladestation",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -22536,7 +22536,7 @@
       "lat": 51.198327,
       "lon": 9.74518,
       "paese": "DE",
-      "operatore": "Aral, Tesla",
+      "operatore": "Aral pulse, Tesla",
       "distanzaAutostradaM": 194,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Hessisch-Lichtenau",
@@ -22550,7 +22550,7 @@
         {
           "codice": "osm:node/13146876599",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": []
         },
         {
@@ -22758,7 +22758,7 @@
       "lat": 51.698334,
       "lon": 7.672341,
       "paese": "DE",
-      "operatore": "EWEGO",
+      "operatore": "EWE Go",
       "distanzaAutostradaM": 411,
       "tipoArea": "services",
       "dentroAreaServizio": true,
@@ -22766,7 +22766,7 @@
         {
           "codice": "osm:node/11560785042",
           "modello": "EWEGO",
-          "operatore": "EWEGO",
+          "operatore": "EWE Go",
           "connettori": []
         }
       ],
@@ -22977,7 +22977,7 @@
       "lat": 49.996334,
       "lon": 7.683232,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 235,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Rheinböllen",
@@ -22985,7 +22985,7 @@
         {
           "codice": "osm:node/11948082285",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 150 kW / 300 kW"
@@ -23166,7 +23166,7 @@
       "lat": 52.385337,
       "lon": 9.953154,
       "paese": "DE",
-      "operatore": "Mblty",
+      "operatore": "mblty",
       "distanzaAutostradaM": 602,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Lehrte",
@@ -23174,7 +23174,7 @@
         {
           "codice": "osm:node/12121818894",
           "modello": "Mblty",
-          "operatore": "Mblty",
+          "operatore": "mblty",
           "connettori": []
         }
       ],
@@ -23277,7 +23277,7 @@
       "lat": 51.006393,
       "lon": 9.4739,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 539,
       "tipoArea": "services",
       "dentroAreaServizio": true,
@@ -23285,7 +23285,7 @@
         {
           "codice": "osm:node/12149992442",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -23304,7 +23304,7 @@
         {
           "codice": "osm:node/12149992443",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -23479,7 +23479,7 @@
       "lat": 53.230431,
       "lon": 9.343522,
       "paese": "DE",
-      "operatore": "mer",
+      "operatore": "Mer",
       "distanzaAutostradaM": 153,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Zeven-Elsdorf",
@@ -23487,7 +23487,7 @@
         {
           "codice": "osm:node/12235896222",
           "modello": "MER Ladestation",
-          "operatore": "mer",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -23735,7 +23735,7 @@
       "lat": 51.831186,
       "lon": 8.219184,
       "paese": "DE",
-      "operatore": "Mer Germany GmbH",
+      "operatore": "Mer",
       "distanzaAutostradaM": 245,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Rheda-Wiedenbrück",
@@ -23743,7 +23743,7 @@
         {
           "codice": "osm:node/12870709364",
           "modello": "Mer Germany GmbH",
-          "operatore": "Mer Germany GmbH",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS 225 kW"
@@ -23762,7 +23762,7 @@
         {
           "codice": "osm:node/12870709369",
           "modello": "Mer Germany GmbH",
-          "operatore": "Mer Germany GmbH",
+          "operatore": "Mer",
           "connettori": [
             {
               "modello": "CCS 150 kW"
@@ -23823,7 +23823,7 @@
       "lat": 52.210646,
       "lon": 8.874759,
       "paese": "DE",
-      "operatore": "EWE Go GmbH",
+      "operatore": "EWE Go",
       "distanzaAutostradaM": 59,
       "tipoArea": "services",
       "dentroAreaServizio": "Aral Autohof Porta Westfalica/Holtrup",
@@ -23831,7 +23831,7 @@
         {
           "codice": "osm:node/12922190057",
           "modello": "EWE Go GmbH",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -23844,7 +23844,7 @@
         {
           "codice": "osm:node/12922190058",
           "modello": "EWE Go GmbH",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -24109,7 +24109,7 @@
       "lat": 51.268921,
       "lon": 11.977691,
       "paese": "DE",
-      "operatore": "circle K",
+      "operatore": "Circle K",
       "distanzaAutostradaM": 52,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Leuna",
@@ -24117,7 +24117,7 @@
         {
           "codice": "osm:node/13087494001",
           "modello": "circle K",
-          "operatore": "circle K",
+          "operatore": "Circle K",
           "connettori": [
             {
               "modello": "CCS"
@@ -24245,7 +24245,7 @@
       "lat": 49.568174,
       "lon": 11.327894,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 251,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Schnaittach",
@@ -24253,7 +24253,7 @@
         {
           "codice": "osm:node/13580099594",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 600 kW"
@@ -24278,7 +24278,7 @@
         {
           "codice": "osm:way/1171616634",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -24375,7 +24375,7 @@
       "lat": 49.210848,
       "lon": 9.069707,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 168,
       "tipoArea": "services",
       "dentroAreaServizio": "24 Express Autohof Bad Rappenau Süd",
@@ -24383,7 +24383,7 @@
         {
           "codice": "osm:node/13789653278",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -24762,7 +24762,7 @@
       "lat": 51.255921,
       "lon": 12.726347,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 143,
       "tipoArea": "services",
       "dentroAreaServizio": "Aral Autohof Grimma",
@@ -24770,7 +24770,7 @@
         {
           "codice": "osm:way/1200093780",
           "modello": "Aral pulse",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -24842,7 +24842,7 @@
       "lat": 51.731044,
       "lon": 9.973131,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 243,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Northeim Nord",
@@ -24850,7 +24850,7 @@
         {
           "codice": "osm:way/1284364321",
           "modello": "Aral pulse",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": []
         }
       ],
@@ -24867,7 +24867,7 @@
       "lat": 53.803843,
       "lon": 9.938655,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 606,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Henstedt-Ulzburg",
@@ -24875,7 +24875,7 @@
         {
           "codice": "osm:way/1316044004",
           "modello": "Aral pulse Autohof Henstedt-Ulzburg",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -24920,7 +24920,7 @@
       "lat": 53.717909,
       "lon": 9.760142,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 276,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Oha",
@@ -24928,7 +24928,7 @@
         {
           "codice": "osm:way/1317711421",
           "modello": "Aral pulse Tornesch KFZ 2",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -24953,7 +24953,7 @@
         {
           "codice": "osm:way/1317711422",
           "modello": "Aral pulse Tornesch KFZ 1",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -24978,7 +24978,7 @@
         {
           "codice": "osm:way/1317711423",
           "modello": "Aral pulse Tornesch LKW",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -25014,7 +25014,7 @@
       "lat": 50.647773,
       "lon": 7.334471,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 60,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Dachsberg",
@@ -25022,7 +25022,7 @@
         {
           "codice": "osm:way/1389257624",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -25094,7 +25094,7 @@
       "lat": 49.937061,
       "lon": 12.227669,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 207,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Mitterteich",
@@ -25102,7 +25102,7 @@
         {
           "codice": "osm:way/1396292196",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300"
@@ -25490,7 +25490,7 @@
       "lat": 51.295139,
       "lon": 13.72998,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 203,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Thiendorf",
@@ -25498,7 +25498,7 @@
         {
           "codice": "osm:way/1480683851",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"
@@ -25661,7 +25661,7 @@
       "lat": 48.390109,
       "lon": 11.063848,
       "paese": "DE",
-      "operatore": "Aral",
+      "operatore": "Aral pulse",
       "distanzaAutostradaM": 397,
       "tipoArea": "services",
       "dentroAreaServizio": "Autohof Dasing",
@@ -25669,7 +25669,7 @@
         {
           "codice": "osm:relation/18198204",
           "modello": "Aral",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "connettori": [
             {
               "modello": "CCS 300 kW"

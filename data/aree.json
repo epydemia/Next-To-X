@@ -1,6 +1,6 @@
 {
   "versione": 2,
-  "generato": "2026-11-04T15:30:42+00:00",
+  "generato": "2026-11-04T15:32:46+00:00",
   "licenza": "Contiene dati © OpenStreetMap contributors, disponibili con licenza ODbL 1.0 (https://opendatacommons.org/licenses/odbl/1-0/). Dettagli per fonte: data/README.md",
   "aree": [
     {
@@ -8604,9 +8604,7 @@
       "indirizzo": "Area di servizio Sile Ovest, Trabucco, Conscio, Casale sul Sile, Treviso, Veneto, 31032, Italia",
       "distanzaAutostradaM": 51,
       "operatori": [
-        "Free To X",
-        "Vari",
-        "vari"
+        "Free To X"
       ],
       "colonnine": [
         {
@@ -8669,7 +8667,7 @@
         },
         {
           "id": "osm:node/10889379541",
-          "operatore": "Vari",
+          "operatore": null,
           "modello": "Vari",
           "potenzaKw": null,
           "attivaDal": null,
@@ -8678,7 +8676,7 @@
         },
         {
           "id": "osm:node/10889380966",
-          "operatore": "vari",
+          "operatore": null,
           "modello": "vari",
           "potenzaKw": null,
           "attivaDal": null,
@@ -14399,12 +14397,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 77,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/1997429705",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -14422,7 +14420,7 @@
         },
         {
           "id": "osm:node/12911288118",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -14464,12 +14462,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 79,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/1997429706",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -14491,7 +14489,7 @@
         },
         {
           "id": "osm:node/6301590848",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -14537,13 +14535,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 97,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/2058532862",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Schnellladestation Lichtendorf Süd",
           "potenzaKw": null,
           "attivaDal": null,
@@ -15420,8 +15418,8 @@
       "indirizzo": null,
       "distanzaAutostradaM": 91,
       "operatori": [
-        "E.ON",
-        "NomadPower",
+        "E.ON Drive",
+        "Nomad Power",
         "Tesla"
       ],
       "colonnine": [
@@ -15573,7 +15571,7 @@
         },
         {
           "id": "osm:node/7210852097",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "EON Schnellader Geiselwind",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -15615,7 +15613,7 @@
         },
         {
           "id": "osm:node/7210930106",
-          "operatore": "NomadPower",
+          "operatore": "Nomad Power",
           "modello": "NomadPower",
           "potenzaKw": null,
           "attivaDal": null,
@@ -15658,14 +15656,14 @@
       "distanzaAutostradaM": 188,
       "operatori": [
         "IONITY",
-        "Lechwerke AG",
+        "LEW",
         "Shell Recharge",
         "Tesla"
       ],
       "colonnine": [
         {
           "id": "osm:node/3844468071",
-          "operatore": "Lechwerke AG",
+          "operatore": "LEW",
           "modello": "LEW Autostrom",
           "potenzaKw": 22.0,
           "attivaDal": null,
@@ -15924,12 +15922,12 @@
       "distanzaAutostradaM": 325,
       "operatori": [
         "ChargeOne",
-        "MER"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:node/3904736311",
-          "operatore": "MER",
+          "operatore": "Mer",
           "modello": "Mer",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -16006,12 +16004,12 @@
       "distanzaAutostradaM": 107,
       "operatori": [
         "IONITY",
-        "mer"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:node/3944859134",
-          "operatore": "mer",
+          "operatore": "Mer",
           "modello": "mer",
           "potenzaKw": 38.0,
           "attivaDal": null,
@@ -16372,12 +16370,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 60,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4088478613",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -16419,12 +16417,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 85,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4088478614",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -16470,13 +16468,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 143,
       "operatori": [
-        "E.ON",
+        "E.ON Drive",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/4104338123",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "schnell-laden-berlin",
           "potenzaKw": null,
           "attivaDal": null,
@@ -16748,13 +16746,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 55,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/4331480825",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "E.ON Donautal Ost",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -16840,12 +16838,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 96,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4355909676",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -16891,7 +16889,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 77,
       "operatori": [
-        "E.ON",
+        "E.ON Drive",
         "Tank & Rast"
       ],
       "colonnine": [
@@ -16919,7 +16917,7 @@
         },
         {
           "id": "osm:node/4970302922",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -16966,15 +16964,15 @@
       "distanzaAutostradaM": 374,
       "operatori": [
         "ChargePoint",
-        "Lechwerke AG",
-        "Nio Power",
+        "LEW",
+        "NIO Power",
         "Sortimo Innovationspark Zusmarshausen GmbH",
         "Tesla"
       ],
       "colonnine": [
         {
           "id": "osm:node/4406867007",
-          "operatore": "Lechwerke AG",
+          "operatore": "LEW",
           "modello": "Lechwerke AG",
           "potenzaKw": 22.0,
           "attivaDal": null,
@@ -17318,7 +17316,7 @@
         },
         {
           "id": "osm:node/10721517701",
-          "operatore": "Nio Power",
+          "operatore": "NIO Power",
           "modello": "Nio Power",
           "potenzaKw": null,
           "attivaDal": null,
@@ -17369,12 +17367,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 75,
       "operatori": [
-        "e-on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4420098689",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "e-on",
           "potenzaKw": null,
           "attivaDal": null,
@@ -17412,12 +17410,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 88,
       "operatori": [
-        "innogy"
+        "Innogy"
       ],
       "colonnine": [
         {
           "id": "osm:node/4467375734",
-          "operatore": "innogy",
+          "operatore": "Innogy",
           "modello": "innogy",
           "potenzaKw": null,
           "attivaDal": null,
@@ -18210,13 +18208,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 108,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/4594587354",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Charge-ON GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -18320,12 +18318,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 138,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4599903791",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -18367,13 +18365,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 84,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "Energie Südbayern ESB"
       ],
       "colonnine": [
         {
           "id": "osm:node/4600169808",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Charge-ON GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -18428,12 +18426,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 141,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4600208792",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -18526,12 +18524,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 47,
       "operatori": [
-        "E-Wald GmbH"
+        "E-WALD"
       ],
       "colonnine": [
         {
           "id": "osm:node/4621829671",
-          "operatore": "E-Wald GmbH",
+          "operatore": "E-WALD",
           "modello": "E-Wald GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -19045,12 +19043,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 86,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4692029364",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -19151,7 +19149,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 81,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH",
+        "E.ON Drive",
         "Tank & Rast"
       ],
       "colonnine": [
@@ -19166,7 +19164,7 @@
         },
         {
           "id": "osm:way/1396465843",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -19643,14 +19641,14 @@
       "indirizzo": null,
       "distanzaAutostradaM": 106,
       "operatori": [
+        "Allego",
         "IONITY",
-        "Tesla",
-        "allego"
+        "Tesla"
       ],
       "colonnine": [
         {
           "id": "osm:node/4773446323",
-          "operatore": "allego",
+          "operatore": "Allego",
           "modello": "Stromtankstelle",
           "potenzaKw": null,
           "attivaDal": null,
@@ -20084,12 +20082,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 42,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4809660922",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -21110,12 +21108,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 84,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4886192623",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -21220,12 +21218,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 75,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/4917512590",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -21418,13 +21416,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 135,
       "operatori": [
-        "E.ON",
+        "E.ON Drive",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/4949806061",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.On Gruibingen Süd",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -21502,12 +21500,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 82,
       "operatori": [
-        "Autobahn Tank & Rast Gruppe GmbH"
+        "Tank & Rast"
       ],
       "colonnine": [
         {
           "id": "osm:node/5030202838",
-          "operatore": "Autobahn Tank & Rast Gruppe GmbH",
+          "operatore": "Tank & Rast",
           "modello": "Schnellladestation Siegburg West",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -21553,12 +21551,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 83,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5030411246",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "Schnellladestation Siegburg Ost",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -21711,12 +21709,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 73,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5075789265",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -22208,12 +22206,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 49,
       "operatori": [
-        "Charge-ON GmbH"
+        "Charge-ON"
       ],
       "colonnine": [
         {
           "id": "osm:node/5159615796",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Ladesäule 1",
           "potenzaKw": 160.0,
           "attivaDal": null,
@@ -22235,7 +22233,7 @@
         },
         {
           "id": "osm:node/8711380686",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Ladesäule 4",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -22257,7 +22255,7 @@
         },
         {
           "id": "osm:node/8711380687",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Ladesäule 3",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -22279,7 +22277,7 @@
         },
         {
           "id": "osm:node/8711380688",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Ladesäule 2",
           "potenzaKw": 160.0,
           "attivaDal": null,
@@ -22562,13 +22560,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 95,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/5169469671",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Charge-ON GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -22672,12 +22670,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 56,
       "operatori": [
-        "Autobahn Tank & Rast GmbH"
+        "Tank & Rast"
       ],
       "colonnine": [
         {
           "id": "osm:node/5200384705",
-          "operatore": "Autobahn Tank & Rast GmbH",
+          "operatore": "Tank & Rast",
           "modello": "Autobahn Tank & Rast GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -22723,12 +22721,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 102,
       "operatori": [
-        "Autobahn Tank & Rast GmbH"
+        "Tank & Rast"
       ],
       "colonnine": [
         {
           "id": "osm:node/5200384706",
-          "operatore": "Autobahn Tank & Rast GmbH",
+          "operatore": "Tank & Rast",
           "modello": "Autobahn Tank & Rast GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -23020,12 +23018,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 126,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5214676821",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -23187,12 +23185,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 22,
       "operatori": [
-        "Autobahn Tank & Rast GmbH"
+        "Tank & Rast"
       ],
       "colonnine": [
         {
           "id": "osm:node/5298191785",
-          "operatore": "Autobahn Tank & Rast GmbH",
+          "operatore": "Tank & Rast",
           "modello": "Autobahn Tank & Rast GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -23325,12 +23323,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 109,
       "operatori": [
-        "innogy SE"
+        "Innogy"
       ],
       "colonnine": [
         {
           "id": "osm:node/5312470631",
-          "operatore": "innogy SE",
+          "operatore": "Innogy",
           "modello": "innogy SE",
           "potenzaKw": null,
           "attivaDal": null,
@@ -23628,12 +23626,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 51,
       "operatori": [
-        "innogy SE"
+        "Innogy"
       ],
       "colonnine": [
         {
           "id": "osm:node/5376539532",
-          "operatore": "innogy SE",
+          "operatore": "Innogy",
           "modello": "innogy SE",
           "potenzaKw": null,
           "attivaDal": null,
@@ -23679,12 +23677,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 83,
       "operatori": [
-        "Autobahn Tank & Rast"
+        "Tank & Rast"
       ],
       "colonnine": [
         {
           "id": "osm:node/5392279533",
-          "operatore": "Autobahn Tank & Rast",
+          "operatore": "Tank & Rast",
           "modello": "Raststätte Rabensteiner Wald Süd",
           "potenzaKw": null,
           "attivaDal": null,
@@ -23717,12 +23715,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 74,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5400788492",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -23887,12 +23885,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 71,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5433531445",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -23985,12 +23983,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 73,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5484519823",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -24091,12 +24089,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 48,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5498438800",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -24142,12 +24140,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 39,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5498438801",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -24193,12 +24191,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 60,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5498499331",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -24244,12 +24242,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 54,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5498499336",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -24570,12 +24568,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 81,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5588627321",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -24722,12 +24720,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 80,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5619875232",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -24773,7 +24771,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 65,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
@@ -24800,7 +24798,7 @@
         },
         {
           "id": "osm:node/13716104958",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -24964,13 +24962,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 112,
       "operatori": [
-        "E.ON",
+        "E.ON Drive",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/5652025944",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "Raststätte Ostetal Süd Ladestation",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25155,12 +25153,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 81,
       "operatori": [
-        "mblty GmbH"
+        "mblty"
       ],
       "colonnine": [
         {
           "id": "osm:node/5727444821",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "modello": "mblty GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -25182,7 +25180,7 @@
         },
         {
           "id": "osm:node/5727444822",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "modello": "4026",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -25370,12 +25368,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 81,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5747548948",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25408,12 +25406,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 85,
       "operatori": [
-        "e.on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5747554564",
-          "operatore": "e.on",
+          "operatore": "E.ON Drive",
           "modello": "e.on",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25484,13 +25482,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 90,
       "operatori": [
-        "E.ON",
-        "eon"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5752941086",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25508,7 +25505,7 @@
         },
         {
           "id": "osm:node/5882239685",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "modello": "eon",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25526,7 +25523,7 @@
         },
         {
           "id": "osm:node/9108415890",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "modello": "eon",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25544,7 +25541,7 @@
         },
         {
           "id": "osm:node/9108415891",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "modello": "eon",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25562,7 +25559,7 @@
         },
         {
           "id": "osm:node/9108415892",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "modello": "eon",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25595,13 +25592,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 67,
       "operatori": [
-        "E.ON",
-        "MER"
+        "E.ON Drive",
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:node/5752967081",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25623,7 +25620,7 @@
         },
         {
           "id": "osm:node/10087861102",
-          "operatore": "MER",
+          "operatore": "Mer",
           "modello": "Mer",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -25665,13 +25662,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 140,
       "operatori": [
-        "E.ON",
+        "E.ON Drive",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/5761697704",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -25803,12 +25800,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 93,
       "operatori": [
-        "e-on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5779453059",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "e-on",
           "potenzaKw": null,
           "attivaDal": null,
@@ -26003,12 +26000,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 71,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5825250737",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -26119,13 +26116,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 100,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH",
+        "E.ON Drive",
         "MAN Truck & Bus SE / HoLa Projekt"
       ],
       "colonnine": [
         {
           "id": "osm:node/5827677540",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -26243,7 +26240,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 74,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH",
+        "E.ON Drive",
         "Tank & Rast"
       ],
       "colonnine": [
@@ -26258,7 +26255,7 @@
         },
         {
           "id": "osm:way/1396464784",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -26375,12 +26372,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 85,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5887679711",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -26747,12 +26744,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 64,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/5940220706",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "e.on Drive",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -27103,12 +27100,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 85,
       "operatori": [
-        "eon"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/6139071986",
-          "operatore": "eon",
+          "operatore": "E.ON Drive",
           "modello": "eon",
           "potenzaKw": null,
           "attivaDal": null,
@@ -27188,12 +27185,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 55,
       "operatori": [
-        "Charge-ON GmbH"
+        "Charge-ON"
       ],
       "colonnine": [
         {
           "id": "osm:node/6166061006",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Schnellladestation Hohe Mark Ost",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -27314,12 +27311,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 78,
       "operatori": [
-        "Eon"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/6239648004",
-          "operatore": "Eon",
+          "operatore": "E.ON Drive",
           "modello": "Eon",
           "potenzaKw": null,
           "attivaDal": null,
@@ -27361,12 +27358,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 65,
       "operatori": [
-        "Inogy"
+        "Innogy"
       ],
       "colonnine": [
         {
           "id": "osm:node/6254000513",
-          "operatore": "Inogy",
+          "operatore": "Innogy",
           "modello": "Ladepunkt Hildesheimer Börde Ost",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -27412,12 +27409,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 64,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/6316294715",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -27790,12 +27787,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 57,
       "operatori": [
-        "innogy eMobility Solutions"
+        "Innogy"
       ],
       "colonnine": [
         {
           "id": "osm:node/6515575601",
-          "operatore": "innogy eMobility Solutions",
+          "operatore": "Innogy",
           "modello": "Autobahnraststätte Höhenrain West",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -27841,12 +27838,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 23,
       "operatori": [
-        "innogy eMobility Solutions"
+        "Innogy"
       ],
       "colonnine": [
         {
           "id": "osm:node/6515575602",
-          "operatore": "innogy eMobility Solutions",
+          "operatore": "Innogy",
           "modello": "Autobahnraststätte Höhenrain Ost",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -28345,12 +28342,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 70,
       "operatori": [
-        "Charge-ON GmbH"
+        "Charge-ON"
       ],
       "colonnine": [
         {
           "id": "osm:node/6565225669",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Schnellladestation Kucksiepen",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -28501,12 +28498,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 16,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/6665702437",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "E.ON Drive Infrastructure GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -29041,13 +29038,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 147,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/7017014540",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Schnellladestation Remscheid Ost",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -29179,12 +29176,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 82,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7081862858",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -29230,12 +29227,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 60,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7083496646",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -29423,13 +29420,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 125,
       "operatori": [
-        "IONITY",
-        "e-on Drive"
+        "E.ON Drive",
+        "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/7210852106",
-          "operatore": "e-on Drive",
+          "operatore": "E.ON Drive",
           "modello": "e-on Drive",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -29482,12 +29479,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 123,
       "operatori": [
-        "e-on Drive"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7210852108",
-          "operatore": "e-on Drive",
+          "operatore": "E.ON Drive",
           "modello": "e-on Drive",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -29533,12 +29530,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 69,
       "operatori": [
-        "e-on Drive"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7210852109",
-          "operatore": "e-on Drive",
+          "operatore": "E.ON Drive",
           "modello": "e-on Drive",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -29631,14 +29628,14 @@
       "indirizzo": null,
       "distanzaAutostradaM": 220,
       "operatori": [
-        "Aral",
+        "Aral pulse",
         "Revolution E",
         "Tesla"
       ],
       "colonnine": [
         {
           "id": "osm:node/7302373497",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -30027,12 +30024,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 93,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7511768835",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -30262,12 +30259,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 86,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7681376089",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -30309,13 +30306,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 90,
       "operatori": [
-        "Mer",
-        "mer"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:node/7707693754",
-          "operatore": "mer",
+          "operatore": "Mer",
           "modello": "Mer",
           "potenzaKw": null,
           "attivaDal": null,
@@ -30370,12 +30366,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 80,
       "operatori": [
-        "E-on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7728663572",
-          "operatore": "E-on",
+          "operatore": "E.ON Drive",
           "modello": "E-on",
           "potenzaKw": null,
           "attivaDal": null,
@@ -30468,12 +30464,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 64,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7808567841",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "Stillhorn West",
           "potenzaKw": null,
           "attivaDal": null,
@@ -30519,12 +30515,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 95,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7837398395",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -30931,12 +30927,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 76,
       "operatori": [
-        "innogy eMobility Solutions GmbH"
+        "Innogy"
       ],
       "colonnine": [
         {
           "id": "osm:node/8037752676",
-          "operatore": "innogy eMobility Solutions GmbH",
+          "operatore": "Innogy",
           "modello": "Königsforst West",
           "potenzaKw": null,
           "attivaDal": null,
@@ -30969,12 +30965,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 154,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8083274900",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -31063,12 +31059,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 71,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8224851893",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 160.0,
           "attivaDal": null,
@@ -31110,12 +31106,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 82,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8224925036",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 160.0,
           "attivaDal": null,
@@ -31157,12 +31153,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 128,
       "operatori": [
-        "Charge-ON GmbH"
+        "Charge-ON"
       ],
       "colonnine": [
         {
           "id": "osm:node/8233431777",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Charge-ON GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -31208,14 +31204,14 @@
       "indirizzo": null,
       "distanzaAutostradaM": 133,
       "operatori": [
-        "Aral",
-        "EWE Go GmbH",
+        "Aral pulse",
+        "EWE Go",
         "Shell Recharge"
       ],
       "colonnine": [
         {
           "id": "osm:node/8248254261",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "modello": "McDonald's Ladestation",
           "potenzaKw": 400.0,
           "attivaDal": null,
@@ -31241,7 +31237,7 @@
         },
         {
           "id": "osm:node/12235837450",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Ladestation",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -31490,12 +31486,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 49,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8252117847",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "e•on drive",
           "potenzaKw": 160.0,
           "attivaDal": null,
@@ -31537,12 +31533,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 29,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8255297804",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "Stillhorn Ost",
           "potenzaKw": 40.0,
           "attivaDal": null,
@@ -31800,12 +31796,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 83,
       "operatori": [
-        "e-on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8378607684",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "e-on",
           "potenzaKw": null,
           "attivaDal": null,
@@ -31948,12 +31944,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 56,
       "operatori": [
-        "EON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8445238414",
-          "operatore": "EON",
+          "operatore": "E.ON Drive",
           "modello": null,
           "potenzaKw": null,
           "attivaDal": null,
@@ -31986,12 +31982,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 42,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8460766117",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -32000,7 +31996,7 @@
         },
         {
           "id": "osm:node/8460766119",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -32009,7 +32005,7 @@
         },
         {
           "id": "osm:node/11789436588",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -32102,12 +32098,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 73,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/8514487400",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Tankstelle Rastplatz Beverbach",
           "potenzaKw": null,
           "attivaDal": null,
@@ -32140,12 +32136,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 87,
       "operatori": [
-        "Charge-ON GmbH"
+        "Charge-ON"
       ],
       "colonnine": [
         {
           "id": "osm:node/8514510104",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Schnellladestation Hohe Mark West",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -32191,12 +32187,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 63,
       "operatori": [
-        "Charge-ON GmbH"
+        "Charge-ON"
       ],
       "colonnine": [
         {
           "id": "osm:node/8514837709",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Königsforst Ost",
           "potenzaKw": null,
           "attivaDal": null,
@@ -32501,13 +32497,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 72,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/8545256626",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Schnellladestation Lichtendorf Nord",
           "potenzaKw": null,
           "attivaDal": null,
@@ -32641,12 +32637,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 113,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8639517135",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -32688,12 +32684,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 82,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8639517949",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -32889,13 +32885,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 60,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/8712275777",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Charge-ON GmbH",
           "potenzaKw": 160.0,
           "attivaDal": null,
@@ -33260,12 +33256,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 97,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8788297634",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON, Tank & Rast",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -33307,12 +33303,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 109,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8788297681",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON, Tank & Rast",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -33354,12 +33350,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 101,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8808250163",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -33401,12 +33397,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 83,
       "operatori": [
-        "Charge-ON GmbH"
+        "Charge-ON"
       ],
       "colonnine": [
         {
           "id": "osm:node/8856833290",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Charge-ON GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -33439,12 +33435,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 121,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8878636559",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -33486,14 +33482,14 @@
       "indirizzo": null,
       "distanzaAutostradaM": 160,
       "operatori": [
-        "EWE-GO",
+        "EWE Go",
         "IONITY",
-        "mer"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:node/8901845086",
-          "operatore": "mer",
+          "operatore": "Mer",
           "modello": "mer",
           "potenzaKw": null,
           "attivaDal": null,
@@ -33502,7 +33498,7 @@
         },
         {
           "id": "osm:node/11199912424",
-          "operatore": "EWE-GO",
+          "operatore": "EWE Go",
           "modello": null,
           "potenzaKw": null,
           "attivaDal": null,
@@ -33555,12 +33551,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 82,
       "operatori": [
-        "e-on Drive"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8977932632",
-          "operatore": "e-on Drive",
+          "operatore": "E.ON Drive",
           "modello": "e-on Drive",
           "potenzaKw": null,
           "attivaDal": null,
@@ -33593,12 +33589,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 60,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/8986426677",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -33616,7 +33612,7 @@
         },
         {
           "id": "osm:node/8986426678",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -33634,7 +33630,7 @@
         },
         {
           "id": "osm:node/8986426679",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -33652,7 +33648,7 @@
         },
         {
           "id": "osm:node/8986426680",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -33745,12 +33741,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 56,
       "operatori": [
-        "Tank & Rast; innogy; e-on"
+        "Tank & Rast"
       ],
       "colonnine": [
         {
           "id": "osm:node/9020767905",
-          "operatore": "Tank & Rast; innogy; e-on",
+          "operatore": "Tank & Rast",
           "modello": "Innogy HPC",
           "potenzaKw": null,
           "attivaDal": null,
@@ -33783,12 +33779,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 73,
       "operatori": [
-        "Charge-On GmbH"
+        "Charge-ON"
       ],
       "colonnine": [
         {
           "id": "osm:node/9038359325",
-          "operatore": "Charge-On GmbH",
+          "operatore": "Charge-ON",
           "modello": "Schnellladestation Münsterland Ost",
           "potenzaKw": 160.0,
           "attivaDal": null,
@@ -33830,12 +33826,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 73,
       "operatori": [
-        "Charge-ON GmbH"
+        "Charge-ON"
       ],
       "colonnine": [
         {
           "id": "osm:node/9038378182",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "Schnellladestation Münsterland West",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -34312,14 +34308,14 @@
       "indirizzo": null,
       "distanzaAutostradaM": 105,
       "operatori": [
-        "EWE Go GmbH",
-        "Shell Recharge",
-        "e-on"
+        "E.ON Drive",
+        "EWE Go",
+        "Shell Recharge"
       ],
       "colonnine": [
         {
           "id": "osm:node/9150244273",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "e-on",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -34341,7 +34337,7 @@
         },
         {
           "id": "osm:node/10797146626",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "modello": "EWE Go GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -34439,12 +34435,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 172,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/9208147950",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -34466,7 +34462,7 @@
         },
         {
           "id": "osm:node/9208147951",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -34488,7 +34484,7 @@
         },
         {
           "id": "osm:node/9208147952",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -34510,7 +34506,7 @@
         },
         {
           "id": "osm:node/9208147957",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -34556,12 +34552,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 64,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/9221649319",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "Schnellladestation A2 Gütersloh Nord 1",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -34583,7 +34579,7 @@
         },
         {
           "id": "osm:node/12857309420",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "Schnellladestation A2 Gütersloh Nord 2",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -34629,12 +34625,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 81,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/9221650968",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "Schnellladestation A2 Gütersloh Süd 1",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -34656,7 +34652,7 @@
         },
         {
           "id": "osm:node/12857309419",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "Schnellladestation A2 Gütersloh Süd 2",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -34936,13 +34932,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 39,
       "operatori": [
-        "E.ON",
+        "E.ON Drive",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/9324793403",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -34995,7 +34991,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 346,
       "operatori": [
-        "EWE Go GmbH"
+        "EWE Go"
       ],
       "colonnine": [
         {
@@ -35034,7 +35030,7 @@
         },
         {
           "id": "osm:node/9349613622",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "modello": "EWE Go GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -35076,12 +35072,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 125,
       "operatori": [
-        "e-on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/9581103473",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "e-on",
           "potenzaKw": null,
           "attivaDal": null,
@@ -35114,12 +35110,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 74,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/9606215550",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -35306,12 +35302,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 126,
       "operatori": [
-        "MER"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:node/9791870714",
-          "operatore": "MER",
+          "operatore": "Mer",
           "modello": "Mer",
           "potenzaKw": null,
           "attivaDal": null,
@@ -35320,7 +35316,7 @@
         },
         {
           "id": "osm:node/9791870715",
-          "operatore": "MER",
+          "operatore": "Mer",
           "modello": "Mer",
           "potenzaKw": null,
           "attivaDal": null,
@@ -35588,12 +35584,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 111,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/9903654432",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -35959,7 +35955,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 81,
       "operatori": [
-        "mblty GmbH"
+        "mblty"
       ],
       "colonnine": [
         {
@@ -35973,7 +35969,7 @@
         },
         {
           "id": "osm:node/12328316768",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "modello": "mblty GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -35982,7 +35978,7 @@
         },
         {
           "id": "osm:node/12328316769",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "modello": "mblty GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -35991,7 +35987,7 @@
         },
         {
           "id": "osm:node/12328316770",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "modello": "mblty GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -36000,7 +35996,7 @@
         },
         {
           "id": "osm:node/12328316771",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "modello": "mblty GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -36009,7 +36005,7 @@
         },
         {
           "id": "osm:node/12328316772",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "modello": "mblty GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -36018,7 +36014,7 @@
         },
         {
           "id": "osm:node/12328316773",
-          "operatore": "mblty GmbH",
+          "operatore": "mblty",
           "modello": "mblty GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -36185,12 +36181,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 84,
       "operatori": [
-        "MER Germany GmbH"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:node/10586703840",
-          "operatore": "MER Germany GmbH",
+          "operatore": "Mer",
           "modello": "MER Germany GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -36199,7 +36195,7 @@
         },
         {
           "id": "osm:node/10586703841",
-          "operatore": "MER Germany GmbH",
+          "operatore": "Mer",
           "modello": "MER Germany GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -36208,7 +36204,7 @@
         },
         {
           "id": "osm:node/10586703842",
-          "operatore": "MER Germany GmbH",
+          "operatore": "Mer",
           "modello": "MER Germany GmbH",
           "potenzaKw": null,
           "attivaDal": null,
@@ -36241,13 +36237,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 145,
       "operatori": [
-        "E.ON",
+        "E.ON Drive",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/10604248305",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -36502,12 +36498,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 84,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/10963114392",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -36577,12 +36573,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 73,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/10969663399",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -36604,7 +36600,7 @@
         },
         {
           "id": "osm:node/10969663400",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -36626,7 +36622,7 @@
         },
         {
           "id": "osm:node/10969663401",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -36672,12 +36668,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 68,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/11056692896",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": null,
           "attivaDal": null,
@@ -36990,12 +36986,12 @@
       "distanzaAutostradaM": 121,
       "operatori": [
         "EnBW",
-        "MBLTY"
+        "mblty"
       ],
       "colonnine": [
         {
           "id": "osm:node/11665345005",
-          "operatore": "MBLTY",
+          "operatore": "mblty",
           "modello": "MBLTY",
           "potenzaKw": null,
           "attivaDal": null,
@@ -37004,7 +37000,7 @@
         },
         {
           "id": "osm:node/11665345006",
-          "operatore": "MBLTY",
+          "operatore": "mblty",
           "modello": "MBLTY",
           "potenzaKw": null,
           "attivaDal": null,
@@ -37046,13 +37042,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 69,
       "operatori": [
-        "E.ON",
+        "E.ON Drive",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/11711239228",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -37225,7 +37221,7 @@
       "distanzaAutostradaM": 177,
       "operatori": [
         "Allego",
-        "Aral",
+        "Aral pulse",
         "EnBW"
       ],
       "colonnine": [
@@ -37249,7 +37245,7 @@
         },
         {
           "id": "osm:node/12587799732",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": null,
           "attivaDal": null,
@@ -37472,12 +37468,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 50,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/12358353321",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -37510,12 +37506,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 113,
       "operatori": [
-        "e-on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/12533966025",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "E-on Ladestation",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -37595,12 +37591,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 129,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/12587730047",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -37633,12 +37629,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 133,
       "operatori": [
-        "E.ON"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/12587730050",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": null,
           "attivaDal": null,
@@ -37851,12 +37847,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 62,
       "operatori": [
-        "e-on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/12855718616",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "E-on Ladestation",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -37914,12 +37910,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 62,
       "operatori": [
-        "e-on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/12855718617",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "E-on Ladestation",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -37973,12 +37969,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 46,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/12866641694",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Schackendorf West",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -38000,7 +37996,7 @@
         },
         {
           "id": "osm:node/12866641695",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Schackendorf West",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -38022,7 +38018,7 @@
         },
         {
           "id": "osm:way/1390052713",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Schackendorf West",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -38116,12 +38112,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 44,
       "operatori": [
-        "E.ON Drive Infrastructure GmbH"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/12916940819",
-          "operatore": "E.ON Drive Infrastructure GmbH",
+          "operatore": "E.ON Drive",
           "modello": "Schnelladestation Am Biggenkopf Süd Diemelstadt",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -38880,13 +38876,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 129,
       "operatori": [
-        "E.ON",
+        "E.ON Drive",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/13544630154",
-          "operatore": "E.ON",
+          "operatore": "E.ON Drive",
           "modello": "E.ON",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -39451,12 +39447,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 210,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:way/1265667744",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -39514,12 +39510,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 72,
       "operatori": [
-        "Mer Germany GmbH"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:way/1315591278",
-          "operatore": "Mer Germany GmbH",
+          "operatore": "Mer",
           "modello": "Mer TuR Holmmoor West",
           "potenzaKw": 120.0,
           "attivaDal": null,
@@ -39577,12 +39573,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 77,
       "operatori": [
-        "Mer Germany GmbH"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:way/1315591279",
-          "operatore": "Mer Germany GmbH",
+          "operatore": "Mer",
           "modello": "Mer TuR Holmmoor Ost",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -39640,13 +39636,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 85,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:way/1316249000",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "E.ON Drive Brokenlande Ost",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -39736,13 +39732,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 100,
       "operatori": [
-        "Charge-ON GmbH",
+        "Charge-ON",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:way/1316249007",
-          "operatore": "Charge-ON GmbH",
+          "operatore": "Charge-ON",
           "modello": "E.ON Drive Aalbek West",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -39891,12 +39887,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 55,
       "operatori": [
-        "Mer Germany"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:way/1382926669",
-          "operatore": "Mer Germany",
+          "operatore": "Mer",
           "modello": "Mer Germany",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -40252,12 +40248,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 284,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:way/1467285851",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -40353,12 +40349,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 95,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:way/1476644179",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -41345,10 +41341,10 @@
       "distanzaAutostradaM": 398,
       "operatori": [
         "Allego",
+        "Fast-E",
         "IONITY",
         "LKW - Kühlladung",
-        "Tesla",
-        "fast E"
+        "Tesla"
       ],
       "colonnine": [
         {
@@ -41405,7 +41401,7 @@
         },
         {
           "id": "osm:node/5588627621",
-          "operatore": "fast E",
+          "operatore": "Fast-E",
           "modello": "fast E",
           "potenzaKw": null,
           "attivaDal": null,
@@ -41696,8 +41692,8 @@
       "indirizzo": null,
       "distanzaAutostradaM": 37,
       "operatori": [
-        "Tesla",
-        "allego"
+        "Allego",
+        "Tesla"
       ],
       "colonnine": [
         {
@@ -41744,7 +41740,7 @@
         },
         {
           "id": "osm:node/6751382237",
-          "operatore": "allego",
+          "operatore": "Allego",
           "modello": "allego",
           "potenzaKw": null,
           "attivaDal": null,
@@ -42509,7 +42505,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 569,
       "operatori": [
-        "Aral",
+        "Aral pulse",
         "Tesla"
       ],
       "colonnine": [
@@ -42524,7 +42520,7 @@
         },
         {
           "id": "osm:node/10141637262",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -42546,7 +42542,7 @@
         },
         {
           "id": "osm:node/10141637263",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -42568,7 +42564,7 @@
         },
         {
           "id": "osm:node/13034159297",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": null,
           "attivaDal": null,
@@ -42699,12 +42695,12 @@
       "distanzaAutostradaM": 263,
       "operatori": [
         "IONITY",
-        "innogy;Autohof"
+        "Innogy"
       ],
       "colonnine": [
         {
           "id": "osm:node/5638563088",
-          "operatore": "innogy;Autohof",
+          "operatore": "Innogy",
           "modello": "innogy Rheine Nord",
           "potenzaKw": null,
           "attivaDal": null,
@@ -42853,12 +42849,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 165,
       "operatori": [
-        "Allego.DE"
+        "Allego"
       ],
       "colonnine": [
         {
           "id": "osm:node/5808132261",
-          "operatore": "Allego.DE",
+          "operatore": "Allego",
           "modello": "Allego.DE",
           "potenzaKw": null,
           "attivaDal": null,
@@ -43025,7 +43021,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 121,
       "operatori": [
-        "Aral",
+        "Aral pulse",
         "Stadtwerk Staßfurt"
       ],
       "colonnine": [
@@ -43062,7 +43058,7 @@
         },
         {
           "id": "osm:way/449711027",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -43184,7 +43180,7 @@
       "distanzaAutostradaM": 585,
       "operatori": [
         "Aral pulse",
-        "EWE Go GmbH",
+        "EWE Go",
         "Fastned"
       ],
       "colonnine": [
@@ -43224,7 +43220,7 @@
         },
         {
           "id": "osm:node/11119843868",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "modello": "EWE Go Glockensteinfeld",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -43307,13 +43303,11 @@
       "km": null,
       "indirizzo": null,
       "distanzaAutostradaM": 117,
-      "operatori": [
-        "wikidata=Q75560554"
-      ],
+      "operatori": [],
       "colonnine": [
         {
           "id": "osm:node/6562208192",
-          "operatore": "wikidata=Q75560554",
+          "operatore": null,
           "modello": "wikidata=Q75560554",
           "potenzaKw": null,
           "attivaDal": null,
@@ -43677,12 +43671,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 405,
       "operatori": [
-        "Allego GmbH"
+        "Allego"
       ],
       "colonnine": [
         {
           "id": "osm:node/7098425469",
-          "operatore": "Allego GmbH",
+          "operatore": "Allego",
           "modello": "Allego GmbH",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -43700,7 +43694,7 @@
         },
         {
           "id": "osm:node/10625205258",
-          "operatore": "Allego GmbH",
+          "operatore": "Allego",
           "modello": "Allego GmbH",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -43722,7 +43716,7 @@
         },
         {
           "id": "osm:node/10625205259",
-          "operatore": "Allego GmbH",
+          "operatore": "Allego",
           "modello": "Allego GmbH",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -43802,12 +43796,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 183,
       "operatori": [
-        "e-on"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/7902710785",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "e-on",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -43825,7 +43819,7 @@
         },
         {
           "id": "osm:node/7902710885",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "e-on",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -43843,7 +43837,7 @@
         },
         {
           "id": "osm:node/7902710886",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "e-on",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -43861,7 +43855,7 @@
         },
         {
           "id": "osm:node/7902710887",
-          "operatore": "e-on",
+          "operatore": "E.ON Drive",
           "modello": "e-on",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -43941,12 +43935,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 355,
       "operatori": [
-        "EWE Go GmbH"
+        "EWE Go"
       ],
       "colonnine": [
         {
           "id": "osm:node/8245708768",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "modello": "EWE Go GmbH",
           "potenzaKw": 22.0,
           "attivaDal": null,
@@ -44068,7 +44062,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 384,
       "operatori": [
-        "Aral",
+        "Aral pulse",
         "EWE Go"
       ],
       "colonnine": [
@@ -44092,7 +44086,7 @@
         },
         {
           "id": "osm:node/13534253774",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": null,
           "attivaDal": null,
@@ -44306,14 +44300,14 @@
       "indirizzo": null,
       "distanzaAutostradaM": 51,
       "operatori": [
-        "Aral",
-        "EWEgo",
+        "Aral pulse",
+        "EWE Go",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/8856864571",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Autohof Geseke",
           "potenzaKw": null,
           "attivaDal": null,
@@ -44322,7 +44316,7 @@
         },
         {
           "id": "osm:node/8856864572",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Autohof Geseke",
           "potenzaKw": null,
           "attivaDal": null,
@@ -44331,7 +44325,7 @@
         },
         {
           "id": "osm:node/12697063542",
-          "operatore": "EWEgo",
+          "operatore": "EWE Go",
           "modello": "EWEgo",
           "potenzaKw": null,
           "attivaDal": null,
@@ -44375,12 +44369,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 100,
       "operatori": [
-        "Circle"
+        "Circle K"
       ],
       "colonnine": [
         {
           "id": "osm:node/8987160852",
-          "operatore": "Circle",
+          "operatore": "Circle K",
           "modello": "Circle",
           "potenzaKw": null,
           "attivaDal": null,
@@ -44413,13 +44407,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 200,
       "operatori": [
-        "Aral",
-        "EWE Go GmbH"
+        "Aral pulse",
+        "EWE Go"
       ],
       "colonnine": [
         {
           "id": "osm:node/9022821701",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Ladepunkt Ladbergen",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -44477,7 +44471,7 @@
         },
         {
           "id": "osm:node/12911359351",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "modello": "EWE Go GmbH",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -44519,12 +44513,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 231,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/9141421962",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -44546,7 +44540,7 @@
         },
         {
           "id": "osm:node/9141421963",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 100.0,
           "attivaDal": null,
@@ -44749,12 +44743,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 314,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/9234273138",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Pulse",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -44860,7 +44854,7 @@
         },
         {
           "id": "osm:node/13580144132",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 600.0,
           "attivaDal": null,
@@ -44956,13 +44950,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 123,
       "operatori": [
-        "Allego GmbH",
+        "Allego",
         "Tesla"
       ],
       "colonnine": [
         {
           "id": "osm:node/9399111043",
-          "operatore": "Allego GmbH",
+          "operatore": "Allego",
           "modello": "DC-Autohof Bergler",
           "potenzaKw": 50.0,
           "attivaDal": null,
@@ -45121,12 +45115,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 626,
       "operatori": [
-        "Total"
+        "TotalEnergies"
       ],
       "colonnine": [
         {
           "id": "osm:node/9620742478",
-          "operatore": "Total",
+          "operatore": "TotalEnergies",
           "modello": "Total",
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -45300,12 +45294,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 151,
       "operatori": [
-        "BP Europa SE"
+        "BP"
       ],
       "colonnine": [
         {
           "id": "osm:node/9826280678",
-          "operatore": "BP Europa SE",
+          "operatore": "BP",
           "modello": "Aral Autohof Niederlehme",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -45457,12 +45451,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 319,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/9979573020",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Pulse 300kW",
           "potenzaKw": null,
           "attivaDal": null,
@@ -45952,13 +45946,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 210,
       "operatori": [
-        "Aral",
+        "Aral pulse",
         "EWE Go"
       ],
       "colonnine": [
         {
           "id": "osm:node/10312022475",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -46091,13 +46085,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 130,
       "operatori": [
-        "Pulse",
-        "pulse"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/10556468555",
-          "operatore": "Pulse",
+          "operatore": "Aral pulse",
           "modello": "Pulse",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -46119,7 +46112,7 @@
         },
         {
           "id": "osm:node/10556468556",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "modello": "pulse",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -46141,7 +46134,7 @@
         },
         {
           "id": "osm:node/11950739697",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "modello": "pulse",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -46163,7 +46156,7 @@
         },
         {
           "id": "osm:node/11950739698",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "modello": "pulse",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -46185,7 +46178,7 @@
         },
         {
           "id": "osm:node/12944094389",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "modello": "pulse",
           "potenzaKw": null,
           "attivaDal": null,
@@ -46207,7 +46200,7 @@
         },
         {
           "id": "osm:node/12944094390",
-          "operatore": "pulse",
+          "operatore": "Aral pulse",
           "modello": "pulse",
           "potenzaKw": null,
           "attivaDal": null,
@@ -46253,12 +46246,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 508,
       "operatori": [
-        "Total EV Charge"
+        "TotalEnergies"
       ],
       "colonnine": [
         {
           "id": "osm:node/10584257533",
-          "operatore": "Total EV Charge",
+          "operatore": "TotalEnergies",
           "modello": "Total EV Charge",
           "potenzaKw": 475.0,
           "attivaDal": null,
@@ -46308,12 +46301,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 104,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/10654083842",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -46371,7 +46364,7 @@
         },
         {
           "id": "osm:node/13899529989",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -46429,12 +46422,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 312,
       "operatori": [
-        "E.ON Charging Station"
+        "E.ON Drive"
       ],
       "colonnine": [
         {
           "id": "osm:node/10757200252",
-          "operatore": "E.ON Charging Station",
+          "operatore": "E.ON Drive",
           "modello": null,
           "potenzaKw": 175.0,
           "attivaDal": null,
@@ -46500,12 +46493,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 513,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/10778058185",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral Ladestation",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -46799,7 +46792,7 @@
       "indirizzo": null,
       "distanzaAutostradaM": 194,
       "operatori": [
-        "Aral",
+        "Aral pulse",
         "Tesla"
       ],
       "colonnine": [
@@ -46814,7 +46807,7 @@
         },
         {
           "id": "osm:node/13146876599",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": null,
           "attivaDal": null,
@@ -47118,12 +47111,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 411,
       "operatori": [
-        "EWEGO"
+        "EWE Go"
       ],
       "colonnine": [
         {
           "id": "osm:node/11560785042",
-          "operatore": "EWEGO",
+          "operatore": "EWE Go",
           "modello": "EWEGO",
           "potenzaKw": null,
           "attivaDal": null,
@@ -47432,12 +47425,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 235,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/11948082285",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -47860,12 +47853,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 602,
       "operatori": [
-        "Mblty"
+        "mblty"
       ],
       "colonnine": [
         {
           "id": "osm:node/12121818894",
-          "operatore": "Mblty",
+          "operatore": "mblty",
           "modello": "Mblty",
           "potenzaKw": null,
           "attivaDal": null,
@@ -48017,12 +48010,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 539,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/12149992442",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -48048,7 +48041,7 @@
         },
         {
           "id": "osm:node/12149992443",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -48302,12 +48295,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 153,
       "operatori": [
-        "mer"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:node/12235896222",
-          "operatore": "mer",
+          "operatore": "Mer",
           "modello": "MER Ladestation",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -48670,12 +48663,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 245,
       "operatori": [
-        "Mer Germany GmbH"
+        "Mer"
       ],
       "colonnine": [
         {
           "id": "osm:node/12870709364",
-          "operatore": "Mer Germany GmbH",
+          "operatore": "Mer",
           "modello": "Mer Germany GmbH",
           "potenzaKw": 225.0,
           "attivaDal": null,
@@ -48701,7 +48694,7 @@
         },
         {
           "id": "osm:node/12870709369",
-          "operatore": "Mer Germany GmbH",
+          "operatore": "Mer",
           "modello": "Mer Germany GmbH",
           "potenzaKw": 150.0,
           "attivaDal": null,
@@ -48799,13 +48792,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 59,
       "operatori": [
-        "EWE Go GmbH",
+        "EWE Go",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:node/12922190057",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "modello": "EWE Go GmbH",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -48823,7 +48816,7 @@
         },
         {
           "id": "osm:node/12922190058",
-          "operatore": "EWE Go GmbH",
+          "operatore": "EWE Go",
           "modello": "EWE Go GmbH",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -49327,12 +49320,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 52,
       "operatori": [
-        "circle K"
+        "Circle K"
       ],
       "colonnine": [
         {
           "id": "osm:node/13087494001",
-          "operatore": "circle K",
+          "operatore": "Circle K",
           "modello": "circle K",
           "potenzaKw": null,
           "attivaDal": null,
@@ -49522,12 +49515,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 251,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/13580099594",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 600.0,
           "attivaDal": null,
@@ -49561,7 +49554,7 @@
         },
         {
           "id": "osm:way/1171616634",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -49708,12 +49701,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 168,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:node/13789653278",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -50316,12 +50309,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 143,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:way/1200093780",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral pulse",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -50427,12 +50420,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 243,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:way/1284364321",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral pulse",
           "potenzaKw": null,
           "attivaDal": null,
@@ -50465,12 +50458,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 606,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:way/1316044004",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral pulse Autohof Henstedt-Ulzburg",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -50540,12 +50533,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 276,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:way/1317711421",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral pulse Tornesch KFZ 2",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -50579,7 +50572,7 @@
         },
         {
           "id": "osm:way/1317711422",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral pulse Tornesch KFZ 1",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -50613,7 +50606,7 @@
         },
         {
           "id": "osm:way/1317711423",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral pulse Tornesch LKW",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -50671,13 +50664,13 @@
       "indirizzo": null,
       "distanzaAutostradaM": 60,
       "operatori": [
-        "Aral",
+        "Aral pulse",
         "IONITY"
       ],
       "colonnine": [
         {
           "id": "osm:way/1389257624",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -50843,12 +50836,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 207,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:way/1396292196",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -51403,12 +51396,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 203,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:way/1480683851",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
@@ -51644,12 +51637,12 @@
       "indirizzo": null,
       "distanzaAutostradaM": 397,
       "operatori": [
-        "Aral"
+        "Aral pulse"
       ],
       "colonnine": [
         {
           "id": "osm:relation/18198204",
-          "operatore": "Aral",
+          "operatore": "Aral pulse",
           "modello": "Aral",
           "potenzaKw": 300.0,
           "attivaDal": null,
