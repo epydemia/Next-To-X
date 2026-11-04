@@ -1,15 +1,19 @@
 import { TILE_GUIDA, CENTRO_ITALIA, ZOOM_GUIDA } from '../config.js';
 import { creaSfondo, preparaAttribuzioni } from '../sfondi.js';
+import { tracciatoAutostrada } from '../core/reteAutostradale.js';
 
 let map = null;
 let markerUtente = null;
 let posizioneUtente = null;
 const livelloStazioni = L.layerGroup();
+const livelloAutostrada = L.layerGroup();
+let autostradaEvidenziata = null;
 
 export function creaMappa(idElemento) {
   map = L.map(idElemento).setView([CENTRO_ITALIA.lat, CENTRO_ITALIA.lon], ZOOM_GUIDA);
   creaSfondo(TILE_GUIDA).addTo(map);
   preparaAttribuzioni(map);
+  livelloAutostrada.addTo(map);
   livelloStazioni.addTo(map);
 
   // Dopo uno zoom Leaflet può spostare la vista: la ricentriamo sull'utente
@@ -49,6 +53,21 @@ export function aggiornaUtente({ lat, lon }, heading) {
   if (freccia) freccia.style.transform = `rotate(${heading}deg)`;
 
   map.setView([lat, lon], zoom);
+}
+
+/**
+ * Evidenzia l'autostrada percorsa (indice della strada nel tracciato locale, null per
+ * nessuna). Si ridisegna solo quando l'autostrada cambia.
+ */
+export function evidenziaAutostrada(indice) {
+  if (indice === autostradaEvidenziata) return;
+  autostradaEvidenziata = indice;
+  livelloAutostrada.clearLayers();
+  if (indice == null) return;
+  const tracciati = tracciatoAutostrada(indice);
+  // Alone largo e linea sottile sopra: si vede sia sullo sfondo scuro sia sulle altre strade
+  L.polyline(tracciati, { color: '#3b9eff', weight: 12, opacity: 0.25, interactive: false, lineCap: 'round', lineJoin: 'round' }).addTo(livelloAutostrada);
+  L.polyline(tracciati, { color: '#3b9eff', weight: 4, opacity: 0.9, interactive: false, lineCap: 'round', lineJoin: 'round' }).addTo(livelloAutostrada);
 }
 
 export function disegnaStazioni(stazioni) {

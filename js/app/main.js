@@ -3,7 +3,7 @@ import { caricaReteAutostradale } from '../core/reteAutostradale.js';
 import { filtraStazioni, tutteLeStazioni } from '../core/filtroStazioni.js';
 import { avviaPosizione, attendiPrimaPosizione, getStato } from './posizione.js';
 import { caricaTracciaCSV, osservaProgresso, vaiAlPunto } from './simulazione.js';
-import { creaMappa, aggiornaUtente, disegnaStazioni, mostraPanoramicaItalia, aggiornaDimensioniMappa } from './mappa.js';
+import { creaMappa, aggiornaUtente, disegnaStazioni, evidenziaAutostrada, mostraPanoramicaItalia, aggiornaDimensioniMappa } from './mappa.js';
 import {
   collegaPannelli, collegaOrientamentoBarra, mostraStrada, mostraDirezione, mostraAvvisoGps, aggiornaPannelli,
 } from './hud.js';
@@ -61,6 +61,7 @@ function contaProssima(s) {
 function aggiorna(stato) {
   if (!stato.coords) return;
   aggiornaUtente(stato.coords, stato.heading);
+  evidenziaAutostrada(stato.autostrada);
   mostraStrada(stato);
   mostraDirezione(stato);
 

@@ -13,6 +13,8 @@ const M_PER_GRADO_LON_EQUATORE = 111320;
 let strade = [];
 // "riga,colonna" → segmenti che attraversano la cella: [strada, sensoUnico, lat1, lon1, lat2, lon2]
 const griglia = new Map();
+// Indice di strada → tracciati della stessa autostrada, per evidenziarla sulla mappa
+const tracciati = new Map();
 let caricamento = null;
 
 const cella = (lat, lon) => `${Math.floor(lat / CELLA_GRADI)},${Math.floor(lon / CELLA_GRADI)}`;
@@ -27,6 +29,7 @@ export function caricaReteAutostradale() {
     .then(dati => {
       strade = dati.strade;
       dati.linee.forEach(indicizzaLinea);
+      raggruppaTracciati(dati.linee);
     });
   return caricamento;
 }
@@ -49,8 +52,31 @@ function indicizzaLinea([strada, sensoUnico, lat0, lon0, ...differenze]) {
   }
 }
 
+// Le strade con lo stesso paese e la stessa sigla (o lo stesso nome, se senza sigla) sono
+// un'unica autostrada: in OSM l'A1, per esempio, è spezzata in più tratte con nomi diversi
+function raggruppaTracciati(linee) {
+  const chiave = ({ paese, codice, nome }) => `${paese}|${codice || 'nome:' + nome}`;
+  const perChiave = new Map();
+  for (const [strada, , lat0, lon0, ...differenze] of linee) {
+    const punti = [[lat0 / SCALA, lon0 / SCALA]];
+    for (let i = 0; i < differenze.length; i += 2) {
+      const [lat, lon] = punti[punti.length - 1];
+      punti.push([lat + differenze[i] / SCALA, lon + differenze[i + 1] / SCALA]);
+    }
+    const k = chiave(strade[strada]);
+    if (!perChiave.has(k)) perChiave.set(k, []);
+    perChiave.get(k).push(punti);
+  }
+  strade.forEach((s, i) => tracciati.set(i, perChiave.get(chiave(s)) ?? []));
+}
+
+/** Tracciati (liste di [lat, lon]) dell'autostrada a cui appartiene la strada indicata. */
+export function tracciatoAutostrada(indice) {
+  return tracciati.get(indice) ?? [];
+}
+
 /**
- * Autostrada su cui si trova il punto: { paese, codice, nome, distanzaM }, oppure null
+ * Autostrada su cui si trova il punto: { paese, codice, nome, indice, distanzaM }, oppure null
  * (fuori autostrada o rete non ancora caricata). Con heading noto si scartano le carreggiate
  * percorse nel verso opposto e le strade che incrociano: evita di agganciare un'altra
  * autostrada a uno svincolo o la carreggiata opposta.
@@ -77,7 +103,7 @@ export function autostradaInPosizione(lat, lon, heading) {
           const scarto = Math.abs(differenzaAngolare(direzione, heading));
           if ((sensoUnico ? scarto : Math.min(scarto, 180 - scarto)) > AUTOSTRADA_ANGOLO_MAX) continue;
         }
-        migliore = { ...strade[strada], distanzaM };
+        migliore = { ...strade[strada], indice: strada, distanzaM };
       }
     }
   }
