@@ -73,7 +73,26 @@ NOMI_OPERATORI = [(re.compile(r, re.I), nome) for r, nome in [
     (r"\bomv\b", "OMV eMotion"),
     (r"illwerke|\bvkw\b", "illwerke vkw"),
     (r"\benbw\b", "EnBW"),
+    (r"^e[.-]?on\b", "E.ON Drive"),
+    (r"\ballego\b", "Allego"),
+    (r"^aral\b|^pulse$", "Aral pulse"),
+    (r"tank\s?&\s?rast", "Tank & Rast"),
+    (r"^mer\b", "Mer"),
+    (r"^in+ogy\b", "Innogy"),
+    (r"^ewe[\s-]?go\b", "EWE Go"),
+    (r"^charge-on\b", "Charge-ON"),
+    (r"^circle(\s?k)?$", "Circle K"),
+    (r"^e-wald\b", "E-WALD"),
+    (r"^mblty\b", "mblty"),
+    (r"^nio\s?power\b", "NIO Power"),
+    (r"^nomad\s?power\b", "Nomad Power"),
+    (r"^total", "TotalEnergies"),
+    (r"^bp\b", "BP"),
+    (r"^lechwerke\b|^lew$", "LEW"),
+    (r"^fast[\s-]?e$", "Fast-E"),
 ]]
+# Valori del tag operator che non indicano un operatore
+NON_OPERATORI = re.compile(r"^(vari|wikidata=.*)$", re.I)
 CELLA_GRADI = 0.01            # griglia per abbinare colonnine e aree di servizio in Python
 AUTOSTRADE_VICINE_M = 700     # raggio attorno al centro dell'area (aree grandi fino a ~300 m)
 LOTTO_AUTOSTRADE = 40
@@ -385,7 +404,14 @@ def colonnina(el):
 
 def operatore_di(tags):
     nome = (tags.get("operator") or tags.get("network") or tags.get("brand") or "").strip()
+    nome = normalizza_operatore(nome)
     return next((canonico for regola, canonico in NOMI_OPERATORI if regola.search(nome)), nome)
+
+
+def normalizza_operatore(nome):
+    # "Tank & Rast; innogy; e-on": si tiene il primo
+    nome = nome.split(";")[0].strip()
+    return "" if NON_OPERATORI.match(nome) else nome
 
 
 def elabora(risposta, paese, operatore, dettagli=False):
