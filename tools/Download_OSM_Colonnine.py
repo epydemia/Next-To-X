@@ -557,7 +557,7 @@ def main():
         except RuntimeError as err:
             # Un paese che fallisce non deve far perdere gli altri: si tengono i suoi dati precedenti
             vecchie = [a for a in precedenti if a["paese"] == paese]
-            print(f"  {paese}: DOWNLOAD NON RIUSCITO ({str(err).splitlines()[0].rstrip(":")}); tengo le {len(vecchie)} "
+            print(f"  {paese}: DOWNLOAD NON RIUSCITO ({str(err).splitlines()[0].rstrip(':')}); tengo le {len(vecchie)} "
                   "aree del download precedente")
             falliti.append(paese)
             aree += vecchie
