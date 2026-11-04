@@ -19,6 +19,7 @@ import argparse
 import json
 import math
 import re
+import sys
 import subprocess
 import time
 from datetime import datetime, timezone
@@ -142,28 +143,46 @@ def colonnine_in_aree_servizio(elementi):
 
 
 def scarica_aree_servizio(paese, aggiorna):
-    """Elementi per la modalità tutti-gli-operatori: aree con colonnine, le colonnine e le autostrade vicine."""
+    """Elementi per la modalità tutti-gli-operatori: aree con colonnine, le colonnine e le autostrade vicine.
+    Ogni passaggio ha la sua cache: se Overpass fallisce a metà, rilanciando si riparte da lì."""
     cache = CACHE / f"aree_servizio_v2_{paese}.json"
     if cache.exists() and not aggiorna:
         print(f"{paese}: uso la cache {cache.name} (--aggiorna per riscaricare)")
         return json.loads(cache.read_text(encoding="utf-8"))
 
-    tutto = richiesta_overpass(query_aree_servizio(paese), f"aree di servizio e colonnine in {paese}")
-    aree, colonnine = colonnine_in_aree_servizio(tutto.get("elements", []))
+    def passaggio(nome, scarica_dati):
+        file = CACHE / f"aree_servizio_v2_{paese}_{nome}.json"
+        if file.exists() and not aggiorna:
+            return json.loads(file.read_text(encoding="utf-8"))
+        dati = scarica_dati()
+        CACHE.mkdir(exist_ok=True)
+        file.write_text(json.dumps(dati), encoding="utf-8")
+        return dati
+
+    def base():
+        tutto = richiesta_overpass(query_aree_servizio(paese), f"aree di servizio e colonnine in {paese}")
+        aree, colonnine = colonnine_in_aree_servizio(tutto.get("elements", []))
+        return {"aree": aree, "colonnine": colonnine}
+
+    dati = passaggio("base", base)
+    aree, colonnine = dati["aree"], dati["colonnine"]
     print(f"  {paese}: {len(colonnine)} colonnine in {len(aree)} aree di servizio")
 
     punti = [tuple(round(v, 5) for v in posizione(a)) for a in aree if posizione(a)]
     autostrade = {}
     for i in range(0, len(punti), LOTTO_AUTOSTRADE):
         lotto = punti[i:i + LOTTO_AUTOSTRADE]
-        risposta = richiesta_overpass(query_autostrade_vicine(lotto),
-                                      f"autostrade vicine, aree {i + 1}-{i + len(lotto)} di {len(punti)}", vuota_ok=True)
+        descrizione = f"autostrade vicine, aree {i + 1}-{i + len(lotto)} di {len(punti)}"
+        risposta = passaggio(f"autostrade_{i // LOTTO_AUTOSTRADE}",
+                             lambda: richiesta_overpass(query_autostrade_vicine(lotto), descrizione, vuota_ok=True))
         for el in risposta.get("elements", []):
             autostrade[el["id"]] = el
 
     risultato = {"elements": aree + colonnine + list(autostrade.values())}
-    CACHE.mkdir(exist_ok=True)
     cache.write_text(json.dumps(risultato), encoding="utf-8")
+    # Completo: le cache dei singoli passaggi non servono più
+    for parziale in CACHE.glob(f"aree_servizio_v2_{paese}_*.json"):
+        parziale.unlink()
     return risultato
 
 
@@ -525,27 +544,42 @@ def main():
     args = parser.parse_args()
     operatore = None if args.tutti_gli_operatori else args.operatore
 
-    aree = []
+    predefinito = f"{operatore.lower()}_osm.json" if operatore else "osm_aree_servizio.json"
+    output = DATA / (args.output or predefinito)
+    precedenti = json.loads(output.read_text(encoding="utf-8"))["listaAree"] if output.exists() else []
+    paesi = [p.strip().upper() for p in args.paesi.split(",")]
+
+    aree, falliti = [], []
     ufficiali = carica_aree_ufficiali()
-    for paese in [p.strip().upper() for p in args.paesi.split(",")]:
-        risposta = scarica(paese, operatore, args.aggiorna)
+    for paese in paesi:
+        try:
+            risposta = scarica(paese, operatore, args.aggiorna)
+        except RuntimeError as err:
+            # Un paese che fallisce non deve far perdere gli altri: si tengono i suoi dati precedenti
+            vecchie = [a for a in precedenti if a["paese"] == paese]
+            print(f"  {paese}: DOWNLOAD NON RIUSCITO ({str(err).splitlines()[0].rstrip(':')}); tengo le {len(vecchie)} "
+                  "aree del download precedente")
+            falliti.append(paese)
+            aree += vecchie
+            continue
         trovate = elabora(risposta, paese, operatore, args.dettagli)
         trovate = classifica(trovate, ufficiali)
         print(f"  {paese}: {len(trovate)} aree ({sum(a['exitRequired'] for a in trovate)} fuori autostrada, "
               f"{sum(a['daVerificare'] for a in trovate)} da verificare)")
         aree += trovate
 
-    predefinito = f"{operatore.lower()}_osm.json" if operatore else "osm_aree_servizio.json"
-    output = DATA / (args.output or predefinito)
-    if args.unisci and output.exists():
-        paesi = {a["paese"] for a in aree}
-        aree = [a for a in json.loads(output.read_text(encoding="utf-8"))["listaAree"] if a["paese"] not in paesi] + aree
+    if args.unisci:
+        aree = [a for a in precedenti if a["paese"] not in paesi] + aree
     output.write_text(json.dumps({
         "listaAree": aree,
         "data_download": datetime.now(timezone.utc).isoformat(),
         "fonte": "© OpenStreetMap contributors, ODbL",
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"{len(aree)} aree salvate in {output}")
+    if falliti:
+        # Codice d'uscita diverso da 0: i comandi concatenati con && (compilazione, commit) non partono
+        sys.exit(f"Download non riuscito per {', '.join(falliti)} (server Overpass sovraccarichi). "
+                 "Rilancia lo stesso comando più tardi: riparte da dove si è fermato.")
 
 
 if __name__ == "__main__":
