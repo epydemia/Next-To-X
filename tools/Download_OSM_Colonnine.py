@@ -46,9 +46,10 @@ AREA_UFFICIALE_M = 300      # "uscita" sospetta se così vicina a un'area di ser
 # Aree di servizio ufficiali già nell'app, usate per il confronto
 FONTI_UFFICIALI = ["free_to_x_reverse.json", "a22_brennero_geocoded.json"]
 
-# Modalità "tutti gli operatori": questi hanno già una fonte dedicata
+# Modalità "tutti gli operatori": questi hanno già una fonte dedicata. Le loro colonnine
+# si scartano, ma l'area resta: Compila_Aree.py la unisce a quella dell'altra fonte, così
+# un'area con IONITY ed EnBW ha entrambi gli operatori
 OPERATORI_CON_FONTE = re.compile(r"ionity|free\s?-?\s?to\s?-?\s?x", re.I)
-ALTRE_FONTI = FONTI_UFFICIALI + ["ionity_osm.json"]
 # Lo stesso operatore compare in OSM scritto in modi diversi
 NOMI_OPERATORI = [(re.compile(r, re.I), nome) for r, nome in [
     (r"\btesla\b", "Tesla"),
@@ -72,8 +73,6 @@ NOMI_OPERATORI = [(re.compile(r, re.I), nome) for r, nome in [
     (r"illwerke|\bvkw\b", "illwerke vkw"),
     (r"\benbw\b", "EnBW"),
 ]]
-DOPPIONE_M = 60
-DOPPIONE_NOME_M = 500
 CELLA_GRADI = 0.01            # griglia per abbinare colonnine e aree di servizio in Python
 AUTOSTRADE_VICINE_M = 700     # raggio attorno al centro dell'area (aree grandi fino a ~300 m)
 LOTTO_AUTOSTRADE = 40
@@ -435,19 +434,6 @@ def elabora(risposta, paese, operatore, dettagli=False):
     return risultato
 
 
-def escludi_gia_presenti(aree, altre_fonti):
-    """Toglie le aree già presenti in un'altra fonte: stesso nome entro DOPPIONE_NOME_M,
-    oppure posizione praticamente coincidente (entro DOPPIONE_M)."""
-    def doppione(area):
-        p = (area["lat"], area["lon"])
-        for altra in altre_fonti:
-            d = distanza_segmento_m(p, (altra["lat"], altra["lon"]), (altra["lat"], altra["lon"]))
-            if d <= DOPPIONE_M or (d <= DOPPIONE_NOME_M and nome_coincide(altra.get("nome"), area["nome"])):
-                return True
-        return False
-    return [a for a in aree if not doppione(a)]
-
-
 PAROLE_IGNORATE = {"area", "di", "servizio", "ads", "del", "della", "al", "s", "san", "sant", "santo", "santa"}
 
 
@@ -527,8 +513,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--operatore", default="IONITY")
     parser.add_argument("--tutti-gli-operatori", action="store_true",
-                        help="colonnine di qualsiasi operatore nelle aree di servizio, escluse quelle già "
-                             "presenti in Free To X, A22 e IONITY (output: osm_aree_servizio.json)")
+                        help="colonnine di qualsiasi operatore nelle aree di servizio, tranne Free To X e "
+                             "IONITY che hanno una fonte propria (output: osm_aree_servizio.json); le aree "
+                             "presenti anche in altre fonti le unisce tools/Compila_Aree.py")
     parser.add_argument("--paesi", default="IT,DE,CH,AT", help="codici ISO separati da virgola")
     parser.add_argument("--unisci", action="store_true",
                         help="conserva nel file di output le aree degli altri paesi (e le loro correzioni)")
@@ -540,14 +527,9 @@ def main():
 
     aree = []
     ufficiali = carica_aree_ufficiali()
-    altre_fonti = carica_aree_ufficiali(ALTRE_FONTI)
     for paese in [p.strip().upper() for p in args.paesi.split(",")]:
         risposta = scarica(paese, operatore, args.aggiorna)
         trovate = elabora(risposta, paese, operatore, args.dettagli)
-        if operatore is None:
-            prima = len(trovate)
-            trovate = escludi_gia_presenti(trovate, altre_fonti)
-            print(f"  {paese}: {prima - len(trovate)} aree già presenti in altre fonti, escluse")
         trovate = classifica(trovate, ufficiali)
         print(f"  {paese}: {len(trovate)} aree ({sum(a['exitRequired'] for a in trovate)} fuori autostrada, "
               f"{sum(a['daVerificare'] for a in trovate)} da verificare)")

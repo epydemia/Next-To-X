@@ -81,7 +81,7 @@ class TestControllo(unittest.TestCase):
 def osm(id_, nome, lat, lon, carreggiata, operatore, fonte="osm"):
     return da_osm({"codice": id_, "nome": nome, "strada": "A4", "paese": "IT", "direzione_geografica": carreggiata,
                    "lat": lat, "lon": lon,
-                   "colonnine": [{"codice": id_ + "/c", "operatore": operatore, "connettori": [{"modello": "CCS 150 kW"}]}]},
+                   "colonnine": [{"codice": f"{id_}/{operatore}", "operatore": operatore, "connettori": [{"modello": "CCS 150 kW"}]}]},
                   fonte)
 
 
@@ -107,6 +107,16 @@ class TestUnione(unittest.TestCase):
         self.assertEqual(len(aree), 2)
         _, avvisi = controlla_unite(aree)
         self.assertTrue(any("forse la stessa area" in a for a in avvisi))
+
+    def test_area_con_ionity_e_altri_operatori_unita(self):
+        # Stessa area di servizio in ionity_osm.json e in osm_aree_servizio.json (dove le
+        # colonnine IONITY sono già scartate): deve diventare un'area sola con tutti gli operatori
+        ionity = osm("osm:way/7", "Rastanlage Hösel West", 51.3300, 6.9000, "SUD", "IONITY", fonte="ionity")
+        altri = osm("osm:way/7", "Rastanlage Hösel West", 51.3302, 6.9001, "SUD", "EnBW")
+        aree = unisci([ionity, altri])
+        self.assertEqual(len(aree), 1)
+        self.assertEqual(aree[0]["operatori"], ["EnBW", "IONITY"])
+        self.assertEqual(aree[0]["fonti"], ["osm", "ionity"])
 
     def test_campi_mancanti_dalla_fonte_secondaria(self):
         senza = da_free_to_x({**FREE_TO_X, "codice": "D51", "nome": "VALTROMPIA SUD", "direzione_geografica": "ND",

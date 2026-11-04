@@ -19,6 +19,35 @@ const MODALITA_DEBUG = ['true', '1'].includes(new URLSearchParams(location.searc
 let aree = [];
 let mostraTutte = false;
 
+// "Solo aree di servizio": nasconde le colonnine fuori dal casello e fuori autostrada
+const CHIAVE_SOLO_AREE = 'soloAreeServizio';
+let soloAreeServizio = leggiPreferenza(CHIAVE_SOLO_AREE);
+
+function leggiPreferenza(chiave) {
+  try {
+    return localStorage.getItem(chiave) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function salvaPreferenza(chiave, attiva) {
+  try {
+    localStorage.setItem(chiave, attiva ? '1' : '0');
+  } catch { /* non salvabile (es. navigazione privata): vale per questa sessione */ }
+}
+
+function areeVisibili() {
+  return soloAreeServizio ? aree.filter(a => a.accesso === 'area_servizio') : aree;
+}
+
+/** Senza GPS: tutte le stazioni, centrate sull'Italia. */
+function mostraSenzaPosizione() {
+  const stazioni = tutteLeStazioni(areeVisibili(), CENTRO_ITALIA);
+  disegnaStazioni(stazioni);
+  aggiornaPannelli(stazioni);
+}
+
 // Stazioni già conteggiate come "prossima" in questa visita: ognuna una volta sola
 const prossimeContate = new Set();
 
@@ -36,7 +65,7 @@ function aggiorna(stato) {
   mostraDirezione(stato);
 
   const { heading, strada, codiceAutostrada, paese } = stato;
-  const stazioni = filtraStazioni(aree, { ...stato.coords, heading, strada, codiceAutostrada, paese, mostraTutte });
+  const stazioni = filtraStazioni(areeVisibili(), { ...stato.coords, heading, strada, codiceAutostrada, paese, mostraTutte });
   disegnaStazioni(stazioni);
   aggiornaPannelli(stazioni);
   const prossima = stazioni.find(s => s.isNearest);
@@ -60,6 +89,15 @@ function collegaImpostazioni(simulazione) {
   document.getElementById('toggleNearest').addEventListener('change', e => {
     mostraTutte = e.target.checked;
     aggiorna(getStato());
+  });
+
+  const toggleSoloAree = document.getElementById('toggleSoloAree');
+  toggleSoloAree.checked = soloAreeServizio;
+  toggleSoloAree.addEventListener('change', e => {
+    soloAreeServizio = e.target.checked;
+    salvaPreferenza(CHIAVE_SOLO_AREE, soloAreeServizio);
+    if (getStato().coords) aggiorna(getStato());
+    else if (aree.length) mostraSenzaPosizione();
   });
 
   document.getElementById('csv-debug-section').hidden = !simulazione;
@@ -118,8 +156,6 @@ window.addEventListener('load', async () => {
   if (!posizione) {
     mostraAvvisoGps();
     mostraPanoramicaItalia();
-    const stazioni = tutteLeStazioni(aree, CENTRO_ITALIA);
-    disegnaStazioni(stazioni);
-    aggiornaPannelli(stazioni);
+    mostraSenzaPosizione();
   }
 });
