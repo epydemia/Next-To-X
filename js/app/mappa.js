@@ -11,6 +11,9 @@ let autostradaEvidenziata = null;
 
 export function creaMappa(idElemento) {
   map = L.map(idElemento).setView([CENTRO_ITALIA.lat, CENTRO_ITALIA.lon], ZOOM_GUIDA);
+  // Prima di aggiungere livelli: spostare il controllo lo ricrea e conterebbe due volte i
+  // crediti già presenti, che poi non si potrebbero più sostituire
+  compattaAttribuzioni();
   creaSfondo(TILE_GUIDA).addTo(map);
   preparaAttribuzioni(map);
   livelloAutostrada.addTo(map);
@@ -19,6 +22,22 @@ export function creaMappa(idElemento) {
   // Dopo uno zoom Leaflet può spostare la vista: la ricentriamo sull'utente
   map.on('zoomend', () => {
     if (posizioneUtente) map.setView([posizioneUtente.lat, posizioneUtente.lon], map.getZoom());
+  });
+}
+
+/**
+ * Crediti in una riga in fondo, sotto il pannello della prossima stazione: sui telefoni
+ * stretti il testo completo andava su più righe e copriva il nome della stazione. Quello che
+ * non ci sta finisce con "…" e un tocco mostra tutto (i link restano cliccabili).
+ */
+function compattaAttribuzioni() {
+  const crediti = map.attributionControl;
+  crediti.setPosition('bottomleft');
+  const elemento = crediti.getContainer();
+  elemento.title = 'Crediti della mappa';
+  elemento.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    elemento.classList.toggle('aperta');
   });
 }
 
