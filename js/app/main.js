@@ -7,6 +7,7 @@ import { creaMappa, aggiornaUtente, disegnaStazioni, evidenziaAutostrada, mostra
 import {
   collegaPannelli, collegaOrientamentoBarra, mostraStrada, mostraDirezione, mostraAvvisoGps, aggiornaPannelli,
 } from './hud.js';
+import { attendiAvvertenze } from './avvertenze.js';
 import { ATTESA_GPS_MS, CENTRO_ITALIA } from '../config.js';
 import {
   contaPagina, contaEvento, slugOperatori, statisticheAttive, impostaStatistiche, segnaSimulazione,
@@ -150,6 +151,8 @@ window.addEventListener('load', async () => {
   const rete = caricaReteAutostradale().catch(err => console.warn('Rete autostradale non disponibile:', err));
   aree = await caricaAree();
   await rete;
+  // Il permesso di posizione si chiede dopo le avvertenze, non sopra di esse
+  await attendiAvvertenze();
   avviaPosizione({ simulazione, onAggiornamento: aggiorna });
 
   const posizione = await attendiPrimaPosizione(ATTESA_GPS_MS);

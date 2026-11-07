@@ -9,8 +9,6 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0d1117" />
   <meta name="apple-mobile-web-app-title" content="Next-To-X" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
   <link rel="stylesheet" href="css/app.css" />
@@ -56,6 +54,25 @@
     <span class="toggle-track"></span>
   </label>
   <p class="setting-hint">Senza cookie e senza la tua posizione: si contano solo le aperture e quali operatori vengono suggeriti. Aiuta a decidere come migliorare l'app.</p>
+  <a class="setting-row setting-link" href="info.html">
+    <span class="setting-label">Info, avvertenze e privacy</span>
+    <span aria-hidden="true">›</span>
+  </a>
+</div>
+
+<!-- Avvertenze al primo avvio (js/app/avvertenze.js) -->
+<div id="avvertenze" role="dialog" aria-modal="true" aria-labelledby="avvertenze-titolo" hidden>
+  <div id="avvertenze-box">
+    <h2 id="avvertenze-titolo">Prima di partire</h2>
+    <ul>
+      <li><span aria-hidden="true">📵</span> <span><strong>Non usare il telefono mentre guidi:</strong> affidalo al passeggero o fissalo a un supporto.</span></li>
+      <li><span aria-hidden="true">⚡</span> <span><strong>Dati indicativi:</strong> una colonnina può mancare, essere guasta o occupata. Verifica con l'app dell'operatore e tieni un margine di autonomia.</span></li>
+      <li><span aria-hidden="true">🔒</span> <span><strong>La tua posizione non viene salvata.</strong> Si usa sul telefono; fuori dall'autostrada le coordinate vanno a OpenStreetMap solo per il nome della strada.</span></li>
+      <li><span aria-hidden="true">ℹ️</span> <span>App indipendente, <strong>non affiliata</strong> a Free To X, Autostrade per l'Italia, Autostrada del Brennero né agli operatori citati.</span></li>
+    </ul>
+    <button id="avvertenze-ok" type="button">Ho capito</button>
+    <a id="avvertenze-info" href="info.html">Info e privacy</a>
+  </div>
 </div>
 
 <!-- Mappa con overlay HUD -->
