@@ -1,4 +1,4 @@
-"""Test di Download_OSM_Colonnine.py (senza rete).  Uso:  python -m unittest discover tools"""
+"""Test di Download_OSM_Colonnine.py (senza rete).  Uso:  python3 -m unittest discover tools"""
 import sys
 import unittest
 from pathlib import Path

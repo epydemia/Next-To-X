@@ -18,7 +18,7 @@ più le colonnine veloci (DC) entro USCITA_VELOCI_MAX_M dall'autostrada, raggiun
 distanza e la sigla vengono dal tracciato locale (data/autostrade.json), senza altre
 richieste a Overpass.
 
-Uso:  python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT
+Uso:  python3 tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT
 Dati © OpenStreetMap contributors, licenza ODbL.
 """
 import argparse

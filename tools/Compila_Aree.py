@@ -34,8 +34,8 @@ Formato di un'area:
   correzioni     campi corretti da revisioni.json: {campo: {da: valore originale, nota}}
   esclusa        true se una revisione l'ha marcata "non autostradale" (l'app la nasconde)
 
-Uso:  python tools/Compila_Aree.py            (scrive data/aree.json)
-      python tools/Compila_Aree.py --controlla (solo controllo, non scrive)
+Uso:  python3 tools/Compila_Aree.py            (scrive data/aree.json)
+      python3 tools/Compila_Aree.py --controlla (solo controllo, non scrive)
 """
 import argparse
 import json

@@ -64,7 +64,7 @@ Open the page with `?debug=true` (e.g. `index.html?debug=true`), then ⚙ → **
 
 ## How the data is organised
 
-The pages read a single file, `data/aree.json`, built by `python tools/Compila_Aree.py` from the files of each source (`free_to_x_reverse.json`, `a22_brennero_geocoded.json`, `ionity_osm.json`, `osm_aree_servizio.json`). **Run it after updating any source.** Manual corrections live in `data/revisioni.json` and are applied by the pages on load, so saving them from the editor takes effect without recompiling.
+The pages read a single file, `data/aree.json`, built by `python3 tools/Compila_Aree.py` from the files of each source (`free_to_x_reverse.json`, `a22_brennero_geocoded.json`, `ionity_osm.json`, `osm_aree_servizio.json`). **Run it after updating any source.** Manual corrections live in `data/revisioni.json` and are applied by the pages on load, so saving them from the editor takes effect without recompiling.
 
 To add a source: write a converter in `tools/Compila_Aree.py` (add it to `SORGENTI`, its name to `FONTI` and `PRIORITA_FONTI`), and a label in `FONTI` in `js/config.js`.
 
@@ -72,15 +72,15 @@ To add a source: write a converter in `tools/Compila_Aree.py` (add it to `SORGEN
 
 | Source | Command | Output |
 | --- | --- | --- |
-| Free To X (Italy) | `python tools/Download_Free_To_X.py && python tools/ReverseGeocoding.py` | `data/free_to_x_reverse.json` |
-| IONITY (Italy, Germany, Switzerland, Austria) from OpenStreetMap | `python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT` | `data/ionity_osm.json` |
-| Every other operator in motorway service areas and fast chargers by the exits (e.g. ASTM network in Italy, EnBW/Tesla/Aral pulse in Germany) | `python tools/Download_OSM_Colonnine.py --tutti-gli-operatori --paesi IT,DE,CH,AT` | `data/osm_aree_servizio.json` |
+| Free To X (Italy) | `python3 tools/Download_Free_To_X.py && python3 tools/ReverseGeocoding.py` | `data/free_to_x_reverse.json` |
+| IONITY (Italy, Germany, Switzerland, Austria) from OpenStreetMap | `python3 tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT` | `data/ionity_osm.json` |
+| Every other operator in motorway service areas and fast chargers by the exits (e.g. ASTM network in Italy, EnBW/Tesla/Aral pulse in Germany) | `python3 tools/Download_OSM_Colonnine.py --tutti-gli-operatori --paesi IT,DE,CH,AT` | `data/osm_aree_servizio.json` |
 
 `--tutti-gli-operatori` starts from the service areas instead of an operator and keeps the chargers inside them, plus fast (DC) chargers within 1 km of a motorway, reachable by leaving it (fuel stations and Autohöfe just past an exit, e.g. Langenbruck on the A9; slow AC chargers near a motorway are almost always town chargers and are skipped). Free To X and IONITY chargers are skipped too, as they have their own source. Their distance and motorway code come from `data/autostrade.json` (generate it first), with no extra Overpass requests. An area that is also in another source (e.g. a German Rastanlage with IONITY and EnBW) is kept: `Compila_Aree.py` merges the two into one area with all operators. Add `--unisci` to refresh only the listed countries and keep the others in the output file untouched. If Overpass fails for a country, its areas from the previous download are kept, the script exits with an error, and running it again resumes from the step that failed (every step is cached in `tools/cache/`). Chain the next commands with `&&` so they do not run after a failure.
 
 ### Cross-checking Free To X and A22 with OpenStreetMap
 
-`python tools/Crosscheck_OSM.py` matches every Free To X / A22 area with the OSM service area of the same name (or the nearest within 500 m) and writes `reports/crosscheck_osm.md`: areas far from their OSM position, carriageways that disagree with the direction of the OSM motorway, and charger operators mapped in each area.
+`python3 tools/Crosscheck_OSM.py` matches every Free To X / A22 area with the OSM service area of the same name (or the nearest within 500 m) and writes `reports/crosscheck_osm.md`: areas far from their OSM position, carriageways that disagree with the direction of the OSM motorway, and charger operators mapped in each area.
 
 ### Reviewing the classification
 
@@ -90,7 +90,7 @@ The OSM script marks uncertain sites as `daVerificare` with a reason (e.g. close
 
 ### Unified format
 
-`python tools/Compila_Aree.py` converts every source into one format (highway code and section, carriageway, destination, access type, operators, chargers with connector type and power in kW) and checks it: errors stop the build, warnings are listed with `--avvisi`. Areas that are the same place in different sources (same name within 300 m, or within 60 m, carriageways not opposite) are merged into one record with all operators, the most authoritative source winning on conflicts; then `data/revisioni.json` is applied (corrections are recorded in `correzioni`, excluded areas flagged `esclusa`). Output: `data/aree.json`, read by the app, the editor and the highway overview. The original values of corrected fields are kept in `correzioni`, so the pages can re-apply the current revisions from scratch. The format is documented at the top of the script; tests: `python -m unittest discover tools`.
+`python3 tools/Compila_Aree.py` converts every source into one format (highway code and section, carriageway, destination, access type, operators, chargers with connector type and power in kW) and checks it: errors stop the build, warnings are listed with `--avvisi`. Areas that are the same place in different sources (same name within 300 m, or within 60 m, carriageways not opposite) are merged into one record with all operators, the most authoritative source winning on conflicts; then `data/revisioni.json` is applied (corrections are recorded in `correzioni`, excluded areas flagged `esclusa`). Output: `data/aree.json`, read by the app, the editor and the highway overview. The original values of corrected fields are kept in `correzioni`, so the pages can re-apply the current revisions from scratch. The format is documented at the top of the script; tests: `python3 -m unittest discover tools`.
 
 ## External services
 

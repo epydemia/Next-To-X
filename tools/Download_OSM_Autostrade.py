@@ -18,7 +18,7 @@ Coordinate in centomillesimi di grado (~1 m), dalla seconda in poi come differen
 precedente: numeri piccoli, file compatto. sensoUnico = 1 se la linea va percorsa nel verso
 dei punti, 0 se in entrambi.
 
-Uso:  python tools/Download_OSM_Autostrade.py [--paesi IT,DE,CH,AT] [--aggiorna]
+Uso:  python3 tools/Download_OSM_Autostrade.py [--paesi IT,DE,CH,AT] [--aggiorna]
 Dati © OpenStreetMap contributors, licenza ODbL.
 """
 import argparse
