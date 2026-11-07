@@ -15,7 +15,8 @@ al caricamento, quindi sopravvivono a un nuovo download.
 Con --tutti-gli-operatori si parte dalle aree di servizio: tutte le colonnine dentro un'area,
 più le colonnine veloci (DC) entro USCITA_VELOCI_MAX_M dall'autostrada, raggiungibili uscendo
 (distributori e Autohof appena fuori dal casello, es. Langenbruck sull'A9) ed entro
-SVINCOLO_MAX_M da uno svincolo, perché in città l'uscita può essere lontana. Per queste la
+SVINCOLO_MAX_M da uno svincolo, perché in città l'uscita può essere lontana; esclusi i
+supermercati (orari del negozio), tranne i Supercharger Tesla. Per queste la
 distanza e la sigla vengono dal tracciato locale (data/autostrade.json), senza altre
 richieste a Overpass.
 
@@ -113,7 +114,14 @@ POTENZA_VELOCE_KW = 50
 USCITA_VELOCI_MAX_M = 1000  # più stretto di USCITA_MAX_M: in città le colonnine veloci sono tante
 # Vicino all'autostrada non basta (in città l'uscita può essere a chilometri): la colonnina
 # deve essere anche vicina a uno svincolo (highway=motorway_junction)
-SVINCOLO_MAX_M = 1500
+SVINCOLO_MAX_M = 800
+# Supermercati e centri commerciali: colonnine usabili di solito solo negli orari del negozio.
+# Escluse dalle uscite, tranne i Supercharger Tesla (aperti sempre), che hanno anche il limite
+# dallo svincolo più largo
+NEGOZIO = re.compile(r"\b(lidl|aldi|hofer|ikea|kaufland|rewe|edeka|netto|penny|globus|norma|hornbach|obi|bauhaus|"
+                     r"toom|metro|marktkauf|famila|migros|coop|denner|spar|interspar|eurospar|billa|merkur|"
+                     r"esselunga|conad|carrefour|iper|bennet|mediaworld|leroy merlin)\b", re.I)
+SVINCOLO_TESLA_MAX_M = 1500
 PRESE_VELOCI = ("type2_combo", "chademo", "tesla_supercharger", "tesla_supercharger_ccs")
 NOME_VELOCE = re.compile(r"supercharger|fastned|ionity|aral\s?pulse|\bhpc\b|schnelllad|high power", re.I)
 # Tracciato locale delle autostrade (tools/Download_OSM_Autostrade.py): per scegliere le
@@ -184,6 +192,16 @@ def colonnine_in_aree_servizio(elementi):
             for a in vicine:
                 aree_trovate[(a["type"], a["id"])] = a
     return list(aree_trovate.values()), dentro
+
+
+def supercharger_tesla(tags):
+    if any(tags.get(f"socket:{presa}", "").isdigit() for presa in ("tesla_supercharger", "tesla_supercharger_ccs")):
+        return True
+    return any(re.search(r"tesla|supercharger", tags.get(k, ""), re.I) for k in ("name", "operator", "network", "brand"))
+
+
+def di_un_negozio(tags):
+    return any(NEGOZIO.search(tags.get(k, "")) for k in ("name", "operator", "network", "brand"))
 
 
 def potenza_kw(valore):
@@ -556,7 +574,7 @@ def elabora(risposta, paese, operatore, dettagli=False):
     autostrade = [e for e in elementi if e.get("tags", {}).get("highway") == "motorway"]
     aree_servizio = [e for e in elementi if e.get("tags", {}).get("highway") in ("services", "rest_area")]
     svincoli = [e for e in elementi if e.get("tags", {}).get("highway") == "motorway_junction"]
-    griglia_svincoli = indice_spaziale(svincoli, SVINCOLO_MAX_M)
+    griglia_svincoli = indice_spaziale(svincoli, SVINCOLO_TESLA_MAX_M)
     if operatore is None and not svincoli:
         print(f"  {paese}: nessuno svincolo scaricato, le colonnine vicino alle uscite non vengono filtrate")
 
@@ -583,13 +601,16 @@ def elabora(risposta, paese, operatore, dettagli=False):
         dentro_area_lontana = not in_area and dist_area == 0
         fuori_veloce = operatore is None and not in_area and not dentro_area_lontana
         if fuori_veloce:
-            if not ricarica_veloce(c.get("tags", {})):
+            tags = c.get("tags", {})
+            tesla = supercharger_tesla(tags)
+            if not ricarica_veloce(tags) or (di_un_negozio(tags) and not tesla):
                 continue
             dist_autostrada, sigla_locale = tracciato_piu_vicino(p, tracciato())
             if dist_autostrada > USCITA_VELOCI_MAX_M:
                 continue
             vicini = griglia_svincoli.get((math.floor(p[0] / CELLA_GRADI), math.floor(p[1] / CELLA_GRADI)), [])
-            if svincoli and not any(distanza_elemento_m(p, s) <= SVINCOLO_MAX_M for s in vicini):
+            limite = SVINCOLO_TESLA_MAX_M if tesla else SVINCOLO_MAX_M
+            if svincoli and not any(distanza_elemento_m(p, s) <= limite for s in vicini):
                 continue
         elif dist_autostrada > USCITA_MAX_M:
             continue
