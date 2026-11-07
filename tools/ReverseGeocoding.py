@@ -10,7 +10,7 @@ Nota: i suffissi nei nomi delle aree ("CALAGGIO NORD") sono una convenzione
 di Autostrade e non indicano la bussola (Calaggio Nord, sull'A16, va verso
 Napoli, cioè a ovest), per questo non vengono usati.
 
-Uso:  python tools/ReverseGeocoding.py   (dopo tools/Download_Free_To_X.py)
+Uso:  python3 tools/ReverseGeocoding.py   (dopo tools/Download_Free_To_X.py)
 """
 import json
 import math

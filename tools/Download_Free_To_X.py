@@ -1,7 +1,7 @@
 """Scarica l'elenco delle aree di servizio con colonnine Free To X da Autostrade per l'Italia.
 
-Uso:  python tools/Download_Free_To_X.py
-Poi:  python tools/ReverseGeocoding.py
+Uso:  python3 tools/Download_Free_To_X.py
+Poi:  python3 tools/ReverseGeocoding.py
 """
 import json
 from datetime import datetime, timezone

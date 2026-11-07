@@ -1,4 +1,4 @@
-"""Test di Compila_Aree.py.  Uso:  python -m unittest discover tools"""
+"""Test di Compila_Aree.py.  Uso:  python3 -m unittest discover tools"""
 import sys
 import unittest
 from pathlib import Path

@@ -6,7 +6,7 @@ file nuovi invece di aspettare la scadenza della cache di GitHub Pages (10 minut
 Tutti i file ricevono la stessa versione: un modulo importato con due URL diversi verrebbe
 caricato due volte, con due stati separati.
 
-Uso:  python tools/versiona_asset.py <versione> [cartella]   (default: la radice del repository)
+Uso:  python3 tools/versiona_asset.py <versione> [cartella]   (default: la radice del repository)
 """
 import re
 import sys

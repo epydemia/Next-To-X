@@ -13,10 +13,12 @@ nell'editor stazioni; le decisioni finiscono in data/revisioni.json e l'app le a
 al caricamento, quindi sopravvivono a un nuovo download.
 
 Con --tutti-gli-operatori si parte dalle aree di servizio: tutte le colonnine dentro un'area,
-più le colonnine veloci (DC) entro USCITA_MAX_M dall'autostrada, raggiungibili uscendo
-(distributori e Autohof appena fuori dal casello, es. Langenbruck sull'A9).
+più le colonnine veloci (DC) entro USCITA_VELOCI_MAX_M dall'autostrada, raggiungibili uscendo
+(distributori e Autohof appena fuori dal casello, es. Langenbruck sull'A9). Per queste la
+distanza e la sigla vengono dal tracciato locale (data/autostrade.json), senza altre
+richieste a Overpass.
 
-Uso:  python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT
+Uso:  python3 tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT
 Dati © OpenStreetMap contributors, licenza ODbL.
 """
 import argparse
@@ -105,6 +107,7 @@ LOTTO_AUTOSTRADE = 40
 # veloci, per cui vale la pena uscire. Le lente (AC) vicino all'autostrada sono quasi sempre
 # colonnine di paese o di parcheggi
 POTENZA_VELOCE_KW = 50
+USCITA_VELOCI_MAX_M = 1000  # più stretto di USCITA_MAX_M: in città le colonnine veloci sono tante
 PRESE_VELOCI = ("type2_combo", "chademo", "tesla_supercharger", "tesla_supercharger_ccs")
 NOME_VELOCE = re.compile(r"supercharger|fastned|ionity|aral\s?pulse|\bhpc\b|schnelllad|high power", re.I)
 # Tracciato locale delle autostrade (tools/Download_OSM_Autostrade.py): per scegliere le
@@ -201,44 +204,49 @@ def ricarica_veloce(tags):
 
 
 def carica_tracciato_autostrade(file=FILE_AUTOSTRADE):
-    """Griglia cella → segmenti ((lat, lon), (lat, lon)) dal tracciato locale; vuota se manca il file."""
+    """Griglia cella → segmenti ((lat, lon), (lat, lon), sigla) dal tracciato locale; vuota se manca il file."""
     if not file.exists():
         return {}
+    dati = json.loads(file.read_text(encoding="utf-8"))
+    sigle = [s["codice"] or s["nome"] for s in dati["strade"]]
     griglia = {}
-    for _, _, lat0, lon0, *differenze in json.loads(file.read_text(encoding="utf-8"))["linee"]:
+    for strada, _, lat0, lon0, *differenze in dati["linee"]:
         a = (lat0 / SCALA_AUTOSTRADE, lon0 / SCALA_AUTOSTRADE)
         for i in range(0, len(differenze), 2):
             b = (a[0] + differenze[i] / SCALA_AUTOSTRADE, a[1] + differenze[i + 1] / SCALA_AUTOSTRADE)
             for r in range(math.floor(min(a[0], b[0]) / CELLA_AUTOSTRADE_GRADI), math.floor(max(a[0], b[0]) / CELLA_AUTOSTRADE_GRADI) + 1):
                 for c in range(math.floor(min(a[1], b[1]) / CELLA_AUTOSTRADE_GRADI), math.floor(max(a[1], b[1]) / CELLA_AUTOSTRADE_GRADI) + 1):
-                    griglia.setdefault((r, c), []).append((a, b))
+                    griglia.setdefault((r, c), []).append((a, b, sigle[strada]))
             a = b
     return griglia
 
 
-def vicina_al_tracciato(p, griglia, massimo_m=USCITA_MAX_M):
-    """Il punto è entro massimo_m da un'autostrada del tracciato locale (celle di ~2 km: bastano le adiacenti)."""
+_tracciato = None
+
+
+def tracciato():
+    global _tracciato
+    if _tracciato is None:
+        _tracciato = carica_tracciato_autostrade()
+    return _tracciato
+
+
+def tracciato_piu_vicino(p, griglia):
+    """(distanza_m, sigla) dell'autostrada del tracciato locale più vicina entro ~2 km (celle adiacenti),
+    (inf, "") se non ce n'è."""
     r, c = math.floor(p[0] / CELLA_AUTOSTRADE_GRADI), math.floor(p[1] / CELLA_AUTOSTRADE_GRADI)
-    return any(distanza_segmento_m(p, a, b) <= massimo_m
-               for dr in (-1, 0, 1) for dc in (-1, 0, 1) for a, b in griglia.get((r + dr, c + dc), []))
+    return min(((distanza_segmento_m(p, a, b), sigla)
+                for dr in (-1, 0, 1) for dc in (-1, 0, 1) for a, b, sigla in griglia.get((r + dr, c + dc), [])),
+               default=(math.inf, ""))
 
 
-def colonnine_veloci_vicino_autostrada(colonnine, gia_dentro, griglia):
-    """Colonnine veloci fuori dalle aree di servizio ed entro USCITA_MAX_M dall'autostrada."""
+def colonnine_veloci_vicino_autostrada(colonnine, gia_dentro, griglia, massimo_m=USCITA_MAX_M):
+    """Colonnine veloci fuori dalle aree di servizio ed entro massimo_m dall'autostrada."""
     dentro = {(c["type"], c["id"]) for c in gia_dentro}
     return [c for c in colonnine
             if (c["type"], c["id"]) not in dentro and posizione(c) and ricarica_veloce(c.get("tags", {}))
             and not OPERATORI_CON_FONTE.search(operatore_di(c.get("tags", {})))
-            and vicina_al_tracciato(posizione(c), griglia)]
-
-
-def punti_rappresentativi(punti, raggio_m=RAGGRUPPA_M):
-    """Un punto per gruppo di punti vicini: le autostrade attorno a una sede si chiedono una volta."""
-    scelti = []
-    for p in punti:
-        if all(distanza_segmento_m(p, q, q) > raggio_m for q in scelti):
-            scelti.append(p)
-    return scelti
+            and tracciato_piu_vicino(posizione(c), griglia)[0] <= massimo_m]
 
 
 def scarica_aree_servizio(paese, aggiorna):
@@ -264,20 +272,21 @@ def scarica_aree_servizio(paese, aggiorna):
         tutto = richiesta_overpass(query_aree_servizio(paese), f"aree di servizio e colonnine in {paese}")
         elementi = tutto.get("elements", [])
         aree, colonnine = colonnine_in_aree_servizio(elementi)
-        tracciato = carica_tracciato_autostrade()
-        if not tracciato:
+        if not tracciato():
             print(f"  {FILE_AUTOSTRADE.name} mancante: niente colonnine fuori dalle aree di servizio")
         tutte = [e for e in elementi if e.get("tags", {}).get("amenity") == "charging_station"]
+        # Si tengono quelle entro USCITA_MAX_M: elabora() applica il limite più stretto, così
+        # cambiarlo non richiede di riscaricare
         return {"aree": aree, "colonnine": colonnine,
-                "fuori": colonnine_veloci_vicino_autostrada(tutte, colonnine, tracciato)}
+                "fuori": colonnine_veloci_vicino_autostrada(tutte, colonnine, tracciato())}
 
     dati = passaggio("base", base)
     aree, colonnine, fuori = dati["aree"], dati["colonnine"], dati["fuori"]
     print(f"  {paese}: {len(colonnine)} colonnine in {len(aree)} aree di servizio, "
           f"{len(fuori)} colonnine veloci vicino all'autostrada")
 
+    # Le autostrade si chiedono solo attorno alle aree: per le colonnine fuori basta il tracciato locale
     punti = [tuple(round(v, 5) for v in posizione(a)) for a in aree if posizione(a)]
-    punti += punti_rappresentativi([tuple(round(v, 5) for v in posizione(c)) for c in fuori])
     autostrade = {}
     for i in range(0, len(punti), LOTTO_AUTOSTRADE):
         lotto = punti[i:i + LOTTO_AUTOSTRADE]
@@ -535,10 +544,16 @@ def elabora(risposta, paese, operatore, dettagli=False):
 
         # Tutti gli operatori: fuori dalle aree di servizio sarebbero colonnine qualsiasi.
         # Si tengono quelle dentro un'area, anche se lontana dall'autostrada (da verificare),
-        # e quelle veloci vicino all'autostrada (uscita)
+        # e quelle veloci vicino all'autostrada (uscita), misurata sul tracciato locale
         dentro_area_lontana = not in_area and dist_area == 0
-        if dist_autostrada > USCITA_MAX_M or (operatore is None and not in_area and not dentro_area_lontana
-                                              and not ricarica_veloce(c.get("tags", {}))):
+        fuori_veloce = operatore is None and not in_area and not dentro_area_lontana
+        if fuori_veloce:
+            if not ricarica_veloce(c.get("tags", {})):
+                continue
+            dist_autostrada, sigla_locale = tracciato_piu_vicino(p, tracciato())
+            if dist_autostrada > USCITA_VELOCI_MAX_M:
+                continue
+        elif dist_autostrada > USCITA_MAX_M:
             continue
 
         chiave = f"osm:{area_servizio['type']}/{area_servizio['id']}" if in_area else colonnina(c)["codice"]
@@ -547,7 +562,7 @@ def elabora(risposta, paese, operatore, dettagli=False):
             continue
 
         tags_area = area_servizio["tags"] if in_area or dentro_area_lontana else {}
-        strada = codice_autostrada(via["tags"])
+        strada = sigla_locale if fuori_veloce else codice_autostrada(via["tags"])
         aree[chiave] = {
             "codice": chiave,
             "nome": tags_area.get("name") or c.get("tags", {}).get("name")

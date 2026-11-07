@@ -8,7 +8,7 @@ Per ogni area:
 - operatori delle colonnine mappate in OSM nell'area.
 
 Scrive reports/crosscheck_osm.md (leggibile) e reports/crosscheck_osm.json (per correzioni).
-Uso:  python tools/Crosscheck_OSM.py  [--aggiorna]
+Uso:  python3 tools/Crosscheck_OSM.py  [--aggiorna]
 """
 import argparse
 import json

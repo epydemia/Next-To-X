@@ -1,9 +1,10 @@
-"""Test di Download_OSM_Colonnine.py (senza rete).  Uso:  python -m unittest discover tools"""
+"""Test di Download_OSM_Colonnine.py (senza rete).  Uso:  python3 -m unittest discover tools"""
 import sys
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import Download_OSM_Colonnine as dl  # noqa: E402
 from Download_OSM_Colonnine import (  # noqa: E402
     colonnine_veloci_vicino_autostrada, elabora, potenza_kw, ricarica_veloce,
 )
@@ -13,9 +14,7 @@ TRACCIATO = {}
 A9 = ((48.60, 11.54), (48.64, 11.57))
 for r in range(2430, 2433):
     for c in range(576, 580):
-        TRACCIATO[(r, c)] = [A9]
-AUTOSTRADA = {"type": "way", "id": 9, "tags": {"highway": "motorway", "ref": "A 9", "oneway": "yes"},
-              "geometry": [{"lat": 48.60, "lon": 11.54}, {"lat": 48.64, "lon": 11.57}]}
+        TRACCIATO[(r, c)] = [(*A9, "A9")]
 
 
 def stazione(id_, lon, **tags):
@@ -47,10 +46,19 @@ class TestColonnineAllUscita(unittest.TestCase):
         ]
         fuori = colonnine_veloci_vicino_autostrada(colonnine, [], TRACCIATO)
         self.assertEqual([c["id"] for c in fuori], [1])
-        aree = elabora({"elements": fuori + [colonnine[2], AUTOSTRADA]}, "DE", None)
+        dl._tracciato = TRACCIATO
+        # Senza autostrade da Overpass: distanza e sigla vengono dal tracciato locale
+        aree = elabora({"elements": fuori + [colonnine[2]]}, "DE", None)
         self.assertEqual(len(aree), 1)
         a = aree[0]
         self.assertEqual((a["nome"], a["strada"], a["exitRequired"], a["operatore"]), ("Tesla A9", "A9", True, "Tesla"))
+        self.assertLess(a["distanzaAutostradaM"], 1000)
+
+    def test_oltre_il_limite_delle_uscite_scartata(self):
+        lontana = stazione(5, 11.575, **{"socket:type2_combo": "2"})  # ~1,3 km dal tratto
+        self.assertEqual(len(colonnine_veloci_vicino_autostrada([lontana], [], TRACCIATO)), 1)  # scaricata (< 1,5 km)
+        dl._tracciato = TRACCIATO
+        self.assertEqual(elabora({"elements": [lontana]}, "DE", None), [])  # ma oltre i 1000 m delle uscite
 
 
 if __name__ == "__main__":
