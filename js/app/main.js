@@ -114,10 +114,24 @@ function collegaImpostazioni(simulazione) {
   collegaCursoreSimulazione(simulazione);
 }
 
+// Il cursore si può nascondere, per esempio per fare screenshot puliti della simulazione
+const CHIAVE_NASCONDI_CURSORE = 'nascondiCursoreSimulazione';
+
 /** Cursore sulla mappa per scorrere avanti e indietro lungo la traccia simulata. */
 function collegaCursoreSimulazione(simulazione) {
-  document.getElementById('sim-cursore').hidden = !simulazione;
+  const pannello = document.getElementById('sim-cursore');
+  pannello.hidden = true;
+  document.getElementById('riga-cursore').hidden = !simulazione;
   if (!simulazione) return;
+
+  const toggleCursore = document.getElementById('toggleCursore');
+  toggleCursore.checked = !leggiPreferenza(CHIAVE_NASCONDI_CURSORE);
+  pannello.hidden = !toggleCursore.checked;
+  toggleCursore.addEventListener('change', e => {
+    pannello.hidden = !e.target.checked;
+    salvaPreferenza(CHIAVE_NASCONDI_CURSORE, !e.target.checked);
+  });
+
   const cursore = document.getElementById('simSlider');
   const tempo = document.getElementById('simTempo');
   cursore.addEventListener('input', e => vaiAlPunto(Number(e.target.value)));
