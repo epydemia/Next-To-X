@@ -12,6 +12,10 @@ I casi dubbi vengono marcati daVerificare (con il motivo) per la revisione manua
 nell'editor stazioni; le decisioni finiscono in data/revisioni.json e l'app le applica
 al caricamento, quindi sopravvivono a un nuovo download.
 
+Con --tutti-gli-operatori si parte dalle aree di servizio: tutte le colonnine dentro un'area,
+più le colonnine veloci (DC) entro USCITA_MAX_M dall'autostrada, raggiungibili uscendo
+(distributori e Autohof appena fuori dal casello, es. Langenbruck sull'A9).
+
 Uso:  python tools/Download_OSM_Colonnine.py --operatore IONITY --paesi IT,DE,CH,AT
 Dati © OpenStreetMap contributors, licenza ODbL.
 """
@@ -97,6 +101,18 @@ CELLA_GRADI = 0.01            # griglia per abbinare colonnine e aree di servizi
 AUTOSTRADE_VICINE_M = 700     # raggio attorno al centro dell'area (aree grandi fino a ~300 m)
 LOTTO_AUTOSTRADE = 40
 
+# Colonnine fuori dalle aree di servizio, modalità tutti gli operatori: si tengono solo quelle
+# veloci, per cui vale la pena uscire. Le lente (AC) vicino all'autostrada sono quasi sempre
+# colonnine di paese o di parcheggi
+POTENZA_VELOCE_KW = 50
+PRESE_VELOCI = ("type2_combo", "chademo", "tesla_supercharger", "tesla_supercharger_ccs")
+NOME_VELOCE = re.compile(r"supercharger|fastned|ionity|aral\s?pulse|\bhpc\b|schnelllad|high power", re.I)
+# Tracciato locale delle autostrade (tools/Download_OSM_Autostrade.py): per scegliere le
+# colonnine vicine all'autostrada senza chiedere a Overpass le autostrade attorno a ognuna
+FILE_AUTOSTRADE = DATA / "autostrade.json"
+SCALA_AUTOSTRADE = 100_000
+CELLA_AUTOSTRADE_GRADI = 0.02
+
 # Gli Autohof tedeschi sono a volte taggati highway=services, ma si raggiungono uscendo
 NOME_AUTOHOF = re.compile(r"autohof|truck\s?stop", re.I)
 NOME_AREA_SERVIZIO = re.compile(r"rastst[äa]tte|raststation|rasthof|rastanlage|area di servizio|aire de|\bads\b|autogrill|serways|tank\s?&\s?rast", re.I)
@@ -161,16 +177,82 @@ def colonnine_in_aree_servizio(elementi):
     return list(aree_trovate.values()), dentro
 
 
+def potenza_kw(valore):
+    """"150 kW" → 150, "22kW;11 kW" → 22, "50000 W" → 50. None se non si capisce."""
+    potenze = []
+    for parte in (valore or "").split(";"):
+        m = re.match(r"^\s*(\d+(?:[.,]\d+)?)\s*(kw|w)?\s*$", parte, re.I)
+        if m:
+            numero = float(m.group(1).replace(",", "."))
+            potenze.append(numero / 1000 if (m.group(2) or "").lower() == "w" else numero)
+    return max(potenze, default=None)
+
+
+def ricarica_veloce(tags):
+    """La colonnina ha almeno una presa DC (CCS, CHAdeMO, Supercharger) o almeno POTENZA_VELOCE_KW."""
+    for presa in PRESE_VELOCI:
+        n = tags.get(f"socket:{presa}", "")
+        if n.isdigit() and int(n) > 0:
+            return True
+    uscite = [v for k, v in tags.items() if k.endswith(":output") or k == "charging_station:output"]
+    if any((potenza_kw(v) or 0) >= POTENZA_VELOCE_KW for v in uscite):
+        return True
+    return any(NOME_VELOCE.search(tags.get(k, "")) for k in ("name", "operator", "network", "brand"))
+
+
+def carica_tracciato_autostrade(file=FILE_AUTOSTRADE):
+    """Griglia cella → segmenti ((lat, lon), (lat, lon)) dal tracciato locale; vuota se manca il file."""
+    if not file.exists():
+        return {}
+    griglia = {}
+    for _, _, lat0, lon0, *differenze in json.loads(file.read_text(encoding="utf-8"))["linee"]:
+        a = (lat0 / SCALA_AUTOSTRADE, lon0 / SCALA_AUTOSTRADE)
+        for i in range(0, len(differenze), 2):
+            b = (a[0] + differenze[i] / SCALA_AUTOSTRADE, a[1] + differenze[i + 1] / SCALA_AUTOSTRADE)
+            for r in range(math.floor(min(a[0], b[0]) / CELLA_AUTOSTRADE_GRADI), math.floor(max(a[0], b[0]) / CELLA_AUTOSTRADE_GRADI) + 1):
+                for c in range(math.floor(min(a[1], b[1]) / CELLA_AUTOSTRADE_GRADI), math.floor(max(a[1], b[1]) / CELLA_AUTOSTRADE_GRADI) + 1):
+                    griglia.setdefault((r, c), []).append((a, b))
+            a = b
+    return griglia
+
+
+def vicina_al_tracciato(p, griglia, massimo_m=USCITA_MAX_M):
+    """Il punto è entro massimo_m da un'autostrada del tracciato locale (celle di ~2 km: bastano le adiacenti)."""
+    r, c = math.floor(p[0] / CELLA_AUTOSTRADE_GRADI), math.floor(p[1] / CELLA_AUTOSTRADE_GRADI)
+    return any(distanza_segmento_m(p, a, b) <= massimo_m
+               for dr in (-1, 0, 1) for dc in (-1, 0, 1) for a, b in griglia.get((r + dr, c + dc), []))
+
+
+def colonnine_veloci_vicino_autostrada(colonnine, gia_dentro, griglia):
+    """Colonnine veloci fuori dalle aree di servizio ed entro USCITA_MAX_M dall'autostrada."""
+    dentro = {(c["type"], c["id"]) for c in gia_dentro}
+    return [c for c in colonnine
+            if (c["type"], c["id"]) not in dentro and posizione(c) and ricarica_veloce(c.get("tags", {}))
+            and not OPERATORI_CON_FONTE.search(operatore_di(c.get("tags", {})))
+            and vicina_al_tracciato(posizione(c), griglia)]
+
+
+def punti_rappresentativi(punti, raggio_m=RAGGRUPPA_M):
+    """Un punto per gruppo di punti vicini: le autostrade attorno a una sede si chiedono una volta."""
+    scelti = []
+    for p in punti:
+        if all(distanza_segmento_m(p, q, q) > raggio_m for q in scelti):
+            scelti.append(p)
+    return scelti
+
+
 def scarica_aree_servizio(paese, aggiorna):
-    """Elementi per la modalità tutti-gli-operatori: aree con colonnine, le colonnine e le autostrade vicine.
+    """Elementi per la modalità tutti-gli-operatori: aree con colonnine, le colonnine (dentro le aree
+    e quelle veloci vicino all'autostrada) e le autostrade vicine.
     Ogni passaggio ha la sua cache: se Overpass fallisce a metà, rilanciando si riparte da lì."""
-    cache = CACHE / f"aree_servizio_v2_{paese}.json"
+    # v3: aggiunte le colonnine veloci fuori dalle aree di servizio
+    cache = CACHE / f"aree_servizio_v3_{paese}.json"
     if cache.exists() and not aggiorna:
         print(f"{paese}: uso la cache {cache.name} (--aggiorna per riscaricare)")
         return json.loads(cache.read_text(encoding="utf-8"))
 
     def passaggio(nome, scarica_dati):
-        file = CACHE / f"aree_servizio_v2_{paese}_{nome}.json"
+        file = CACHE / f"aree_servizio_v3_{paese}_{nome}.json"
         if file.exists() and not aggiorna:
             return json.loads(file.read_text(encoding="utf-8"))
         dati = scarica_dati()
@@ -180,14 +262,22 @@ def scarica_aree_servizio(paese, aggiorna):
 
     def base():
         tutto = richiesta_overpass(query_aree_servizio(paese), f"aree di servizio e colonnine in {paese}")
-        aree, colonnine = colonnine_in_aree_servizio(tutto.get("elements", []))
-        return {"aree": aree, "colonnine": colonnine}
+        elementi = tutto.get("elements", [])
+        aree, colonnine = colonnine_in_aree_servizio(elementi)
+        tracciato = carica_tracciato_autostrade()
+        if not tracciato:
+            print(f"  {FILE_AUTOSTRADE.name} mancante: niente colonnine fuori dalle aree di servizio")
+        tutte = [e for e in elementi if e.get("tags", {}).get("amenity") == "charging_station"]
+        return {"aree": aree, "colonnine": colonnine,
+                "fuori": colonnine_veloci_vicino_autostrada(tutte, colonnine, tracciato)}
 
     dati = passaggio("base", base)
-    aree, colonnine = dati["aree"], dati["colonnine"]
-    print(f"  {paese}: {len(colonnine)} colonnine in {len(aree)} aree di servizio")
+    aree, colonnine, fuori = dati["aree"], dati["colonnine"], dati["fuori"]
+    print(f"  {paese}: {len(colonnine)} colonnine in {len(aree)} aree di servizio, "
+          f"{len(fuori)} colonnine veloci vicino all'autostrada")
 
     punti = [tuple(round(v, 5) for v in posizione(a)) for a in aree if posizione(a)]
+    punti += punti_rappresentativi([tuple(round(v, 5) for v in posizione(c)) for c in fuori])
     autostrade = {}
     for i in range(0, len(punti), LOTTO_AUTOSTRADE):
         lotto = punti[i:i + LOTTO_AUTOSTRADE]
@@ -197,10 +287,10 @@ def scarica_aree_servizio(paese, aggiorna):
         for el in risposta.get("elements", []):
             autostrade[el["id"]] = el
 
-    risultato = {"elements": aree + colonnine + list(autostrade.values())}
+    risultato = {"elements": aree + colonnine + fuori + list(autostrade.values())}
     cache.write_text(json.dumps(risultato), encoding="utf-8")
-    # Completo: le cache dei singoli passaggi non servono più
-    for parziale in CACHE.glob(f"aree_servizio_v2_{paese}_*.json"):
+    # Completo: le cache dei singoli passaggi (e quelle delle versioni precedenti) non servono più
+    for parziale in [*CACHE.glob(f"aree_servizio_v3_{paese}_*.json"), *CACHE.glob(f"aree_servizio_v2_{paese}*.json")]:
         parziale.unlink()
     return risultato
 
@@ -416,8 +506,9 @@ def normalizza_operatore(nome):
 
 def elabora(risposta, paese, operatore, dettagli=False):
     """Converte la risposta Overpass in aree nel formato dell'app (vedi data/*.json).
-    operatore None = tutti gli operatori: solo colonnine dentro aree di servizio, escluse
-    quelle degli operatori che hanno già una fonte dedicata (Free To X, IONITY)."""
+    operatore None = tutti gli operatori: colonnine dentro aree di servizio e colonnine veloci
+    raggiungibili uscendo, escluse quelle degli operatori che hanno già una fonte dedicata
+    (Free To X, IONITY)."""
     elementi = risposta.get("elements", [])
     colonnine = [e for e in elementi if e.get("tags", {}).get("amenity") == "charging_station"]
     if operatore is None:
@@ -443,9 +534,11 @@ def elabora(risposta, paese, operatore, dettagli=False):
                   f"autostrada {dist_autostrada:6.0f} m  area '{nome_area}' {dist_area:6.0f} m  → {esito}")
 
         # Tutti gli operatori: fuori dalle aree di servizio sarebbero colonnine qualsiasi.
-        # Si tengono solo quelle dentro un'area, anche se lontana dall'autostrada (da verificare)
+        # Si tengono quelle dentro un'area, anche se lontana dall'autostrada (da verificare),
+        # e quelle veloci vicino all'autostrada (uscita)
         dentro_area_lontana = not in_area and dist_area == 0
-        if dist_autostrada > USCITA_MAX_M or (operatore is None and not in_area and not dentro_area_lontana):
+        if dist_autostrada > USCITA_MAX_M or (operatore is None and not in_area and not dentro_area_lontana
+                                              and not ricarica_veloce(c.get("tags", {}))):
             continue
 
         chiave = f"osm:{area_servizio['type']}/{area_servizio['id']}" if in_area else colonnina(c)["codice"]
@@ -457,7 +550,8 @@ def elabora(risposta, paese, operatore, dettagli=False):
         strada = codice_autostrada(via["tags"])
         aree[chiave] = {
             "codice": chiave,
-            "nome": tags_area.get("name") or c.get("tags", {}).get("name") or f"{operatore or 'Area di servizio'} {strada}".strip(),
+            "nome": tags_area.get("name") or c.get("tags", {}).get("name")
+                    or f"{operatore or (colonnina(c)['operatore'] or 'Colonnina' if not in_area else 'Area di servizio')} {strada}".strip(),
             "strada": strada,
             "direzione": via["tags"].get("destination", "") if in_area else "",
             "direzione_geografica": punto_cardinale(direzione) if in_area and direzione is not None else "ND",

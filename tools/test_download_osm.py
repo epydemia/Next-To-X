@@ -1,0 +1,57 @@
+"""Test di Download_OSM_Colonnine.py (senza rete).  Uso:  python -m unittest discover tools"""
+import sys
+import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from Download_OSM_Colonnine import (  # noqa: E402
+    colonnine_veloci_vicino_autostrada, elabora, potenza_kw, ricarica_veloce,
+)
+
+# Tracciato locale finto: un tratto di A9 in direzione nord-est
+TRACCIATO = {}
+A9 = ((48.60, 11.54), (48.64, 11.57))
+for r in range(2430, 2433):
+    for c in range(576, 580):
+        TRACCIATO[(r, c)] = [A9]
+AUTOSTRADA = {"type": "way", "id": 9, "tags": {"highway": "motorway", "ref": "A 9", "oneway": "yes"},
+              "geometry": [{"lat": 48.60, "lon": 11.54}, {"lat": 48.64, "lon": 11.57}]}
+
+
+def stazione(id_, lon, **tags):
+    return {"type": "node", "id": id_, "lat": 48.62, "lon": lon, "tags": {"amenity": "charging_station", **tags}}
+
+
+class TestRicaricaVeloce(unittest.TestCase):
+    def test_potenza(self):
+        self.assertEqual(potenza_kw("150 kW"), 150)
+        self.assertEqual(potenza_kw("50000 W"), 50)
+        self.assertEqual(potenza_kw("22kW;11 kW"), 22)
+        self.assertIsNone(potenza_kw("molto"))
+
+    def test_veloce(self):
+        self.assertTrue(ricarica_veloce({"socket:type2_combo": "4"}))
+        self.assertTrue(ricarica_veloce({"socket:type2_combo:output": "300 kW"}))
+        self.assertTrue(ricarica_veloce({"name": "Tesla Supercharger Langenbruck"}))
+        self.assertFalse(ricarica_veloce({"socket:type2": "2", "socket:type2:output": "22 kW"}))
+        self.assertFalse(ricarica_veloce({}))
+
+
+class TestColonnineAllUscita(unittest.TestCase):
+    def test_veloci_vicino_autostrada_tenute_come_uscita(self):
+        colonnine = [
+            stazione(1, 11.55, operator="Tesla, Inc.", **{"socket:tesla_supercharger_ccs": "8"}),
+            stazione(2, 11.5505, operator="IONITY", **{"socket:type2_combo": "4"}),  # ha una fonte propria
+            stazione(3, 11.551, **{"socket:type2": "2"}),                             # lenta
+            stazione(4, 11.40, **{"socket:type2_combo": "2"}),                        # lontana dall'autostrada
+        ]
+        fuori = colonnine_veloci_vicino_autostrada(colonnine, [], TRACCIATO)
+        self.assertEqual([c["id"] for c in fuori], [1])
+        aree = elabora({"elements": fuori + [colonnine[2], AUTOSTRADA]}, "DE", None)
+        self.assertEqual(len(aree), 1)
+        a = aree[0]
+        self.assertEqual((a["nome"], a["strada"], a["exitRequired"], a["operatore"]), ("Tesla A9", "A9", True, "Tesla"))
+
+
+if __name__ == "__main__":
+    unittest.main()
