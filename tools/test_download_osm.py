@@ -27,6 +27,7 @@ class TestRicaricaVeloce(unittest.TestCase):
         self.assertEqual(potenza_kw("50000 W"), 50)
         self.assertEqual(potenza_kw("22kW;11 kW"), 22)
         self.assertIsNone(potenza_kw("molto"))
+        self.assertEqual(potenza_kw("22000"), 22)  # watt senza unità
 
     def test_veloce(self):
         self.assertTrue(ricarica_veloce({"socket:type2_combo": "4"}))
@@ -34,6 +35,7 @@ class TestRicaricaVeloce(unittest.TestCase):
         self.assertTrue(ricarica_veloce({"name": "Tesla Supercharger Langenbruck"}))
         self.assertFalse(ricarica_veloce({"socket:type2": "2", "socket:type2:output": "22 kW"}))
         self.assertFalse(ricarica_veloce({}))
+        self.assertFalse(ricarica_veloce({"socket:type2": "2", "socket:type2:output": "22000"}))
 
 
 class TestColonnineAllUscita(unittest.TestCase):

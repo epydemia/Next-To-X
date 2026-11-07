@@ -96,8 +96,12 @@ def potenza_kw(testo):
     """"HPC 300 kW" → 300, "CCS 350" → 350, "Type 2 Ricarica AC (22 kW)" → 22, "CCS" → None."""
     # Il "2" di "Type 2" non è una potenza
     testo = re.sub(r"\btype\s?2|\btyp\s?2", " ", (testo or "").lower())
-    m = re.search(r"(\d+(?:[.,]\d+)?)\s*(?:kw\b|$)", testo.strip())
-    return float(m.group(1).replace(",", ".")) if m else None
+    m = re.search(r"(\d+(?:[.,]\d+)?)\s*(kw\b|w\b|$)", testo.strip())
+    if not m:
+        return None
+    valore = float(m.group(1).replace(",", "."))
+    # In OSM la potenza è a volte in watt, con o senza unità ("22000", "150000 W")
+    return valore / 1000 if m.group(2) == "w" or (not m.group(2) and valore >= 1000) else valore
 
 
 def tipo_connettore(testo):
