@@ -23,6 +23,9 @@ class TestConversioni(unittest.TestCase):
         self.assertEqual(potenza_kw("CCS 350"), 350)
         self.assertIsNone(potenza_kw("Type 2"))
         self.assertIsNone(potenza_kw("CCS Ricarica DC"))
+        # OSM in watt, con o senza unità
+        self.assertEqual(potenza_kw("Type 2 22000"), 22)
+        self.assertEqual(potenza_kw("CCS 150000 W"), 150)
         self.assertEqual(tipo_connettore("Type2 Ricarica AC (22 kW)"), "Type 2")
         self.assertEqual(tipo_connettore("Tesla Supercharger"), "Tesla")
 

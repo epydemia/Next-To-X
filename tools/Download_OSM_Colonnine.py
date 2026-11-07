@@ -181,13 +181,15 @@ def colonnine_in_aree_servizio(elementi):
 
 
 def potenza_kw(valore):
-    """"150 kW" → 150, "22kW;11 kW" → 22, "50000 W" → 50. None se non si capisce."""
+    """"150 kW" → 150, "22kW;11 kW" → 22, "50000 W" e "50000" → 50 (in OSM a volte è in watt
+    senza unità). None se non si capisce."""
     potenze = []
     for parte in (valore or "").split(";"):
         m = re.match(r"^\s*(\d+(?:[.,]\d+)?)\s*(kw|w)?\s*$", parte, re.I)
         if m:
             numero = float(m.group(1).replace(",", "."))
-            potenze.append(numero / 1000 if (m.group(2) or "").lower() == "w" else numero)
+            unita = (m.group(2) or "").lower()
+            potenze.append(numero / 1000 if unita == "w" or (not unita and numero >= 1000) else numero)
     return max(potenze, default=None)
 
 
@@ -486,7 +488,8 @@ def connettori(tags):
         n = tags.get(f"socket:{chiave}")
         if not n or not n.isdigit():
             continue
-        potenza = tags.get(f"socket:{chiave}:output", "")
+        kw = potenza_kw(tags.get(f"socket:{chiave}:output", ""))
+        potenza = f"{kw:g} kW" if kw else ""
         risultato += [{"modello": f"{nome} {potenza}".strip()}] * int(n)
     return risultato
 
