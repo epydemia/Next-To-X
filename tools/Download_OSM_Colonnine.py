@@ -14,7 +14,8 @@ al caricamento, quindi sopravvivono a un nuovo download.
 
 Con --tutti-gli-operatori si parte dalle aree di servizio: tutte le colonnine dentro un'area,
 più le colonnine veloci (DC) entro USCITA_VELOCI_MAX_M dall'autostrada, raggiungibili uscendo
-(distributori e Autohof appena fuori dal casello, es. Langenbruck sull'A9). Per queste la
+(distributori e Autohof appena fuori dal casello, es. Langenbruck sull'A9) ed entro
+SVINCOLO_MAX_M da uno svincolo, perché in città l'uscita può essere lontana. Per queste la
 distanza e la sigla vengono dal tracciato locale (data/autostrade.json), senza altre
 richieste a Overpass.
 
@@ -45,9 +46,9 @@ HEADERS = {"User-Agent": "Next-To-X/1.0 (https://github.com/epydemia/Next-To-X)"
 AREA_SERVIZIO_MAX_M = 150   # colonnina considerata dentro l'area di servizio
 CARREGGIATA_MAX_M = 400     # autostrada a cui appartiene l'area di servizio
 USCITA_MAX_M = 1500         # oltre, la colonnina non è considerata autostradale
-RAGGRUPPA_M = 200           # colonnine fuori autostrada più vicine di così sono la stessa sede
+RAGGRUPPA_M = 300           # colonnine fuori autostrada più vicine di così sono la stessa sede
 AREA_LONTANA_M = 200        # area di servizio sospetta se la colonnina è più lontana dall'autostrada
-USCITA_VICINA_M = 300       # "uscita" sospetta se così vicina all'autostrada (area di servizio non mappata?)
+USCITA_VICINA_M = 100       # "uscita" sospetta se così vicina all'autostrada (area di servizio non mappata?)
 AREA_UFFICIALE_M = 300      # "uscita" sospetta se così vicina a un'area di servizio delle altre fonti
 
 # Aree di servizio ufficiali già nell'app, usate per il confronto
@@ -96,9 +97,11 @@ NOMI_OPERATORI = [(re.compile(r, re.I), nome) for r, nome in [
     (r"^bp\b", "BP"),
     (r"^lechwerke\b|^lew$", "LEW"),
     (r"^fast[\s-]?e$", "Fast-E"),
+    (r"^fastned\b", "Fastned"),
+    (r"^aldi\b", "Aldi"),
 ]]
 # Valori del tag operator che non indicano un operatore
-NON_OPERATORI = re.compile(r"^(vari|wikidata=.*)$", re.I)
+NON_OPERATORI = re.compile(r"^(vari|wikidata=.*)$|^lkw\b|kühlladung|waschheld", re.I)
 CELLA_GRADI = 0.01            # griglia per abbinare colonnine e aree di servizio in Python
 AUTOSTRADE_VICINE_M = 700     # raggio attorno al centro dell'area (aree grandi fino a ~300 m)
 LOTTO_AUTOSTRADE = 40
@@ -108,6 +111,9 @@ LOTTO_AUTOSTRADE = 40
 # colonnine di paese o di parcheggi
 POTENZA_VELOCE_KW = 50
 USCITA_VELOCI_MAX_M = 1000  # più stretto di USCITA_MAX_M: in città le colonnine veloci sono tante
+# Vicino all'autostrada non basta (in città l'uscita può essere a chilometri): la colonnina
+# deve essere anche vicina a uno svincolo (highway=motorway_junction)
+SVINCOLO_MAX_M = 1500
 PRESE_VELOCI = ("type2_combo", "chademo", "tesla_supercharger", "tesla_supercharger_ccs")
 NOME_VELOCE = re.compile(r"supercharger|fastned|ionity|aral\s?pulse|\bhpc\b|schnelllad|high power", re.I)
 # Tracciato locale delle autostrade (tools/Download_OSM_Autostrade.py): per scegliere le
@@ -328,11 +334,33 @@ nwr(around.punti:{CARREGGIATA_MAX_M})["highway"~"^(services|rest_area)$"]->.aree
 """
 
 
+def scarica_svincoli(paese, aggiorna):
+    """Svincoli autostradali del paese (nodi highway=motorway_junction), con cache propria."""
+    cache = CACHE / f"svincoli_{paese}.json"
+    if cache.exists() and not aggiorna:
+        return json.loads(cache.read_text(encoding="utf-8"))
+    query = f"""
+[out:json][timeout:180];
+area["ISO3166-1"="{paese}"][admin_level=2]->.paese;
+node["highway"="motorway_junction"](area.paese);
+out skel;
+"""
+    svincoli = richiesta_overpass(query, f"svincoli in {paese}").get("elements", [])
+    for s in svincoli:
+        s["tags"] = {"highway": "motorway_junction"}
+    CACHE.mkdir(exist_ok=True)
+    cache.write_text(json.dumps(svincoli), encoding="utf-8")
+    return svincoli
+
+
 def scarica(paese, operatore, aggiorna=False):
     """Risposta Overpass per un paese; salvata in tools/cache/ e riusata se già presente.
-    operatore None = tutte le colonnine nelle aree di servizio."""
+    operatore None = tutte le colonnine nelle aree di servizio, più gli svincoli."""
     if operatore is None:
-        return scarica_aree_servizio(paese, aggiorna)
+        risposta = scarica_aree_servizio(paese, aggiorna)
+        svincoli = scarica_svincoli(paese, aggiorna)
+        print(f"  {paese}: {len(svincoli)} svincoli autostradali")
+        return {"elements": risposta["elements"] + svincoli}
     cache = CACHE / f"{operatore.lower()}_{paese}.json"
     if cache.exists() and not aggiorna:
         print(f"{paese}: uso la cache {cache.name} (--aggiorna per riscaricare)")
@@ -527,6 +555,10 @@ def elabora(risposta, paese, operatore, dettagli=False):
         colonnine = [c for c in colonnine if not OPERATORI_CON_FONTE.search(operatore_di(c.get("tags", {})))]
     autostrade = [e for e in elementi if e.get("tags", {}).get("highway") == "motorway"]
     aree_servizio = [e for e in elementi if e.get("tags", {}).get("highway") in ("services", "rest_area")]
+    svincoli = [e for e in elementi if e.get("tags", {}).get("highway") == "motorway_junction"]
+    griglia_svincoli = indice_spaziale(svincoli, SVINCOLO_MAX_M)
+    if operatore is None and not svincoli:
+        print(f"  {paese}: nessuno svincolo scaricato, le colonnine vicino alle uscite non vengono filtrate")
 
     aree = {}
     for c in colonnine:
@@ -547,7 +579,7 @@ def elabora(risposta, paese, operatore, dettagli=False):
 
         # Tutti gli operatori: fuori dalle aree di servizio sarebbero colonnine qualsiasi.
         # Si tengono quelle dentro un'area, anche se lontana dall'autostrada (da verificare),
-        # e quelle veloci vicino all'autostrada (uscita), misurata sul tracciato locale
+        # e quelle veloci vicino all'autostrada (uscita), misurata sul tracciato locale, e a uno svincolo
         dentro_area_lontana = not in_area and dist_area == 0
         fuori_veloce = operatore is None and not in_area and not dentro_area_lontana
         if fuori_veloce:
@@ -555,6 +587,9 @@ def elabora(risposta, paese, operatore, dettagli=False):
                 continue
             dist_autostrada, sigla_locale = tracciato_piu_vicino(p, tracciato())
             if dist_autostrada > USCITA_VELOCI_MAX_M:
+                continue
+            vicini = griglia_svincoli.get((math.floor(p[0] / CELLA_GRADI), math.floor(p[1] / CELLA_GRADI)), [])
+            if svincoli and not any(distanza_elemento_m(p, s) <= SVINCOLO_MAX_M for s in vicini):
                 continue
         elif dist_autostrada > USCITA_MAX_M:
             continue

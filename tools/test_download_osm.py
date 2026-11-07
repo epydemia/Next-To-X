@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import Download_OSM_Colonnine as dl  # noqa: E402
 from Download_OSM_Colonnine import (  # noqa: E402
-    colonnine_veloci_vicino_autostrada, elabora, potenza_kw, ricarica_veloce,
+    colonnine_veloci_vicino_autostrada, elabora, operatore_di, potenza_kw, ricarica_veloce,
 )
 
 # Tracciato locale finto: un tratto di A9 in direzione nord-est
@@ -61,6 +61,30 @@ class TestColonnineAllUscita(unittest.TestCase):
         self.assertEqual(len(colonnine_veloci_vicino_autostrada([lontana], [], TRACCIATO)), 1)  # scaricata (< 1,5 km)
         dl._tracciato = TRACCIATO
         self.assertEqual(elabora({"elements": [lontana]}, "DE", None), [])  # ma oltre i 1000 m delle uscite
+
+    def test_lontana_dagli_svincoli_scartata(self):
+        dl._tracciato = TRACCIATO
+        veloce = stazione(1, 11.55, **{"socket:type2_combo": "4"})
+        vicino = {"type": "node", "id": 7, "lat": 48.625, "lon": 11.555, "tags": {"highway": "motorway_junction"}}
+        lontano = {"type": "node", "id": 8, "lat": 48.70, "lon": 11.62, "tags": {"highway": "motorway_junction"}}
+        self.assertEqual(len(elabora({"elements": [veloce, vicino]}, "DE", None)), 1)
+        self.assertEqual(elabora({"elements": [veloce, lontano]}, "DE", None), [])
+
+    def test_stessa_sede_entro_300_m(self):
+        dl._tracciato = TRACCIATO
+        tesla = stazione(1, 11.550, operator="Tesla", **{"socket:tesla_supercharger_ccs": "8"})
+        enbw = stazione(2, 11.553, operator="EnBW", **{"socket:type2_combo": "4"})  # ~220 m
+        aree = elabora({"elements": [tesla, enbw]}, "DE", None)
+        self.assertEqual(len(aree), 1)
+        self.assertEqual(aree[0]["operatore"], "EnBW, Tesla")
+
+
+class TestOperatori(unittest.TestCase):
+    def test_nomi(self):
+        self.assertEqual(operatore_di({"operator": "Fastned Deutschland GmbH & Co. KG"}), "Fastned")
+        self.assertEqual(operatore_di({"operator": "ALDI Süd"}), "Aldi")
+        self.assertEqual(operatore_di({"operator": "LKW - Kühlladung"}), "")
+        self.assertEqual(operatore_di({"operator": "Waschheld Illertissen / EHRLE-Consulting GmbH"}), "")
 
 
 if __name__ == "__main__":
