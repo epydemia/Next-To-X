@@ -1,3 +1,21 @@
+/* Inter servito dal sito (non da Google Fonts: nessuna richiesta a terzi). SIL OFL 1.1, font/OFL.txt */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(font/inter-latin-wght-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(font/inter-latin-ext-wght-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -80,6 +98,8 @@ body {
   min-height: 56px;
 }
 .setting-label { flex: 1; font-size: .95em; }
+.setting-link { color: var(--text); text-decoration: none; }
+.setting-link span[aria-hidden] { color: var(--muted); font-size: 1.3em; }
 .setting-hint { padding: 8px 16px 4px; font-size: .8em; color: var(--muted); }
 
 /* Toggle switch */
@@ -600,3 +620,60 @@ body {
   border: 1px solid var(--border) !important;
   box-shadow: 0 2px 8px rgba(0,0,0,.3) !important;
 }
+
+/* ── Avvertenze al primo avvio ──────────────────── */
+#avvertenze {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(1, 4, 9, .75);
+}
+#avvertenze[hidden] { display: none; }
+#avvertenze-box {
+  width: 100%;
+  max-width: 420px;
+  max-height: 100%;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5);
+}
+#avvertenze h2 { font-size: 1.2em; margin-bottom: 12px; }
+#avvertenze ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+#avvertenze li { display: flex; gap: 10px; font-size: .9em; line-height: 1.4; color: var(--muted); }
+#avvertenze li strong { color: var(--text); font-weight: 600; }
+#avvertenze-ok {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--green);
+  color: #04130a;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+}
+#avvertenze-info { display: block; text-align: center; margin-top: 12px; font-size: .85em; color: var(--blue); }
+
+/* ── Pagina info (info.html) ────────────────────── */
+body.pagina-info { height: auto; min-height: 100dvh; display: block; overflow: auto; }
+.pagina-info main { max-width: 680px; margin: 0 auto; padding: 16px 16px 48px; line-height: 1.55; }
+.pagina-info a { color: var(--blue); }
+.pagina-info .torna { display: inline-block; margin-bottom: 16px; text-decoration: none; font-weight: 500; }
+.pagina-info header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.pagina-info header img { border-radius: 10px; flex-shrink: 0; }
+.pagina-info h1 { font-size: 1.4em; }
+.pagina-info header p { color: var(--muted); font-size: .9em; }
+.pagina-info h2 { font-size: 1.1em; margin: 28px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.pagina-info h3 { font-size: .95em; margin: 16px 0 4px; }
+.pagina-info p, .pagina-info li { font-size: .92em; }
+.pagina-info ul { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.pagina-info ul + p { margin-top: 12px; }
+.pagina-info .aggiornato { margin-top: 32px; color: var(--muted); font-size: .8em; }

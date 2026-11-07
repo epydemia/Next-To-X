@@ -163,12 +163,20 @@ The OSM script marks uncertain sites as `daVerificare` with a reason (e.g. close
 - [OpenStreetMap Nominatim](https://nominatim.org/) for reverse geocoding (throttled)
 - [Overpass API](https://overpass-api.de/) for OpenStreetMap charger data (© OpenStreetMap contributors, ODbL)
 
+## Notices, independence and privacy
+
+On first launch the app shows a short notice (`js/app/avvertenze.js`) before asking for the location permission: do not handle the phone while driving, the data is indicative, the location is not stored, and the app is independent (not affiliated with Free To X, Autostrade per l'Italia, Autostrada del Brennero or any charging operator). It comes back only if `VERSIONE` in that file changes.
+
+`info.html` (linked from the notice and from the settings) is the full Italian page: notices and no warranty, independence and trademarks, privacy, data sources and licenses. Privacy in short: the GPS position is used in the browser and never received or stored by the project; on motorways the road comes from the local network; **off motorways the coordinates are sent to Nominatim** (OpenStreetMap Foundation) to get the road name, at most every 10 s while moving; map tiles come from Esri; hosting is GitHub Pages. Keep that page in sync when any of this changes.
+
 ## Anonymous statistics
 
 The pages send a few anonymous counts to [GoatCounter](https://www.goatcounter.com) (`js/statistiche.js`), without cookies and without loading third-party scripts: page visits (`/app`, `/editor`, `/autostrade`), how the app started (`avvio/gps`, `avvio/gps-non-disponibile`, `avvio/simulazione`), and, while driving, the operator and country of each station proposed as next (`prossima/IT/free-to-x`, once per station per visit) or tapped in the distance bar (`tocco/…`). Never coordinates, routes, station names or identifiers. Nothing is sent when the "Statistiche anonime" setting is off, with Do Not Track, on localhost, or (for driving events) in simulation.
 
 ## Licenses and attribution
 
+- **App code**: MIT, see [`LICENSE`](LICENSE). The data in `data/` keeps the licenses of its sources (below and `data/README.md`).
 - **Leaflet**: BSD-2-Clause.
+- **Inter font**: SIL Open Font License 1.1, served from `css/font/` (not from Google Fonts, so no visitor IP reaches a third party just to draw text).
 - **Esri basemaps**: proprietary, Esri terms of use; every data provider must be credited. The map reads the exact credit line from each Esri service at load time (`js/sfondi.js`).
 - **OpenStreetMap data** (Nominatim, Overpass): © OpenStreetMap contributors, ODbL 1.0. The files derived from it in `data/` are distributed under ODbL as well: see `data/README.md`.
