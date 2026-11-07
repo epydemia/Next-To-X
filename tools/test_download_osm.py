@@ -65,7 +65,7 @@ class TestColonnineAllUscita(unittest.TestCase):
     def test_lontana_dagli_svincoli_scartata(self):
         dl._tracciato = TRACCIATO
         veloce = stazione(1, 11.55, **{"socket:type2_combo": "4"})
-        vicino = {"type": "node", "id": 7, "lat": 48.625, "lon": 11.555, "tags": {"highway": "motorway_junction"}}
+        vicino = {"type": "node", "id": 7, "lat": 48.624, "lon": 11.553, "tags": {"highway": "motorway_junction"}}  # ~500 m
         lontano = {"type": "node", "id": 8, "lat": 48.70, "lon": 11.62, "tags": {"highway": "motorway_junction"}}
         self.assertEqual(len(elabora({"elements": [veloce, vicino]}, "DE", None)), 1)
         self.assertEqual(elabora({"elements": [veloce, lontano]}, "DE", None), [])
@@ -77,6 +77,22 @@ class TestColonnineAllUscita(unittest.TestCase):
         aree = elabora({"elements": [tesla, enbw]}, "DE", None)
         self.assertEqual(len(aree), 1)
         self.assertEqual(aree[0]["operatore"], "EnBW, Tesla")
+
+    def test_svincolo_a_un_chilometro_solo_per_tesla(self):
+        dl._tracciato = TRACCIATO
+        svincolo = {"type": "node", "id": 7, "lat": 48.629, "lon": 11.55, "tags": {"highway": "motorway_junction"}}  # ~1 km
+        enbw = stazione(1, 11.55, operator="EnBW", **{"socket:type2_combo": "4"})
+        tesla = stazione(2, 11.55, operator="Tesla", **{"socket:tesla_supercharger_ccs": "8"})
+        self.assertEqual(elabora({"elements": [enbw, svincolo]}, "DE", None), [])
+        self.assertEqual(len(elabora({"elements": [tesla, svincolo]}, "DE", None)), 1)
+
+    def test_supermercati_esclusi_tranne_tesla(self):
+        dl._tracciato = TRACCIATO
+        lidl = stazione(1, 11.55, operator="Lidl", **{"socket:type2_combo": "2"})
+        ikea = stazione(2, 11.55, name="IKEA Schnellladen", **{"socket:type2_combo": "2"})
+        tesla = stazione(3, 11.55, operator="Tesla", name="Supercharger Kaufland", **{"socket:tesla_supercharger_ccs": "8"})
+        self.assertEqual(elabora({"elements": [lidl, ikea]}, "DE", None), [])
+        self.assertEqual(len(elabora({"elements": [tesla]}, "DE", None)), 1)
 
 
 class TestOperatori(unittest.TestCase):
